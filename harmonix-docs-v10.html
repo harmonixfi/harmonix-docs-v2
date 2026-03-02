@@ -451,6 +451,140 @@ td code { font-size: 12px; }
 }
 
 
+/* ══════════════════════════════════════════════════════
+   MOBILE POLISH — phone-optimized additions
+   ══════════════════════════════════════════════════════ */
+
+/* 1 ── Smooth sidebar slide-in (replaces abrupt display toggle) */
+@media (max-width: 900px) {
+  .sidebar {
+    display: flex !important;
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    box-shadow: 6px 0 40px rgba(0,0,0,0.5);
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  /* Smooth overlay fade instead of instant show/hide */
+  .sidebar-overlay {
+    display: block !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  .sidebar-overlay.open {
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+  /* Hide topbar inline search on mobile — it lives in the sidebar already */
+  .topbar-actions > div:first-child { display: none; }
+  /* Topbar tighter */
+  .topbar { gap: 0; }
+}
+
+/* 2 ── Safe-area insets: notch + home bar on iOS/Android */
+@supports (padding: env(safe-area-inset-top)) {
+  .topbar {
+    padding-left:  calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
+    height: calc(52px + env(safe-area-inset-top));
+    padding-top: env(safe-area-inset-top);
+  }
+  .sidebar {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  @media (max-width: 900px) {
+    .content {
+      padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* 3 ── Small phones (≤ 480px) — the missing breakpoint */
+@media (max-width: 480px) {
+  h1 { font-size: 21px; line-height: 1.25; }
+  h2 { font-size: 17px; }
+  h3 { font-size: 14px; }
+
+  .content { padding: 24px 16px 80px; }
+  .topbar  { padding: 0 12px; height: 48px; }
+
+  .page-hero { padding-bottom: 20px !important; margin-bottom: 24px; }
+  .page-subtitle { font-size: 13px; }
+
+  /* 1-column token grid on small phones */
+  .token-grid { grid-template-columns: 1fr; }
+
+  /* Contract address rows stack vertically */
+  .contract-card-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 10px 0;
+  }
+  .contract-card-label { margin-bottom: 2px; }
+  .addr-wrap { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .copy-btn { align-self: flex-start; }
+
+  /* Stat blocks */
+  .stat-val { font-size: 19px; }
+  .stat     { padding: 12px 14px; }
+
+  /* Welcome cards: icon + text stacked */
+  .welcome-card { flex-direction: column; gap: 10px; padding: 16px; }
+  .welcome-card-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .welcome-card-arrow { display: none; }
+
+  /* Callouts */
+  .callout      { padding: 12px 14px; gap: 8px; }
+  .callout-body { font-size: 13px; }
+
+  /* Product suite banners shorter on small screens */
+  .ps-item-banner { height: 100px; }
+
+  /* Tables: smaller text + padding */
+  table { font-size: 12.5px; }
+  th    { padding: 8px 10px; font-size: 10px; }
+  td    { padding: 8px 10px; }
+
+  /* Prev/Next nav: stack vertically */
+  .page-nav      { flex-direction: column; gap: 10px; }
+  .page-nav-link { align-items: flex-start; }
+
+  /* Code */
+  code { font-size: 11px; }
+
+  /* Steps */
+  .step { gap: 12px; }
+
+  /* Nav cards */
+  .wnc-icon { height: 85px; }
+  .wnc-body { padding: 16px; }
+
+  /* Grids tighter */
+  .cards-grid   { gap: 10px; }
+  .arch-modules { gap: 8px; }
+
+  /* TOC sidebar never shown on small phones */
+  .toc-sidebar { display: none !important; }
+
+  /* Contract card inner padding */
+  .contract-card { padding: 14px 12px; }
+}
+
+/* 4 ── Ultra-small phones (≤ 360px) */
+@media (max-width: 360px) {
+  h1 { font-size: 18px; }
+  .content { padding: 18px 12px 80px; }
+  .topbar  { padding: 0 10px; }
+  .version-badge { display: none; }
+  .btn-app { font-size: 11px; padding: 5px 10px; }
+  .logo-text { font-size: 13px; }
+}
 
 </style>
 <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
