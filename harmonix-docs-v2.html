@@ -1688,24 +1688,6 @@ html, body {
         <p class="page-subtitle">Reference for integrating directly with Harmonix vault contracts — covering deposits, withdrawals, share accounting, and state queries.</p>
       </div>
 
-      <h2>haHYPE Vault — HyperEVM $HYPE</h2>
-      <p>The haHYPE vault is a tokenized yield-bearing vault where users deposit <strong>HYPE</strong>, receive <strong>haHYPE</strong> shares, and withdraw as <strong>WHYPE</strong>. It includes slippage protection, share accounting, and a two-phase withdrawal mechanism.</p>
-
-      <div class="table-wrap" style="margin:20px 0 8px;">
-        <table>
-          <thead><tr><th>Property</th><th>Value</th></tr></thead>
-          <tbody>
-            <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
-            <tr><td>Contract Address</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
-            <tr><td>Explorer (Purrsec)</td><td><a href="https://purrsec.com/address/0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c" target="_blank" rel="noopener">purrsec.com ↗</a></td></tr>
-            <tr><td>Explorer (Hyperscan)</td><td><a href="https://hyperscan.gas.zip/address/0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c" target="_blank" rel="noopener">hyperscan.gas.zip ↗</a></td></tr>
-            <tr><td>Deposit Token</td><td>HYPE</td></tr>
-            <tr><td>Yield-Bearing Token (haHYPE)</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
-            <tr><td>Withdraw Token</td><td>WHYPE — <code>0x5555555555555555555555555555555555555555</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
       <h2>Typical Integration Flow</h2>
       <div class="steps">
         <div class="step">
@@ -1736,6 +1718,24 @@ html, body {
             <p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive WHYPE to the receiver address.</p>
           </div>
         </div>
+      </div>
+
+      <h2>haHYPE Vault — HyperEVM $HYPE</h2>
+      <p>The haHYPE vault is a tokenized yield-bearing vault where users deposit <strong>HYPE</strong>, receive <strong>haHYPE</strong> shares, and withdraw as <strong>WHYPE</strong>. It includes slippage protection, share accounting, and a two-phase withdrawal mechanism.</p>
+
+      <div class="table-wrap" style="margin:20px 0 8px;">
+        <table>
+          <thead><tr><th>Property</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
+            <tr><td>Contract Address</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
+            <tr><td>Explorer (Purrsec)</td><td><a href="https://purrsec.com/address/0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c" target="_blank" rel="noopener">purrsec.com ↗</a></td></tr>
+            <tr><td>Explorer (Hyperscan)</td><td><a href="https://hyperscan.gas.zip/address/0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c" target="_blank" rel="noopener">hyperscan.gas.zip ↗</a></td></tr>
+            <tr><td>Deposit Token</td><td>HYPE</td></tr>
+            <tr><td>Yield-Bearing Token (haHYPE)</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
+            <tr><td>Withdraw Token</td><td>WHYPE — <code>0x5555555555555555555555555555555555555555</code></td></tr>
+          </tbody>
+        </table>
       </div>
 
       <h2>Write Functions</h2>
