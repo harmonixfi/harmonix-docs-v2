@@ -1685,16 +1685,59 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Smart Contract Integration</h1>
-        <p class="page-subtitle">Reference for integrating directly with Harmonix vault contracts — covering deposits, withdrawals, share accounting, and state queries.</p>
+        <p class="page-subtitle">Reference for integrating directly with Harmonix HYPE vault contracts. Both <strong>haHYPE</strong> (HYPE) and <strong>hakHYPE</strong> (kHYPE) share the same interface — select your vault below.</p>
+      </div>
+
+      <!-- Vault selector -->
+      <div class="stable-tabs" style="margin:0 0 20px;">
+        <button class="stable-tab active" id="vi-btn-hahype" onclick="showVaultTab('vi-hahype', this)">haHYPE — HYPE Vault</button>
+        <button class="stable-tab" id="vi-btn-hakhype" onclick="showVaultTab('vi-hakhype', this)">hakHYPE — kHYPE Vault</button>
+      </div>
+
+      <!-- haHYPE vault info -->
+      <div id="vi-hahype">
+        <div class="table-wrap" style="margin:0 0 8px;">
+          <table>
+            <thead><tr><th>Property</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
+              <tr><td>Contract Address</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
+              <tr><td>Explorer (HyperEVMScan)</td><td><a href="https://hyperevmscan.io/token/0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c" target="_blank" rel="noopener">hyperevmscan.io ↗</a></td></tr>
+              <tr><td>Explorer (Hyperscan)</td><td><a href="https://hyperscan.xyz/address/0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c" target="_blank" rel="noopener">hyperscan.xyz ↗</a></td></tr>
+              <tr><td>Deposit Token</td><td>HYPE</td></tr>
+              <tr><td>Share Token (received)</td><td>haHYPE — <code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
+              <tr><td>Withdraw Token</td><td>WHYPE — <code>0x5555555555555555555555555555555555555555</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- hakHYPE vault info -->
+      <div id="vi-hakhype" style="display:none;">
+        <div class="table-wrap" style="margin:0 0 8px;">
+          <table>
+            <thead><tr><th>Property</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Vault App</td><td><a href="https://app.harmonix.fi" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
+              <tr><td>Contract Address</td><td><code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
+              <tr><td>Explorer (HyperEVMScan)</td><td><a href="https://hyperevmscan.io/token/0x1368ee9d1212ae5b26ff166049220051a9eebc42" target="_blank" rel="noopener">hyperevmscan.io ↗</a></td></tr>
+              <tr><td>Explorer (Hyperscan)</td><td><a href="https://hyperscan.xyz/address/0x1368ee9d1212ae5b26ff166049220051a9eebc42" target="_blank" rel="noopener">hyperscan.xyz ↗</a></td></tr>
+              <tr><td>Deposit Token</td><td>kHYPE</td></tr>
+              <tr><td>Share Token (received)</td><td>hakHYPE — <code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
+              <tr><td>Withdraw Token</td><td>kHYPE</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <h2>Typical Integration Flow</h2>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Both haHYPE and hakHYPE follow the same four-step pattern. The only difference is the token you deposit and receive on withdrawal.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
             <h4>Approve & Deposit</h4>
-            <p>Approve the vault contract to spend HYPE, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. haHYPE shares are minted immediately to <code>_receiver</code>.</p>
+            <p>Approve the vault contract to spend your deposit token (<strong>HYPE</strong> for haHYPE, <strong>kHYPE</strong> for hakHYPE), then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. Vault shares are minted immediately to <code>_receiver</code>.</p>
           </div>
         </div>
         <div class="step">
@@ -1715,27 +1758,9 @@ html, body {
           <div class="step-num">4</div>
           <div class="step-body">
             <h4>Redeem</h4>
-            <p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive WHYPE to the receiver address.</p>
+            <p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive your assets. haHYPE returns <strong>WHYPE</strong>; hakHYPE returns <strong>kHYPE</strong>.</p>
           </div>
         </div>
-      </div>
-
-      <h2>haHYPE Vault — HyperEVM $HYPE</h2>
-      <p>The haHYPE vault is a tokenized yield-bearing vault where users deposit <strong>HYPE</strong>, receive <strong>haHYPE</strong> shares, and withdraw as <strong>WHYPE</strong>. It includes slippage protection, share accounting, and a two-phase withdrawal mechanism.</p>
-
-      <div class="table-wrap" style="margin:20px 0 8px;">
-        <table>
-          <thead><tr><th>Property</th><th>Value</th></tr></thead>
-          <tbody>
-            <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
-            <tr><td>Contract Address</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
-            <tr><td>Explorer (HyperEVMScan)</td><td><a href="https://hyperevmscan.io/token/0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c" target="_blank" rel="noopener">hyperevmscan.io ↗</a></td></tr>
-            <tr><td>Explorer (Hyperscan)</td><td><a href="https://hyperscan.xyz/address/0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c" target="_blank" rel="noopener">hyperscan.xyz ↗</a></td></tr>
-            <tr><td>Deposit Token</td><td>HYPE</td></tr>
-            <tr><td>Yield-Bearing Token (haHYPE)</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
-            <tr><td>Withdraw Token</td><td>WHYPE — <code>0x5555555555555555555555555555555555555555</code></td></tr>
-          </tbody>
-        </table>
       </div>
 
       <h2>Write Functions</h2>
@@ -1787,12 +1812,12 @@ html, body {
           <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">redeem</h3>
         </div>
         <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function redeem(uint256 _shares, address _receiver, address _owner) external returns (uint256)</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 2 of the two-phase withdrawal. Finalizes the redemption initiated via <code>initiateWithdrawal()</code> — burns shares and transfers the equivalent WHYPE amount to the receiver.</p>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 2 of the two-phase withdrawal. Finalizes the redemption initiated via <code>initiateWithdrawal()</code> — burns shares and transfers the underlying assets to the receiver. haHYPE returns <strong>WHYPE</strong>; hakHYPE returns <strong>kHYPE</strong>.</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
           <tbody>
             <tr><td><code>_shares</code></td><td><code>uint256</code></td><td>Number of shares to redeem.</td></tr>
-            <tr><td><code>_receiver</code></td><td><code>address</code></td><td>Address that will receive the underlying WHYPE assets.</td></tr>
+            <tr><td><code>_receiver</code></td><td><code>address</code></td><td>Address that will receive the underlying assets (WHYPE for haHYPE, kHYPE for hakHYPE).</td></tr>
             <tr><td><code>_owner</code></td><td><code>address</code></td><td>Address that owns the shares. Can differ from caller if allowance is granted.</td></tr>
           </tbody>
         </table></div>
@@ -2122,6 +2147,15 @@ function showTokenTab(id, btn) {
   document.querySelectorAll('#s-tokens .stable-tab').forEach(t => t.classList.remove('active'));
   var el = document.getElementById(id);
   if (el) el.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function showVaultTab(id, btn) {
+  ['vi-hahype','vi-hakhype'].forEach(function(vid) {
+    var el = document.getElementById(vid);
+    if (el) el.style.display = (vid === id) ? '' : 'none';
+  });
+  document.querySelectorAll('#s-api-integration .stable-tab').forEach(function(t) { t.classList.remove('active'); });
   if (btn) btn.classList.add('active');
 }
 
