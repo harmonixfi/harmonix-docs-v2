@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 1200px;
+    background: #f0f4f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', 'Inter', sans-serif;
+    overflow: hidden;
+  }
+
+  .canvas {
+    width: 1200px;
+    height: 1200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.95) 0%, rgba(230,245,235,0.85) 50%, rgba(180,220,190,0.6) 100%);
+  }
+
+  /* Glass blobs background */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+  }
+  .blob1 { width: 500px; height: 500px; background: #00c896; top: -100px; left: -100px; }
+  .blob2 { width: 400px; height: 400px; background: #7dffb0; bottom: 50px; right: 50px; }
+  .blob3 { width: 300px; height: 300px; background: #c8f5e0; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+  .coins-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: -60px;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* COIN BASE */
+  .coin {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.18)) drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+  }
+
+  /* HARMONIX COIN — dark teal glass */
+  .coin-harmonix {
+    transform: perspective(800px) rotateY(28deg) rotateX(-5deg);
+    margin-right: -50px;
+    z-index: 2;
+  }
+
+  .coin-harmonix .coin-face {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a2e28 0%, #0d1f1a 40%, #0a1a15 100%);
+    border: 2.5px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coin-harmonix .coin-face::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 55%;
+    border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 100%);
+    pointer-events: none;
+  }
+
+  /* inner glow ring */
+  .coin-harmonix .coin-face::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,200,150,0.2);
+    pointer-events: none;
+  }
+
+  /* coin edge / depth */
+  .coin-harmonix .coin-edge {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #051510 0%, #0a2018 50%, #051510 100%);
+    transform: translateX(18px) translateY(22px);
+    z-index: -1;
+    filter: blur(2px);
+  }
+
+  /* SUPERFORM COIN — bright green glass */
+  .coin-superform {
+    transform: perspective(800px) rotateY(-28deg) rotateX(-5deg);
+    margin-left: -50px;
+    z-index: 1;
+  }
+
+  .coin-superform .coin-face {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b8f040 0%, #9CE500 40%, #7ab800 100%);
+    border: 2.5px solid rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coin-superform .coin-face::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 55%;
+    border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+  }
+
+  .coin-superform .coin-face::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    pointer-events: none;
+  }
+
+  .coin-superform .coin-edge {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #5a8800 0%, #7aaa00 50%, #5a8800 100%);
+    transform: translateX(18px) translateY(22px);
+    z-index: -1;
+    filter: blur(2px);
+  }
+
+  /* LOGO SIZING */
+  .harmonix-logo svg {
+    width: 170px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 18px rgba(0,200,140,0.5));
+  }
+
+  /* Superform stacked circles logo */
+  .superform-logo {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 18px rgba(0,80,20,0.3));
+  }
+
+  /* x connector badge */
+  .x-badge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,255,255,0.8);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a2e28;
+    letter-spacing: -1px;
+  }
+
+  /* bottom text */
+  .bottom-text {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+  }
+
+  .bottom-text .tagline {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a2e28;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .bottom-text .sub {
+    font-size: 18px;
+    color: rgba(26,46,40,0.55);
+    margin-top: 8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* top label */
+  .top-label {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50px;
+    padding: 10px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2e28;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <!-- background blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- top pill label -->
+  <div class="top-label">Coming Soon</div>
+
+  <!-- coins -->
+  <div class="coins-wrapper">
+
+    <!-- Harmonix coin -->
+    <div class="coin coin-harmonix">
+      <div class="coin-edge"></div>
+      <div class="coin-face">
+        <div class="harmonix-logo">
+          <svg viewBox="0 0 146 28" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
+            <g>
+              <path d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1c5.9,3.4,11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3c2.3-4,5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/>
+              <path d="M73.9,24.5c-1.1,0-2.1-0.7-2.6-1.6c-0.3,0.3-0.6,0.5-1,0.7c-1,0.6-2.1,0.8-3.3,0.8c-1.2,0-2.3-0.3-3.3-0.8c-1-0.6-1.8-1.4-2.3-2.3c-0.6-1-0.8-2.1-0.8-3.3c0-1.2,0.3-2.3,0.8-3.2c0.6-1,1.4-1.7,2.3-2.3c1-0.6,2.1-0.9,3.3-0.9c1.2,0,2.3,0.3,3.3,0.8c0.2,0.1,0.5,0.3,0.7,0.5v-1.3h3V24.5z M58.7,21c0,1.9-1.5,3.5-3.5,3.5v-9.3h-9.9V21c0,1.9-1.5,3.5-3.5,3.5V7c0-1.9,1.5-3.5,3.5-3.5V12h9.9V7c0-1.9,1.5-3.5,3.5-3.5V21z M109.8,11.6c1.2,0,2.3,0.3,3.3,0.9c1,0.6,1.7,1.3,2.3,2.3c0.6,1,0.9,2,0.9,3.2c0,1.2-0.3,2.3-0.9,3.3c-0.6,1-1.3,1.8-2.3,2.3c-1,0.6-2.1,0.9-3.3,0.9c-1.2,0-2.3-0.3-3.3-0.9c-1-0.6-1.8-1.4-2.3-2.3c-0.6-1-0.8-2.1-0.8-3.3c0-1.2,0.3-2.3,0.8-3.2c0.6-1,1.4-1.7,2.3-2.3C107.5,11.9,108.6,11.6,109.8,11.6z M135,12.1c1.4,0,2.6,0.7,3.4,1.8l1.5,2.1l1.4-2.1c0.8-1.1,2.1-1.8,3.4-1.8h1.1l-4.3,6l4.5,6.4h-2.2c-0.8,0-1.5-0.4-1.9-1l-2.2-3.2l-2.2,3.2c-0.4,0.6-1.2,1-1.9,1h-2.1l4.6-6.3l-4.4-6H135z M96.7,11.8c2.7,0,4.8,2.1,4.9,4.8h0v7.9h-2.8v-7.9h0c0-1.1-0.9-2-2.1-2c-1.1,0-2,0.9-2.1,2h0v7.9h-2.8v-7.9h0c0-1.1-0.9-2-2.1-2c-1.1,0-2,0.9-2.1,2h0v7.9h-2.8v-8h0c0.1-2.6,2.3-4.6,4.9-4.6c1.4,0,2.6,0.6,3.5,1.5C94.1,12.4,95.3,11.8,96.7,11.8z M122.8,11.8c2.7,0,4.8,2.1,4.9,4.8h0v7.9h-2.8v-7.9h0c0-1.1-0.9-2-2.1-2c-1.1,0-2,0.9-2.1,2h0v7.9h-2.8v-8h0C118,13.9,120.2,11.8,122.8,11.8z M129.9,12.1c1.6,0,2.8,1.3,2.8,2.8v9.5h-2.8V12.1z M81,12.1c1.1,0,2,0.2,2.6,0.3c0.3,0.1,0.5,0.2,0.7,0.3c0.1,0,0.2,0.1,0.2,0.1c0,0,0.1,0,0.1,0l0,0h0c0,0,0,0-0.8,1.2c-0.8,1.2-0.8,1.2-0.8,1.2l0,0c0,0-0.2-0.1-0.3-0.1C82.5,15.1,81.9,15,81,15c-1.1,0-2,0.9-2,2v7.4h-2.9V17C76.1,14.3,78.3,12.1,81,12.1z M67,14.3c-0.7,0-1.3,0.2-1.9,0.5c-0.5,0.3-1,0.7-1.3,1.3c-0.3,0.5-0.4,1.2-0.4,1.9c0,0.7,0.1,1.4,0.4,1.9c0.3,0.6,0.7,1,1.3,1.3c0.5,0.3,1.2,0.5,1.9,0.5c0.7,0,1.3-0.2,1.9-0.5c0.5-0.3,1-0.8,1.3-1.3c0.3-0.6,0.5-1.2,0.5-1.9c0-0.7-0.2-1.4-0.5-1.9c-0.3-0.5-0.7-1-1.3-1.3C68.3,14.5,67.7,14.3,67,14.3z M109.8,14.3c-0.7,0-1.3,0.2-1.8,0.5c-0.5,0.3-0.9,0.7-1.3,1.3c-0.3,0.5-0.4,1.2-0.4,1.9c0,0.7,0.1,1.4,0.4,1.9c0.3,0.6,0.7,1,1.3,1.3c0.5,0.3,1.2,0.5,1.8,0.5c0.7,0,1.3-0.2,1.8-0.5c0.5-0.3,1-0.8,1.3-1.3c0.3-0.6,0.5-1.2,0.5-1.9c0-0.7-0.2-1.4-0.5-1.9c-0.3-0.5-0.7-1-1.3-1.3C111.1,14.5,110.5,14.3,109.8,14.3z M131.1,7.4c0.9,0,1.6,0.7,1.6,1.6c0,0.9-0.7,1.6-1.6,1.6c-0.9,0-1.6-0.7-1.6-1.6C129.5,8.1,130.2,7.4,131.1,7.4z"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- X badge between coins -->
+    <div class="x-badge">×</div>
+
+    <!-- Superform coin -->
+    <div class="coin coin-superform">
+      <div class="coin-edge"></div>
+      <div class="coin-face">
+        <div class="superform-logo">
+          <svg width="190" height="190" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M296.079 203.874C293.212 202.06 293.212 197.94 296.079 196.127C318.449 181.975 333.246 156.955 332.997 128.488C332.616 84.7974 296.07 50 252.333 50H147.667C103.931 50 67.385 84.7956 67.0031 128.488C66.7542 156.955 81.5513 181.975 103.921 196.127C106.788 197.94 106.788 202.061 103.921 203.875C81.5513 218.025 66.7542 243.046 67.0031 271.513C67.3841 315.203 103.93 350 147.667 350H252.332C296.067 350 332.613 315.205 332.996 271.513C333.245 243.046 318.449 218.025 296.079 203.874ZM253.729 66.7731C288.181 66.7731 316.209 94.7755 316.209 129.193C316.209 163.61 288.179 191.612 253.729 191.612C219.278 191.612 191.247 163.61 191.247 129.193C191.247 94.7755 219.277 66.7731 253.729 66.7731ZM191.675 76.541C192.727 75.871 193.903 77.2237 193.1 78.1758C181.468 91.9561 174.458 109.757 174.458 129.194C174.458 148.631 181.468 166.431 193.1 180.212C193.903 181.165 192.728 182.516 191.675 181.847C174.272 170.756 162.704 151.302 162.704 129.194C162.704 107.085 174.272 87.633 191.675 76.541ZM169.963 69.518C171.076 69.1776 171.869 70.5859 171.019 71.3809C155.571 85.8303 145.915 106.383 145.915 129.192C145.915 152.001 155.573 172.553 171.019 187.003C171.868 187.797 171.075 189.207 169.963 188.866C144.406 181.038 125.766 157.255 125.766 129.192C125.766 101.129 144.407 77.3467 169.963 69.518ZM83.7899 129.194C83.7899 98.6144 105.918 73.1162 135.015 67.806C136.11 67.6066 136.775 68.9809 135.94 69.7138C119.415 84.2261 108.975 105.486 108.975 129.193C108.975 152.9 119.415 174.162 135.94 188.673C136.777 189.406 136.11 190.781 135.015 190.581C105.918 185.27 83.7899 159.773 83.7899 129.194ZM146.272 333.227C111.819 333.227 83.7907 305.225 83.7907 270.807C83.7907 236.39 111.82 208.388 146.272 208.388C180.723 208.388 208.753 236.39 208.753 270.807C208.753 305.225 180.723 333.227 146.272 333.227ZM208.325 323.459C207.274 324.13 206.097 322.777 206.9 321.825C218.532 308.043 225.542 290.244 225.542 270.806C225.542 251.37 218.532 233.569 206.9 219.789C206.097 218.836 207.273 217.484 208.325 218.153C225.729 229.244 237.296 248.698 237.296 270.806C237.296 292.915 225.729 312.366 208.325 323.459ZM230.037 330.483C228.924 330.823 228.132 329.415 228.981 328.62C244.429 314.171 254.085 293.616 254.085 270.807C254.085 247.998 244.428 227.446 228.981 212.997C228.132 212.203 228.925 210.793 230.037 211.134C255.594 218.961 274.234 242.744 274.234 270.807C274.234 298.871 255.593 322.654 230.037 330.483ZM264.985 332.196C263.891 332.395 263.225 331.02 264.059 330.288C280.585 315.776 291.025 294.516 291.025 270.807C291.025 247.1 280.585 225.839 264.059 211.329C263.224 210.595 263.891 209.22 264.985 209.421C294.081 214.732 316.21 240.229 316.21 270.807C316.21 301.386 294.081 326.885 264.985 332.196Z" fill="#254544"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- bottom text -->
+  <div class="bottom-text">
+    <div class="tagline">Superform Integration</div>
+    <div class="sub">Coming Soon</div>
+  </div>
+
+</div>
+</body>
+</html>

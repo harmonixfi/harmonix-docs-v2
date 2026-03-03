@@ -469,8 +469,11 @@ html, body {
     display: flex !important;
     transform: translateX(-100%);
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
     box-shadow: 6px 0 40px rgba(0,0,0,0.5);
+    /* iOS Safari fix: enable touch scrolling on fixed+transformed elements */
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .sidebar.mobile-open {
     transform: translateX(0);
@@ -1693,7 +1696,74 @@ html, body {
         <div class="callout-body">Interacting with Harmonix involves financial risk. This page is not exhaustive. Always review the complete risks before depositing capital.</div>
       </div>
       <h2>Audits</h2>
-      <p>Contracts are audited by <strong>Verichains</strong>, <strong>Shieldify</strong>, and <strong>Zenith</strong>. Audit reports will be published at V2 mainnet launch.</p>
+      <p>Harmonix has undergone rigorous security reviews by Verichains, Shieldify, and Zenith, plus real-time on-chain risk monitoring by <strong>Hypernative</strong>. Security extends beyond Harmonix's own contracts — all integrated external protocols, DEXs, and lending platforms are carefully vetted to minimize third-party risk exposure.</p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin:24px 0;">
+
+        <!-- Verichains -->
+        <div class="contract-card" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:180px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <span class="tag green">Audit</span>
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Verichains</span>
+            </div>
+            <p style="font-size:13px;color:var(--text2);margin:0;">Full smart contract security audit covering Harmonix Finance core contracts. Conducted by Verichains, a leading blockchain security firm.</p>
+          </div>
+          <a href="https://github.com/verichains/public-audit-reports/blob/main/Verichains%20Public%20Audit%20Report%20-%20Harmonix%20Finance-%20v1.0.pdf"
+             target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:8px 16px;font-size:12.5px;font-weight:600;color:var(--text2);text-decoration:none;white-space:nowrap;transition:border-color 0.15s,color 0.15s;"
+             onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
+             onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Report ↗
+          </a>
+        </div>
+
+        <!-- Zenith -->
+        <div class="contract-card" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:180px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <span class="tag green">Audit</span>
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Zenith</span>
+            </div>
+            <p style="font-size:13px;color:var(--text2);margin:0;">Independent security review of Harmonix's core smart contract architecture, vault logic, and access control systems.</p>
+          </div>
+          <a href="https://github.com/harmonixfi/core-smart-contract/blob/main/audits/Harmonix%20Finance%20-%20Zenith%20Audit%20Report.pdf"
+             target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:8px 16px;font-size:12.5px;font-weight:600;color:var(--text2);text-decoration:none;white-space:nowrap;transition:border-color 0.15s,color 0.15s;"
+             onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
+             onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Report ↗
+          </a>
+        </div>
+
+        <!-- Shieldify -->
+        <div class="contract-card" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:180px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <span class="tag green">Audit</span>
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Shieldify</span>
+            </div>
+            <p style="font-size:13px;color:var(--text2);margin:0;">Hyperliquid-focused security review covering Harmonix's HyperEVM integrations, yield strategies, and on-chain risk surface.</p>
+          </div>
+          <a href="https://github.com/shieldify-security/audits-portfolio/blob/main/reports/HarmonixFinance-Hyperliquid-Security-Review.pdf"
+             target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:8px 16px;font-size:12.5px;font-weight:600;color:var(--text2);text-decoration:none;white-space:nowrap;transition:border-color 0.15s,color 0.15s;"
+             onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
+             onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Report ↗
+          </a>
+        </div>
+
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon">🛡️</span>
+        <div class="callout-body"><strong>Real-time monitoring:</strong> In addition to audits, Harmonix uses <strong>Hypernative</strong> for continuous on-chain risk monitoring — detecting anomalies, suspicious activity, and potential exploits before they can cause harm.</div>
+      </div>
+
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('solvency',null)">
           <span class="page-nav-dir">← Previous</span><span>Proof of Solvency</span>
@@ -1763,7 +1833,11 @@ html, body {
       <h3>What oracle does Harmonix use?</h3>
       <p>haHYPE and hakHYPE use Pyth Network for NAV pricing and collateral valuation. haUSDC is evaluating Pyth or Chainlink for V2 — decision TBD at launch.</p>
       <h3>Is Harmonix audited?</h3>
-      <p>Yes. Contracts are audited by Verichains, Shieldify, and Zenith. Audit reports will be published at V2 mainnet launch.</p>
+      <p>Yes. Contracts have been independently audited by <strong>Verichains</strong>, <strong>Shieldify</strong>, and <strong>Zenith</strong>, with real-time on-chain monitoring by Hypernative. You can read each report directly:
+        <a href="https://github.com/verichains/public-audit-reports/blob/main/Verichains%20Public%20Audit%20Report%20-%20Harmonix%20Finance-%20v1.0.pdf" target="_blank" rel="noopener">Verichains ↗</a>,
+        <a href="https://github.com/harmonixfi/core-smart-contract/blob/main/audits/Harmonix%20Finance%20-%20Zenith%20Audit%20Report.pdf" target="_blank" rel="noopener">Zenith ↗</a>,
+        <a href="https://github.com/shieldify-security/audits-portfolio/blob/main/reports/HarmonixFinance-Hyperliquid-Security-Review.pdf" target="_blank" rel="noopener">Shieldify ↗</a>.
+      </p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('points',null)">
