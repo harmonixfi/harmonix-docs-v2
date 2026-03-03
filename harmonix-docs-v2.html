@@ -685,6 +685,7 @@ html, body {
         <a class="nav-item" onclick="show('vault-arch',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Vault Architecture</a>
         <a class="nav-item" onclick="show('contracts',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2M14 13l2 2-2 2"/></svg>Smart Contracts</a>
         <a class="nav-item" onclick="show('deposits-withdrawals',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>Deposits & Withdrawals</a>
+        <a class="nav-item" onclick="show('api-integration',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Smart Contract Integration</a>
       </div>
     </div>
     <hr class="nav-divider">
@@ -1656,6 +1657,211 @@ html, body {
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('contracts',null)">
           <span class="page-nav-dir">← Previous</span><span>Smart Contracts</span>
+        </a>
+        <a class="page-nav-link" onclick="show('api-integration',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Smart Contract Integration</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SMART CONTRACT INTEGRATION ── -->
+    <section class="section" id="s-api-integration">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Smart Contract Integration</span></div>
+      <div class="page-hero">
+        <span class="page-tag">For Developers</span>
+        <h1>Smart Contract Integration</h1>
+        <p class="page-subtitle">Reference for integrating directly with Harmonix vault contracts — covering deposits, withdrawals, share accounting, and state queries.</p>
+      </div>
+
+      <h2>haHYPE Vault — HyperEVM $HYPE</h2>
+      <p>The haHYPE vault is a tokenized yield-bearing vault where users deposit <strong>HYPE</strong>, receive <strong>haHYPE</strong> shares, and withdraw as <strong>WHYPE</strong>. It includes slippage protection, share accounting, and a two-phase withdrawal mechanism.</p>
+
+      <div class="table-wrap" style="margin:20px 0 8px;">
+        <table>
+          <thead><tr><th>Property</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
+            <tr><td>Contract Address</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
+            <tr><td>Explorer (Purrsec)</td><td><a href="https://purrsec.com/address/0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c" target="_blank" rel="noopener">purrsec.com ↗</a></td></tr>
+            <tr><td>Explorer (Hyperscan)</td><td><a href="https://hyperscan.gas.zip/address/0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c" target="_blank" rel="noopener">hyperscan.gas.zip ↗</a></td></tr>
+            <tr><td>Deposit Token</td><td>HYPE</td></tr>
+            <tr><td>Yield-Bearing Token (haHYPE)</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
+            <tr><td>Withdraw Token</td><td>WHYPE — <code>0x5555555555555555555555555555555555555555</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Write Functions</h2>
+
+      <!-- depositWithSlippage -->
+      <div style="margin:28px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">depositWithSlippage</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function depositWithSlippage(uint256 _amount, address _receiver, uint256 _minSharesOut) external returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Deposits a specified amount of the vault's base asset and mints corresponding vault shares to <code>_receiver</code>, ensuring slippage is within the acceptable threshold.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of tokens to deposit.</td></tr>
+            <tr><td><code>_receiver</code></td><td><code>address</code></td><td>Address to receive the minted vault shares.</td></tr>
+            <tr><td><code>_minSharesOut</code></td><td><code>uint256</code></td><td>Minimum shares expected — prevents front-running and slippage loss.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — number of shares minted.</p>
+      </div>
+
+      <!-- initiateWithdrawal -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">initiateWithdrawal</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function initiateWithdrawal(uint256 _shares, uint256 _minAssetsOut) external</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 1 of the two-phase withdrawal. Locks the caller's shares and queues a redemption. These are finalized later via <code>redeem()</code>. The minimum asset guarantee is set here.</p>
+        <div class="callout warn" style="margin:10px 0 12px;">
+          <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" width="16" height="16"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3L13.71 4.14a2 2 0 0 0-3.42-.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div class="callout-body">Withdrawal is a two-step process. You must call <code>initiateWithdrawal()</code> first, wait for the vault to process, then call <code>redeem()</code> to receive assets. Use <code>canCompleteWithdraw()</code> to check readiness.</div>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>_shares</code></td><td><code>uint256</code></td><td>Number of shares to queue for withdrawal.</td></tr>
+            <tr><td><code>_minAssetsOut</code></td><td><code>uint256</code></td><td>Minimum acceptable assets to receive upon <code>redeem()</code>.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <!-- redeem -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">redeem</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function redeem(uint256 _shares, address _receiver, address _owner) external returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 2 of the two-phase withdrawal. Finalizes the redemption initiated via <code>initiateWithdrawal()</code> — burns shares and transfers the equivalent WHYPE amount to the receiver.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>_shares</code></td><td><code>uint256</code></td><td>Number of shares to redeem.</td></tr>
+            <tr><td><code>_receiver</code></td><td><code>address</code></td><td>Address that will receive the underlying WHYPE assets.</td></tr>
+            <tr><td><code>_owner</code></td><td><code>address</code></td><td>Address that owns the shares. Can differ from caller if allowance is granted.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — amount of assets received.</p>
+      </div>
+
+      <h2>Read Functions</h2>
+
+      <!-- totalAssets -->
+      <div style="margin:28px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">totalAssets</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function totalAssets() external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);">Returns the total value of assets currently held by the vault.</p>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — total amount of underlying assets.</p>
+      </div>
+
+      <!-- pricePerShare -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">pricePerShare</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function pricePerShare() external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);">Returns the current value of one vault share in terms of the underlying asset. Grows over time as yield accrues.</p>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — price of 1 vault share.</p>
+      </div>
+
+      <!-- balanceOf -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">balanceOf</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function balanceOf(address _account) external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns the number of vault shares held by a specific address.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>_account</code></td><td><code>address</code></td><td>The address to query.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — number of vault shares owned by the address.</p>
+      </div>
+
+      <!-- getUserWithdrawlShares -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">getUserWithdrawlShares</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function getUserWithdrawlShares(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns the number of shares a user has pending in the withdrawal queue (i.e. shares locked via <code>initiateWithdrawal()</code> but not yet redeemed).</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>owner</code></td><td><code>address</code></td><td>Address of the user to query.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — number of shares pending withdrawal.</p>
+      </div>
+
+      <!-- canCompleteWithdraw -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">canCompleteWithdraw</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function canCompleteWithdraw(address _account) external view returns (bool)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Checks whether a user is currently eligible to complete their withdrawal. Poll this before calling <code>redeem()</code>.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>_account</code></td><td><code>address</code></td><td>The user address to check.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>bool</code> — <code>true</code> if <code>redeem()</code> can be called, otherwise <code>false</code>.</p>
+      </div>
+
+      <h2>Typical Integration Flow</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Approve & Deposit</h4>
+            <p>Approve the vault contract to spend HYPE, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. haHYPE shares are minted immediately to <code>_receiver</code>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Initiate Withdrawal</h4>
+            <p>When ready to exit, call <code>initiateWithdrawal(_shares, _minAssetsOut)</code>. Shares are locked and the request enters the withdrawal queue.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Wait for Processing</h4>
+            <p>Poll <code>canCompleteWithdraw(_account)</code>. The vault processes withdrawal requests on a cycle — this returns <code>true</code> once your redemption is ready.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Redeem</h4>
+            <p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive WHYPE to the receiver address.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('deposits-withdrawals',null)">
+          <span class="page-nav-dir">← Previous</span><span>Deposits &amp; Withdrawals</span>
         </a>
         <a class="page-nav-link" onclick="show('solvency',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span><span>Proof of Solvency</span>
