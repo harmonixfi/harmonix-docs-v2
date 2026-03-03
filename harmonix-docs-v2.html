@@ -1693,6 +1693,38 @@ html, body {
         </table>
       </div>
 
+      <h2>Typical Integration Flow</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Approve & Deposit</h4>
+            <p>Approve the vault contract to spend HYPE, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. haHYPE shares are minted immediately to <code>_receiver</code>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Initiate Withdrawal</h4>
+            <p>When ready to exit, call <code>initiateWithdrawal(_shares, _minAssetsOut)</code>. Shares are locked and the request enters the withdrawal queue.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Wait for Processing</h4>
+            <p>Poll <code>canCompleteWithdraw(_account)</code>. The vault processes withdrawal requests on a cycle — this returns <code>true</code> once your redemption is ready.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Redeem</h4>
+            <p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive WHYPE to the receiver address.</p>
+          </div>
+        </div>
+      </div>
+
       <h2>Write Functions</h2>
 
       <!-- depositWithSlippage -->
@@ -1827,38 +1859,6 @@ html, body {
           </tbody>
         </table></div>
         <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>bool</code> — <code>true</code> if <code>redeem()</code> can be called, otherwise <code>false</code>.</p>
-      </div>
-
-      <h2>Typical Integration Flow</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <h4>Approve & Deposit</h4>
-            <p>Approve the vault contract to spend HYPE, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. haHYPE shares are minted immediately to <code>_receiver</code>.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <h4>Initiate Withdrawal</h4>
-            <p>When ready to exit, call <code>initiateWithdrawal(_shares, _minAssetsOut)</code>. Shares are locked and the request enters the withdrawal queue.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <h4>Wait for Processing</h4>
-            <p>Poll <code>canCompleteWithdraw(_account)</code>. The vault processes withdrawal requests on a cycle — this returns <code>true</code> once your redemption is ready.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <h4>Redeem</h4>
-            <p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive WHYPE to the receiver address.</p>
-          </div>
-        </div>
       </div>
 
       <div class="page-nav">
