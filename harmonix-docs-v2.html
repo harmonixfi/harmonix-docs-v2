@@ -664,6 +664,7 @@ html, body {
   <nav class="sidebar-nav" id="sidebar-nav-wrap">
     <div class="nav-group">
       <a class="nav-item active" onclick="show('welcome',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Welcome</a>
+      <a class="nav-item" onclick="show('onboarding',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Getting Started</a>
       <a class="nav-item" onclick="show('overview',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>Protocol Overview</a>
     </div>
     <hr class="nav-divider">
@@ -839,6 +840,7 @@ html, body {
             <div class="wnc-title">Resources →</div>
             <div class="wnc-desc" style="margin-top:5px;">Points program, rewards, and frequently asked questions.</div>
             <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
+              <span onclick="event.stopPropagation();show('onboarding',null)" class="wnc-pill wnc-pill-res">Getting Started</span>
               <span onclick="event.stopPropagation();show('points',null)" class="wnc-pill wnc-pill-res">Points &amp; Rewards</span>
               <span onclick="event.stopPropagation();show('faq',null)" class="wnc-pill wnc-pill-res">FAQ</span>
             </div>
@@ -848,6 +850,104 @@ html, body {
 
       <div class="page-nav">
         <div></div>
+        <a class="page-nav-link" onclick="show('onboarding',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span>
+          <span>Getting Started</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── ONBOARDING ── -->
+    <section class="section" id="s-onboarding">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Getting Started</span></div>
+      <div class="page-hero">
+        <span class="page-tag" style="background:rgba(200,240,122,0.1);color:var(--green);border-color:rgba(200,240,122,0.2);">Onboarding</span>
+        <h1>Getting Started</h1>
+        <p class="page-subtitle">Set up your wallet and connect to the Harmonix app in minutes.</p>
+      </div>
+
+      <h2>1. Set Up Your Wallet</h2>
+      <p>If you don't already have a wallet, download <a href="https://rabby.io/" target="_blank" style="color:var(--green);text-decoration:none;">Rabby Wallet</a> from your browser. Rabby is the recommended wallet for Harmonix — it supports Hyperliquid natively and gives you a clear view of approvals and transaction risks.</p>
+      <p>You can set up a new wallet directly in Rabby or import an existing one using a seed phrase. Follow the <a href="https://rabby.io/" target="_blank" style="color:var(--green);text-decoration:none;">Rabby setup guide</a> if you need help with the initial configuration.</p>
+
+      <div style="margin:24px 0 32px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="flex:1;min-width:240px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+            <img src="images/onboarding-step1.png" alt="Rabby Wallet setup" style="width:100%;display:block;" />
+            <div style="padding:12px 14px;font-size:12px;color:var(--text3);">Rabby Wallet — connect to a trusted site</div>
+          </div>
+        </div>
+        <div style="flex:2;min-width:260px;">
+          <div class="info-box" style="background:rgba(200,240,122,0.05);border:1px solid rgba(200,240,122,0.18);border-radius:10px;padding:16px 20px;">
+            <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:8px;">Why Rabby?</div>
+            <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text2);line-height:1.7;">
+              <li>Built-in support for Hyperliquid EVM and HyperCore</li>
+              <li>Pre-transaction simulation — see what will happen before signing</li>
+              <li>Clear approval management and risk warnings</li>
+              <li>Available as a Chrome/Brave/Firefox extension</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h2>2. Connect to Harmonix</h2>
+      <p>Once Rabby is installed and your wallet is set up, follow these steps to connect to the Harmonix app:</p>
+
+      <div style="margin:20px 0 28px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">1</div>
+            <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Visit <a href="https://app.harmonix.fi/" target="_blank" style="color:var(--green);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:13px;">app.harmonix.fi</a> in your browser and click <strong style="color:var(--text);">Connect Wallet</strong>.</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">2</div>
+            <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Select <strong style="color:var(--text);">Rabby</strong> from the wallet list. The Rabby extension will pop up automatically. If it doesn't, click the Rabby icon in your browser's extension bar.</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">3</div>
+            <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Click <strong style="color:var(--text);">Connect</strong> when prompted. This authorises the Harmonix app as a trusted site in Rabby.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin:0 0 32px;">
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:480px;">
+          <img src="images/onboarding-step2.png" alt="Connecting Rabby to Harmonix" style="width:100%;display:block;" />
+          <div style="padding:12px 14px;font-size:12px;color:var(--text3);">Click Connect to authorise Harmonix in Rabby</div>
+        </div>
+      </div>
+
+      <div style="background:rgba(200,240,122,0.06);border:1px solid rgba(200,240,122,0.2);border-radius:10px;padding:16px 20px;margin-bottom:32px;">
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:4px;">✓ You're connected!</div>
+        <div style="font-size:13px;color:var(--text2);">Your wallet is now connected to the Harmonix dapp. Continue below to learn how to deposit and start earning yield.</div>
+      </div>
+
+      <h2>3. What's Next</h2>
+      <p>Now that you're connected, here are the most common next steps:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0 32px;">
+        <div onclick="show('stablecoins',null)" style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haUSDC →</div>
+          <div style="font-size:12px;color:var(--text3);">Earn yield on your USDC via basis trading</div>
+        </div>
+        <div onclick="show('tokens',null)" style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haHYPE →</div>
+          <div style="font-size:12px;color:var(--text3);">Earn yield on your HYPE tokens</div>
+        </div>
+        <div onclick="show('xhar',null)" style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Stake HAR → xHAR →</div>
+          <div style="font-size:12px;color:var(--text3);">Lock HAR to earn protocol revenue</div>
+        </div>
+        <div onclick="show('points',null)" style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Points &amp; Rewards →</div>
+          <div style="font-size:12px;color:var(--text3);">Learn how the points program works</div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('welcome',null)">
+          <span class="page-nav-dir">← Previous</span>
+          <span>Welcome</span>
+        </a>
         <a class="page-nav-link" onclick="show('overview',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span>
           <span>Protocol Overview</span>
