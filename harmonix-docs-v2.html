@@ -441,12 +441,11 @@ td a:hover { text-decoration: underline; }
 .welcome-nav-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 40px; }
 .wnc { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
 .wnc:hover { border-color: rgba(180,230,100,0.35); transform: translateY(-2px); }
-.wnc-icon { height: 120px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a2a18 0%, #243220 100%); position: relative; overflow: hidden; }
-.wnc-icon::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(200,240,122,0.15) 0%, transparent 65%); }
-.wnc-icon svg { width: 36px; height: 36px; color: var(--green); opacity: 0.85; position: relative; z-index: 1; }
-.wnc-icon-dev { background: linear-gradient(135deg, #151e2a 0%, #1b2535 100%); }
-.wnc-icon-dev::before { background: radial-gradient(ellipse at 70% 30%, rgba(80,140,255,0.12) 0%, transparent 65%); }
-.wnc-icon-dev svg { color: #6ea8fe; }
+.wnc-icon { height: 110px; display: flex; align-items: flex-end; padding: 12px 16px; background: linear-gradient(135deg, #162a14 0%, #1e3a1a 50%, #152e12 100%); position: relative; overflow: hidden; }
+.wnc-icon::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); }
+.wnc-icon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 100%); }
+.wnc-icon-dev { background: linear-gradient(135deg, #10172a 0%, #151e35 50%, #111828 100%); }
+.wnc-icon-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(80,140,255,0.16) 0%, transparent 60%); }
 .wnc-body { padding: 20px 20px 22px; }
 .wnc-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 7px; }
 .wnc-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
@@ -772,36 +771,36 @@ html, body {
         <!-- Product Suite -->
         <div class="wnc" onclick="show('product-suite',null)">
           <div class="wnc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1;">
+              <span onclick="event.stopPropagation();show('stablecoins',null)" class="ps-tag" style="cursor:pointer;">Yield-Bearing Stablecoins</span>
+              <span onclick="event.stopPropagation();show('tokens',null)" class="ps-tag" style="cursor:pointer;">Yield-Bearing Tokens</span>
+              <span onclick="event.stopPropagation();show('cdharusd',null)" class="ps-tag" style="cursor:pointer;">cdharUSD</span>
+              <span onclick="event.stopPropagation();show('basis-trade-vault',null)" class="ps-tag" style="cursor:pointer;">HYPE Basis Trade</span>
+              <span onclick="event.stopPropagation();show('har',null)" class="ps-tag" style="cursor:pointer;">HAR Token</span>
+              <span onclick="event.stopPropagation();show('xhar',null)" class="ps-tag" style="cursor:pointer;">xHAR</span>
+            </div>
           </div>
           <div class="wnc-body">
             <div class="wnc-title">Product Suite →</div>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
-              <span onclick="event.stopPropagation();show('stablecoins',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Yield-Bearing Stablecoins</span>
-              <span onclick="event.stopPropagation();show('tokens',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Yield-Bearing Tokens</span>
-              <span onclick="event.stopPropagation();show('cdharusd',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">cdharUSD</span>
-              <span onclick="event.stopPropagation();show('basis-trade-vault',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">HYPE Basis Trade Vault</span>
-              <span onclick="event.stopPropagation();show('har',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">HAR Token</span>
-              <span onclick="event.stopPropagation();show('xhar',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">xHAR</span>
-            </div>
+            <div class="wnc-desc" style="margin-top:5px;">Yield-bearing tokens and the HAR ecosystem, all built natively on Hyperliquid.</div>
           </div>
         </div>
 
         <!-- For Developers -->
-        <div class="wnc" onclick="show('vault-arch',null)">
+        <div class="wnc" onclick="show('architecture',null)">
           <div class="wnc-icon wnc-icon-dev">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/><path d="M14 4l-4 16"/></svg>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1;">
+              <span onclick="event.stopPropagation();show('architecture',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Capital Allocation</span>
+              <span onclick="event.stopPropagation();show('vault-arch',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Vault Architecture</span>
+              <span onclick="event.stopPropagation();show('contracts',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Smart Contracts</span>
+              <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Deposits &amp; Withdrawals</span>
+              <span onclick="event.stopPropagation();show('api-integration',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">SC Integration</span>
+              <span onclick="event.stopPropagation();show('api-reference',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">API Reference</span>
+            </div>
           </div>
           <div class="wnc-body">
             <div class="wnc-title">For Developers →</div>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
-              <span onclick="event.stopPropagation();show('architecture',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Capital Allocation</span>
-              <span onclick="event.stopPropagation();show('vault-arch',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Vault Architecture</span>
-              <span onclick="event.stopPropagation();show('contracts',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Smart Contracts</span>
-              <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Deposits &amp; Withdrawals</span>
-              <span onclick="event.stopPropagation();show('api-integration',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Smart Contract Integration</span>
-              <span onclick="event.stopPropagation();show('api-reference',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">API Reference</span>
-            </div>
+            <div class="wnc-desc" style="margin-top:5px;">Architecture, smart contracts, integration guides, and the full REST API reference.</div>
           </div>
         </div>
       </div>
