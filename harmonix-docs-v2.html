@@ -1692,6 +1692,7 @@ html, body {
       <div class="stable-tabs" style="margin:0 0 20px;">
         <button class="stable-tab active" id="vi-btn-hahype" onclick="showVaultTab('vi-hahype', this)">haHYPE — HYPE Vault</button>
         <button class="stable-tab" id="vi-btn-hakhype" onclick="showVaultTab('vi-hakhype', this)">hakHYPE — kHYPE Vault</button>
+        <button class="stable-tab" id="vi-btn-hausdc" onclick="showVaultTab('vi-hausdc', this)">haUSDC — USDC Vault</button>
       </div>
 
       <!-- haHYPE vault info -->
@@ -1726,6 +1727,25 @@ html, body {
         </div>
       </div>
 
+      <!-- haUSDC vault info -->
+      <div id="vi-hausdc" style="display:none;">
+        <div class="table-wrap" style="margin:0 0 8px;">
+          <table>
+            <thead><tr><th>Property</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hype-delta-neutral-v1" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
+              <tr><td>Contract Address</td><td><code>0xF12F8753C25F8005311a24bbbA1f7209249B00e3</code></td></tr>
+              <tr><td>Network</td><td>Arbitrum</td></tr>
+              <tr><td>Explorer</td><td><a href="https://arbiscan.io/address/0xF12F8753C25F8005311a24bbbA1f7209249B00e3" target="_blank" rel="noopener">arbiscan.io ↗</a></td></tr>
+              <tr><td>Deposit Token</td><td>USDC — <code>0xaf88d065e77c8cc2239327c5edb3a432268e5831</code></td></tr>
+              <tr><td>Withdraw Token</td><td>USDC — <code>0xaf88d065e77c8cc2239327c5edb3a432268e5831</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- HYPE vault docs (haHYPE + hakHYPE) -->
+      <div id="hype-vault-docs">
       <h2>Typical Integration Flow</h2>
       <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Both haHYPE and hakHYPE follow the same four-step pattern. The only difference is the token you deposit and receive on withdrawal.</p>
       <div class="steps">
@@ -1894,6 +1914,176 @@ html, body {
         </table></div>
         <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>bool</code> — <code>true</code> if <code>redeem()</code> can be called, otherwise <code>false</code>.</p>
       </div>
+      </div><!-- end hype-vault-docs -->
+
+      <!-- haUSDC vault docs -->
+      <div id="usdc-vault-docs" style="display:none;">
+
+      <h2>Typical Integration Flow</h2>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">The haUSDC vault accepts USDC, USDT, or DAI as deposit tokens and uses a two-step withdrawal. If depositing USDC directly no swap is needed — for other tokens, swap calldata is fetched from the KyberSwap API.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Approve & Deposit</h4>
+            <p>Approve the vault to spend your deposit token, then call <code>deposit(amount, tokenIn, swapCallData)</code>. If depositing <strong>USDC</strong> directly, pass <code>swapCallData = '0x'</code>. For USDT or DAI, get the swap calldata from the KyberSwap Aggregator API.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Initiate Withdrawal</h4>
+            <p>Call <code>initiateWithdrawal(shares)</code> to lock your shares and enter the withdrawal queue.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Wait for Processing</h4>
+            <p>Poll <code>canCompleteWithdraw(user)</code>. Returns <code>true</code> once the vault has processed your request and you can redeem.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Complete Withdrawal</h4>
+            <p>Call <code>completeWithdrawal(shares)</code> to burn shares and receive <strong>USDC</strong> to your address.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Write Functions</h2>
+
+      <!-- deposit -->
+      <div style="margin:28px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">deposit</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function deposit(uint256 amount, address tokenIn, bytes swapCallData) external</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Deposits tokens into the vault. Supports USDC, USDT, and DAI. If <code>tokenIn</code> is USDC, pass <code>swapCallData = '0x'</code>. For other tokens, fetch calldata from the <a href="https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/aggregator-api-specification/evm-swaps" target="_blank" rel="noopener" style="color:var(--green);">KyberSwap Aggregator API ↗</a>.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>amount</code></td><td><code>uint256</code></td><td>Amount of tokens to deposit.</td></tr>
+            <tr><td><code>tokenIn</code></td><td><code>address</code></td><td>ERC-20 token address being deposited. Accepted: USDC, USDT, DAI.</td></tr>
+            <tr><td><code>swapCallData</code></td><td><code>bytes</code></td><td>Swap calldata from KyberSwap. Pass <code>'0x'</code> when depositing USDC directly.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <!-- initiateWithdrawal -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">initiateWithdrawal</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function initiateWithdrawal(uint256 shares) external</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 1 of the two-phase withdrawal. Locks the specified shares in the withdrawal queue to be finalized via <code>completeWithdrawal()</code>.</p>
+        <div class="callout warn" style="margin:10px 0 12px;">
+          <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" width="16" height="16"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3L13.71 4.14a2 2 0 0 0-3.42-.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div class="callout-body">Withdrawal is a two-step process. Call <code>initiateWithdrawal()</code> first, wait for the vault to process, then call <code>completeWithdrawal()</code>. Use <code>canCompleteWithdraw()</code> to check readiness.</div>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>shares</code></td><td><code>uint256</code></td><td>Number of shares to lock for withdrawal.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <!-- completeWithdrawal -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">completeWithdrawal</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function completeWithdrawal(uint256 shares) external</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 2 of the two-phase withdrawal. Burns the specified shares and transfers the equivalent USDC amount to the caller.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>shares</code></td><td><code>uint256</code></td><td>Number of shares to redeem.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <h2>Read Functions</h2>
+
+      <!-- balanceOf -->
+      <div style="margin:28px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">balanceOf</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function balanceOf(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns the number of vault shares owned by a specified address.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>owner</code></td><td><code>address</code></td><td>The address to query.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — number of vault shares owned.</p>
+      </div>
+
+      <!-- getUserWithdrawlShares -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">getUserWithdrawlShares</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function getUserWithdrawlShares(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns the number of shares a user has locked in the withdrawal queue via <code>initiateWithdrawal()</code> but not yet redeemed.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>owner</code></td><td><code>address</code></td><td>Address of the user to query.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — number of shares pending withdrawal.</p>
+      </div>
+
+      <!-- pricePerShare -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">pricePerShare</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function pricePerShare() external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);">Returns the current value of one vault share in terms of USDC. Grows over time as yield accrues.</p>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — current price of 1 vault share.</p>
+      </div>
+
+      <!-- totalValueLocked -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">totalValueLocked</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function totalValueLocked() external view returns (uint256)</pre>
+        <p style="font-size:13.5px;color:var(--text2);">Reports the total value of all underlying assets currently managed by the vault.</p>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — vault's total asset value.</p>
+      </div>
+
+      <!-- canCompleteWithdraw -->
+      <div style="margin:32px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">canCompleteWithdraw</h3>
+        </div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function canCompleteWithdraw(address user) external view returns (bool)</pre>
+        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Checks whether a user is currently eligible to complete their withdrawal. Poll this before calling <code>completeWithdrawal()</code>.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>user</code></td><td><code>address</code></td><td>The user address to check.</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>bool</code> — <code>true</code> if <code>completeWithdrawal()</code> can be called.</p>
+      </div>
+
+      </div><!-- end usdc-vault-docs -->
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('deposits-withdrawals',null)">
@@ -2147,10 +2337,15 @@ function showTokenTab(id, btn) {
 }
 
 function showVaultTab(id, btn) {
-  ['vi-hahype','vi-hakhype'].forEach(function(vid) {
+  ['vi-hahype','vi-hakhype','vi-hausdc'].forEach(function(vid) {
     var el = document.getElementById(vid);
     if (el) el.style.display = (vid === id) ? '' : 'none';
   });
+  var isUsdc = (id === 'vi-hausdc');
+  var hypeDoc = document.getElementById('hype-vault-docs');
+  var usdcDoc = document.getElementById('usdc-vault-docs');
+  if (hypeDoc) hypeDoc.style.display = isUsdc ? 'none' : '';
+  if (usdcDoc) usdcDoc.style.display = isUsdc ? '' : 'none';
   document.querySelectorAll('#s-api-integration .stable-tab').forEach(function(t) { t.classList.remove('active'); });
   if (btn) btn.classList.add('active');
 }
