@@ -1759,8 +1759,21 @@ html, body {
         <p class="page-subtitle">haHYPE and hakHYPE share the same contract interface. All examples below use <strong>haHYPE</strong> — to integrate hakHYPE, swap in its contract address and token.</p>
       </div>
 
+      <!-- Integration Flow -->
+      <div id="flow-hype">
+        <h2>Integration Flow</h2>
+        <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Both vaults follow the same four-step pattern. The only difference is the token deposited and received.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Approve &amp; Deposit</h4><p>Approve the vault contract to spend your deposit token, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. Shares are minted immediately to <code>_receiver</code>.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Initiate Withdrawal</h4><p>When ready to exit, call <code>initiateWithdrawal(_shares, _minAssetsOut)</code>. Shares are locked and the request enters the withdrawal queue.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Wait for Processing</h4><p>Poll <code>canCompleteWithdraw(_account)</code>. Returns <code>true</code> once the vault has processed your redemption.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Redeem</h4><p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive assets. haHYPE returns <strong>WHYPE</strong>; hakHYPE returns <strong>kHYPE</strong>.</p></div></div>
+        </div>
+      </div>
+
       <!-- Compact contract reference strip -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px;">
+      <h2 style="margin:36px 0 12px;">Contract Reference</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
         <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
             <span style="font-size:12px;font-weight:600;color:var(--text);">haHYPE</span>
@@ -1784,19 +1797,7 @@ html, body {
           </div>
         </div>
       </div>
-      <p style="font-size:12.5px;color:var(--text3);margin:-18px 0 28px;">Full contract specs — ABI, all addresses, token details — are on the <a onclick="show('contracts',null)" style="color:var(--text2);cursor:pointer;text-decoration:none;border-bottom:1px solid var(--border2);" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text2)'">Smart Contracts</a> page.</p>
-
-      <!-- Integration Flow -->
-      <div id="flow-hype">
-        <h2>Integration Flow</h2>
-        <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Both vaults follow the same four-step pattern. The only difference is the token deposited and received.</p>
-        <div class="steps">
-          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Approve &amp; Deposit</h4><p>Approve the vault contract to spend your deposit token, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. Shares are minted immediately to <code>_receiver</code>.</p></div></div>
-          <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Initiate Withdrawal</h4><p>When ready to exit, call <code>initiateWithdrawal(_shares, _minAssetsOut)</code>. Shares are locked and the request enters the withdrawal queue.</p></div></div>
-          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Wait for Processing</h4><p>Poll <code>canCompleteWithdraw(_account)</code>. Returns <code>true</code> once the vault has processed your redemption.</p></div></div>
-          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Redeem</h4><p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive assets. haHYPE returns <strong>WHYPE</strong>; hakHYPE returns <strong>kHYPE</strong>.</p></div></div>
-        </div>
-      </div>
+      <p style="font-size:12.5px;color:var(--text3);margin:0 0 36px;">Full specs — ABI, all addresses, token details — on the <a onclick="show('contracts',null)" style="color:var(--text2);cursor:pointer;text-decoration:none;border-bottom:1px solid var(--border2);" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text2)'">Smart Contracts</a> page.</p>
 
       <!-- HYPE vault docs (haHYPE + hakHYPE) -->
       <div id="hype-vault-docs">
