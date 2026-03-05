@@ -765,72 +765,69 @@ html, body {
       <p style="margin:0 0 14px;">Harmonix captures real economic activity — perpetual funding rates, lending yields, and ecosystem incentives across HyperCore and HyperEVM — and distributes that yield through a suite of composable yield-bearing tokens and the HAR ecosystem.</p>
 
       <h2 style="margin:0 0 12px;font-size:15px;color:var(--text2);font-weight:500;letter-spacing:.01em;">What You'll Find Here</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+
+      <!-- Big visual cards row -->
+      <div class="welcome-nav-cards" style="margin:0 0 10px;">
 
         <!-- Product Suite -->
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px 14px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <div style="width:26px;height:26px;background:rgba(200,240,122,0.12);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-            </div>
-            <span style="font-size:11.5px;font-weight:600;color:var(--text);letter-spacing:.02em;">Product Suite</span>
+        <div class="wnc" onclick="show('product-suite',null)">
+          <div class="wnc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            <span onclick="show('stablecoins',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Yield-Bearing Stablecoins</span>
-            <span onclick="show('hype-tokens',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Yield-Bearing Tokens</span>
-            <span onclick="show('cdharusd',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">cdharUSD</span>
-            <span onclick="show('basis-trade-vault',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">HYPE Basis Trade Vault</span>
-            <span onclick="show('har-token',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">HAR Token</span>
-            <span onclick="show('xhar',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">xHAR</span>
+          <div class="wnc-body">
+            <div class="wnc-title">Product Suite →</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
+              <span onclick="event.stopPropagation();show('stablecoins',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Yield-Bearing Stablecoins</span>
+              <span onclick="event.stopPropagation();show('hype-tokens',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Yield-Bearing Tokens</span>
+              <span onclick="event.stopPropagation();show('cdharusd',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">cdharUSD</span>
+              <span onclick="event.stopPropagation();show('basis-trade-vault',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">HYPE Basis Trade Vault</span>
+              <span onclick="event.stopPropagation();show('har-token',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">HAR Token</span>
+              <span onclick="event.stopPropagation();show('xhar',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='var(--green)';this.style.borderColor='rgba(200,240,122,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">xHAR</span>
+            </div>
           </div>
         </div>
 
         <!-- For Developers -->
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px 14px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <div style="width:26px;height:26px;background:rgba(100,160,255,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64a0ff" stroke-width="2"><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/><path d="M14 4l-4 16"/></svg>
-            </div>
-            <span style="font-size:11.5px;font-weight:600;color:var(--text);letter-spacing:.02em;">For Developers</span>
+        <div class="wnc" onclick="show('vault-arch',null)">
+          <div class="wnc-icon wnc-icon-dev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/><path d="M14 4l-4 16"/></svg>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            <span onclick="show('capital-allocation',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#64a0ff';this.style.color='#64a0ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Capital Allocation</span>
-            <span onclick="show('vault-arch',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#64a0ff';this.style.color='#64a0ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Vault Architecture</span>
-            <span onclick="show('smart-contracts',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#64a0ff';this.style.color='#64a0ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Smart Contracts</span>
-            <span onclick="show('deposits',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#64a0ff';this.style.color='#64a0ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Deposits &amp; Withdrawals</span>
-            <span onclick="show('sc-integration',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#64a0ff';this.style.color='#64a0ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Smart Contract Integration</span>
-            <span onclick="show('api-reference',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#64a0ff';this.style.color='#64a0ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">API Reference</span>
+          <div class="wnc-body">
+            <div class="wnc-title">For Developers →</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
+              <span onclick="event.stopPropagation();show('capital-allocation',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Capital Allocation</span>
+              <span onclick="event.stopPropagation();show('vault-arch',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Vault Architecture</span>
+              <span onclick="event.stopPropagation();show('smart-contracts',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Smart Contracts</span>
+              <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Deposits &amp; Withdrawals</span>
+              <span onclick="event.stopPropagation();show('api-integration',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Smart Contract Integration</span>
+              <span onclick="event.stopPropagation();show('api-reference',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#6ea8fe';this.style.borderColor='rgba(110,168,254,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">API Reference</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Security -->
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px 14px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <div style="width:26px;height:26px;background:rgba(245,200,66,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <span style="font-size:11.5px;font-weight:600;color:var(--text);letter-spacing:.02em;">Security</span>
+      <!-- Security + Resources smaller cards -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .2s;" onclick="show('solvency',null)" onmouseover="this.style.borderColor='rgba(245,200,66,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span style="font-size:12px;font-weight:600;color:var(--text);">Security</span>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            <span onclick="show('solvency',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#f5c842';this.style.color='#f5c842'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Proof of Solvency</span>
-            <span onclick="show('risks',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#f5c842';this.style.color='#f5c842'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Risks &amp; Audits</span>
+            <span onclick="event.stopPropagation();show('solvency',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#f5c842';this.style.borderColor='rgba(245,200,66,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Proof of Solvency</span>
+            <span onclick="event.stopPropagation();show('risks',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#f5c842';this.style.borderColor='rgba(245,200,66,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Risks &amp; Audits</span>
           </div>
         </div>
-
-        <!-- Resources -->
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px 14px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <div style="width:26px;height:26px;background:rgba(160,120,255,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a078ff" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span style="font-size:11.5px;font-weight:600;color:var(--text);letter-spacing:.02em;">Resources</span>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .2s;" onclick="show('points',null)" onmouseover="this.style.borderColor='rgba(160,120,255,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a078ff" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span style="font-size:12px;font-weight:600;color:var(--text);">Resources</span>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            <span onclick="show('points',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#a078ff';this.style.color='#a078ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">Points &amp; Rewards</span>
-            <span onclick="show('faq',null)" style="cursor:pointer;font-size:11px;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:3px 8px;transition:all .15s;" onmouseover="this.style.borderColor='#a078ff';this.style.color='#a078ff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">FAQ</span>
+            <span onclick="event.stopPropagation();show('points',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#a078ff';this.style.borderColor='rgba(160,120,255,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Points &amp; Rewards</span>
+            <span onclick="event.stopPropagation();show('faq',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#a078ff';this.style.borderColor='rgba(160,120,255,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">FAQ</span>
           </div>
         </div>
-
       </div>
 
       <div class="page-nav">
