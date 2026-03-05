@@ -426,6 +426,14 @@ td a:hover { text-decoration: underline; }
 .ps-banner-cd::before  { background: radial-gradient(ellipse at 75% 25%, rgba(245,200,66,0.12) 0%, transparent 60%); }
 .ps-item-tags { display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 1; }
 .ps-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 9px; border-radius: 6px; border: 1px solid rgba(200,240,122,0.25); background: rgba(0,0,0,0.35); color: var(--green); font-weight: 500; backdrop-filter: blur(4px); }
+.wnc-pill { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; border: 1px solid rgba(200,240,122,0.22); background: rgba(0,0,0,0.25); color: var(--green); font-weight: 500; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+.wnc-pill:hover { border-color: rgba(200,240,122,0.5); color: #c8f07a; }
+.wnc-pill-dev { border-color: rgba(80,140,255,0.25); color: #6ea8fe; }
+.wnc-pill-dev:hover { border-color: rgba(80,140,255,0.55); color: #90bfff; }
+.wnc-pill-sec { border-color: rgba(245,200,66,0.25); color: #f5c842; }
+.wnc-pill-sec:hover { border-color: rgba(245,200,66,0.55); color: #ffd95a; }
+.wnc-pill-res { border-color: rgba(160,120,255,0.25); color: #a078ff; }
+.wnc-pill-res:hover { border-color: rgba(160,120,255,0.55); color: #bf9fff; }
 .ps-banner-dev .ps-tag { border-color: rgba(80,140,255,0.3); color: #6ea8fe; }
 .ps-banner-pts .ps-tag { border-color: rgba(180,80,255,0.3); color: #c084fc; }
 .ps-banner-har .ps-tag { border-color: rgba(245,150,50,0.3); color: #fb923c; }
@@ -777,13 +785,13 @@ html, body {
           <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">Product Suite →</div>
             <div class="wnc-desc" style="margin-top:5px;">Yield-bearing tokens and the HAR ecosystem, all built natively on Hyperliquid.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('stablecoins',null)" class="ps-tag" style="cursor:pointer;">Yield-Bearing Stablecoins</span>
-              <span onclick="event.stopPropagation();show('tokens',null)" class="ps-tag" style="cursor:pointer;">Yield-Bearing Tokens</span>
-              <span onclick="event.stopPropagation();show('cdharusd',null)" class="ps-tag" style="cursor:pointer;">cdharUSD</span>
-              <span onclick="event.stopPropagation();show('basis-trade-vault',null)" class="ps-tag" style="cursor:pointer;">HYPE Basis Trade</span>
-              <span onclick="event.stopPropagation();show('har',null)" class="ps-tag" style="cursor:pointer;">HAR Token</span>
-              <span onclick="event.stopPropagation();show('xhar',null)" class="ps-tag" style="cursor:pointer;">xHAR</span>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
+              <span onclick="event.stopPropagation();show('stablecoins',null)" class="wnc-pill">Yield-Bearing Stablecoins</span>
+              <span onclick="event.stopPropagation();show('tokens',null)" class="wnc-pill">Yield-Bearing Tokens</span>
+              <span onclick="event.stopPropagation();show('cdharusd',null)" class="wnc-pill">cdharUSD</span>
+              <span onclick="event.stopPropagation();show('basis-trade-vault',null)" class="wnc-pill">HYPE Basis Trade</span>
+              <span onclick="event.stopPropagation();show('har',null)" class="wnc-pill">HAR Token</span>
+              <span onclick="event.stopPropagation();show('xhar',null)" class="wnc-pill">xHAR</span>
             </div>
           </div>
         </div>
@@ -796,13 +804,13 @@ html, body {
           <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">For Developers →</div>
             <div class="wnc-desc" style="margin-top:5px;">Architecture, smart contracts, integration guides, and the full REST API reference.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('architecture',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Capital Allocation</span>
-              <span onclick="event.stopPropagation();show('vault-arch',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Vault Architecture</span>
-              <span onclick="event.stopPropagation();show('contracts',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Smart Contracts</span>
-              <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Deposits &amp; Withdrawals</span>
-              <span onclick="event.stopPropagation();show('api-integration',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">SC Integration</span>
-              <span onclick="event.stopPropagation();show('api-reference',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">API Reference</span>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
+              <span onclick="event.stopPropagation();show('architecture',null)" class="wnc-pill wnc-pill-dev">Capital Allocation</span>
+              <span onclick="event.stopPropagation();show('vault-arch',null)" class="wnc-pill wnc-pill-dev">Vault Architecture</span>
+              <span onclick="event.stopPropagation();show('contracts',null)" class="wnc-pill wnc-pill-dev">Smart Contracts</span>
+              <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" class="wnc-pill wnc-pill-dev">Deposits &amp; Withdrawals</span>
+              <span onclick="event.stopPropagation();show('api-integration',null)" class="wnc-pill wnc-pill-dev">SC Integration</span>
+              <span onclick="event.stopPropagation();show('api-reference',null)" class="wnc-pill wnc-pill-dev">API Reference</span>
             </div>
           </div>
         </div>
@@ -817,9 +825,9 @@ html, body {
           <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">Security →</div>
             <div class="wnc-desc" style="margin-top:5px;">Proof of solvency, risk disclosures, and audit reports.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('solvency',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(245,200,66,0.35);color:#f5c842;">Proof of Solvency</span>
-              <span onclick="event.stopPropagation();show('risks',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(245,200,66,0.35);color:#f5c842;">Risks &amp; Audits</span>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
+              <span onclick="event.stopPropagation();show('solvency',null)" class="wnc-pill wnc-pill-sec">Proof of Solvency</span>
+              <span onclick="event.stopPropagation();show('risks',null)" class="wnc-pill wnc-pill-sec">Risks &amp; Audits</span>
             </div>
           </div>
         </div>
@@ -830,9 +838,9 @@ html, body {
           <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">Resources →</div>
             <div class="wnc-desc" style="margin-top:5px;">Points program, rewards, and frequently asked questions.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('points',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(160,120,255,0.35);color:#a078ff;">Points &amp; Rewards</span>
-              <span onclick="event.stopPropagation();show('faq',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(160,120,255,0.35);color:#a078ff;">FAQ</span>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
+              <span onclick="event.stopPropagation();show('points',null)" class="wnc-pill wnc-pill-res">Points &amp; Rewards</span>
+              <span onclick="event.stopPropagation();show('faq',null)" class="wnc-pill wnc-pill-res">FAQ</span>
             </div>
           </div>
         </div>
