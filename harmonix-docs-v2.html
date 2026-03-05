@@ -1002,6 +1002,17 @@ html, body {
             <div class="ps-item-desc">Yield-enhanced versions of HYPE and kHYPE that automatically compound funding income and ecosystem rewards into your position.</div>
           </div>
         </div>
+        <div class="ps-item" onclick="show('cdharusd',null)">
+          <div class="ps-item-banner ps-banner-cd">
+            <div class="ps-item-tags">
+              <span class="ps-tag">cdharUSD3</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">Convertible Deposits</div>
+            <div class="ps-item-desc">Fixed-yield deposits with optional conversion into HAR at a locked price. Stable yield floor with protocol upside optionality.</div>
+          </div>
+        </div>
         <div class="ps-item" onclick="show('basis-trade-vault',null)">
           <div class="ps-item-banner ps-banner-stable">
             <div class="ps-item-tags">
@@ -1012,17 +1023,6 @@ html, body {
           <div class="ps-item-body">
             <div class="ps-item-title">HYPE Basis Trade Vault</div>
             <div class="ps-item-desc">A USDC-denominated vault running a delta-neutral HYPE basis trade strategy on Hyperliquid. Earn funding rates with no directional HYPE exposure.</div>
-          </div>
-        </div>
-        <div class="ps-item" onclick="show('cdharusd',null)">
-          <div class="ps-item-banner ps-banner-cd">
-            <div class="ps-item-tags">
-              <span class="ps-tag">cdharUSD3</span>
-            </div>
-          </div>
-          <div class="ps-item-body">
-            <div class="ps-item-title">Convertible Deposits</div>
-            <div class="ps-item-desc">Fixed-yield deposits with optional conversion into HAR at a locked price. Stable yield floor with protocol upside optionality.</div>
           </div>
         </div>
         <div class="ps-item" onclick="show('har',null)">
@@ -1147,12 +1147,12 @@ html, body {
 
       <h2>Why Hold haHYPE or hakHYPE</h2>
       <p><strong>Earn yield on HYPE without selling it.</strong> Capital is deployed across delta-neutral strategies, lending markets, and Pendle principal token positions, generating yield from multiple independent sources while you hold.</p>
-      <p><strong>Automatic compounding.</strong> Yield accrues directly into the share price via the ERC-4626 exchange rate. 1 haHYPE = 1.0198 HYPE today. No action required on your part.</p>
+      <p><strong>Automatic compounding.</strong> Yield accrues directly into the share price via the ERC-4626 exchange rate. No action required on your part.</p>
       <p><strong>Points on top.</strong> Every position automatically accrues Harmonix Points and partner protocol points without any additional steps.</p>
       <p><strong>Ecosystem-native.</strong> Built directly on HyperEVM with capital deployed exclusively across Hyperliquid-native protocols — no bridges, no external dependencies.</p>
 
       <h2>How It Works</h2>
-      <p>When you deposit HYPE, Harmonix uses it as collateral to mint feUSD via Felix Protocol. The feUSD is swapped to USDC, which becomes the basis for the hedge. From there the capital splits: 50% is used to short HYPE on HyperCore, earning 10–15% APR from positive funding rates; the other 50% buys back HYPE and restakes it across HyperEVM protocols — DEXs, money markets, Pendle, and Kinetiq — generating ecosystem yield and points.</p>
+      <p>When you deposit HYPE, Harmonix uses it as collateral to mint feUSD via Felix Protocol. The feUSD is swapped to USDC, which becomes the basis for the hedge. From there the capital splits: 50% is used to short HYPE on HyperCore, earning funding rates from positive carry; the other 50% buys back HYPE and restakes it across HyperEVM protocols — DEXs, money markets, Pendle, and Kinetiq — generating ecosystem yield and points.</p>
       <p>The two legs offset each other's directional exposure. Both sides generate yield simultaneously, with net delta close to zero.</p>
       <p>For hakHYPE, the mechanic is simpler: kHYPE is already yield-bearing as Kinetiq's liquid staked HYPE. Harmonix layers additional yield on top by deploying into Kinetiq Earn, Pendle principal token markets, and cross-protocol lending strategies.</p>
 
@@ -1169,7 +1169,6 @@ html, body {
           <thead><tr><th>Property</th><th>Value</th></tr></thead>
           <tbody>
             <tr><td>Underlying</td><td>HYPE</td></tr>
-            <tr><td>Price Per Share</td><td>1 haHYPE = 1.0198 HYPE</td></tr>
             <tr><td>Minimum Deposit</td><td>0.5 HYPE</td></tr>
             <tr><td>Standard</td><td>ERC-4626</td></tr>
             <tr><td>Withdrawals</td><td>WHYPE</td></tr>
@@ -1197,7 +1196,6 @@ html, body {
           <thead><tr><th>Property</th><th>Value</th></tr></thead>
           <tbody>
             <tr><td>Underlying</td><td>kHYPE (Kinetiq liquid staked HYPE)</td></tr>
-            <tr><td>Price Per Share</td><td>1 hakHYPE = 1.0097 kHYPE</td></tr>
             <tr><td>Minimum Deposit</td><td>0.5 kHYPE</td></tr>
             <tr><td>Standard</td><td>ERC-4626</td></tr>
             <tr><td>Withdrawals</td><td>kHYPE</td></tr>
@@ -1217,7 +1215,7 @@ html, body {
       </div>
 
       <h2>Where Yield Comes From</h2>
-      <p>For haHYPE, the primary source is funding rate income from shorting HYPE perps on HyperCore — historically 10–15% APR when rates are positive. Secondary sources include lending yield from HyperLend, HypurrFi, and Felix, fixed yield from Pendle PT positions, and liquid staking yield via Kinetiq.</p>
+      <p>For haHYPE, the primary source is funding rate income from shorting HYPE perps on HyperCore when rates are positive. Secondary sources include lending yield from HyperLend, HypurrFi, and Felix, fixed yield from Pendle PT positions, and liquid staking yield via Kinetiq.</p>
       <p>For hakHYPE, the base layer is Kinetiq's native staking yield on kHYPE. Pendle PT positions add fixed yield on top, and the HyperLend and Etherfi lending strategies generate additional variable income.</p>
       <p>Net yield is realized after borrow costs, fees, and the idle buffer. It compounds directly into the share price and is reflected in real time in the app.</p>
 
