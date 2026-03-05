@@ -522,8 +522,12 @@ html, body {
   .topbar-link          { display: none !important; }
   /* Topbar: hamburger | breadcrumb | Launch App only */
   .topbar { gap: 0; justify-content: space-between; }
-  .topbar-actions { gap: 8px; }
-  .breadcrumb { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .topbar-actions { gap: 8px; flex-shrink: 0; }
+  .breadcrumb { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; }
+  /* Hide "Harmonix Docs /" prefix on mobile — only show current page name */
+  .breadcrumb .bc-root,
+  .breadcrumb .sep { display: none; }
+  .breadcrumb .page { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
 }
 
 /* 2 ── Safe-area insets: notch + home bar on iOS/Android */
@@ -728,7 +732,7 @@ html, body {
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e2ede8" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <div class="breadcrumb">
-      <span>Harmonix Docs</span>
+      <span class="bc-root">Harmonix Docs</span>
       <span class="sep">/</span>
       <span class="page" id="breadcrumb-page">Welcome</span>
     </div>
