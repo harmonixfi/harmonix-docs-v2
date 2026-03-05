@@ -434,6 +434,7 @@ td a:hover { text-decoration: underline; }
 .ps-item-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text); margin-bottom: 4px; }
 .ps-item-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
 #s-product-suite .page-hero { margin-bottom: 12px !important; padding-bottom: 18px !important; }
+#s-for-developers .page-hero { margin-bottom: 12px !important; padding-bottom: 18px !important; }
 @media(max-width:900px) { .ps-grid { grid-template-columns: 1fr 1fr; } }
 @media(max-width:600px) { .ps-grid { grid-template-columns: 1fr; } }
 
@@ -684,7 +685,7 @@ html, body {
     <hr class="nav-divider">
     <div class="nav-group">
       <div class="nav-group-toggle open" onclick="toggleNav(this)">
-        <span class="nav-group-toggle-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2M14 13l2 2-2 2"/></svg>For Developers</span>
+        <span class="nav-group-toggle-label" style="cursor:pointer;" onclick="show('for-developers',null)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2M14 13l2 2-2 2"/></svg>For Developers</span>
         <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="nav-collapse open">
@@ -786,7 +787,7 @@ html, body {
         </div>
 
         <!-- For Developers -->
-        <div class="wnc" onclick="show('architecture',null)">
+        <div class="wnc" onclick="show('for-developers',null)">
           <div class="wnc-icon wnc-icon-dev" style="height:70px;"></div>
           <div class="wnc-body">
             <div class="wnc-title">For Developers →</div>
@@ -1007,6 +1008,99 @@ html, body {
     </section>
 
     <!-- ── PRODUCT SUITE ── -->
+    <section class="section" id="s-for-developers">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">For Developers</span></div>
+      <div class="page-hero">
+        <span class="page-tag">For Developers</span>
+        <h1>Build on Harmonix</h1>
+        <p class="page-subtitle">Architecture, contracts, integration guides, and the full REST API reference.</p>
+      </div>
+
+      <div class="ps-grid">
+        <div class="ps-item" onclick="show('architecture',null)">
+          <div class="ps-item-banner ps-banner-dev">
+            <div class="ps-item-tags">
+              <span class="ps-tag">HyperEVM</span>
+              <span class="ps-tag">HyperCore</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">Capital Allocation</div>
+            <div class="ps-item-desc">How Harmonix is built on the full Hyperliquid stack — HyperBFT, HyperCore, HyperEVM, and HIP-3 yield-bearing tokens.</div>
+          </div>
+        </div>
+        <div class="ps-item" onclick="show('vault-arch',null)">
+          <div class="ps-item-banner ps-banner-dev">
+            <div class="ps-item-tags">
+              <span class="ps-tag">ERC-4626</span>
+              <span class="ps-tag">ForDeFi</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">Vault Architecture</div>
+            <div class="ps-item-desc">Deep dive into the vault stack: custody, execution agents, NAV oracle, and the security layers protecting each strategy.</div>
+          </div>
+        </div>
+        <div class="ps-item" onclick="show('contracts',null)">
+          <div class="ps-item-banner ps-banner-dev">
+            <div class="ps-item-tags">
+              <span class="ps-tag">Solidity</span>
+              <span class="ps-tag">HyperEVM</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">Smart Contracts</div>
+            <div class="ps-item-desc">Deployed contract addresses, ABIs, and the ERC-4626 vault interface across all Harmonix products.</div>
+          </div>
+        </div>
+        <div class="ps-item" onclick="show('deposits-withdrawals',null)">
+          <div class="ps-item-banner ps-banner-dev">
+            <div class="ps-item-tags">
+              <span class="ps-tag">Deposits</span>
+              <span class="ps-tag">Withdrawals</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">Deposits &amp; Withdrawals</div>
+            <div class="ps-item-desc">Flow diagrams and mechanics for how user funds enter and exit Harmonix vaults, including cool-down and queue logic.</div>
+          </div>
+        </div>
+        <div class="ps-item" onclick="show('api-integration',null)">
+          <div class="ps-item-banner ps-banner-dev">
+            <div class="ps-item-tags">
+              <span class="ps-tag">SC Integration</span>
+              <span class="ps-tag">Whitelist</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">Smart Contract Integration</div>
+            <div class="ps-item-desc">Step-by-step guide for protocols integrating Harmonix vaults directly from a smart contract.</div>
+          </div>
+        </div>
+        <div class="ps-item" onclick="show('api-reference',null)">
+          <div class="ps-item-banner ps-banner-dev">
+            <div class="ps-item-tags">
+              <span class="ps-tag">REST</span>
+              <span class="ps-tag">JSON</span>
+            </div>
+          </div>
+          <div class="ps-item-body">
+            <div class="ps-item-title">API Reference</div>
+            <div class="ps-item-desc">Full REST API reference for vault data, user positions, points, and yield history — with request and response examples.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('overview',null)">
+          <span class="page-nav-dir">← Previous</span><span>Protocol Overview</span>
+        </a>
+        <a class="page-nav-link" onclick="show('architecture',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Capital Allocation</span>
+        </a>
+      </div>
+    </section>
+
     <section class="section" id="s-product-suite">
       <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Product Suite</span></div>
       <div class="page-hero">
