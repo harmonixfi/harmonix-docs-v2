@@ -458,7 +458,7 @@ td a:hover { text-decoration: underline; }
   .sidebar.mobile-open { display: flex !important; }
   .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 199; }
   .sidebar-overlay.open { display: block; }
-  .mobile-close-btn { display: none !important; }
+  .mobile-close-btn { display: flex !important; position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; color: var(--text2); z-index: 201; }
   .main { margin-left: 0; margin-right: 0; }
   .welcome-cards, .product-suite-grid, .cards-grid, .arch-modules, .welcome-nav-cards { grid-template-columns: 1fr; }
   .token-grid { grid-template-columns: 1fr 1fr; }
@@ -633,7 +633,7 @@ html, body {
 <!-- ─── SIDEBAR ─── -->
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar">
-  <button class="mobile-close-btn" onclick="closeSidebar()">
+  <button class="mobile-close-btn" onclick="closeSidebar()" style="display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text2);">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
     <div class="sidebar-logo" style="padding: 20px 20px 18px;">
