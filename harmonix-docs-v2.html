@@ -442,8 +442,8 @@ td a:hover { text-decoration: underline; }
 .wnc { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
 .wnc:hover { border-color: rgba(180,230,100,0.35); transform: translateY(-2px); }
 .wnc-icon { height: 110px; display: flex; align-items: flex-end; padding: 12px 16px; background: linear-gradient(135deg, #162a14 0%, #1e3a1a 50%, #152e12 100%); position: relative; overflow: hidden; }
-.wnc-icon::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); }
-.wnc-icon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 100%); }
+.wnc-icon::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); pointer-events: none; }
+.wnc-icon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 100%); pointer-events: none; }
 .wnc-icon-dev { background: linear-gradient(135deg, #10172a 0%, #151e35 50%, #111828 100%); }
 .wnc-icon-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(80,140,255,0.16) 0%, transparent 60%); }
 .wnc-body { padding: 20px 20px 22px; }
@@ -805,26 +805,34 @@ html, body {
         </div>
       </div>
 
-      <!-- Security + Resources smaller cards -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .2s;" onclick="show('solvency',null)" onmouseover="this.style.borderColor='rgba(245,200,66,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span style="font-size:12px;font-weight:600;color:var(--text);">Security</span>
+      <!-- Security + Resources cards — matching wnc style -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
+        <div class="wnc" onclick="show('solvency',null)">
+          <div class="wnc-icon" style="background:linear-gradient(135deg,#1e1a0a 0%,#2a2310 50%,#1a1808 100%);height:90px;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(245,200,66,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,0.4) 100%);pointer-events:none;"></div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1;">
+              <span onclick="event.stopPropagation();show('solvency',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(245,200,66,0.35);color:#f5c842;">Proof of Solvency</span>
+              <span onclick="event.stopPropagation();show('risks',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(245,200,66,0.35);color:#f5c842;">Risks &amp; Audits</span>
+            </div>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            <span onclick="event.stopPropagation();show('solvency',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#f5c842';this.style.borderColor='rgba(245,200,66,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Proof of Solvency</span>
-            <span onclick="event.stopPropagation();show('risks',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#f5c842';this.style.borderColor='rgba(245,200,66,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Risks &amp; Audits</span>
+          <div class="wnc-body">
+            <div class="wnc-title">Security →</div>
+            <div class="wnc-desc" style="margin-top:5px;">Proof of solvency, risk disclosures, and audit reports.</div>
           </div>
         </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .2s;" onclick="show('points',null)" onmouseover="this.style.borderColor='rgba(160,120,255,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a078ff" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span style="font-size:12px;font-weight:600;color:var(--text);">Resources</span>
+        <div class="wnc" onclick="show('points',null)">
+          <div class="wnc-icon" style="background:linear-gradient(135deg,#160f2a 0%,#1e1535 50%,#130e28 100%);height:90px;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(160,120,255,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,0.4) 100%);pointer-events:none;"></div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1;">
+              <span onclick="event.stopPropagation();show('points',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(160,120,255,0.35);color:#a078ff;">Points &amp; Rewards</span>
+              <span onclick="event.stopPropagation();show('faq',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(160,120,255,0.35);color:#a078ff;">FAQ</span>
+            </div>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            <span onclick="event.stopPropagation();show('points',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#a078ff';this.style.borderColor='rgba(160,120,255,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">Points &amp; Rewards</span>
-            <span onclick="event.stopPropagation();show('faq',null)" style="cursor:pointer;font-size:11px;color:var(--text3);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 7px;transition:all .15s;" onmouseover="this.style.color='#a078ff';this.style.borderColor='rgba(160,120,255,0.4)'" onmouseout="this.style.color='var(--text3)';this.style.borderColor='var(--border)'">FAQ</span>
+          <div class="wnc-body">
+            <div class="wnc-title">Resources →</div>
+            <div class="wnc-desc" style="margin-top:5px;">Points program, rewards, and frequently asked questions.</div>
           </div>
         </div>
       </div>
