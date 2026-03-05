@@ -1777,55 +1777,45 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Smart Contract Integration</h1>
-        <p class="page-subtitle">Reference for integrating directly with Harmonix HYPE vault contracts. Both <strong>haHYPE</strong> (HYPE) and <strong>hakHYPE</strong> (kHYPE) share the same interface — select your vault below.</p>
+        <p class="page-subtitle">haHYPE and hakHYPE share the same contract interface. All examples below use <strong>haHYPE</strong> — to integrate hakHYPE, swap in its contract address and token.</p>
       </div>
 
-      <!-- Integration Flows (toggle with tab) -->
+      <!-- Compact contract reference strip -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px;">
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <span style="font-size:12px;font-weight:600;color:var(--text);">haHYPE</span>
+            <span style="font-size:11px;color:var(--text3);">Deposit: HYPE &nbsp;·&nbsp; Receive: WHYPE</span>
+          </div>
+          <code style="font-size:11px;color:var(--green);word-break:break-all;">0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code>
+          <div style="margin-top:8px;display:flex;gap:10px;">
+            <a href="https://hyperevmscan.io/token/0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c" target="_blank" rel="noopener" style="font-size:11px;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'">Explorer ↗</a>
+            <a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener" style="font-size:11px;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'">App ↗</a>
+          </div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <span style="font-size:12px;font-weight:600;color:var(--text);">hakHYPE</span>
+            <span style="font-size:11px;color:var(--text3);">Deposit: kHYPE &nbsp;·&nbsp; Receive: kHYPE</span>
+          </div>
+          <code style="font-size:11px;color:var(--green);word-break:break-all;">0x1368ee9d1212ae5b26ff166049220051a9eebc42</code>
+          <div style="margin-top:8px;display:flex;gap:10px;">
+            <a href="https://hyperevmscan.io/token/0x1368ee9d1212ae5b26ff166049220051a9eebc42" target="_blank" rel="noopener" style="font-size:11px;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'">Explorer ↗</a>
+            <a href="https://app.harmonix.fi" target="_blank" rel="noopener" style="font-size:11px;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'">App ↗</a>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--text3);margin:-18px 0 28px;">Full contract specs — ABI, all addresses, token details — are on the <a onclick="show('contracts',null)" style="color:var(--text2);cursor:pointer;text-decoration:none;border-bottom:1px solid var(--border2);" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text2)'">Smart Contracts</a> page.</p>
+
+      <!-- Integration Flow -->
       <div id="flow-hype">
-        <h2>Typical Integration Flow</h2>
-        <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Both haHYPE and hakHYPE follow the same four-step pattern. The only difference is the token you deposit and receive on withdrawal.</p>
+        <h2>Integration Flow</h2>
+        <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Both vaults follow the same four-step pattern. The only difference is the token deposited and received.</p>
         <div class="steps">
-          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Approve &amp; Deposit</h4><p>Approve the vault contract to spend your deposit token (<strong>HYPE</strong> for haHYPE, <strong>kHYPE</strong> for hakHYPE), then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. Vault shares are minted immediately to <code>_receiver</code>.</p></div></div>
+          <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Approve &amp; Deposit</h4><p>Approve the vault contract to spend your deposit token, then call <code>depositWithSlippage(_amount, _receiver, _minSharesOut)</code>. Shares are minted immediately to <code>_receiver</code>.</p></div></div>
           <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Initiate Withdrawal</h4><p>When ready to exit, call <code>initiateWithdrawal(_shares, _minAssetsOut)</code>. Shares are locked and the request enters the withdrawal queue.</p></div></div>
-          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Wait for Processing</h4><p>Poll <code>canCompleteWithdraw(_account)</code>. The vault processes withdrawal requests on a cycle — this returns <code>true</code> once your redemption is ready.</p></div></div>
-          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Redeem</h4><p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive your assets. haHYPE returns <strong>WHYPE</strong>; hakHYPE returns <strong>kHYPE</strong>.</p></div></div>
-        </div>
-      </div>
-      <!-- Vault selector -->
-      <div class="stable-tabs" style="margin:32px 0 20px;">
-        <button class="stable-tab active" id="vi-btn-hahype" onclick="showVaultTab('vi-hahype', this)">haHYPE — HYPE Vault</button>
-        <button class="stable-tab" id="vi-btn-hakhype" onclick="showVaultTab('vi-hakhype', this)">hakHYPE — kHYPE Vault</button>
-      </div>
-
-      <!-- haHYPE vault info -->
-      <div id="vi-hahype">
-        <div class="table-wrap" style="margin:0 0 8px;">
-          <table>
-            <thead><tr><th>Property</th><th>Value</th></tr></thead>
-            <tbody>
-              <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hyperevm-delta-neutral-hype-v3" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
-              <tr><td>Contract Address</td><td><code>0xFde5B0626fC80E36885e2fA9cD5ad9d7768D725c</code></td></tr>
-              <tr><td>Explorer</td><td><a href="https://hyperevmscan.io/token/0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c" target="_blank" rel="noopener">hyperevmscan.io ↗</a></td></tr>
-              <tr><td>Deposit Token</td><td>HYPE</td></tr>
-              <tr><td>Withdraw Token</td><td>WHYPE — <code>0x5555555555555555555555555555555555555555</code></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- hakHYPE vault info -->
-      <div id="vi-hakhype" style="display:none;">
-        <div class="table-wrap" style="margin:0 0 8px;">
-          <table>
-            <thead><tr><th>Property</th><th>Value</th></tr></thead>
-            <tbody>
-              <tr><td>Vault App</td><td><a href="https://app.harmonix.fi" target="_blank" rel="noopener">app.harmonix.fi ↗</a></td></tr>
-              <tr><td>Contract Address</td><td><code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
-              <tr><td>Explorer</td><td><a href="https://hyperevmscan.io/token/0x1368ee9d1212ae5b26ff166049220051a9eebc42" target="_blank" rel="noopener">hyperevmscan.io ↗</a></td></tr>
-              <tr><td>Deposit Token</td><td>kHYPE</td></tr>
-              <tr><td>Withdraw Token</td><td>kHYPE</td></tr>
-            </tbody>
-          </table>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Wait for Processing</h4><p>Poll <code>canCompleteWithdraw(_account)</code>. Returns <code>true</code> once the vault has processed your redemption.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Redeem</h4><p>Call <code>redeem(_shares, _receiver, _owner)</code> to burn shares and receive assets. haHYPE returns <strong>WHYPE</strong>; hakHYPE returns <strong>kHYPE</strong>.</p></div></div>
         </div>
       </div>
 
