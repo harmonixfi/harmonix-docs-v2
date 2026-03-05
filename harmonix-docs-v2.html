@@ -771,10 +771,13 @@ html, body {
 
         <!-- Product Suite -->
         <div class="wnc" onclick="show('product-suite',null)">
-          <div class="wnc-body" style="padding:22px;">
+          <div class="wnc-icon" style="height:60px;background:linear-gradient(135deg,#162a14 0%,#1e3a1a 50%,#152e12 100%);position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(200,240,122,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+          </div>
+          <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">Product Suite →</div>
-            <div class="wnc-desc" style="margin-top:6px;">Yield-bearing tokens and the HAR ecosystem, all built natively on Hyperliquid.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;">
+            <div class="wnc-desc" style="margin-top:5px;">Yield-bearing tokens and the HAR ecosystem, all built natively on Hyperliquid.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
               <span onclick="event.stopPropagation();show('stablecoins',null)" class="ps-tag" style="cursor:pointer;">Yield-Bearing Stablecoins</span>
               <span onclick="event.stopPropagation();show('tokens',null)" class="ps-tag" style="cursor:pointer;">Yield-Bearing Tokens</span>
               <span onclick="event.stopPropagation();show('cdharusd',null)" class="ps-tag" style="cursor:pointer;">cdharUSD</span>
@@ -787,10 +790,13 @@ html, body {
 
         <!-- For Developers -->
         <div class="wnc" onclick="show('for-developers',null)">
-          <div class="wnc-body" style="padding:22px;">
+          <div class="wnc-icon wnc-icon-dev" style="height:60px;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(80,140,255,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+          </div>
+          <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">For Developers →</div>
-            <div class="wnc-desc" style="margin-top:6px;">Architecture, smart contracts, integration guides, and the full REST API reference.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;">
+            <div class="wnc-desc" style="margin-top:5px;">Architecture, smart contracts, integration guides, and the full REST API reference.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
               <span onclick="event.stopPropagation();show('architecture',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Capital Allocation</span>
               <span onclick="event.stopPropagation();show('vault-arch',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Vault Architecture</span>
               <span onclick="event.stopPropagation();show('contracts',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(80,140,255,0.3);color:#6ea8fe;">Smart Contracts</span>
@@ -805,20 +811,26 @@ html, body {
       <!-- Security + Resources cards -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
         <div class="wnc" onclick="show('solvency',null)">
-          <div class="wnc-body" style="padding:22px;">
+          <div class="wnc-icon" style="height:60px;background:linear-gradient(135deg,#1e1a0a 0%,#2a2310 50%,#1a1808 100%);position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(245,200,66,0.15) 0%,transparent 65%);pointer-events:none;"></div>
+          </div>
+          <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">Security →</div>
-            <div class="wnc-desc" style="margin-top:6px;">Proof of solvency, risk disclosures, and audit reports.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;">
+            <div class="wnc-desc" style="margin-top:5px;">Proof of solvency, risk disclosures, and audit reports.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
               <span onclick="event.stopPropagation();show('solvency',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(245,200,66,0.35);color:#f5c842;">Proof of Solvency</span>
               <span onclick="event.stopPropagation();show('risks',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(245,200,66,0.35);color:#f5c842;">Risks &amp; Audits</span>
             </div>
           </div>
         </div>
         <div class="wnc" onclick="show('points',null)">
-          <div class="wnc-body" style="padding:22px;">
+          <div class="wnc-icon" style="height:60px;background:linear-gradient(135deg,#160f2a 0%,#1e1535 50%,#130e28 100%);position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(160,120,255,0.15) 0%,transparent 65%);pointer-events:none;"></div>
+          </div>
+          <div class="wnc-body" style="padding:18px 20px 20px;">
             <div class="wnc-title">Resources →</div>
-            <div class="wnc-desc" style="margin-top:6px;">Points program, rewards, and frequently asked questions.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;">
+            <div class="wnc-desc" style="margin-top:5px;">Points program, rewards, and frequently asked questions.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
               <span onclick="event.stopPropagation();show('points',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(160,120,255,0.35);color:#a078ff;">Points &amp; Rewards</span>
               <span onclick="event.stopPropagation();show('faq',null)" class="ps-tag" style="cursor:pointer;border-color:rgba(160,120,255,0.35);color:#a078ff;">FAQ</span>
             </div>
