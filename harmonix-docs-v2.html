@@ -1455,10 +1455,25 @@ html, body {
         <p class="page-subtitle">How the Harmonix vault stack is structured — from ERC-4626 deposits through strategy execution and back to users.</p>
       </div>
 
-      <h2>V1 — Current State</h2>
+      <div class="callout callout-info">
+        <strong>Each vault family runs a distinct architecture.</strong> Harmonix operates multiple vault types, each purpose-built for its underlying strategy and chain. The V1/V2 stack documented below applies specifically to the <strong>haUSDC / haUSDT / haUSDH</strong> vaults. See the summary table below for how other vault families differ.
+      </div>
+
+      <h2>Vault Families Overview</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Vault(s)</th><th>Chain</th><th>Deposit Asset</th><th>Architecture</th></tr></thead>
+        <tbody>
+          <tr><td><strong>haUSDC / haUSDT / haUSDH</strong></td><td>HyperEVM</td><td>USDC / USDT / USDH</td><td>ERC-4626 + Accountant + NAV Oracle + Manager + ForDeFi (V1→V2 roadmap below)</td></tr>
+          <tr><td><strong>haHYPE / hakHYPE (kHYPE)</strong></td><td>HyperEVM</td><td>HYPE / kHYPE</td><td>ERC-4626 with <code>depositWithSlippage</code> / async withdraw queue. No ForDeFi; native HyperEVM execution.</td></tr>
+          <tr><td><strong>HYPE Basis Trade Vault</strong></td><td>Arbitrum</td><td>USDC</td><td>Custom vault. <code>deposit(amount, tokenIn, swapCallData)</code> with KyberSwap swap-in. Two-step async withdrawal via <code>initiateWithdrawal</code> + <code>completeWithdrawal</code>.</td></tr>
+          <tr><td><strong>cdharUSD (CD Vault)</strong></td><td>TBD</td><td>TBD</td><td>Separate architecture — details TBD.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>haUSDC / haUSDT / haUSDH — V1 Current State</h2>
       <p>The V1 vault established the core flow: users deposit assets, an Accountant module calculates price-per-share, a NAV Oracle feeds real-time position data, a Manager executes allocations, and ForDeFi handles operational custody signing.</p>
 
-      <h3>Harmonix Vault Stack — V1 (current state)</h3>
+      <h3>Harmonix Vault Stack — haUSDC / haUSDT / haUSDH, V1 (current state)</h3>
       <div class="arch-modules">
         <div class="arch-module highlight">
           <div class="arch-module-name">Deposits</div>
@@ -1494,7 +1509,7 @@ html, body {
         </div>
       </div>
 
-      <h2>V2 — Phase 1 Upgrades</h2>
+      <h2>haUSDC / haUSDT / haUSDH — V2 Phase 1 Upgrades</h2>
       <p>V2 Phase 1 focuses on security hardening and operational reliability. The core flow is unchanged but every privileged action is now multisig-gated and subject to timelocks.</p>
 
       <h3>Harmonix Vault Stack — V2 Phase 1</h3>
