@@ -364,10 +364,10 @@ td a:hover { text-decoration: underline; }
 .ps-card:hover { border-color: rgba(180,230,100,0.3); transform: translateY(-2px); }
 .ps-card-header { height: 100px; display: flex; align-items: flex-end; padding: 14px 18px; position: relative; overflow: hidden; }
 .ps-card-header::before { content: ""; position: absolute; inset: 0; background: none; }
-.ps-green { background: linear-gradient(135deg, #1a2a18 0%, #243220 100%); }
-.ps-green2 { background: linear-gradient(135deg, #182418 0%, #1e2e1a 100%); }
-.ps-yellow { background: linear-gradient(135deg, #28220e 0%, #302810 100%); }
-.ps-orange { background: linear-gradient(135deg, #28180e 0%, #301e10 100%); }
+.ps-green { background: var(--bg); }
+.ps-green2 { background: var(--bg); }
+.ps-yellow { background: var(--bg); }
+.ps-orange { background: var(--bg); }
 .ps-card-tokens { display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 1; }
 .ps-card-body { padding: 18px 18px 20px; }
 .ps-card-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 7px; }
@@ -413,7 +413,7 @@ td a:hover { text-decoration: underline; }
 .ps-item { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: border-color 0.22s, transform 0.22s; display: flex; flex-direction: column; }
 .ps-item:hover { border-color: rgba(180,230,100,0.32); transform: translateY(-3px); }
 .ps-item-banner { height: 80px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 10px 14px; }
-.ps-item-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.45) 100%); }
+.ps-item-banner::after { content: ""; position: absolute; inset: 0; background: var(--bg) 100%); }
 .ps-banner-stable { background: var(--bg); }
 .ps-banner-hype   { background: var(--bg); }
 .ps-banner-cd     { background: var(--bg); }
