@@ -414,12 +414,12 @@ td a:hover { text-decoration: underline; }
 .ps-item:hover { border-color: rgba(180,230,100,0.32); transform: translateY(-3px); }
 .ps-item-banner { height: 80px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 10px 14px; }
 .ps-item-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.45) 100%); }
-.ps-banner-stable { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
-.ps-banner-hype   { background: linear-gradient(135deg, #1a2a18 0%, #1e3320 50%, #162a14 100%); }
-.ps-banner-cd     { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
-.ps-banner-har    { background: linear-gradient(135deg, #1a2408 0%, #222e08 50%, #182208 100%); }
-.ps-banner-dev    { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
-.ps-banner-pts    { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
+.ps-banner-stable { background: var(--bg); }
+.ps-banner-hype   { background: var(--bg); }
+.ps-banner-cd     { background: var(--bg); }
+.ps-banner-har    { background: var(--bg); }
+.ps-banner-dev    { background: var(--bg); }
+.ps-banner-pts    { background: var(--bg); }
 .ps-item-banner::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); z-index: 0; }
 .ps-banner-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
 .ps-banner-pts::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
