@@ -420,23 +420,23 @@ td a:hover { text-decoration: underline; }
 .ps-banner-dev    { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
 .ps-banner-pts    { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
 .ps-item-banner::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); z-index: 0; }
-.ps-banner-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(80,140,255,0.16) 0%, transparent 60%); }
-.ps-banner-pts::before { background: radial-gradient(ellipse at 75% 25%, rgba(180,80,255,0.13) 0%, transparent 60%); }
-.ps-banner-har::before { background: radial-gradient(ellipse at 75% 25%, rgba(245,150,50,0.13) 0%, transparent 60%); }
+.ps-banner-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
+.ps-banner-pts::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
+.ps-banner-har::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
 .ps-banner-cd::before  { background: radial-gradient(ellipse at 75% 25%, rgba(245,200,66,0.12) 0%, transparent 60%); }
 .ps-item-tags { display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 1; }
 .ps-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 9px; border-radius: 6px; border: 1px solid rgba(200,240,122,0.25); background: rgba(0,0,0,0.35); color: var(--green); font-weight: 500; backdrop-filter: blur(4px); }
 .wnc-pill { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; border: 1px solid rgba(200,240,122,0.22); background: rgba(0,0,0,0.25); color: var(--green); font-weight: 500; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
 .wnc-pill:hover { border-color: rgba(200,240,122,0.5); color: #c8f07a; }
-.wnc-pill-dev { border-color: rgba(80,140,255,0.25); color: #6ea8fe; }
+.wnc-pill-dev { border-color: rgba(80,140,255,0.25); color: var(--green); }
 .wnc-pill-dev:hover { border-color: rgba(80,140,255,0.55); color: #90bfff; }
 .wnc-pill-sec { border-color: rgba(245,200,66,0.25); color: #f5c842; }
 .wnc-pill-sec:hover { border-color: rgba(245,200,66,0.55); color: #ffd95a; }
 .wnc-pill-res { border-color: rgba(160,120,255,0.25); color: #a078ff; }
 .wnc-pill-res:hover { border-color: rgba(160,120,255,0.55); color: #bf9fff; }
-.ps-banner-dev .ps-tag { border-color: rgba(80,140,255,0.3); color: #6ea8fe; }
-.ps-banner-pts .ps-tag { border-color: rgba(180,80,255,0.3); color: #c084fc; }
-.ps-banner-har .ps-tag { border-color: rgba(245,150,50,0.3); color: #fb923c; }
+.ps-banner-dev .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--green); }
+.ps-banner-pts .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--green); }
+.ps-banner-har .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--yellow); }
 .ps-banner-cd .ps-tag  { border-color: rgba(245,200,66,0.3); color: var(--yellow); }
 .ps-item-body { padding: 11px 14px 13px; flex: 1; }
 .ps-item-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text); margin-bottom: 4px; }
@@ -454,7 +454,7 @@ td a:hover { text-decoration: underline; }
 .wnc-icon::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); pointer-events: none; }
 .wnc-icon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 100%); pointer-events: none; }
 .wnc-icon-dev { background: linear-gradient(135deg, #0f1e12 0%, #142a16 50%, #101e12 100%); }
-.wnc-icon-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(80,140,255,0.16) 0%, transparent 60%); }
+.wnc-icon-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
 .wnc-body { padding: 20px 20px 22px; }
 .wnc-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 7px; }
 .wnc-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
