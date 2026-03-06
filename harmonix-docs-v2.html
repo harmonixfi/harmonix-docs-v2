@@ -75,8 +75,8 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .topbar {
   position: sticky; top: 0; z-index: 50;
   background: rgba(5,12,7,0.98); backdrop-filter: blur(10px);
-  border-bottom:  1px solid var(--border);
-  width: 100%; padding: 0 40px;
+  border-bottom: 1px solid var(--border);
+  width: calc(100% + var(--sidebar)); margin-left: calc(-1 * var(--sidebar)); padding: 0 40px 0 calc(var(--sidebar) + 40px);
   height: 52px; display: flex; align-items: center; justify-content: space-between;
 }
 .breadcrumb { font-size: 13px; color: var(--text3); display: flex; align-items: center; gap: 7px; }
