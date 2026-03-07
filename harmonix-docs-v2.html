@@ -713,7 +713,7 @@ html, body {
         <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="nav-collapse open">
-        <a class="nav-item" onclick="show('architecture',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Capital Allocation</a>
+        <a class="nav-item" onclick="show('vault-arch',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Capital Allocation &amp; Vault Architecture</a>
         <a class="nav-item" onclick="show('vault-arch',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Vault Architecture</a>
         <a class="nav-item" onclick="show('contracts',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Smart Contracts</a>
         <a class="nav-item" onclick="show('deposits-withdrawals',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>Deposits & Withdrawals</a>
@@ -821,7 +821,7 @@ html, body {
             <div class="wnc-title">For Developers →</div>
             <div class="wnc-desc" style="margin-top:5px;">Architecture, smart contracts, integration guides, and the full REST API reference.</div>
             <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('architecture',null)" class="wnc-pill wnc-pill-dev">Capital Allocation</span>
+              <span onclick="event.stopPropagation();show('vault-arch',null)" class="wnc-pill wnc-pill-dev">Capital Allocation &amp; Vault Architecture</span>
               <span onclick="event.stopPropagation();show('vault-arch',null)" class="wnc-pill wnc-pill-dev">Vault Architecture</span>
               <span onclick="event.stopPropagation();show('contracts',null)" class="wnc-pill wnc-pill-dev">Smart Contracts</span>
               <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" class="wnc-pill wnc-pill-dev">Deposits &amp; Withdrawals</span>
@@ -1043,7 +1043,7 @@ html, body {
           <div class="ps-item-body" style="padding:20px;">
             <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Developer Resources →</div>
             <div class="ps-item-desc" style="margin-bottom:14px;">Architecture docs, smart contract references, and integration guides for builders working with Harmonix vaults on HyperEVM.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">Capital Allocation</span><span class="ps-tag">Vault Architecture</span><span class="ps-tag">Smart Contracts</span></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">Capital Allocation &amp; Vault Architecture</span><span class="ps-tag">Vault Architecture</span><span class="ps-tag">Smart Contracts</span></div>
           </div>
         </div>
         <div class="ps-item" onclick="show('points',null)">
@@ -1066,60 +1066,6 @@ html, body {
     </section>
 
     <!-- ── ARCHITECTURE ── -->
-    <section class="section" id="s-architecture">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Technical Architecture</span></div>
-      <div class="page-hero">
-        <span class="page-tag">Getting Started</span>
-        <h1>Technical Architecture</h1>
-        <p class="page-subtitle">How Harmonix is built on the full Hyperliquid stack.</p>
-      </div>
-
-      <h2>The Hyperliquid Stack</h2>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Layer</th><th>Component</th><th>Role in Harmonix</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Consensus</strong></td><td>HyperBFT</td><td>One-block finality. All vault operations and funding events settle instantly.</td></tr>
-          <tr><td><strong>Execution</strong></td><td>HyperCore</td><td>Primary yield source. Perpetuals for funding income, spot for long-side hedge, staking for HYPE yield.</td></tr>
-          <tr><td><strong>Smart Contracts</strong></td><td>HyperEVM</td><td>Where all Harmonix vault contracts and ha-token contracts live. ERC-4626 standard.</td></tr>
-          <tr><td><strong>Native Tokens</strong></td><td>HIP-3</td><td>Felix feUSD, Ondo USDY, Hyna sUSDe — yield-bearing spot tokens used as strategy inputs.</td></tr>
-          <tr><td><strong>Protocols</strong></td><td>Felix, Ondo, Hyna, HyperLend, Kinetiq, Pendle</td><td>Composable yield sources layered on top of base funding income.</td></tr>
-        </tbody>
-      </table></div>
-
-      <h2>HIP-3 Integration</h2>
-      <p>HIP-3 is Hyperliquid's native token standard for yield-bearing spot assets. Harmonix uses three HIP-3 markets as core strategy inputs:</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>HIP-3 Token</th><th>Protocol</th><th>Used In</th><th>Role</th></tr></thead>
-        <tbody>
-          <tr><td><code>feUSD</code></td><td>Felix</td><td>haUSDC, cdharUSD</td><td>CDP stablecoin. USDC deposited to mint feUSD providing base stablecoin yield on HyperCore.</td></tr>
-          <tr><td><code>USDY</code></td><td>Ondo Finance</td><td>haUSDC</td><td>Tokenized T-bill yield. Provides real-world yield on the stable portion of the vault.</td></tr>
-          <tr><td><code>sUSDe</code></td><td>Hyna (Ethena HIP-3)</td><td>haUSDC, haUSDH</td><td>Staked USDe. Provides stablecoin staking yield from the Ethena ecosystem on HyperCore.</td></tr>
-        </tbody>
-      </table></div>
-      <div class="callout info">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-        <div class="callout-body">HIP-3 tokens trade natively on HyperCore spot markets. Harmonix can hold, trade, and yield-accrue these assets without leaving the Hyperliquid execution environment — no bridges required.</div>
-      </div>
-
-      <h2>Oracle Setup</h2>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Asset</th><th>Oracle</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>haHYPE, hakHYPE</td><td>Pyth Network</td><td>Used for NAV Oracle and collateral pricing</td></tr>
-          <tr><td>haUSDC</td><td>Pyth or Chainlink (TBD)</td><td>Under evaluation for V2 launch</td></tr>
-        </tbody>
-      </table></div>
-
-      <div class="page-nav">
-        <a class="page-nav-link" onclick="show('overview',null)">
-          <span class="page-nav-dir">← Previous</span><span>Protocol Overview</span>
-        </a>
-        <a class="page-nav-link" onclick="show('stablecoins',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span><span>Yield-Bearing Stablecoins</span>
-        </a>
-      </div>
-    </section>
-
     <!-- ── PRODUCT SUITE ── -->
     <section class="section" id="s-for-developers">
       <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">For Developers</span></div>
@@ -1130,7 +1076,7 @@ html, body {
       </div>
 
       <div class="ps-grid">
-        <div class="ps-item" onclick="show('architecture',null)">
+        <div class="ps-item" onclick="show('vault-arch',null)">
           <div class="ps-item-body" style="padding:20px;">
             <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Capital Allocation →</div>
             <div class="ps-item-desc" style="margin-bottom:14px;">How Harmonix is built on the full Hyperliquid stack — HyperBFT, HyperCore, HyperEVM, and HIP-3 yield-bearing tokens.</div>
@@ -1178,8 +1124,8 @@ html, body {
         <a class="page-nav-link" onclick="show('overview',null)">
           <span class="page-nav-dir">← Previous</span><span>Protocol Overview</span>
         </a>
-        <a class="page-nav-link" onclick="show('architecture',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span><span>Capital Allocation</span>
+        <a class="page-nav-link" onclick="show('vault-arch',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Capital Allocation &amp; Vault Architecture</span>
         </a>
       </div>
     </section>
@@ -1311,7 +1257,7 @@ html, body {
       </div>
 
       <div class="page-nav">
-        <a class="page-nav-link" onclick="show('architecture',null)">
+        <a class="page-nav-link" onclick="show('vault-arch',null)">
           <span class="page-nav-dir">← Previous</span><span>Technical Architecture</span>
         </a>
         <a class="page-nav-link" onclick="show('tokens',null)" style="text-align:right">
@@ -1365,7 +1311,7 @@ html, body {
             <tr><td>Points Accrued</td><td>Harmonix, HyperLend, Felix, HypurrFi, kPoints, Ventuals</td></tr>
           </tbody>
         </table></div>
-        <h3>Capital Allocation</h3>
+        <h3>Capital Allocation &amp; Vault Architecture</h3>
         <div class="table-wrap"><table>
           <thead><tr><th>Strategy</th><th>Protocol</th></tr></thead>
           <tbody>
@@ -1392,7 +1338,7 @@ html, body {
             <tr><td>Points Accrued</td><td>Harmonix, HyperLend, HypurrFi</td></tr>
           </tbody>
         </table></div>
-        <h3>Capital Allocation</h3>
+        <h3>Capital Allocation &amp; Vault Architecture</h3>
         <div class="table-wrap"><table>
           <thead><tr><th>Strategy</th><th>Protocol</th></tr></thead>
           <tbody>
@@ -1615,19 +1561,55 @@ html, body {
           <span class="page-nav-dir">← Previous</span><span>HAR Token</span>
         </a>
         <a class="page-nav-link" onclick="show('vault-arch',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span><span>Vault Architecture</span>
+          <span class="page-nav-dir">Next →</span><span>Capital Allocation &amp; Vault Architecture</span>
         </a>
       </div>
     </section>
 
     <!-- ── VAULT ARCH ── -->
     <section class="section" id="s-vault-arch">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Vault Architecture</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Capital Allocation &amp; Vault Architecture</span></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
-        <h1>Vault Architecture</h1>
-        <p class="page-subtitle">How the Harmonix vault stack is structured — from ERC-4626 deposits through strategy execution and back to users.</p>
+        <h1>Capital Allocation &amp; Vault Architecture</h1>
+        <p class="page-subtitle">How Harmonix allocates capital across the Hyperliquid stack and how the vault stack is structured end-to-end.</p>
       </div>
+
+      <h2>The Hyperliquid Stack</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Layer</th><th>Component</th><th>Role in Harmonix</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Consensus</strong></td><td>HyperBFT</td><td>One-block finality. All vault operations and funding events settle instantly.</td></tr>
+          <tr><td><strong>Execution</strong></td><td>HyperCore</td><td>Primary yield source. Perpetuals for funding income, spot for long-side hedge, staking for HYPE yield.</td></tr>
+          <tr><td><strong>Smart Contracts</strong></td><td>HyperEVM</td><td>Where all Harmonix vault contracts and ha-token contracts live. ERC-4626 standard.</td></tr>
+          <tr><td><strong>Native Tokens</strong></td><td>HIP-3</td><td>Felix feUSD, Ondo USDY, Hyna sUSDe — yield-bearing spot tokens used as strategy inputs.</td></tr>
+          <tr><td><strong>Protocols</strong></td><td>Felix, Ondo, Hyna, HyperLend, Kinetiq, Pendle</td><td>Composable yield sources layered on top of base funding income.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>HIP-3 Integration</h2>
+      <p>HIP-3 is Hyperliquid's native token standard for yield-bearing spot assets. Harmonix uses three HIP-3 markets as core strategy inputs:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>HIP-3 Token</th><th>Protocol</th><th>Used In</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>feUSD</code></td><td>Felix</td><td>haUSDC, cdharUSD</td><td>CDP stablecoin. USDC deposited to mint feUSD providing base stablecoin yield on HyperCore.</td></tr>
+          <tr><td><code>USDY</code></td><td>Ondo Finance</td><td>haUSDC</td><td>Tokenized T-bill yield. Provides real-world yield on the stable portion of the vault.</td></tr>
+          <tr><td><code>sUSDe</code></td><td>Hyna (Ethena HIP-3)</td><td>haUSDC, haUSDH</td><td>Staked USDe. Provides stablecoin staking yield from the Ethena ecosystem on HyperCore.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout info">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body">HIP-3 tokens trade natively on HyperCore spot markets. Harmonix can hold, trade, and yield-accrue these assets without leaving the Hyperliquid execution environment — no bridges required.</div>
+      </div>
+
+      <h2>Oracle Setup</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Asset</th><th>Oracle</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>haHYPE, hakHYPE</td><td>Pyth Network</td><td>Used for NAV Oracle and collateral pricing</td></tr>
+          <tr><td>haUSDC</td><td>Pyth or Chainlink (TBD)</td><td>Under evaluation for V2 launch</td></tr>
+        </tbody>
+      </table></div>
 
       <div class="callout info">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
@@ -1818,7 +1800,7 @@ html, body {
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('vault-arch',null)">
-          <span class="page-nav-dir">← Previous</span><span>Vault Architecture</span>
+          <span class="page-nav-dir">← Previous</span><span>Capital Allocation &amp; Vault Architecture</span>
         </a>
         <a class="page-nav-link" onclick="show('deposits-withdrawals',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span><span>Deposits &amp; Withdrawals</span>
