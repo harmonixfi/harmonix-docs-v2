@@ -288,7 +288,7 @@ td a:hover { text-decoration: underline; }
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:900px){
-  .sidebar{display:none;}
+  .sidebar{display:none;position:fixed;top:0;left:0;height:100vh;width:280px;z-index:200;overflow-y:auto;}
   .main{margin-left:0;}
   .content{padding:32px 20px 80px;}
   .token-grid{grid-template-columns:1fr 1fr;}
