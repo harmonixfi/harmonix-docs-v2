@@ -451,7 +451,7 @@ td a:hover { text-decoration: underline; }
 .welcome-nav-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 40px; }
 .wnc { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
 .wnc:hover { border-color: rgba(180,230,100,0.35); transform: translateY(-2px); }
-.wnc-icon { height: 110px; display: flex; align-items: flex-end; padding: 12px 16px; background: var(--bg); position: relative; overflow: hidden; }
+.wnc-icon { height: 0px; display: flex; align-items: flex-end; padding: 12px 16px; background: var(--bg); position: relative; overflow: hidden; }
 .wnc-icon::before { content: ""; position: absolute; inset: 0; background: none; pointer-events: none; }
 .wnc-icon::after { content: ""; position: absolute; inset: 0; background: none; pointer-events: none; }
 .wnc-icon-dev { background: var(--bg); }
@@ -615,7 +615,7 @@ html, body {
   .step { gap: 12px; }
 
   /* Nav cards */
-  .wnc-icon { height: 85px; }
+  .wnc-icon { height: 0px; }
   .wnc-body { padding: 16px; }
 
   /* Grids tighter */
