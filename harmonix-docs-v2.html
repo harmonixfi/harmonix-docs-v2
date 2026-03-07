@@ -1721,17 +1721,6 @@ html, body {
         <p class="page-subtitle">All Harmonix contracts are deployed on HyperEVM. ERC-4626 standard throughout.</p>
       </div>
 
-      <div class="contract-card">
-        <div class="contract-card-header">
-          <span class="ticker-badge">HYPE-BASIS</span>
-          <div class="card-title-block"><span class="card-name">HYPE Basis Trade Vault</span></div>
-          <div class="card-tags"><span class="tag green">ERC-4626</span><span class="tag grey">Arbitrum</span></div>
-        </div>
-        <div class="contract-card-row"><span class="contract-card-label">Contract</span><div class="addr-wrap"><code>0xF12F8753C25F8005311a24bbbA1f7209249B00e3</code><button class="copy-btn" onclick="copyAddr(this,'0xF12F8753C25F8005311a24bbbA1f7209249B00e3')">copy</button></div></div>
-        <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">Arbitrum</span></div>
-        <div class="contract-card-row"><span class="contract-card-label">Deposit Token</span><span class="contract-card-val">USDC — <code>0xaf88d065e77c8cc2239327c5edb3a432268e5831</code></span></div>
-        <div class="contract-card-row"><span class="contract-card-label">Explorer</span><a href="https://arbiscan.io/address/0xF12F8753C25F8005311a24bbbA1f7209249B00e3" target="_blank" style="font-size:13px;color:var(--green);">View on Arbiscan ↗</a></div>
-      </div>
       <h2>Integration Guide</h2>
       <h3>Depositing (ERC-4626)</h3>
       <p>All Harmonix vaults implement the standard ERC-4626 interface. To deposit:</p>
@@ -1752,7 +1741,19 @@ html, body {
       <h3>Reading NAV / Price Per Share</h3>
       <p>Call <code>pricePerShare()</code> or <code>convertToAssets(1e18)</code> on any vault contract to get the current NAV-based exchange rate. This is updated by the automated NAV Oracle pipeline.</p>
 
-      <h2>Deployed Token Contracts</h2>
+      <h2>Deployed Contracts</h2>
+
+      <div class="contract-card">
+        <div class="contract-card-header">
+          <span class="ticker-badge">HYPE-BASIS</span>
+          <div class="card-title-block"><span class="card-name">HYPE Basis Trade Vault</span></div>
+          <div class="card-tags"><span class="tag green">ERC-4626</span><span class="tag grey">Arbitrum</span></div>
+        </div>
+        <div class="contract-card-row"><span class="contract-card-label">Contract</span><div class="addr-wrap"><code>0xF12F8753C25F8005311a24bbbA1f7209249B00e3</code><button class="copy-btn" onclick="copyAddr(this,'0xF12F8753C25F8005311a24bbbA1f7209249B00e3')">copy</button></div></div>
+        <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">Arbitrum</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Deposit Token</span><span class="contract-card-val">USDC — <code>0xaf88d065e77c8cc2239327c5edb3a432268e5831</code></span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Explorer</span><a href="https://arbiscan.io/address/0xF12F8753C25F8005311a24bbbA1f7209249B00e3" target="_blank" style="font-size:13px;color:var(--green);">View on Arbiscan ↗</a></div>
+      </div>
       <p>All Harmonix tokens are deployed on HyperEVM as ERC-20 tokens using a <code>TransparentUpgradeableProxy</code> / <code>ERC1967Proxy</code> pattern, consistent with the Veda framework used for yield-bearing vault tokens.</p>
 
 
