@@ -2134,109 +2134,67 @@ html, body {
         </table>
       </div>
 
-      <h2>Write Functions</h2>
+      <h2>Strategy</h2>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">The vault runs a fully delta-neutral basis trade on HYPE, capturing funding rates without any directional price exposure.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Deposit USDC</h4><p>Users deposit USDC into the vault. USDT and DAI are also accepted and swapped on deposit.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>50/50 Position Split</h4><p>Capital is split evenly: 50% buys $HYPE spot, 50% shorts $HYPE perpetuals on Hyperliquid at 1× leverage.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Delta-Neutral Exposure</h4><p>The long spot and short perp legs offset each other's price exposure. The vault earns Hyperliquid funding rates without relying on HYPE price movements.</p></div></div>
+      </div>
 
-      <div style="margin:28px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">deposit</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function deposit(uint256 amount, address tokenIn, bytes swapCallData) external</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Deposits tokens into the vault. Supports USDC, USDT, and DAI. Pass <code>swapCallData = '0x'</code> when depositing USDC directly. For USDT or DAI, fetch calldata from the <a href="https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/aggregator-api-specification/evm-swaps" target="_blank" rel="noopener" style="color:var(--green);">KyberSwap Aggregator API ↗</a>.</p>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+      <h2>Rewards</h2>
+      <div class="table-wrap" style="margin:0 0 32px;">
+        <table>
+          <thead><tr><th>Source</th><th>Details</th></tr></thead>
           <tbody>
-            <tr><td><code>amount</code></td><td><code>uint256</code></td><td>Amount of tokens to deposit.</td></tr>
-            <tr><td><code>tokenIn</code></td><td><code>address</code></td><td>ERC-20 token to deposit. Accepted: USDC, USDT, DAI.</td></tr>
-            <tr><td><code>swapCallData</code></td><td><code>bytes</code></td><td>Swap calldata from KyberSwap. Pass <code>'0x'</code> for USDC.</td></tr>
+            <tr><td>Funding Rate Yield</td><td>Earned continuously from the short perpetual leg on HyperCore when funding is positive.</td></tr>
+            <tr><td>Harmonix Points</td><td>Accrued automatically throughout the deposit period — no additional steps required.</td></tr>
           </tbody>
-        </table></div>
+        </table>
       </div>
 
-      <div style="margin:32px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">initiateWithdrawal</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function initiateWithdrawal(uint256 shares) external</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 1 of the two-phase withdrawal. Locks shares in the queue to be finalized via <code>completeWithdrawal()</code>.</p>
-        <div class="callout warn" style="margin:10px 0 12px;">
-          <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" width="16" height="16"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3L13.71 4.14a2 2 0 0 0-3.42-.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-          <div class="callout-body">Withdrawal is a two-step process. Call <code>initiateWithdrawal()</code> first, wait for processing, then call <code>completeWithdrawal()</code>. Use <code>canCompleteWithdraw()</code> to check readiness.</div>
-        </div>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
-          <tbody><tr><td><code>shares</code></td><td><code>uint256</code></td><td>Number of shares to lock for withdrawal.</td></tr></tbody>
-        </table></div>
+      <h2>Risks &amp; Costs</h2>
+
+      <h3 style="margin:24px 0 10px;font-size:15px;">Deposit Costs</h3>
+      <div class="table-wrap" style="margin:0 0 20px;">
+        <table>
+          <thead><tr><th>Cost</th><th>Amount</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Trading Fees</td><td>0.06%</td><td>0.03% per trade × 2 (spot + perp) on Hyperliquid.</td></tr>
+            <tr><td>Estimated Slippage</td><td>0.02%</td><td>Price impact on entry.</td></tr>
+            <tr><td><strong>Total Entry Cost</strong></td><td><strong>0.08%</strong></td><td>Stay in the vault long enough for funding yield to cover this before withdrawing.</td></tr>
+          </tbody>
+        </table>
       </div>
 
-      <div style="margin:32px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag green" style="font-family:'IBM Plex Mono',monospace;font-size:11px;">WRITE</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">completeWithdrawal</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--green);margin-bottom:14px;">function completeWithdrawal(uint256 shares) external</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Step 2 of the two-phase withdrawal. Burns the locked shares and transfers the equivalent <strong>USDC</strong> to the caller. Only call after <code>canCompleteWithdraw()</code> returns <code>true</code>.</p>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
-          <tbody><tr><td><code>shares</code></td><td><code>uint256</code></td><td>Number of shares to redeem.</td></tr></tbody>
-        </table></div>
+      <h3 style="margin:24px 0 10px;font-size:15px;">Spread Risk</h3>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:16px;">The spread is the price difference between the spot and perpetual futures markets. It can affect your PnL when positions are closed.</p>
+      <div class="table-wrap" style="margin:0 0 32px;">
+        <table>
+          <thead><tr><th>Scenario</th><th>Entry</th><th>Exit</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag green" style="font-size:10px;">Profit</span></td>
+              <td>Short $HYPE at $26.20 (perp) vs $26.00 (spot)</td>
+              <td>Spot $26.00 · Perp $25.80 — spread narrows</td>
+              <td>+$0.40 spread profit per HYPE</td>
+            </tr>
+            <tr>
+              <td><span class="tag" style="font-size:10px;background:rgba(255,80,80,0.1);color:#ff6b6b;border:1px solid rgba(255,80,80,0.25);">Loss</span></td>
+              <td>Short $HYPE at $26.20 (perp) vs $26.00 (spot)</td>
+              <td>Spot $28.00 · Perp $28.50 — spread widens</td>
+              <td>−$0.30 spread loss per HYPE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" width="16" height="16"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3L13.71 4.14a2 2 0 0 0-3.42-.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div class="callout-body">Positive funding rates can offset spread losses, but not always entirely. Ensure you stay in the vault long enough for funding earnings to cover entry costs before withdrawing.</div>
       </div>
 
-      <h2>Read Functions</h2>
-
-      <div style="margin:28px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">balanceOf</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function balanceOf(address owner) external view returns (uint256)</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns vault shares currently owned by a given address.</p>
-        <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>owner</code></td><td><code>address</code></td><td>Address to query.</td></tr></tbody></table></div>
-        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — number of shares owned.</p>
-      </div>
-
-      <div style="margin:32px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">getUserWithdrawlShares</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function getUserWithdrawlShares(address owner) external view returns (uint256)</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns the number of shares currently locked in the withdrawal queue for a user.</p>
-        <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>owner</code></td><td><code>address</code></td><td>Address to query.</td></tr></tbody></table></div>
-        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — shares pending withdrawal.</p>
-      </div>
-
-      <div style="margin:32px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">pricePerShare</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function pricePerShare() external view returns (uint256)</pre>
-        <p style="font-size:13.5px;color:var(--text2);">Current value of one vault share denominated in USDC. Grows over time as yield accrues.</p>
-        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — price of 1 share in USDC.</p>
-      </div>
-
-      <div style="margin:32px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">totalValueLocked</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function totalValueLocked() external view returns (uint256)</pre>
-        <p style="font-size:13.5px;color:var(--text2);">Total USDC value of all assets currently managed by the vault.</p>
-        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>uint256</code> — total asset value in USDC.</p>
-      </div>
-
-      <div style="margin:32px 0 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <span class="tag" style="background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:11px;font-family:'IBM Plex Mono',monospace;">VIEW</span>
-          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--text);">canCompleteWithdraw</h3>
-        </div>
-        <pre style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:#64b4ff;margin-bottom:14px;">function canCompleteWithdraw(address user) external view returns (bool)</pre>
-        <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px;">Returns <code>true</code> when the vault has processed the user's withdrawal request and <code>completeWithdrawal()</code> can be safely called.</p>
-        <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>user</code></td><td><code>address</code></td><td>Address to check.</td></tr></tbody></table></div>
-        <p style="font-size:12.5px;color:var(--text3);margin-top:8px;">↩ Returns <code>bool</code> — <code>true</code> if <code>completeWithdrawal()</code> can be called.</p>
-      </div>
+      <h3 style="margin:28px 0 10px;font-size:15px;">Track Performance</h3>
+      <p style="color:var(--text2);font-size:14px;">Monitor live vault performance on the <a href="https://app.harmonix.fi/dashboards/ba33d0f9-aa1f-4b59-af87-d0751ccb4dd3" target="_blank" rel="noopener" style="color:var(--green);">Harmonix Dashboard ↗</a>.</p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('api-integration',null)">
