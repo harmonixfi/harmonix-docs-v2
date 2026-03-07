@@ -998,19 +998,13 @@ html, body {
       <p>Harmonix is built directly on Hyperliquid's execution environment, so funding markets, lending, and trading activity feed user yield without bridges, external oracles, or lag. Everything runs on the same stack — from consensus to application.</p>
 
       <h2>Built on Hyperliquid</h2>
-      <p>Harmonix runs on Hyperliquid's full stack. HyperBFT provides consensus and one-block finality. HyperCore is the primary source of funding income — perpetuals, spot, and staking. HyperEVM is where Harmonix vaults and ha-token contracts are deployed, alongside ecosystem protocols that supply additional yield and incentives.</p>
-
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Layer</th><th>What It Does</th><th>Harmonix Use</th></tr></thead>
-          <tbody>
-            <tr><td><strong>HyperBFT</strong></td><td>Consensus, one-block finality</td><td>Settlement and execution certainty</td></tr>
-            <tr><td><strong>HyperCore</strong></td><td>Perpetuals, spot, staking</td><td>Primary source of funding income</td></tr>
-            <tr><td><strong>HyperEVM</strong></td><td>EVM execution environment</td><td>Vault contracts, ha-tokens, ecosystem protocols</td></tr>
-            <tr><td><strong>HIP-3</strong></td><td>Native yield-bearing spot tokens</td><td>Felix feUSD, Ondo USDY, Hyna sUSDe as strategy inputs</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Harmonix is built on Hyperliquid's L1, using HyperBFT for consensus, HyperEVM for execution, and connected to HyperCore for native protocol access. Users who deposit earn native yield (Perps funding rates, Lending, Borrowing, Staking, etc.) as well as tokens from the HyperEVM ecosystem as a reward for early contributions to the protocol.</p>
+      <img src="tech_stack.avif" alt="Harmonix Tech Stack" style="width:100%;display:block;margin:24px auto;border-radius:12px;" />
+      <ol style="margin:24px 0;padding-left:24px;line-height:1.8;">
+        <li><strong>HyperBFT:</strong> Is the consensus layer where transactions are validated, keeping HyperCore and HyperEVM fast and synchronised.</li>
+        <li><strong>HyperCore:</strong> Is the execution layer where the Hyperliquid protocol is built, so Perps, Staking, spot and HLP are here.</li>
+        <li><strong>HyperEVM:</strong> Is the execution layer where Harmonix is built, also housing additional protocols like Felix, Hyperswap, Kinetiq and more.</li>
+      </ol>
 
       <h2>How Yield is Generated</h2>
       <p>At the core of Harmonix is a basis-trade engine that pairs spot holdings with perpetual futures on HyperCore to neutralize price direction and earn funding payments. Funding income is layered with ecosystem yield from lending, staking, and looping across HyperEVM protocols — Felix, Hyperswap, Kinetiq, and others — allowing one position to generate yield from multiple independent sources simultaneously.</p>
