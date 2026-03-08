@@ -308,6 +308,16 @@ td a:hover { text-decoration: underline; }
 
 /* shrink content to make room for toc */
 
+
+/* Force mobile menu to show on small screens */
+@media (max-width: 900px) {
+  .mobile-menu-btn {
+    display: flex !important;
+    position: relative;
+    z-index: 1000;
+  }
+}
+
 /* ── NAV ICONS ── */
 .nav-icon { width: 16px; height: 16px; min-width: 16px; max-width: 16px; min-height: 16px; max-height: 16px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.15s; }
 .nav-item:hover .nav-icon { opacity: 0.75; }
