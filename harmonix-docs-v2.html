@@ -460,8 +460,30 @@ td a:hover { text-decoration: underline; }
 .ps-item-desc { font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 14px; }
 #s-product-suite .page-hero { margin-bottom: 12px !important; padding-bottom: 18px !important; border-bottom: none !important; }
 #s-for-developers .page-hero { margin-bottom: 12px !important; padding-bottom: 18px !important; }
-@media(max-width:900px) { .ps-grid { grid-template-columns: 1fr 1fr; } .cards-grid { grid-template-columns: 1fr 1fr !important; } }
+@media(max-width:900px) { .ps-grid { grid-template-columns: 1fr 1fr; } .cards-grid { grid-template-columns: 1fr 1fr !important; } .welcome-nav-cards { grid-template-columns: 1fr 1fr !important; } }
 @media(max-width:600px) { .ps-grid { grid-template-columns: 1fr; } .cards-grid { grid-template-columns: 1fr 1fr !important; } }
+
+
+/* ── MOBILE HAMBURGER FIX ── */
+.mobile-menu-btn {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  .mobile-menu-btn {
+    display: flex !important;
+    background: rgba(255,255,255,0.1) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .mobile-menu-btn svg {
+    color: var(--green) !important;
+    stroke: var(--green) !important;
+  }
+}
 
 /* ── WELCOME NAV CARDS ── */
 .welcome-nav-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 40px; }
