@@ -477,7 +477,9 @@ td a:hover { text-decoration: underline; }
 
 @media (max-width: 900px) {
   .mobile-menu-btn {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
   .mobile-menu-btn svg {
     stroke: #e2ede8;
@@ -502,7 +504,6 @@ td a:hover { text-decoration: underline; }
 /* ── RESPONSIVE ── */
 @media(max-width: 1280px) { .toc-sidebar { display: none !important; } .main { margin-right: 0; } }
 @media(max-width: 900px) {
-  .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; }
   .sidebar { display: none; position: fixed; top: 0; left: 0; z-index: 200; height: 100vh; width: 80vw; }
   .sidebar.mobile-open { display: flex !important; }
   .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 199; }
