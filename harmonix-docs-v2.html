@@ -309,6 +309,11 @@ td a:hover { text-decoration: underline; }
 /* shrink content to make room for toc */
 
 
+
+@media (min-width: 901px) {
+  .mobile-menu-btn { display: none !important; }
+}
+
 /* Force mobile menu to show on small screens */
 @media (max-width: 900px) {
   .mobile-menu-btn {
@@ -762,7 +767,7 @@ html, body {
 <!-- ─── MAIN ─── -->
 <main class="main">
   <div class="topbar">
-    <button class="mobile-menu-btn" onclick="openSidebar()" style="background:none;border:none;cursor:pointer;padding:8px;margin-right:8px;color:var(--text);">
+    <button class="mobile-menu-btn" onclick="openSidebar()" style="background:none;border:none;cursor:pointer;padding:8px;margin-right:8px;color:var(--text);display:block;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e2ede8" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <div class="breadcrumb">
