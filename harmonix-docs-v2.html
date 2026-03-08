@@ -468,7 +468,7 @@ td a:hover { text-decoration: underline; }
 
 
 
-/* ── MOBILE HAMBURGER MENU ── */
+
 
 
 
@@ -695,16 +695,23 @@ html, body {
   }
 }
 
-.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-right: 8px; }
+
 @media (max-width: 900px) { 
-  .mobile-menu-btn { 
+   
+}
+
+/* Simple mobile menu */
+@media (max-width: 900px) {
+  #mobile-hamburger { 
     display: flex !important; 
     align-items: center; 
     justify-content: center; 
-    background: rgba(200,240,122,0.1) !important;
-    border: 1px solid rgba(200,240,122,0.3) !important;
-    border-radius: 4px !important;
-  } 
+    width: 40px; 
+    height: 40px; 
+    background: rgba(200,240,122,0.1) !important; 
+    border: 1px solid rgba(200,240,122,0.3) !important; 
+    border-radius: 6px !important; 
+  }
 }
 </style>
 <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
@@ -804,7 +811,7 @@ html, body {
 <!-- ─── MAIN ─── -->
 <main class="main">
   <div class="topbar">
-    <button class="mobile-menu-btn" onclick="openSidebar()" style="display: block !important; background: rgba(200,240,122,0.1); border: 1px solid rgba(200,240,122,0.3); border-radius: 4px; padding: 8px; margin-right: 8px;">
+    <button id="mobile-hamburger" onclick="openSidebar()" style="display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-right: 8px;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e2ede8" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <div class="breadcrumb">
