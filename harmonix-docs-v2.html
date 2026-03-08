@@ -289,7 +289,7 @@ td a:hover { text-decoration: underline; }
 /* ─── RESPONSIVE ─── */
 @media(max-width:900px){
   .sidebar{display:none;position:fixed;top:0;left:0;height:100vh;width:280px;z-index:200;overflow-y:auto;}
-  .mobile-menu-btn{display:flex !important;}
+  
   .main{margin-left:0;}
   .content{padding:32px 20px 80px;}
   .token-grid{grid-template-columns:1fr 1fr;}
@@ -311,16 +311,12 @@ td a:hover { text-decoration: underline; }
 
 
 @media (min-width: 901px) {
-  .mobile-menu-btn { display: none !important; }
+  
 }
 
 /* Force mobile menu to show on small screens */
 @media (max-width: 900px) {
-  .mobile-menu-btn {
-    display: flex !important;
-    position: relative;
-    z-index: 1000;
-  }
+  
 }
 
 /* ── NAV ICONS ── */
@@ -466,26 +462,9 @@ td a:hover { text-decoration: underline; }
 
 
 /* ── MOBILE HAMBURGER MENU ── */
-.mobile-menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  margin-right: 12px;
-  display: none;
-}
 
-@media (max-width: 900px) {
-  .mobile-menu-btn {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-  .mobile-menu-btn svg {
-    stroke: #e2ede8;
-    width: 24px;
-    height: 24px;
-  }
+
+
 }
 
 /* ── WELCOME NAV CARDS ── */
@@ -692,6 +671,18 @@ html, body {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
+}
+
+.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-right: 8px; }
+@media (max-width: 900px) { 
+  .mobile-menu-btn { 
+    display: flex !important; 
+    align-items: center; 
+    justify-content: center; 
+    background: rgba(200,240,122,0.1) !important;
+    border: 1px solid rgba(200,240,122,0.3) !important;
+    border-radius: 4px !important;
+  } 
 }
 </style>
 <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
