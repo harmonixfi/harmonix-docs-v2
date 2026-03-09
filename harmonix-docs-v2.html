@@ -1573,138 +1573,180 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Vault Architecture</h1>
-        <p class="page-subtitle">haUSDC, haUSDT, and haUSDH are built on the BoringVault framework. Six isolated contracts — no single component holds both custody and execution authority.</p>
+        <p class="page-subtitle">haUSDC, haUSDT, and haUSDH are ERC-4626 vaults on HyperEVM built on the BoringVault framework. Six isolated contracts — no single component holds both custody and execution authority.</p>
       </div>
 
-      <h2>Module Overview</h2>
-      <div class="arch-modules">
-        <div class="arch-module highlight">
-          <div class="arch-module-name">BoringVault</div>
-          <div class="arch-module-desc">Holds all deposited assets. Issues and burns ERC-20 share tokens. Executes strategy calls via delegatecall to Manager.</div>
+      <!-- Architecture Diagram -->
+      <div style="background:#0b1510;border:1px solid #1c2e1f;border-radius:12px;padding:36px 32px;margin:0 0 48px;">
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#3d5c42;text-align:center;margin-bottom:28px;">Contract Architecture — haUSDC / haUSDT / haUSDH</div>
+
+        <!-- User row -->
+        <div style="display:flex;justify-content:center;gap:12px;margin-bottom:12px;">
+          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 22px;text-align:center;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">USER</div>
+            <div style="font-size:13px;font-weight:600;color:#7a9b80;">Depositor / Redeemer</div>
+          </div>
         </div>
-        <div class="arch-module highlight">
-          <div class="arch-module-name">Teller</div>
-          <div class="arch-module-desc">Single entry point for deposits and the async withdraw queue. Validates deposit assets, mints shares, manages request IDs.</div>
+        <!-- Arrow down -->
+        <div style="text-align:center;color:#1c2e1f;font-size:22px;line-height:1;margin:2px 0;">↓</div>
+
+        <!-- Teller row -->
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">
+          <div style="background:#0d1a10;border:1px solid #8ab84e;border-radius:8px;padding:12px 32px;text-align:center;min-width:280px;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">ENTRY POINT</div>
+            <div style="font-size:14px;font-weight:600;color:#c8f07a;">Teller</div>
+            <div style="font-size:12px;color:#7a9b80;margin-top:4px;">deposit() · requestRedeem() · claimRedeem()</div>
+          </div>
         </div>
-        <div class="arch-module">
-          <div class="arch-module-name">Manager</div>
-          <div class="arch-module-desc">Executes delta-neutral strategy logic on HyperCore. Constrained by a Merkle root — only whitelisted call targets and selectors can be invoked.</div>
+        <!-- Arrow down -->
+        <div style="text-align:center;color:#1c2e1f;font-size:22px;line-height:1;margin:2px 0;">↓</div>
+
+        <!-- BoringVault row -->
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">
+          <div style="background:#0d1a10;border:1px solid #8ab84e;border-radius:8px;padding:12px 32px;text-align:center;min-width:280px;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">CORE VAULT</div>
+            <div style="font-size:14px;font-weight:600;color:#c8f07a;">BoringVault</div>
+            <div style="font-size:12px;color:#7a9b80;margin-top:4px;">ERC-20 shares · asset custody · delegatecall to Manager</div>
+          </div>
         </div>
-        <div class="arch-module">
-          <div class="arch-module-name">Accountant</div>
-          <div class="arch-module-desc">Receives NAV updates from the off-chain oracle pipeline. Calculates price-per-share. Accrues platform and performance fees.</div>
+        <!-- Arrow down to two boxes -->
+        <div style="text-align:center;color:#1c2e1f;font-size:22px;line-height:1;margin:2px 0;">↓</div>
+
+        <!-- Manager + Accountant row -->
+        <div style="display:flex;justify-content:center;gap:12px;margin-bottom:12px;">
+          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:12px 20px;text-align:center;flex:1;max-width:220px;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">STRATEGY</div>
+            <div style="font-size:13px;font-weight:600;color:#d4e6d8;">Manager</div>
+            <div style="font-size:11px;color:#7a9b80;margin-top:4px;">Merkle-permissioned · HyperCore execution</div>
+          </div>
+          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:12px 20px;text-align:center;flex:1;max-width:220px;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">ACCOUNTING</div>
+            <div style="font-size:13px;font-weight:600;color:#d4e6d8;">Accountant</div>
+            <div style="font-size:11px;color:#7a9b80;margin-top:4px;">NAV oracle · PPS · fee accrual</div>
+          </div>
         </div>
-        <div class="arch-module">
-          <div class="arch-module-name">RolesAuthority</div>
-          <div class="arch-module-desc">On-chain RBAC. Controls which addresses can call which selectors on each contract. All privileged calls pass through this check.</div>
-        </div>
-        <div class="arch-module">
-          <div class="arch-module-name">Lens</div>
-          <div class="arch-module-desc">Stateless view contract. Aggregates vault state — pricePerShare, totalAssets, APY, user position — into a single call. Never write to this.</div>
+        <!-- Arrow down -->
+        <div style="text-align:center;color:#1c2e1f;font-size:22px;line-height:1;margin:2px 0;">↓</div>
+
+        <!-- RolesAuthority + Lens row -->
+        <div style="display:flex;justify-content:center;gap:12px;">
+          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 20px;text-align:center;flex:1;max-width:220px;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">ACCESS CONTROL</div>
+            <div style="font-size:13px;font-weight:600;color:#d4e6d8;">RolesAuthority</div>
+            <div style="font-size:11px;color:#7a9b80;margin-top:4px;">On-chain RBAC · per-selector gating</div>
+          </div>
+          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 20px;text-align:center;flex:1;max-width:220px;">
+            <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">READ-ONLY</div>
+            <div style="font-size:13px;font-weight:600;color:#d4e6d8;">Lens</div>
+            <div style="font-size:11px;color:#7a9b80;margin-top:4px;">getVaultData() · getUserData()</div>
+          </div>
         </div>
       </div>
 
+      <!-- Flow of Funds — Deposit -->
       <h2>Flow of Funds — Deposit</h2>
       <div class="callout info">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
         <div class="callout-body">Deposits are <strong>synchronous</strong>. Shares land in the receiver wallet in the same transaction.</div>
       </div>
-      <div style="margin:24px 0 36px;">
-        <div style="display:flex;flex-direction:column;gap:0;">
 
-          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;position:relative;">
-            <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
-            <div style="flex:1;padding-top:4px;border-left:1px solid #1c2e1f;margin-left:-16px;padding-left:32px;">
-              <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Approve the Teller</div>
-              <div style="font-size:13px;color:#7a9b80;margin-bottom:8px;">Grant the Teller allowance to pull your deposit asset.</div>
-              <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:4px 10px;border-radius:4px;color:#c8f07a;">USDC.approve(TELLER, amount)</code>
-            </div>
+      <div style="margin:24px 0 40px;position:relative;">
+        <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:#1c2e1f;"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Approve the Teller</div>
+            <div style="font-size:13px;color:#7a9b80;margin-bottom:10px;">Grant the Teller allowance to pull your deposit asset. One-time per asset.</div>
+            <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">USDC.approve(TELLER_ADDRESS, amount)</pre>
           </div>
+        </div>
 
-          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;position:relative;">
-            <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
-            <div style="flex:1;padding-top:4px;border-left:1px solid #1c2e1f;margin-left:-16px;padding-left:32px;">
-              <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Call <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">teller.deposit()</code></div>
-              <div style="font-size:13px;color:#7a9b80;margin-bottom:8px;">Teller validates the asset, calls <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">BoringVault.enter()</code>, mints shares to receiver.</div>
-              <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:4px 10px;border-radius:4px;color:#c8f07a;">teller.deposit(USDC, amount, minShares, receiver)</code>
-            </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Call <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">teller.deposit()</code></div>
+            <div style="font-size:13px;color:#7a9b80;margin-bottom:10px;">Teller validates the asset against its allowlist, pulls funds, calls <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">BoringVault.enter()</code>, and mints ERC-4626 shares to the receiver at the current price-per-share.</div>
+            <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.deposit(USDC, amount, minShares, receiver) → shares</pre>
           </div>
+        </div>
 
-          <div style="display:flex;gap:16px;align-items:flex-start;">
-            <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
-            <div style="flex:1;padding-top:4px;">
-              <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Receive haUSDC shares</div>
-              <div style="font-size:13px;color:#7a9b80;">Shares accrue yield automatically as the NAV Oracle updates price-per-share via the Accountant. No further action needed.</div>
-            </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Receive haUSDC / haUSDT / haUSDH shares</div>
+            <div style="font-size:13px;color:#7a9b80;">Shares are standard ERC-20 tokens. They accrue yield automatically as the NAV Oracle pushes price-per-share updates to the Accountant. No staking or claiming required.</div>
           </div>
-
         </div>
       </div>
 
-      <h2>Flow of Funds — Withdrawal (Async Queue)</h2>
+      <!-- Flow of Funds — Withdrawal -->
+      <h2>Flow of Funds — Withdrawal</h2>
       <div class="callout" style="border-left-color:#f78c6c;background:rgba(247,140,108,.06);">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f78c6c" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <div class="callout-body">Withdrawals are <strong>not synchronous</strong>. <code>redeem()</code> and <code>withdraw()</code> are disabled. Use the three-step async queue. Typical fulfillment time: <strong>24–72 hours</strong>.</div>
+        <div class="callout-body">Withdrawals use an <strong>async queue</strong>. Standard ERC-4626 <code>redeem()</code> and <code>withdraw()</code> are disabled. Use the three-step flow below. Typical fulfillment: <strong>24–72 hours</strong>.</div>
       </div>
-      <div style="margin:24px 0 36px;">
-        <div style="display:flex;flex-direction:column;gap:0;">
 
-          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
-            <div style="flex:1;padding-top:4px;border-left:1px solid #1c2e1f;margin-left:-16px;padding-left:32px;">
-              <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Submit a redeem request</div>
-              <div style="font-size:13px;color:#7a9b80;margin-bottom:8px;">Shares are locked in escrow. A <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">requestId</code> is returned. Shares stop accruing yield from this point.</div>
-              <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:4px 10px;border-radius:4px;color:#c8f07a;">teller.requestRedeem(shares, receiver, owner)</code>
-            </div>
+      <div style="margin:24px 0 40px;position:relative;">
+        <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:#1c2e1f;"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Request a redemption</div>
+            <div style="font-size:13px;color:#7a9b80;margin-bottom:10px;">Shares are locked in escrow. A <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">requestId</code> is returned. Shares stop accruing yield immediately.</div>
+            <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.requestRedeem(shares, receiver, owner) → requestId</pre>
           </div>
+        </div>
 
-          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
-            <div style="flex:1;padding-top:4px;border-left:1px solid #1c2e1f;margin-left:-16px;padding-left:32px;">
-              <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Solver fulfills the batch</div>
-              <div style="font-size:13px;color:#7a9b80;margin-bottom:8px;">The Solver role batches pending requests and calls <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">fulfillRedeems()</code>. Poll <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">getRedeemRequest(requestId).status</code> or listen for the <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">RedeemFulfilled</code> event.</div>
-              <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:4px 10px;border-radius:4px;color:#c8f07a;">teller.getRedeemRequest(requestId) → status: 0=Pending 1=Fulfilled</code>
-            </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Wait for Solver fulfillment</div>
+            <div style="font-size:13px;color:#7a9b80;margin-bottom:10px;">The Solver role batches pending requests off-chain and calls <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">fulfillRedeems()</code>. Poll status or subscribe to the <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">RedeemFulfilled</code> event.</div>
+            <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.getRedeemRequest(requestId) → { status, assets }
+<span style="color:#3d5c42;">// status: 0 = Pending  1 = Fulfilled  2 = Claimed</span></pre>
           </div>
+        </div>
 
-          <div style="display:flex;gap:16px;align-items:flex-start;">
-            <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
-            <div style="flex:1;padding-top:4px;">
-              <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Claim assets</div>
-              <div style="font-size:13px;color:#7a9b80;margin-bottom:8px;">Once status is <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">Fulfilled</code>, call <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">claimRedeem()</code>. Teller burns the escrowed shares and transfers USDC/USDT/USDH to the receiver.</div>
-              <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:4px 10px;border-radius:4px;color:#c8f07a;">teller.claimRedeem(requestId) → assets</code>
-            </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Claim your assets</div>
+            <div style="font-size:13px;color:#7a9b80;margin-bottom:10px;">Once status is <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">Fulfilled</code>, call <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">claimRedeem()</code>. Teller burns the escrowed shares and transfers USDC / USDT / USDH to the receiver.</div>
+            <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.claimRedeem(requestId) → assets</pre>
           </div>
-
         </div>
       </div>
 
+      <!-- Hyperliquid Stack -->
       <h2>The Hyperliquid Stack</h2>
       <div class="table-wrap"><table>
         <thead><tr><th>Layer</th><th>Component</th><th>Role in Harmonix</th></tr></thead>
         <tbody>
-          <tr><td><strong>Consensus</strong></td><td>HyperBFT</td><td>One-block finality. All vault operations and funding events settle instantly.</td></tr>
+          <tr><td><strong>Consensus</strong></td><td>HyperBFT</td><td>Sub-second finality. All vault operations and funding events settle in a single block.</td></tr>
           <tr><td><strong>Execution</strong></td><td>HyperCore</td><td>Primary yield source. Perpetuals for funding income, spot for long-side hedge, staking for HYPE yield.</td></tr>
-          <tr><td><strong>Smart Contracts</strong></td><td>HyperEVM</td><td>Where all Harmonix vault contracts and ha-token contracts live. ERC-4626 standard.</td></tr>
-          <tr><td><strong>Native Tokens</strong></td><td>HIP-3</td><td>Felix feUSD, Ondo USDY, Hyna sUSDe — yield-bearing spot tokens used as strategy inputs.</td></tr>
+          <tr><td><strong>Smart Contracts</strong></td><td>HyperEVM</td><td>All Harmonix vault contracts deployed here. ERC-4626 + BoringVault framework.</td></tr>
+          <tr><td><strong>Yield Tokens</strong></td><td>HIP-3</td><td>Felix feUSD, Ondo USDY, Hyna sUSDe — yield-bearing spot assets used as strategy inputs without bridging.</td></tr>
         </tbody>
       </table></div>
 
+      <!-- V1 → V2 -->
       <h2>V1 → V2 Upgrades</h2>
       <div class="table-wrap"><table>
         <thead><tr><th>Module</th><th>V1</th><th>V2</th></tr></thead>
         <tbody>
-          <tr><td><strong>Contract Admins</strong></td><td>EOA-controlled</td><td>Safe multisig. Timelock on upgrades and sensitive params.</td></tr>
-          <tr><td><strong>NAV Oracle</strong></td><td>Manual spreadsheet</td><td>Automated pipeline — ingestion, validation, versioning.</td></tr>
-          <tr><td><strong>Withdrawals</strong></td><td>Off-chain UX</td><td>On-chain async queue — request → fulfill → claim.</td></tr>
-          <tr><td><strong>Manager</strong></td><td>ForDeFi custody</td><td>Merkle-based permissioning — whitelisted targets and selectors.</td></tr>
-          <tr><td><strong>Deposits</strong></td><td>Single-asset</td><td>Multi-asset swap-in path, multi-chain via bridge.</td></tr>
+          <tr><td><strong>Admin custody</strong></td><td>EOA signers</td><td>Safe multisig (3-of-5). Timelock on upgrades and sensitive params.</td></tr>
+          <tr><td><strong>NAV Oracle</strong></td><td>Manual spreadsheet, EOA push</td><td>Automated pipeline — multi-source ingestion, validation, versioning.</td></tr>
+          <tr><td><strong>Withdrawals</strong></td><td>Synchronous ERC-4626</td><td>On-chain async queue — requestRedeem → fulfillRedeems → claimRedeem.</td></tr>
+          <tr><td><strong>Manager permissions</strong></td><td>ForDeFi custody</td><td>Merkle root — verifiable off-chain, compact on-chain. Whitelisted targets + selectors.</td></tr>
+          <tr><td><strong>Deposits</strong></td><td>Single-asset, single-chain</td><td>Multi-asset swap-in path. Multi-chain via bridge.</td></tr>
         </tbody>
       </table></div>
 
       <div class="page-nav">
-        <a class="page-nav-link" onclick="show('xhar',null)">
-          <span class="page-nav-dir">← Previous</span><span>xHAR</span>
+        <a class="page-nav-link" onclick="show('har',null)">
+          <span class="page-nav-dir">← Previous</span><span>HAR Token</span>
         </a>
         <a class="page-nav-link" onclick="show('contracts',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span><span>Smart Contracts</span>
