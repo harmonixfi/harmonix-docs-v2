@@ -1172,18 +1172,24 @@ html, body {
       </div>
 
       <div style="margin:0 0 40px;">
-        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d5c42;margin-bottom:8px;">Quickstart · deposit into haUSDC</div>
-        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.75;"><span style="color:#4a6741;font-style:italic;">// 1. Approve the Teller to spend USDC</span>
-<span style="color:#ffcb6b;">await</span> usdc.<span style="color:#82aaff;">approve</span>(TELLER, <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">&#39;1000&#39;</span>, <span style="color:#f78c6c;">6</span>));
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d5c42;margin-bottom:0;">Quickstart · haUSDC deposit + async redeem</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-top:2px solid #c8f07a;border-radius:0 0 8px 8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;"><span style="color:#4a6741;font-style:italic;">// install: npm install @harmonix/sdk viem</span>
+<span style="color:#ffcb6b;">import</span> { createHarmonixClient } <span style="color:#ffcb6b;">from</span> <span style="color:#c3e88d;">'@harmonix/sdk'</span>
 
-<span style="color:#4a6741;font-style:italic;">// 2. Deposit — shares land in your wallet in the same tx</span>
-<span style="color:#ffcb6b;">const</span> shares = <span style="color:#ffcb6b;">await</span> teller.<span style="color:#82aaff;">deposit</span>(USDC, <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">&#39;1000&#39;</span>, <span style="color:#f78c6c;">6</span>), <span style="color:#f78c6c;">0n</span>, receiver);
+<span style="color:#ffcb6b;">const</span> harmonix = <span style="color:#82aaff;">createHarmonixClient</span>({ vault: <span style="color:#c3e88d;">'haUSDC'</span>, walletClient, publicClient })
 
-<span style="color:#4a6741;font-style:italic;">// 3. Read your position via ERC-4626</span>
-<span style="color:#ffcb6b;">const</span> value = <span style="color:#ffcb6b;">await</span> vault.<span style="color:#82aaff;">convertToAssets</span>(shares); <span style="color:#4a6741;font-style:italic;">// USDC value of your shares</span>
+<span style="color:#4a6741;font-style:italic;">// 1. Deposit 1,000 USDC — approve + deposit in one call</span>
+<span style="color:#ffcb6b;">const</span> { shares } = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">deposit</span>({ amount: <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">'1000'</span>, <span style="color:#f78c6c;">6</span>), receiver })
 
-<span style="color:#4a6741;font-style:italic;">// 4. Queue a redemption (async — fulfilled within 24–72h)</span>
-<span style="color:#ffcb6b;">const</span> reqId = <span style="color:#ffcb6b;">await</span> teller.<span style="color:#82aaff;">requestRedeem</span>(shares, receiver, owner);</code></pre>
+<span style="color:#4a6741;font-style:italic;">// 2. Read your position via ERC-4626</span>
+<span style="color:#ffcb6b;">const</span> value = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">convertToAssets</span>(shares) <span style="color:#4a6741;font-style:italic;">// USDC value of shares</span>
+
+<span style="color:#4a6741;font-style:italic;">// 3. Queue a redemption — returns a requestId</span>
+<span style="color:#ffcb6b;">const</span> { requestId } = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">requestRedeem</span>({ shares })
+
+<span style="color:#4a6741;font-style:italic;">// 4. Poll until Solver fulfills (24–72h), then claim</span>
+<span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">waitForFulfillment</span>({ requestId })
+<span style="color:#ffcb6b;">const</span> { assets } = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">claimRedeem</span>({ requestId })</code></pre>
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
