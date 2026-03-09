@@ -1133,54 +1133,71 @@ html, body {
     <!-- ── PRODUCT SUITE ── -->
     <section class="section" id="s-for-developers">
       <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">For Developers</span></div>
+
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Build on Harmonix</h1>
-        <p class="page-subtitle">Architecture, contracts, integration guides, and the full REST API reference.</p>
+        <p class="page-subtitle">haUSDC, haUSDH, and haUSDT are ERC-4626 vaults on HyperEVM. Read positions, deposit, and queue redemptions with a single contract interface.</p>
       </div>
 
-      <div class="ps-grid">
-        <div class="ps-item" onclick="show('vault-arch',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Capital Allocation →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">How Harmonix is built on the full Hyperliquid stack — HyperBFT, HyperCore, HyperEVM, and HIP-3 yield-bearing tokens.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">HyperEVM</span><span class="ps-tag">HyperCore</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 40px;">
+
+        <div onclick="show('vault-arch',null)" style="background:#0b1510;border:1px solid #1c2e1f;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c2e1f'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v6M14.5 17h6"/></svg>
           </div>
+          <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">SDK</div>
+          <div style="font-size:13px;color:#7a9b80;line-height:1.55;">TypeScript SDK for deposits, redemptions, and vault reads. Wraps BoringVault and Teller with typed methods.</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">npm install @harmonix/sdk →</div>
         </div>
-        <div class="ps-item" onclick="show('vault-arch',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Vault Architecture →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Deep dive into the vault stack: custody, execution agents, NAV oracle, and the security layers protecting each strategy.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">ERC-4626</span><span class="ps-tag">ForDeFi</span></div>
+
+        <div onclick="show('contracts',null)" style="background:#0b1510;border:1px solid #1c2e1f;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c2e1f'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
+          <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">Smart Contracts</div>
+          <div style="font-size:13px;color:#7a9b80;line-height:1.55;">Contract addresses, ABIs, and Solidity interfaces for BoringVault, Teller, Accountant, and Lens on HyperEVM.</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">ERC-4626 · BoringVault →</div>
         </div>
-        <div class="ps-item" onclick="show('contracts',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Smart Contracts →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Deployed contract addresses, ABIs, and the ERC-4626 vault interface across all Harmonix products.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">Solidity</span><span class="ps-tag">HyperEVM</span></div>
+
+        <div onclick="show('api-reference',null)" style="background:#0b1510;border:1px solid #1c2e1f;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c2e1f'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
+          <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">REST API</div>
+          <div style="font-size:13px;color:#7a9b80;line-height:1.55;">Vault APY, user positions, points balances, and yield history. JSON responses with full request and response examples.</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">api.harmonixfi.com →</div>
         </div>
-        <div class="ps-item" onclick="show('deposits-withdrawals',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Deposits &amp; Withdrawals →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Flow diagrams and mechanics for how user funds enter and exit Harmonix vaults, including cool-down and queue logic.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">Deposits</span><span class="ps-tag">Withdrawals</span></div>
-          </div>
+
+      </div>
+
+      <div style="margin:0 0 40px;">
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d5c42;margin-bottom:8px;">Quickstart · deposit into haUSDC</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.75;"><span style="color:#4a6741;font-style:italic;">// 1. Approve the Teller to spend USDC</span>
+<span style="color:#ffcb6b;">await</span> usdc.<span style="color:#82aaff;">approve</span>(TELLER, <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">&#39;1000&#39;</span>, <span style="color:#f78c6c;">6</span>));
+
+<span style="color:#4a6741;font-style:italic;">// 2. Deposit — shares land in your wallet in the same tx</span>
+<span style="color:#ffcb6b;">const</span> shares = <span style="color:#ffcb6b;">await</span> teller.<span style="color:#82aaff;">deposit</span>(USDC, <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">&#39;1000&#39;</span>, <span style="color:#f78c6c;">6</span>), <span style="color:#f78c6c;">0n</span>, receiver);
+
+<span style="color:#4a6741;font-style:italic;">// 3. Read your position via ERC-4626</span>
+<span style="color:#ffcb6b;">const</span> value = <span style="color:#ffcb6b;">await</span> vault.<span style="color:#82aaff;">convertToAssets</span>(shares); <span style="color:#4a6741;font-style:italic;">// USDC value of your shares</span>
+
+<span style="color:#4a6741;font-style:italic;">// 4. Queue a redemption (async — fulfilled within 24–72h)</span>
+<span style="color:#ffcb6b;">const</span> reqId = <span style="color:#ffcb6b;">await</span> teller.<span style="color:#82aaff;">requestRedeem</span>(shares, receiver, owner);</code></pre>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
+        <div onclick="show('vault-arch',null)" style="background:#0b1510;border:1px solid #1c2e1f;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c2e1f'">
+          <span style="font-size:13px;color:#d4e6d8;font-weight:500;">Vault Architecture</span>
+          <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#7a9b80;">BoringVault · Teller · Accountant</span>
         </div>
-        <div class="ps-item" onclick="show('api-integration',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Smart Contract Integration →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Step-by-step guide for protocols integrating Harmonix vaults directly from a smart contract.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">SC Integration</span><span class="ps-tag">Whitelist</span></div>
-          </div>
+        <div onclick="show('deposits-withdrawals',null)" style="background:#0b1510;border:1px solid #1c2e1f;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c2e1f'">
+          <span style="font-size:13px;color:#d4e6d8;font-weight:500;">Deposits &amp; Withdrawals</span>
+          <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#7a9b80;">Async queue · flow diagrams</span>
         </div>
-        <div class="ps-item" onclick="show('api-reference',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">API Reference →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Full REST API reference for vault data, user positions, points, and yield history — with request and response examples.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">REST</span><span class="ps-tag">JSON</span></div>
-          </div>
+        <div onclick="show('api-integration',null)" style="background:#0b1510;border:1px solid #1c2e1f;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c2e1f'">
+          <span style="font-size:13px;color:#d4e6d8;font-weight:500;">SC Integration</span>
+          <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#7a9b80;">Whitelisting · onchain guide</span>
         </div>
       </div>
 
