@@ -1515,68 +1515,68 @@ html, body {
       </div>
 
       <!-- Architecture Diagram — Horizontal -->
-      <div style="background:#0b1510;border:1px solid #1c2e1f;border-radius:12px;padding:32px 24px;margin:0 0 48px;overflow-x:auto;">
-        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#3d5c42;text-align:center;margin-bottom:24px;">Contract Architecture — haUSDC / haUSDT / haUSDH</div>
+      <div style="background:#0b1510;border:1px solid #1c2e1f;border-radius:12px;padding:28px 20px;margin:0 0 48px;">
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#3d5c42;text-align:center;margin-bottom:20px;">Contract Architecture — haUSDC / haUSDT / haUSDH</div>
 
-        <div style="display:flex;align-items:center;gap:0;min-width:820px;">
+        <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
 
           <!-- User -->
-          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:14px 16px;text-align:center;min-width:100px;flex-shrink:0;">
-            <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">USER</div>
-            <div style="font-size:12px;font-weight:600;color:#7a9b80;">Depositor</div>
+          <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 90px;">
+            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:3px;">USER</div>
+            <div style="font-size:11px;font-weight:600;color:#7a9b80;">Depositor</div>
           </div>
 
           <!-- Arrow → -->
-          <div style="color:#1c2e1f;font-size:20px;padding:0 6px;flex-shrink:0;">→</div>
+          <div style="color:#1c2e1f;font-size:18px;padding:0 4px;">→</div>
 
           <!-- Teller -->
-          <div style="background:#0d1a10;border:1px solid #8ab84e;border-radius:8px;padding:14px 16px;text-align:center;min-width:140px;flex-shrink:0;">
-            <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">ENTRY POINT</div>
-            <div style="font-size:13px;font-weight:600;color:#c8f07a;">Teller</div>
-            <div style="font-size:10px;color:#7a9b80;margin-top:4px;">deposit() · redeem()</div>
+          <div style="background:#0d1a10;border:1px solid #8ab84e;border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 120px;">
+            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">ENTRY POINT</div>
+            <div style="font-size:12px;font-weight:600;color:#c8f07a;">Teller</div>
+            <div style="font-size:9px;color:#7a9b80;margin-top:3px;">deposit() · redeem()</div>
           </div>
 
           <!-- Arrow → -->
-          <div style="color:#1c2e1f;font-size:20px;padding:0 6px;flex-shrink:0;">→</div>
+          <div style="color:#1c2e1f;font-size:18px;padding:0 4px;">→</div>
 
           <!-- BoringVault -->
-          <div style="background:#0d1a10;border:1px solid #8ab84e;border-radius:8px;padding:14px 16px;text-align:center;min-width:150px;flex-shrink:0;">
-            <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">CORE VAULT</div>
-            <div style="font-size:13px;font-weight:600;color:#c8f07a;">BoringVault</div>
-            <div style="font-size:10px;color:#7a9b80;margin-top:4px;">ERC-20 · custody · delegatecall</div>
+          <div style="background:#0d1a10;border:1px solid #8ab84e;border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 140px;">
+            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">CORE VAULT</div>
+            <div style="font-size:12px;font-weight:600;color:#c8f07a;">BoringVault</div>
+            <div style="font-size:9px;color:#7a9b80;margin-top:3px;">ERC-20 · custody · delegatecall</div>
           </div>
 
           <!-- Arrow → -->
-          <div style="color:#1c2e1f;font-size:20px;padding:0 6px;flex-shrink:0;">→</div>
+          <div style="color:#1c2e1f;font-size:18px;padding:0 4px;">→</div>
 
           <!-- Manager + Accountant stacked -->
-          <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 14px;text-align:center;min-width:150px;">
-              <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">STRATEGY</div>
-              <div style="font-size:12px;font-weight:600;color:#d4e6d8;">Manager</div>
-              <div style="font-size:10px;color:#7a9b80;margin-top:3px;">Merkle · HyperCore exec</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+              <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">STRATEGY</div>
+              <div style="font-size:11px;font-weight:600;color:#d4e6d8;">Manager</div>
+              <div style="font-size:9px;color:#7a9b80;margin-top:2px;">Merkle · HyperCore exec</div>
             </div>
-            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 14px;text-align:center;min-width:150px;">
-              <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">ACCOUNTING</div>
-              <div style="font-size:12px;font-weight:600;color:#d4e6d8;">Accountant</div>
-              <div style="font-size:10px;color:#7a9b80;margin-top:3px;">NAV oracle · PPS · fees</div>
+            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+              <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">ACCOUNTING</div>
+              <div style="font-size:11px;font-weight:600;color:#d4e6d8;">Accountant</div>
+              <div style="font-size:9px;color:#7a9b80;margin-top:2px;">NAV oracle · PPS · fees</div>
             </div>
           </div>
 
           <!-- Arrow → -->
-          <div style="color:#1c2e1f;font-size:20px;padding:0 6px;flex-shrink:0;">→</div>
+          <div style="color:#1c2e1f;font-size:18px;padding:0 4px;">→</div>
 
           <!-- RolesAuthority + Lens stacked -->
-          <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
-            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 14px;text-align:center;min-width:150px;">
-              <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">ACCESS CONTROL</div>
-              <div style="font-size:12px;font-weight:600;color:#d4e6d8;">RolesAuthority</div>
-              <div style="font-size:10px;color:#7a9b80;margin-top:3px;">On-chain RBAC · gating</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+              <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">ACCESS CONTROL</div>
+              <div style="font-size:11px;font-weight:600;color:#d4e6d8;">RolesAuthority</div>
+              <div style="font-size:9px;color:#7a9b80;margin-top:2px;">On-chain RBAC · gating</div>
             </div>
-            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:10px 14px;text-align:center;min-width:150px;">
-              <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">READ-ONLY</div>
-              <div style="font-size:12px;font-weight:600;color:#d4e6d8;">Lens</div>
-              <div style="font-size:10px;color:#7a9b80;margin-top:3px;">getVaultData() · getUserData()</div>
+            <div style="background:#111d14;border:1px solid #1c2e1f;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+              <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d5c42;margin-bottom:2px;">READ-ONLY</div>
+              <div style="font-size:11px;font-weight:600;color:#d4e6d8;">Lens</div>
+              <div style="font-size:9px;color:#7a9b80;margin-top:2px;">getVaultData() · getUserData()</div>
             </div>
           </div>
 
