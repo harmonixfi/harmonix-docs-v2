@@ -117,13 +117,7 @@ li strong { color: var(--text); }
 
 /* ─── PAGE HERO ─── */
 .page-hero { margin-bottom: 44px; padding-bottom: 36px; border-bottom: 1px solid var(--border); }
-.page-tag {
-  display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600;
-  letter-spacing: 0.9px; text-transform: uppercase; color: var(--green);
-  background: var(--green-dim); border: 1px solid rgba(180,230,100,0.18);
-  padding: 3px 10px; border-radius: 20px; margin-bottom: 14px;
-}
-.page-tag::before { content: ''; width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
+.page-tag { display: none; }
 .page-subtitle { font-size: 16px; color: var(--text2); line-height: 1.65; max-width: 600px; }
 
 /* ─── IMAGE ─── */
@@ -357,6 +351,13 @@ td a:hover { text-decoration: underline; }
 
 /* ── BREADCRUMB ── */
 .page-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); margin-bottom: 20px; flex-wrap: wrap; }
+.copy-page-btn {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--text3); background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 4px 10px; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.copy-page-btn:hover { color: var(--text); border-color: var(--border2); }
+.copy-page-btn.copied { color: var(--green); border-color: var(--green); }
 .page-breadcrumb span { cursor: pointer; transition: color 0.15s; }
 .page-breadcrumb span:hover { color: var(--text2); }
 .page-breadcrumb .bc-sep { cursor: default; }
@@ -896,7 +897,7 @@ html, body {
 
     <!-- ── ONBOARDING ── -->
     <section class="section" id="s-onboarding">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Getting Started</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Getting Started</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag" style="background:rgba(200,240,122,0.1);color:var(--green);border-color:rgba(200,240,122,0.2);">Onboarding</span>
         <h1>Getting Started</h1>
@@ -991,7 +992,7 @@ html, body {
 
     <!-- ── OVERVIEW ── -->
     <section class="section" id="s-overview">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Protocol Overview</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Protocol Overview</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Getting Started</span>
         <h1>Protocol Overview</h1>
@@ -1085,7 +1086,7 @@ html, body {
     <!-- ── ARCHITECTURE ── -->
     <!-- ── PRODUCT SUITE ── -->
     <section class="section" id="s-for-developers">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">For Developers</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">For Developers</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
 
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
@@ -1171,7 +1172,7 @@ html, body {
     </section>
 
     <section class="section" id="s-product-suite">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Product Suite</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Product Suite</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Products</span>
         <h1>What Harmonix Offers</h1>
@@ -1222,7 +1223,7 @@ html, body {
 
     <!-- ── STABLECOINS ── -->
     <section class="section" id="s-stablecoins">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('overview',null)">Products</span><span class="bc-sep">›</span><span class="bc-current">Yield-Bearing Stablecoins</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('overview',null)">Products</span><span class="bc-sep">›</span><span class="bc-current">Yield-Bearing Stablecoins</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Products</span>
         <h1>Yield-Bearing Stablecoins</h1>
@@ -1295,7 +1296,7 @@ html, body {
 
     <!-- ── TOKENS ── -->
     <section class="section" id="s-tokens">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('overview',null)">Products</span><span class="bc-sep">›</span><span class="bc-current">Yield-Bearing Tokens</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('overview',null)">Products</span><span class="bc-sep">›</span><span class="bc-current">Yield-Bearing Tokens</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Products</span>
         <h1>Yield-Bearing Tokens</h1>
@@ -1415,7 +1416,7 @@ html, body {
     </section>
 
     <section class="section" id="s-har">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">HAR</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">HAR</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Tokenomics</span>
         <h1>HAR</h1>
@@ -1493,7 +1494,7 @@ html, body {
 
     <!-- ── VAULT ARCH ── -->
     <section class="section" id="s-vault-arch">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Vault Architecture</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Vault Architecture</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Vault Architecture</h1>
@@ -1681,7 +1682,7 @@ html, body {
     </section>
 
     <section class="section" id="s-contracts">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Smart Contracts</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Smart Contracts</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Smart Contracts</h1>
@@ -1825,7 +1826,7 @@ html, body {
 
     <!-- ── DEPOSITS-WITHDRAWALS ── -->
     <section class="section" id="s-deposits-withdrawals">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Deposits &amp; Withdrawals</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Deposits &amp; Withdrawals</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Deposits &amp; Withdrawals</h1>
@@ -1900,7 +1901,7 @@ html, body {
 
     <!-- ── SMART CONTRACT INTEGRATION ── -->
     <section class="section" id="s-api-integration">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Smart Contract Integration</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Smart Contract Integration</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Smart Contract Integration</h1>
@@ -2036,7 +2037,7 @@ if (canWithdraw) {
     </section>
 
     <section class="section" id="s-api-reference">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix API</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix API</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Harmonix API</h1>
@@ -2160,7 +2161,7 @@ if (canWithdraw) {
 
     <!-- ── SDK ── -->
     <section class="section" id="s-sdk">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix SDK</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix SDK</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Harmonix SDK</h1>
@@ -2187,7 +2188,7 @@ if (canWithdraw) {
 
     <!-- ── SOLVENCY ── -->
     <section class="section" id="s-solvency">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Proof of Solvency</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Proof of Solvency</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Security</span>
         <h1>Proof of Solvency</h1>
@@ -2214,7 +2215,7 @@ if (canWithdraw) {
 
     <!-- ── RISKS ── -->
     <section class="section" id="s-risks">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Risks &amp; Audits</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Risks &amp; Audits</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Security</span>
         <h1>Risks &amp; Audits</h1>
@@ -2316,7 +2317,7 @@ if (canWithdraw) {
 
     <!-- ── FEES ── -->
     <section class="section" id="s-fees">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Fees</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Fees</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Learn</span>
         <h1>Fees</h1>
@@ -2354,7 +2355,7 @@ if (canWithdraw) {
 
     <!-- ── ANALYTICS ── -->
     <section class="section" id="s-analytics">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Analytics</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Analytics</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Learn</span>
         <h1>Analytics</h1>
@@ -2410,7 +2411,7 @@ if (canWithdraw) {
 
     <!-- ── POINTS ── -->
     <section class="section" id="s-points">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Points &amp; Rewards</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Points &amp; Rewards</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Resources</span>
         <h1>Points &amp; Rewards</h1>
@@ -2440,7 +2441,7 @@ if (canWithdraw) {
 
     <!-- ── FAQ ── -->
     <section class="section" id="s-faq">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">FAQ</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">FAQ</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Resources</span>
         <h1>FAQ</h1>
@@ -2484,7 +2485,7 @@ if (canWithdraw) {
 
     <!-- ─── HYPE BASIS TRADE VAULT ─── -->
     <section class="section" id="s-basis-trade-vault">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('product-suite',null)">Products</span><span class="bc-sep">›</span><span class="bc-current">Basis Trade Vault</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('product-suite',null)">Products</span><span class="bc-sep">›</span><span class="bc-current">Basis Trade Vault</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">Products</span>
         <h1>Basis Trade Vault</h1>
@@ -2705,6 +2706,20 @@ function show(id, el) {
   window.scrollTo(0, 0);
   // Close sidebar on mobile after navigation
   if (window.innerWidth <= 900) closeSidebar();
+}
+
+function copyPage(btn) {
+  const section = btn.closest('.section');
+  if (!section) return;
+  const text = section.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
 }
 
 function copyAddr(btn, addr) {
