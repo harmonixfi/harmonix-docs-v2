@@ -21,7 +21,7 @@
   --text3: #555555;
   --sidebar: 272px;
   --content: 760px;
-  --yellow: #f5c842;
+  --yellow: #c8f07a;
   --red: rgba(255,90,80,0.85);
 }
 
@@ -144,9 +144,9 @@ li strong { color: var(--text); }
   display: flex; gap: 12px; align-items: flex-start;
 }
 .callout.warn {
-  background: rgba(245,200,66,0.04);
-  border-color: rgba(245,200,66,0.1);
-  border-left-color: rgba(245,200,66,0.55);
+  background: rgba(200,240,122,0.04);
+  border-color: rgba(200,240,122,0.1);
+  border-left-color: rgba(200,240,122,0.55);
 }
 .callout.danger {
   background: rgba(255,90,80,0.04);
@@ -277,7 +277,7 @@ td a:hover { text-decoration: underline; }
 /* ─── INLINE TAG ─── */
 .tag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 4px; font-weight: 500; vertical-align: middle; }
 .tag.green { background: var(--green-dim); color: var(--green); }
-.tag.yellow { background: rgba(245,200,66,0.1); color: var(--yellow); }
+.tag.yellow { background: rgba(200,240,122,0.1); color: var(--yellow); }
 .tag.grey { background: var(--bg); color: var(--text3); border: 1px solid var(--border); }
 
 /* ─── NAV PAGE FOOTER ─── */
@@ -1010,7 +1010,7 @@ html, body {
       <h3>Directional Risk</h3>
       <p>Traditional yield products embed hidden market exposure. Harmonix centers on market-neutral structures that remove price beta from stablecoin products, letting users earn yield without depending on asset appreciation.</p>
       <div class="callout warn">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body"><strong>haHYPE and hakHYPE are not fully market-neutral.</strong> They carry directional exposure to HYPE price. Only the delta-neutral allocation within those vaults hedges the position — holders remain partially exposed to HYPE movement. See the haHYPE product page for details.</div>
       </div>
       <h3>Disconnection from Execution</h3>
@@ -1127,22 +1127,22 @@ html, body {
       <div style="margin:0 0 40px;">
         <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d3d3d;margin-bottom:0;">Quickstart · haUSDC deposit + async redeem</div>
         <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-top:2px solid #c8f07a;border-radius:0 0 8px 8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;"><span style="color:#4a6741;font-style:italic;">// install: npm install @harmonix/sdk viem</span>
-<span style="color:#ffcb6b;">import</span> { createHarmonixClient } <span style="color:#ffcb6b;">from</span> <span style="color:#c3e88d;">'@harmonix/sdk'</span>
+<span style="color:#c8f07a;">import</span> { createHarmonixClient } <span style="color:#c8f07a;">from</span> <span style="color:#c3e88d;">'@harmonix/sdk'</span>
 
-<span style="color:#ffcb6b;">const</span> harmonix = <span style="color:#82aaff;">createHarmonixClient</span>({ vault: <span style="color:#c3e88d;">'haUSDC'</span>, walletClient, publicClient })
+<span style="color:#c8f07a;">const</span> harmonix = <span style="color:#82aaff;">createHarmonixClient</span>({ vault: <span style="color:#c3e88d;">'haUSDC'</span>, walletClient, publicClient })
 
 <span style="color:#4a6741;font-style:italic;">// 1. Deposit 1,000 USDC — approve + deposit in one call</span>
-<span style="color:#ffcb6b;">const</span> { shares } = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">deposit</span>({ amount: <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">'1000'</span>, <span style="color:#f78c6c;">6</span>), receiver })
+<span style="color:#c8f07a;">const</span> { shares } = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">deposit</span>({ amount: <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">'1000'</span>, <span style="color:#e0e0e0;">6</span>), receiver })
 
 <span style="color:#4a6741;font-style:italic;">// 2. Read your position via ERC-4626</span>
-<span style="color:#ffcb6b;">const</span> value = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">convertToAssets</span>(shares) <span style="color:#4a6741;font-style:italic;">// USDC value of shares</span>
+<span style="color:#c8f07a;">const</span> value = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">convertToAssets</span>(shares) <span style="color:#4a6741;font-style:italic;">// USDC value of shares</span>
 
 <span style="color:#4a6741;font-style:italic;">// 3. Queue a redemption — returns a requestId</span>
-<span style="color:#ffcb6b;">const</span> { requestId } = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">requestRedeem</span>({ shares })
+<span style="color:#c8f07a;">const</span> { requestId } = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">requestRedeem</span>({ shares })
 
 <span style="color:#4a6741;font-style:italic;">// 4. Poll until Solver fulfills (24–72h), then claim</span>
-<span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">waitForFulfillment</span>({ requestId })
-<span style="color:#ffcb6b;">const</span> { assets } = <span style="color:#ffcb6b;">await</span> harmonix.vault.<span style="color:#82aaff;">claimRedeem</span>({ requestId })</code></pre>
+<span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">waitForFulfillment</span>({ requestId })
+<span style="color:#c8f07a;">const</span> { assets } = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">claimRedeem</span>({ requestId })</code></pre>
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
@@ -1279,7 +1279,7 @@ html, body {
       <p><strong>Idle reserves.</strong> A buffer of undeployed capital is maintained at all times to support smooth redemptions without disrupting active strategy positions.</p>
 
       <div class="callout warn">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body">ha-stablecoins are not guaranteed fixed-yield instruments. Yield fluctuates with funding rates, market conditions, and protocol activity. The share price grows over time as yield accrues — each haUSDC, haUSDT, or haUSDH will be worth more of the underlying asset at redemption than at deposit. They are not pegged to $1; they are yield-bearing vault shares denominated in their underlying stablecoin. For platform-wide risks, see <a onclick="show('risks',null)" href="#">Risks, Security &amp; Audits</a>.</div>
       </div>
 
@@ -1304,7 +1304,7 @@ html, body {
       <img src="hahype-diagram.png" alt="haHYPE hakHYPE Strategy Diagram" style="width:100%;max-width:900px;display:block;margin:24px auto;border-radius:12px;" />
 
       <div class="callout warn">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body"><strong>haHYPE is for HYPE depositors. hakHYPE is for kHYPE depositors</strong> who want to compound yield on an already yield-bearing liquid staked asset.</div>
       </div>
 
@@ -1608,8 +1608,8 @@ html, body {
 
       <!-- Flow of Funds — Withdrawal -->
       <h2>Flow of Funds — Withdrawal</h2>
-      <div class="callout" style="border-left-color:#f78c6c;background:rgba(247,140,108,.06);">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f78c6c" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+      <div class="callout" style="border-left-color:#e0e0e0;background:rgba(200,240,122,.06);">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e0e0e0" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body">Withdrawals use an <strong>async queue</strong>. Standard ERC-4626 <code>redeem()</code> and <code>withdraw()</code> are disabled. Use the three-step flow below. Typical fulfillment: <strong>24–72 hours</strong>.</div>
       </div>
 
@@ -1871,7 +1871,7 @@ html, body {
       </table></div>
 
       <div class="callout warn">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body">haHYPE and hakHYPE withdrawals are settled in <strong>WHYPE</strong> (wrapped HYPE on HyperEVM), not native HYPE. Native HYPE withdrawal support is coming soon.</div>
       </div>
 
@@ -2564,7 +2564,7 @@ if (canWithdraw) {
       <p><strong>Venue risk.</strong> Capital is deployed on HyperCore for both spot and perpetual trades. Exchange downtime, liquidity gaps, or smart contract issues on HyperCore could impact the vault's ability to manage positions.</p>
 
       <div class="callout warn">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body">The Basis Trade Vault targets market-neutral returns but is not risk-free. Yield depends on funding rate conditions and may vary. Past performance is not indicative of future results. For platform-wide risks, see <a onclick="show('risks',null)" href="#">Risks, Security &amp; Audits</a>.</div>
       </div>
 
