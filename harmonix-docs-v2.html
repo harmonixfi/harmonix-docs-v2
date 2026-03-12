@@ -2503,6 +2503,9 @@ if (canWithdraw) {
           <tr><td>Strategist</td><td>Harmonix</td></tr>
           <tr><td>Audit</td><td>Shieldify, Verichains, Zenith</td></tr>
           <tr><td>Risk Monitoring</td><td>Hypernative (real-time)</td></tr>
+          <tr><td>Vault Contract</td><td><code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">0xF12F8753C25F8005311a24bbbA1f7209249B00e3</code> · <a href="https://arbiscan.io/address/0xF12F8753C25F8005311a24bbbA1f7209249B00e3" target="_blank" style="color:var(--green);text-decoration:none;">Arbiscan ↗</a></td></tr>
+          <tr><td>Deposit / Withdraw Token</td><td>USDC · <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">0xaf88d065e77c8cC2239327C5EDb3A432268e5831</code></td></tr>
+          <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hype-delta-neutral-v1" target="_blank" style="color:var(--green);text-decoration:none;">Open Vault ↗</a></td></tr>
         </tbody>
       </table></div>
 
@@ -2550,7 +2553,62 @@ if (canWithdraw) {
       </div>
 
       <h2>Track Performance</h2>
-      <p>Monitor live vault performance, APY history, and TVL on the <a href="https://app.harmonix.fi" target="_blank" style="color:var(--green);text-decoration:none;">Harmonix Dashboard ↗</a>.</p>
+      <p>Monitor live vault performance, APY history, and TVL on the <a href="https://app.harmonix.fi/vaults/hype-delta-neutral-v1" target="_blank" style="color:var(--green);text-decoration:none;">Harmonix Vault Dashboard ↗</a>.</p>
+
+      <h2>Smart Contract Reference</h2>
+      <p>The <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 7px;border-radius:4px;color:#c8f07a;">HypeVault</code> contract handles deposits, withdrawals, and share accounting. It uses a two-step withdrawal mechanism with price-per-share accounting.</p>
+
+      <h3>Write Functions</h3>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">deposit()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function deposit(uint256 amount, address tokenIn, bytes swapCallData) external</pre>
+        <p style="font-size:13px;color:#7a9b80;margin-bottom:4px;">Deposits <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">amount</code> of <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">tokenIn</code> into the vault. Accepts USDC, USDT, or DAI. For USDC deposits pass <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">0x</code> as swapCallData; for other tokens provide KyberSwap swap calldata.</p>
+      </div>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">initiateWithdrawal()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function initiateWithdrawal(uint256 shares) external</pre>
+        <p style="font-size:13px;color:#7a9b80;">Begins the withdrawal process by locking <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">shares</code>. Assets can be claimed later via <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">completeWithdrawal()</code>.</p>
+      </div>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">completeWithdrawal()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function completeWithdrawal(uint256 shares) external</pre>
+        <p style="font-size:13px;color:#7a9b80;">Finalises a previously initiated withdrawal. Burns <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">shares</code> and transfers the corresponding USDC to the caller.</p>
+      </div>
+
+      <h3>View Functions</h3>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">balanceOf()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function balanceOf(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13px;color:#7a9b80;">Returns the number of vault shares owned by <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">owner</code>.</p>
+      </div>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">getUserWithdrawlShares()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function getUserWithdrawlShares(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13px;color:#7a9b80;">Returns the number of shares <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">owner</code> has queued for withdrawal.</p>
+      </div>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">pricePerShare()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function pricePerShare() external view returns (uint256)</pre>
+        <p style="font-size:13px;color:#7a9b80;">Returns the current value of one share in the underlying asset (USDC).</p>
+      </div>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">totalValueLocked()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function totalValueLocked() external view returns (uint256)</pre>
+        <p style="font-size:13px;color:#7a9b80;">Reports the total value of all underlying assets managed by the vault.</p>
+      </div>
+
+      <div style="margin:20px 0;">
+        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">canCompleteWithdraw()</div>
+        <pre style="background:#0d1a10;border:1px solid #1c2e1f;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function canCompleteWithdraw(address user) external view returns (bool)</pre>
+        <p style="font-size:13px;color:#7a9b80;">Returns <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">true</code> if the user is eligible to call <code style="font-size:12px;background:#0d1a10;border:1px solid #1c2e1f;padding:2px 5px;border-radius:4px;color:#c8f07a;">completeWithdrawal()</code>.</p>
+      </div>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('tokens',null)">
