@@ -46,7 +46,7 @@
   <text class="sub" x="335" y="292" text-anchor="middle">ERC-4626 · Automates strategy</text>
 
   <!-- ARROW ↑ Vault → Receipt Token -->
-  <path d="M335 185 L335 118" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr-up)"/>
+  <path d="M335 185 L335 118" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
   <text class="flow" x="345" y="155">user receives</text>
 
   <!-- BOX: Receipt Token -->
@@ -110,11 +110,11 @@
   <text class="sub" x="1090" y="314" text-anchor="middle" style="font-size:10px">% per year</text>
 
   <!-- ════ RETURN PATH: NET APY → up → left → Receipt Token ════ -->
-  <path d="M1090 190 L1090 72 L435 72" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr-left)"/>
+  <path d="M1090 190 L1090 72 L435 72" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
   <text class="flow" x="760" y="63">yield accrues via exchange rate</text>
 
   <!-- ════ RETURN PATH: Receipt Token → User ════ -->
-  <path d="M240 72 L110 72 L110 200" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr-down)"/>
+  <path d="M240 72 L110 72 L110 200" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
   <text class="flow" x="160" y="63">user holds</text>
 
 </svg>

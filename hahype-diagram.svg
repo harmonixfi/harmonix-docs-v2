@@ -45,7 +45,7 @@
   <text class="sub" x="342" y="322" text-anchor="middle">ERC-4626 · Automates strategy</text>
 
   <!-- ARROW 2: Vault ↓ Felix (single clean arrow) -->
-  <line x1="342" y1="340" x2="342" y2="393" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#ad)"/>
+  <line x1="342" y1="340" x2="342" y2="393" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
   <text class="flow" x="352" y="372">collateral</text>
 
   <!-- ══════ 3. FELIX BOX ══════ -->
@@ -113,7 +113,7 @@
 
   <!-- ══════ 10. RETURN PATH: APY → up → diag left → Receipt Token ══════ -->
   <!-- APY goes straight UP -->
-  <path d="M1060 250 L1060 87 L460 87" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#al)"/>
+  <path d="M1060 250 L1060 87 L460 87" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#a)"/>
   <text class="flow" x="760" y="78">yield accrues via exchange rate</text>
 
   <!-- ══════ 11. RECEIPT TOKEN BOX ══════ -->
@@ -123,11 +123,11 @@
   <text class="sub" x="355" y="118" text-anchor="middle">ERC-4626</text>
 
   <!-- ══════ 12. RETURN PATH: Receipt Token → User ══════ -->
-  <path d="M255 87 L105 87 L105 230" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#ad)"/>
+  <path d="M255 87 L105 87 L105 230" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#a)"/>
   <text class="flow" x="165" y="78">user holds</text>
 
   <!-- ══════ 13. Vault → Receipt Token (direct issue) ══════ -->
-  <line x1="342" y1="215" x2="342" y2="133" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#au)"/>
+  <line x1="342" y1="215" x2="342" y2="133" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
   <text class="flow" x="352" y="178">receives</text>
 
 </svg>

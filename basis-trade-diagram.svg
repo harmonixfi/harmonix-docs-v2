@@ -24,10 +24,11 @@
     .pct { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
   </style>
 
-  <!-- BOX 1: Deposit USDC -->
-  <rect class="box" x="40" y="190" width="150" height="90"/>
-  <text class="label" x="115" y="218" text-anchor="middle">DEPOSIT</text>
-  <text class="title-lg" x="115" y="248" text-anchor="middle">USDC</text>
+  <!-- BOX 1: User -->
+  <rect class="box" x="40" y="185" width="150" height="100"/>
+  <text class="label" x="115" y="212" text-anchor="middle">USER</text>
+  <text class="title-lg" x="115" y="242" text-anchor="middle">Deposit USDC</text>
+  <text class="sub" x="115" y="264" text-anchor="middle">HyperEVM wallet</text>
 
   <!-- ARROW 1: Deposit → Smart Contract -->
   <line x1="190" y1="235" x2="268" y2="235" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -71,8 +72,8 @@
   <text class="title" x="900" y="228" text-anchor="middle">Combined</text>
   <text class="title" x="900" y="252" text-anchor="middle">Yield</text>
 
-  <!-- Return arrow: Combined → Deposit (bottom path) -->
-  <path d="M900 280 L900 440 L115 440 L115 280" stroke="#c8f07a" stroke-width="1" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow-up)"/>
-  <text class="flow-label" x="500" y="432" text-anchor="middle">Yield flows back via share price appreciation</text>
+  <!-- Return arrow: Combined Yield → Smart Contract (bottom path) -->
+  <path d="M900 280 L900 440 L360 440 L360 295" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
+  <text class="flow-label" x="620" y="432" text-anchor="middle">yield accrues via share price appreciation</text>
 
 </svg>
