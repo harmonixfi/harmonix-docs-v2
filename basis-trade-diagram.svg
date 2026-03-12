@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" fill="none">
+  <rect width="1000" height="480" fill="#000000"/>
+
+  <!-- DEFS: arrow marker + fonts -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#c8f07a"/>
+    </marker>
+    <marker id="arrow-up" markerWidth="10" markerHeight="8" refX="4" refY="0" orient="auto">
+      <path d="M0 8 L4 0 L8 8 Z" fill="#c8f07a"/>
+    </marker>
+  </defs>
+
+  <style>
+    .box { fill: #080808; stroke: #3d5a1e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
+    .box-highlight { fill: #0d1a04; stroke: #c8f07a; stroke-width: 2; stroke-dasharray: none; rx: 10; }
+    .label { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .title { fill: #e8e8e8; font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; }
+    .title-lg { fill: #e8e8e8; font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; }
+    .sub { fill: #9a9a9a; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; }
+    .flow-label { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-style: italic; }
+    .badge { fill: #0d1a04; stroke: #c8f07a; stroke-width: 1.2; rx: 14; }
+    .badge-text { fill: #c8f07a; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; }
+    .pct { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
+  </style>
+
+  <!-- BOX 1: Deposit USDC -->
+  <rect class="box" x="40" y="190" width="150" height="90"/>
+  <text class="label" x="115" y="218" text-anchor="middle">DEPOSIT</text>
+  <text class="title-lg" x="115" y="248" text-anchor="middle">USDC</text>
+
+  <!-- ARROW 1: Deposit → Smart Contract -->
+  <line x1="190" y1="235" x2="268" y2="235" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- BOX 2: Smart Contract -->
+  <rect class="box" x="270" y="175" width="180" height="120"/>
+  <text class="label" x="360" y="208" text-anchor="middle">ERC-4626</text>
+  <text class="title" x="360" y="235" text-anchor="middle">Smart Contract</text>
+  <text class="sub" x="360" y="260" text-anchor="middle">Splits 50 / 50</text>
+
+  <!-- ARROW 2a: SC → Buy Spot (upper) -->
+  <path d="M450 215 L480 215 L480 135 L548 135" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text class="pct" x="495" y="170">50%</text>
+
+  <!-- ARROW 2b: SC → Short Perp (lower) -->
+  <path d="M450 255 L480 255 L480 345 L548 345" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text class="pct" x="495" y="325">50%</text>
+
+  <!-- BOX 3a: Buy $HYPE Spot -->
+  <rect class="box" x="550" y="85" width="200" height="100"/>
+  <text class="label" x="650" y="113" text-anchor="middle">HYPERCORE</text>
+  <text class="title" x="650" y="142" text-anchor="middle">Buy $HYPE Spot</text>
+  <text class="sub" x="650" y="164" text-anchor="middle">Long position</text>
+
+  <!-- BOX 3b: Short 1× PERP -->
+  <rect class="box" x="550" y="295" width="200" height="100"/>
+  <text class="label" x="650" y="323" text-anchor="middle">HYPERCORE</text>
+  <text class="title" x="650" y="352" text-anchor="middle">Short 1× PERP</text>
+  <text class="sub" x="650" y="374" text-anchor="middle">Earn funding rates</text>
+
+  <!-- Δ Neutral badge -->
+  <rect class="badge" x="595" y="206" width="110" height="30"/>
+  <text class="badge-text" x="650" y="226" text-anchor="middle">Δ Neutral</text>
+
+  <!-- ARROWS: both boxes → Combined Yield -->
+  <line x1="750" y1="135" x2="828" y2="200" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="345" x2="828" y2="270" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- BOX 4: Combined Yield (highlight) -->
+  <rect class="box-highlight" x="830" y="190" width="140" height="90"/>
+  <text class="title" x="900" y="228" text-anchor="middle">Combined</text>
+  <text class="title" x="900" y="252" text-anchor="middle">Yield</text>
+
+  <!-- Return arrow: Combined → Deposit (bottom path) -->
+  <path d="M900 280 L900 440 L115 440 L115 280" stroke="#c8f07a" stroke-width="1" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow-up)"/>
+  <text class="flow-label" x="500" y="432" text-anchor="middle">Yield flows back via share price appreciation</text>
+
+</svg>

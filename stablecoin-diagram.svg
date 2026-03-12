@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 520" fill="none">
+  <rect width="1140" height="520" fill="#000000"/>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#c8f07a"/>
+    </marker>
+    <marker id="arr-up" markerWidth="10" markerHeight="8" refX="4" refY="0" orient="auto">
+      <path d="M0 8 L4 0 L8 8 Z" fill="#c8f07a"/>
+    </marker>
+  </defs>
+
+  <style>
+    .box { fill: #080808; stroke: #3d5a1e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
+    .box-hl { fill: #0d1a04; stroke: #c8f07a; stroke-width: 2; rx: 10; }
+    .lbl { fill: #c8f07a; font-family: monospace; font-size: 9px; letter-spacing: 1.5px; }
+    .ttl { fill: #e8e8e8; font-family: sans-serif; font-size: 17px; font-weight: 700; }
+    .ttl-lg { fill: #e8e8e8; font-family: sans-serif; font-size: 20px; font-weight: 700; }
+    .sub { fill: #9a9a9a; font-family: sans-serif; font-size: 11.5px; }
+    .flow { fill: #c8f07a; font-family: monospace; font-size: 10.5px; font-style: italic; }
+    .pct { fill: #c8f07a; font-family: monospace; font-size: 11px; font-weight: 600; }
+  </style>
+
+  <!-- BOX 1: User Deposits -->
+  <rect class="box" x="30" y="200" width="160" height="110"/>
+  <text class="lbl" x="110" y="228" text-anchor="middle">USER</text>
+  <text class="ttl" x="110" y="255" text-anchor="middle">Deposit</text>
+  <text class="ttl" x="110" y="278" text-anchor="middle">Stablecoins</text>
+  <text class="sub" x="110" y="298" text-anchor="middle">USDC · USDT · USDH</text>
+
+  <!-- ARROW → Vault -->
+  <line x1="190" y1="255" x2="238" y2="255" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="flow" x="197" y="246">deposit</text>
+
+  <!-- BOX 2: Harmonix Vault -->
+  <rect class="box" x="240" y="185" width="190" height="130"/>
+  <text class="lbl" x="335" y="215" text-anchor="middle">VAULT</text>
+  <text class="ttl-lg" x="335" y="244" text-anchor="middle">Harmonix</text>
+  <text class="ttl-lg" x="335" y="270" text-anchor="middle">Vault</text>
+  <text class="sub" x="335" y="292" text-anchor="middle">ERC-4626 · Automates strategy</text>
+
+  <!-- ARROW ↑ Vault → Receipt Token -->
+  <path d="M335 185 L335 118" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr-up)"/>
+  <text class="flow" x="345" y="155">user receives</text>
+
+  <!-- BOX: Receipt Token -->
+  <rect class="box" x="240" y="30" width="190" height="85"/>
+  <text class="lbl" x="335" y="55" text-anchor="middle">RECEIPT TOKEN</text>
+  <text class="ttl-lg" x="335" y="82" text-anchor="middle">haUSDC / T / H</text>
+  <text class="sub" x="335" y="102" text-anchor="middle">ERC-4626</text>
+
+  <!-- Split label -->
+  <text class="flow" x="465" y="220" transform="rotate(-90 465 250)">capital split</text>
+
+  <!-- ARROW upper fork → Perps -->
+  <path d="M430 240 L490 240 L490 140 L568 140" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text class="pct" x="500" y="180">PERPS — 50%</text>
+
+  <!-- ARROW lower fork → Spot -->
+  <path d="M430 265 L490 265 L490 380 L568 380" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text class="pct" x="500" y="345">SPOT — 50%</text>
+
+  <!-- BOX: Short Positions -->
+  <rect class="box" x="570" y="90" width="195" height="105"/>
+  <text class="ttl" x="668" y="125" text-anchor="middle">Short Positions</text>
+  <text class="sub" x="668" y="148" text-anchor="middle">HyperCore perpetuals</text>
+  <text class="sub" x="668" y="166" text-anchor="middle">Positive funding capture</text>
+
+  <!-- BOX: Lending & Ecosystem -->
+  <rect class="box" x="570" y="325" width="195" height="110"/>
+  <text class="ttl" x="668" y="358" text-anchor="middle">Lending &amp;</text>
+  <text class="ttl" x="668" y="380" text-anchor="middle">Ecosystem</text>
+  <text class="sub" x="668" y="402" text-anchor="middle">Staking · Lending · CDP</text>
+  <text class="sub" x="668" y="420" text-anchor="middle">Pendle · Kinetiq · Felix</text>
+
+  <!-- ARROW: Perps → Funding Rate -->
+  <line x1="765" y1="140" x2="818" y2="140" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ARROW: Spot → Ecosystem Yield -->
+  <line x1="765" y1="380" x2="818" y2="380" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- BOX: Funding Rate -->
+  <rect class="box" x="820" y="95" width="180" height="90"/>
+  <text class="lbl" x="910" y="118" text-anchor="middle">YIELD SOURCE</text>
+  <text class="ttl" x="910" y="145" text-anchor="middle">Funding Rate</text>
+  <text class="sub" x="910" y="167" text-anchor="middle">Longs pay shorts</text>
+
+  <!-- BOX: Ecosystem Yield -->
+  <rect class="box" x="820" y="330" width="180" height="105"/>
+  <text class="lbl" x="910" y="355" text-anchor="middle">YIELD SOURCE</text>
+  <text class="ttl" x="910" y="380" text-anchor="middle">Ecosystem Yield</text>
+  <text class="sub" x="910" y="402" text-anchor="middle">Lending · Staking · LP</text>
+  <text class="sub" x="910" y="418" text-anchor="middle">+ partner protocol points</text>
+
+  <!-- ARROWS → APY box -->
+  <path d="M1000 140 L1030 140 L1030 225 L1048 225" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M1000 380 L1030 380 L1030 275 L1048 275" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- BOX: Net APY (highlight) -->
+  <rect class="box-hl" x="1050" y="190" width="80" height="130"/>
+  <text class="lbl" x="1090" y="215" text-anchor="middle">NET APY</text>
+  <text fill="#e8e8e8" font-family="sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">5–</text>
+  <text fill="#e8e8e8" font-family="sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">12</text>
+  <text class="sub" x="1090" y="314" text-anchor="middle" style="font-size:10px">% per year</text>
+
+</svg>
