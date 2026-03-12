@@ -72,8 +72,8 @@
   <text class="title" x="900" y="228" text-anchor="middle">Combined</text>
   <text class="title" x="900" y="252" text-anchor="middle">Yield</text>
 
-  <!-- Return arrow: Combined Yield → Smart Contract (bottom path) -->
-  <path d="M900 280 L900 440 L360 440 L360 295" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
-  <text class="flow-label" x="620" y="432" text-anchor="middle">yield accrues via share price appreciation</text>
+  <!-- Return arrow: Combined Yield → User (bottom path) -->
+  <path d="M900 280 L900 440 L115 440 L115 285" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
+  <text class="flow-label" x="500" y="432" text-anchor="middle">withdraw stablecoins + yield</text>
 
 </svg>
