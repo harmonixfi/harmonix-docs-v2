@@ -1306,6 +1306,11 @@ html, body {
       <p>The two legs offset each other's directional exposure. Both sides generate yield simultaneously, with net delta close to zero.</p>
       <p>For hakHYPE, the mechanic is simpler: kHYPE is already yield-bearing as Kinetiq's liquid staked HYPE. Harmonix layers additional yield on top by deploying into Kinetiq Earn, Pendle principal token markets, and cross-protocol lending strategies.</p>
 
+      <h2>Where Yield Comes From</h2>
+      <p>For haHYPE, the primary source is funding rate income from shorting HYPE perps on HyperCore when rates are positive. Secondary sources include lending yield from HyperLend, HypurrFi, and Felix, fixed yield from Pendle PT positions, and liquid staking yield via Kinetiq.</p>
+      <p>For hakHYPE, the base layer is Kinetiq's native staking yield on kHYPE. Pendle PT positions add fixed yield on top, and the HyperLend and Etherfi lending strategies generate additional variable income.</p>
+      <p>Net yield is realized after borrow costs, fees, and the idle buffer. It compounds directly into the share price and is reflected in real time in the app.</p>
+
       <!-- TAB BAR -->
       <div class="stable-tabs">
         <button class="stable-tab active" onclick="showTokenTab('tab-hahype',this)">haHYPE</button>
@@ -1363,11 +1368,6 @@ html, body {
           </tbody>
         </table></div>
       </div>
-
-      <h2>Where Yield Comes From</h2>
-      <p>For haHYPE, the primary source is funding rate income from shorting HYPE perps on HyperCore when rates are positive. Secondary sources include lending yield from HyperLend, HypurrFi, and Felix, fixed yield from Pendle PT positions, and liquid staking yield via Kinetiq.</p>
-      <p>For hakHYPE, the base layer is Kinetiq's native staking yield on kHYPE. Pendle PT positions add fixed yield on top, and the HyperLend and Etherfi lending strategies generate additional variable income.</p>
-      <p>Net yield is realized after borrow costs, fees, and the idle buffer. It compounds directly into the share price and is reflected in real time in the app.</p>
 
       <h2>Fees</h2>
       <div class="table-wrap"><table>
