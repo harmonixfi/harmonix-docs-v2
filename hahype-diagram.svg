@@ -74,11 +74,11 @@
   <text class="flow" x="688" y="310" text-anchor="end" transform="rotate(-90 688 310)">capital split</text>
 
   <!-- Upper branch: split → Perps -->
-  <line x1="700" y1="190" x2="738" y2="190" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="700" y1="190" x2="733" y2="190" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
   <text class="pct" x="706" y="178">PERPS — 50%</text>
 
   <!-- Lower branch: split → Spot -->
-  <line x1="700" y1="430" x2="738" y2="430" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="700" y1="430" x2="733" y2="430" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
   <text class="pct" x="706" y="418">SPOT — 50%</text>
 
   <!-- ══════ 6. PERPS BOX (with yield source INSIDE) ══════ -->
