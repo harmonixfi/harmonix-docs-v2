@@ -807,6 +807,11 @@ html, body {
         <a class="nav-item" onclick="show('sdk',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Harmonix SDK</a>
         <a class="nav-item" href="https://drive.google.com/drive/folders/1YnCGYEGjJa1xdhUVqHua4LquWryTHRI4" target="_blank"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>Brand Kit ↗</a>
       </div>
+      <div class="nav-label">Legal &amp; Reference</div>
+      <div class="nav-group">
+        <a class="nav-item" onclick="show('terms',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Terms of Use</a>
+        <a class="nav-item" onclick="show('glossary',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Glossary</a>
+      </div>
     </div>
   </nav>
   <!-- /sidebar-nav-wrap -->
@@ -1101,23 +1106,7 @@ html, body {
 
       </div>
 
-      <div style="margin:0 0 40px;">
-        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d3d3d;margin-bottom:0;">Quickstart · V2 Vault deposit + async redeem (ethers.js)</div>
-        <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-top:2px solid #c8f07a;border-radius:0 0 8px 8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;"><span style="color:#4a6741;font-style:italic;">// V2 vaults use the Teller contract as entry point</span>
-
-<span style="color:#4a6741;font-style:italic;">// 1. Approve the Teller to spend your USDC</span>
-<span style="color:#c8f07a;">await</span> usdc.<span style="color:#82aaff;">approve</span>(TELLER_ADDRESS, amount);
-
-<span style="color:#4a6741;font-style:italic;">// 2. Deposit via Teller — receive ha-token shares instantly</span>
-<span style="color:#c8f07a;">await</span> teller.<span style="color:#82aaff;">deposit</span>(USDC_ADDRESS, amount, minShares, receiver);
-
-<span style="color:#4a6741;font-style:italic;">// 3. Queue a withdrawal — returns a requestId</span>
-<span style="color:#c8f07a;">const</span> requestId = <span style="color:#c8f07a;">await</span> teller.<span style="color:#82aaff;">requestWithdraw</span>(shares);
-
-<span style="color:#4a6741;font-style:italic;">// 4. Claim once fulfilled (24–72h)</span>
-<span style="color:#c8f07a;">const</span> assets = <span style="color:#c8f07a;">await</span> teller.<span style="color:#82aaff;">claimWithdraw</span>(requestId);</code></pre>
-      </div>
-
+      <h2>Quick Links</h2>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
         <div onclick="show('vault-arch',null)" style="background:#0a0a0a;border:1px solid #1c1c1c;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c1c1c'">
           <span style="font-size:13px;color:#e0e0e0;font-weight:500;">Vault Architecture</span>
@@ -1129,7 +1118,7 @@ html, body {
         </div>
         <div onclick="show('api-integration',null)" style="background:#0a0a0a;border:1px solid #1c1c1c;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c1c1c'">
           <span style="font-size:13px;color:#e0e0e0;font-weight:500;">SC Integration</span>
-          <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#8a8a8a;">Whitelisting · onchain guide</span>
+          <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#8a8a8a;">Quickstart code · contract addresses</span>
         </div>
       </div>
 
@@ -1223,8 +1212,6 @@ html, body {
 <h2>haUSDC</h2>
         <p>haUSDC is an ERC-4626 yield-bearing receipt token for USDC depositors. Deposit USDC, receive haUSDC shares. As the vault generates yield, each haUSDC becomes redeemable for more USDC over time — yield compounds into the exchange rate, not distributed as separate payments.</p>
         <p style="color:var(--text2);font-size:13px;">Underlying asset: <strong style="color:var(--text);">USDC</strong> · Standard: <strong style="color:var(--text);">ERC-4626</strong> · Minimum deposit: <strong style="color:var(--text);">1 USDC</strong></p>
-        <h3>Vault Allocation</h3>
-        <p style="color:var(--text2);font-size:14px;line-height:1.7;">Capital is split across three strategies that shift dynamically based on market conditions. <strong style="color:var(--text);">Delta Neutral</strong> — the primary source, deploying capital long spot / short perp on HyperCore to earn funding rates with no directional exposure. <strong style="color:var(--text);">Supply Spot</strong> — lending and liquidity provision across HyperEVM protocols (Felix, Hyperswap, HyperLend) for additional variable yield. <strong style="color:var(--text);">Idle buffer</strong> — a small reserve maintained at all times to support smooth redemptions without unwinding active positions.</p>
       </div>
 
       <!-- haUSDT -->
@@ -1232,8 +1219,6 @@ html, body {
         <h2>haUSDT</h2>
         <p>haUSDT is an ERC-4626 yield-bearing receipt token for USDT depositors. Deposit USDT, receive haUSDT shares that grow in redemption value as the vault compounds yield into the exchange rate. Follows the same market-neutral strategy architecture as haUSDC, with allocation tuned to USDT liquidity conditions on HyperCore and HyperEVM.</p>
         <p style="color:var(--text2);font-size:13px;">Underlying asset: <strong style="color:var(--text);">USDT</strong> · Standard: <strong style="color:var(--text);">ERC-4626</strong> · Minimum deposit: <strong style="color:var(--text);">1 USDT</strong></p>
-        <h3>Vault Allocation</h3>
-        <p style="color:var(--text2);font-size:14px;line-height:1.7;">Capital is split across three strategies that shift dynamically based on market conditions. <strong style="color:var(--text);">Delta Neutral</strong> — the primary source, deploying capital long spot / short perp on HyperCore to earn funding rates with no directional exposure. <strong style="color:var(--text);">Supply Spot</strong> — lending and liquidity provision across HyperEVM protocols for additional variable yield. <strong style="color:var(--text);">Idle buffer</strong> — a small reserve maintained at all times to support smooth redemptions without unwinding active positions.</p>
       </div>
 
       <!-- haUSDH -->
@@ -1241,15 +1226,44 @@ html, body {
         <h2>haUSDH</h2>
         <p>haUSDH is an ERC-4626 yield-bearing receipt token for USDH depositors — Hyperliquid's native stablecoin. As the ecosystem-native option, haUSDH benefits from deep HyperCore liquidity and is positioned to capture strong native yield. Deposit USDH, receive haUSDH shares that compound yield into the exchange rate over time.</p>
         <p style="color:var(--text2);font-size:13px;">Underlying asset: <strong style="color:var(--text);">USDH</strong> · Standard: <strong style="color:var(--text);">ERC-4626</strong> · Minimum deposit: <strong style="color:var(--text);">1 USDH</strong></p>
-        <h3>Vault Allocation</h3>
-        <p style="color:var(--text2);font-size:14px;line-height:1.7;">Capital is split across three strategies that shift dynamically based on market conditions. <strong style="color:var(--text);">Delta Neutral</strong> — the primary source, deploying capital long spot / short perp on HyperCore to earn funding rates with no directional exposure. <strong style="color:var(--text);">Supply Spot</strong> — lending and liquidity provision across HyperEVM protocols for additional variable yield. <strong style="color:var(--text);">Idle buffer</strong> — a small reserve maintained at all times to support smooth redemptions without unwinding active positions.</p>
       </div>
+
+      <h2>Vault Allocation</h2>
+      <p>Capital is split across three strategies that shift dynamically based on market conditions:</p>
+      <p><strong>Delta Neutral</strong> — the primary source, deploying capital long spot / short perp on HyperCore to earn funding rates with no directional exposure.</p>
+      <p><strong>Supply Spot</strong> — lending and liquidity provision across HyperEVM protocols (Felix, Hyperswap, HyperLend) for additional variable yield.</p>
+      <p><strong>Idle buffer</strong> — a small reserve maintained at all times to support smooth redemptions without unwinding active positions.</p>
 
       <!-- Shared section -->
       <h2>Where Yield Comes From</h2>
       <p><strong>Funding income (Delta Neutral).</strong> Capital is paired long spot / short perpetuals on HyperCore to earn funding payments while minimizing price exposure. This is the primary, most consistent yield source.</p>
       <p><strong>Spot supply yield.</strong> A portion of capital is deployed into HyperEVM lending and liquidity protocols — Felix, Hyperswap, Kinetiq, and others — earning additional lending and LP yield on top of funding income.</p>
       <p><strong>Idle reserves.</strong> A buffer of undeployed capital is maintained at all times to support smooth redemptions without disrupting active strategy positions.</p>
+
+      <h2>Fees</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Fee Type</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Entry</td><td><strong>0%</strong></td></tr>
+          <tr><td>Withdrawal</td><td><strong>0%</strong></td></tr>
+          <tr><td>Performance</td><td><strong>0%</strong></td></tr>
+          <tr><td>Management</td><td><strong>1%</strong> annualized</td></tr>
+        </tbody>
+      </table></div>
+      <p style="color:var(--text2);font-size:13px;">V2 vaults charge a 1% annualized management fee only. No performance fee. Fee is accrued pro-rata into the share price.</p>
+
+      <h2>Withdrawals</h2>
+      <p>All ha-stablecoin vaults use an asynchronous withdrawal queue via the Teller contract. A 5% idle buffer is maintained at all times to support near-instant small withdrawals.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Request</h4><p>Call <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 7px;border-radius:4px;color:#c8f07a;">requestWithdraw(shares)</code> on the Teller contract — locks your shares and enters the queue.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Processing</h4><p>The vault unwinds the corresponding portion of active positions. Requests within the idle buffer are typically processed within one day; larger requests may take up to three days.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Claim</h4><p>Once fulfilled, call <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 7px;border-radius:4px;color:#c8f07a;">claimWithdraw(requestId)</code> to receive the underlying stablecoin (USDC, USDT, or USDH).</p></div></div>
+      </div>
+
+      <h2>Risks</h2>
+      <p><strong>Funding rate risk.</strong> The delta-neutral strategy depends on positive perpetual funding rates. If rates turn negative, the short leg generates a cost rather than income. The vault monitors rates in real time and adjusts position sizing accordingly.</p>
+      <p><strong>Smart contract risk.</strong> Capital interacts with BoringVault, Teller, and Accountant contracts. All contracts have been audited by Verichains, Shieldify, and Zenith, but smart contract risk can never be fully eliminated.</p>
+      <p><strong>Venue risk.</strong> Capital is deployed across HyperCore and multiple HyperEVM protocols. Each venue carries its own smart contract and liquidity risk. Diversification reduces but does not eliminate this exposure.</p>
 
       <div class="callout warn">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
@@ -1356,7 +1370,16 @@ html, body {
       <p>Net yield is realized after borrow costs, fees, and the idle buffer. It compounds directly into the share price and is reflected in real time in the app.</p>
 
       <h2>Fees</h2>
-      <p>A management fee of 1% per year is charged pro-rated based on time in the vault. A performance fee of 10% on net profit is charged at withdrawal only. No fees are deducted while capital is actively deployed. Users are encouraged to remain in the vault for at least 7 days to ensure yield offsets applicable fees.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Fee Type</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Entry</td><td><strong>0%</strong></td></tr>
+          <tr><td>Withdrawal</td><td><strong>0%</strong></td></tr>
+          <tr><td>Performance</td><td><strong>0%</strong></td></tr>
+          <tr><td>Management</td><td><strong>1%</strong> annualized</td></tr>
+        </tbody>
+      </table></div>
+      <p style="color:var(--text2);font-size:13px;">V2 vaults charge a 1% annualized management fee only. No performance fee. Staying in the vault for at least 7 days ensures yield earned offsets the applicable fee.</p>
 
       <h2>Withdrawals</h2>
       <p>Withdrawals are currently settled in WHYPE. A 5% buffer pool is maintained at all times to support near-instant withdrawals. Requests within the buffer are typically processed within one day. Large withdrawals exceeding 5% of vault TVL may take up to three days to process. Native HYPE withdrawal support is planned for a future update.</p>
@@ -1369,13 +1392,11 @@ html, body {
 
       <h2>FAQs</h2>
       <h3>Does yield pay out automatically?</h3>
-      <p>Yes. Yield accrues continuously into the share price. There is no claiming step or separate staking action required — holding haHYPE or hakHYPE is sufficient.</p>
+      <p>Yes. Yield accrues continuously into the share price via the ERC-4626 exchange rate. No claiming step or staking action required — holding haHYPE or hakHYPE is sufficient.</p>
       <h3>Why are withdrawals in WHYPE and not HYPE?</h3>
       <p>WHYPE is the HyperEVM-native wrapped form of HYPE. Native HYPE withdrawal support is planned for a future update.</p>
-      <h3>What happens if funding rates go negative?</h3>
-      <p>The strategy monitors funding rates in real time. If rates turn negative, position sizing is adjusted and the delta-neutral leg may be reduced or exited to protect returns.</p>
       <h3>Is there a minimum holding period?</h3>
-      <p>No hard lockup. However, staying in the vault for at least 7 days ensures yield earned offsets the applicable fees.</p>
+      <p>No hard lockup. However, staying in the vault for at least 7 days ensures yield earned offsets the applicable management fee.</p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('stablecoins',null)">
@@ -1541,6 +1562,30 @@ html, body {
 
         </div>
       </div>
+
+      <h2>Core Modules</h2>
+      <p>The BoringVault framework uses a modular architecture with minimal core contract logic (~100 lines of code). Each module has a single responsibility and no single component holds both custody and execution authority.</p>
+
+      <h3>BoringVault</h3>
+      <p>The central custodial contract that holds all deposited funds. It is deliberately minimal — an ERC-20 token with <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">delegatecall</code> capability. The vault delegates all complex operations (deposits, withdrawals, rebalancing, accounting) to external modules. This separation means the vault itself has an extremely small attack surface.</p>
+
+      <h3>Teller</h3>
+      <p>The entry point for all user-facing interactions. Handles deposit mechanics by minting shares using exchange rates from the Accountant. Manages the asynchronous withdrawal queue — accepts redemption requests, locks shares in escrow, and releases assets once fulfilled. Enforces a share lock period after deposit to mitigate MEV sandwich attacks on the exchange rate.</p>
+
+      <h3>Accountant</h3>
+      <p>Publishes and updates the vault's exchange rate (price-per-share). Includes on-chain safety mechanisms: update frequency limits and rate movement constraints between updates prevent manipulation. The Accountant is the source of truth for how much each share is worth when depositing or withdrawing.</p>
+
+      <h3>Manager</h3>
+      <p>Stores all authorized vault operations in a Merkle tree structure and validates every rebalance action against this whitelist. Only pre-approved protocol interactions (specific contract addresses + function selectors) can execute through the vault. This prevents unauthorized fund movements even if other components are compromised.</p>
+
+      <h3>DecoderAndSanitizer</h3>
+      <p>A validation layer that decodes and examines calldata for every external call the vault makes. Ensures that parameters match expected formats and targets before execution — an additional safety check on top of the Merkle whitelist.</p>
+
+      <h3>RolesAuthority</h3>
+      <p>The on-chain role-based access control (RBAC) contract. Gates which addresses can call which functions across the entire vault system. Roles include: Depositor (anyone), Solver (fulfills withdrawal requests), Curator (triggers strategy deployment), and Admin (multisig-controlled parameter changes).</p>
+
+      <h3>Lens</h3>
+      <p>A read-only aggregation contract for integrators. Provides convenience functions like <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">getVaultData()</code> (TVL, PPS, total shares) and <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">getUserData(address)</code> (balance, pending withdrawals, claimable assets) in a single call.</p>
 
       <!-- Flow of Funds — Deposit -->
       <h2>Flow of Funds — Deposit</h2>
@@ -2085,8 +2130,90 @@ if (canWithdraw) {
         </div>
       </div>
 
+      <h2>Get a User Position</h2>
+      <p>Read a user's vault position and pending withdrawals on-chain using the Lens contract or direct calls:</p>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
+        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code><span style="color:#4a6741;">// User's share balance</span>
+const shares = await vault.balanceOf(userAddress);
+
+<span style="color:#4a6741;">// Current price per share (exchange rate)</span>
+const pps = await accountant.getRateInQuoteSafe(vault.address);
+
+<span style="color:#4a6741;">// User's position value in underlying asset</span>
+const value = shares * pps / 1e18;
+
+<span style="color:#4a6741;">// Check pending withdrawal requests</span>
+const request = await teller.getRedeemRequest(requestId);
+<span style="color:#4a6741;">// request.status: 0 = Pending, 1 = Fulfilled, 2 = Claimed</span>
+<span style="color:#4a6741;">// request.assets: amount claimable when fulfilled</span></code></pre>
+      </div>
+      <p style="color:var(--text2);font-size:13px;">For bulk position queries across multiple users, use the <a onclick="show('api-reference',null)" href="#" style="color:var(--green);">Harmonix REST API</a> instead of individual on-chain calls.</p>
+
+      <h2>Compute Share Valuation</h2>
+      <p>The vault share price (price-per-share, PPS) is the ratio of total vault assets to total shares outstanding. The Accountant contract maintains this rate:</p>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
+        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code><span style="color:#4a6741;">// Get the current exchange rate (assets per share, scaled to 1e18)</span>
+const rate = await accountant.getRateInQuoteSafe(vault.address);
+
+<span style="color:#4a6741;">// Convert shares to underlying asset value</span>
+const assetsOut = (shares * rate) / 1e18;
+
+<span style="color:#4a6741;">// Convert underlying asset amount to shares</span>
+const sharesOut = (assets * 1e18) / rate;
+
+<span style="color:#4a6741;">// Total vault value</span>
+const totalAssets = await vault.totalAssets();
+const totalShares = await vault.totalSupply();</code></pre>
+      </div>
+      <p style="color:var(--text2);font-size:13px;">The Accountant updates the exchange rate periodically with safety bounds — the rate can only move within a constrained range per update to prevent manipulation. Rate updates include accrued yield and deducted management fees.</p>
+
+      <h2>APR Computation</h2>
+      <p>Vault APR is derived from the change in price-per-share over time. There are two methods depending on your use case:</p>
+
+      <h3>Method 1: On-chain (two snapshots)</h3>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
+        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code><span style="color:#4a6741;">// Record PPS at two points in time</span>
+const pps_t0 = await accountant.getRateInQuoteSafe(vault.address); <span style="color:#4a6741;">// at time t0</span>
+const pps_t1 = await accountant.getRateInQuoteSafe(vault.address); <span style="color:#4a6741;">// at time t1</span>
+
+<span style="color:#4a6741;">// Calculate annualized return</span>
+const elapsed_days = (t1 - t0) / 86400;
+const period_return = (pps_t1 - pps_t0) / pps_t0;
+const apr = period_return * (365 / elapsed_days);
+const apy = Math.pow(1 + period_return, 365 / elapsed_days) - 1;</code></pre>
+      </div>
+
+      <h3>Method 2: REST API (recommended)</h3>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
+        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code><span style="color:#4a6741;">// Fetch pre-computed APY from the Harmonix API</span>
+const res = await fetch('https://api.harmonix.fi/api/v1/vaults/haUSDC');
+const vault = await res.json();
+const apy = vault.apy;         <span style="color:#4a6741;">// 7-day rolling APY</span>
+const tvl = vault.tvl;         <span style="color:#4a6741;">// total value locked</span></code></pre>
+      </div>
+      <p style="color:var(--text2);font-size:13px;">The API returns a 7-day rolling APY that smooths short-term volatility in funding rates. For historical APY data, use the <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">/api/v1/vaults/{slug}/performance</code> endpoint.</p>
+
+      <h2>Frontend Integration</h2>
+      <p>If you are building a frontend that displays Harmonix vault data, here is the recommended approach:</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Data</th><th>Source</th><th>Update Frequency</th></tr></thead>
+        <tbody>
+          <tr><td>Vault APY, TVL, strategy info</td><td>REST API (<code>/api/v1/vaults</code>)</td><td>Every 5 minutes</td></tr>
+          <tr><td>User balance and position value</td><td>On-chain <code>vault.balanceOf()</code> + Accountant PPS</td><td>Per block or on user action</td></tr>
+          <tr><td>Pending withdrawal status</td><td>On-chain <code>teller.getRedeemRequest()</code></td><td>Poll every 30 seconds during pending</td></tr>
+          <tr><td>Historical performance</td><td>REST API (<code>/api/v1/vaults/{slug}/performance</code>)</td><td>Daily</td></tr>
+          <tr><td>Points balances</td><td>REST API (<code>/api/v1/users/{address}/points</code>)</td><td>Every 15 minutes</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body"><strong>Deposit UX tip:</strong> After <code>teller.deposit()</code> succeeds, update the user's share balance immediately from the transaction receipt rather than waiting for the next API poll. The deposit is synchronous — shares are minted in the same transaction.</div>
+      </div>
+
       <h2>Next Steps</h2>
-      <p>Choose your integration path and explore the detailed guides:</p>
+      <p>Explore the detailed reference guides:</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;">
         <a onclick="show('contracts',null)" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.5)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-weight:600;color:var(--text);margin-bottom:4px;">Smart Contracts →</div>
@@ -2653,7 +2780,7 @@ if (canWithdraw) {
           <tr><td>Entry</td><td><strong>0%</strong></td></tr>
           <tr><td>Early Withdrawal</td><td><strong>0%</strong></td></tr>
           <tr><td>Performance</td><td><strong>10%</strong> on net profit</td></tr>
-          <tr><td>Management</td><td><strong>1%</strong> annualised</td></tr>
+          <tr><td>Management</td><td><strong>1%</strong> annualized</td></tr>
         </tbody>
       </table></div>
 
@@ -2744,6 +2871,147 @@ if (canWithdraw) {
     </section>
     <!-- end basis-trade-vault -->
 
+    <!-- ── TERMS OF USE ── -->
+    <section class="section" id="s-terms">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Terms of Use</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
+      <div class="page-hero">
+        <span class="page-tag">Legal</span>
+        <h1>Terms of Use</h1>
+        <p class="page-subtitle">Last Updated: 8 November 2025</p>
+      </div>
+
+      <h2>Introduction</h2>
+      <p>These Terms of Use ("Terms") set forth the legally binding agreement between Techwise Solution Ltd, a business company incorporated in the British Virgin Islands ("Services Provider", "we", "us", or "our") and the users ("user", "you", and "your") who access and use our website and application programming interfaces (APIs) ("Applications") — available at <a href="https://harmonix.fi/" target="_blank" style="color:var(--green);">harmonix.fi</a> and <a href="https://app.harmonix.fi/" target="_blank" style="color:var(--green);">app.harmonix.fi</a> (collectively, the "Software"), and any live support, software, tools, features, or functionalities provided on or in connection with our Services.</p>
+      <p>"Digital Assets" means multi-source and multi-chain digital blockchain-based assets, such as cryptocurrencies, tokens, and other crypto or blockchain-based assets. This includes the Yield Bearing Tokens ("YBT") unless stated otherwise.</p>
+
+      <div class="callout warn">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div class="callout-body">By clicking "Accept and Sign" and/or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, you should not access or use the Services.</div>
+      </div>
+
+      <h2>1. User Eligibility</h2>
+      <p>By using the Services, you represent and warrant that:</p>
+      <p><strong>Legal capacity.</strong> You are of full legal capacity to enter into and be bound by these Terms. If you use the Services on behalf of a company, you represent that you are an authorized representative with authority to bind the entity. Our Services are prohibited for persons under 18 years old.</p>
+      <p><strong>Not previously removed.</strong> You have NOT been previously suspended or removed from using our Services.</p>
+      <p><strong>Not a Restricted Person.</strong> You are not a citizen of, resident of, or have business operations in Restricted Jurisdictions, which include: Afghanistan, Burundi, Central African Republic, Democratic Republic of Congo, Cote d'Ivoire, Cuba, the Crimea region, Democratic People's Republic of Korea, Islamic Republic of Iran, Iraq, Lebanon, Liberia, Libya, Myanmar, Puerto Rico, Somalia, Sudan, Syria, Venezuela, Zimbabwe, the United States of America (except for "accredited investors" under SEC Rule 506(b)), Vietnam, or the U.S. Virgin Islands. This also includes any jurisdiction embargoed by the United Nations, jurisdictions where Digital Asset use would be illegal, or high-risk jurisdictions designated by FATF, Transparency International, or BVI authorities.</p>
+      <p>You are not included in any trade embargoes, economic sanctions, terrorist or corrupt foreign officials lists (OFAC, UN Security Council, UK, EU, Canada).</p>
+
+      <h2>2. Our Services</h2>
+      <h3>No Wallet Service</h3>
+      <p>You must use a third-party wallet to engage in transactions. We are not a wallet provider, exchange, broker, dealer, financial institution, payments processor, money services business, fiduciary, or creditor. We do not have custody or control over your wallet contents.</p>
+
+      <h3>Interaction with Protocols</h3>
+      <p>Our Software serves as a graphical user interface facilitating interaction with decentralized protocols and smart contracts ("Protocols"). We do not own, control, or operate the Protocols, nor can we modify or interfere with their functionality. All transactions occur in a decentralized fashion through the Protocols. We may create or launch Protocols, but once launched, they will not be operated or controlled by us.</p>
+      <p>In some cases, your Digital Assets may be temporarily held in wallets of the Service Provider, secured by Multi-Party Computation provided by a third party, for the sole purpose of facilitating transactions. You can request to withdraw your Digital Assets at any time.</p>
+
+      <h3>Interaction with Blockchains</h3>
+      <p>The Software allows you to interact with various blockchains through a graphical user interface. You interact directly with the corresponding blockchain — we do not control your interaction with such blockchain and do not process or transmit any information you enter.</p>
+
+      <h3>Product Updates</h3>
+      <p>We reserve the right to make unscheduled deployments of changes, updates, or improvements to the Services at any time. We may add or remove functionalities, and we may discontinue the Services altogether.</p>
+
+      <h2>3. Fees and Taxes</h2>
+      <p>In consideration for access to the Software and Services, fees may be taken based on your interaction. Fee amounts and descriptions are communicated via the Software and are subject to revision with or without prior notification.</p>
+      <p>You are responsible for determining and remitting applicable taxes. We do not undertake responsibility to store or archive transaction information. Blockchain transaction fees (gas) are separate and not our responsibility.</p>
+
+      <h2>4. Third-party Services</h2>
+      <p>The Software may provide access to third-party websites, platforms, dApps, APIs, smart contracts, networks, or ledgers ("Third-party Applications"). We make no representations about any Third-party Applications and have no responsibility for their accuracy, acts or omissions, losses, or transactions conducted through them.</p>
+
+      <h2>5. Intellectual Property</h2>
+      <p>We grant you a personal, non-transferable, non-exclusive license to use the Services for personal and non-commercial use. You may not copy, modify, create derivative works of, reverse engineer, decompile, or attempt to extract source code. All rights not explicitly granted are reserved.</p>
+      <p>Any Feedback you provide grants us a worldwide, royalty-free, irrevocable, perpetual license to use, reproduce, distribute, modify, and exploit such Feedback without restriction.</p>
+
+      <h2>6. User Conduct</h2>
+      <p>You agree not to: use another user's Account without authorization; pose as another person; access Services from a blocked blockchain address; distribute spam; use the Services in any manner that could damage or disable functionality; bypass access controls; reverse engineer the Services; engage in price manipulation or fraud; use the Services for money laundering, terrorist financing, or other illicit activity; or use the Services on behalf of a Restricted Person.</p>
+
+      <h2>7. Assumption of Risks</h2>
+      <p><strong>Financial loss risk.</strong> Digital Assets involve significant risks including: complex or difficult-to-evaluate Asset Properties; vulnerability to security Attacks; Protocol or smart contract failures; forks or rollbacks; loss of value; lost assets from incorrect addresses; and depeg events where YBT may lose its 1:1 peg.</p>
+      <p><strong>Strategy risk.</strong> The Service Provider may publish strategies transparently but does not warrant interests or benefits. You participate in strategies at your own discretion and risk.</p>
+      <p><strong>Legal risks.</strong> The regulatory regime governing blockchain technologies is uncertain. You are solely responsible for determining applicable taxes.</p>
+
+      <h2>8. Disclaimers</h2>
+      <p>We disclaim all express or implied warranties regarding the Services, including merchantability, fitness for a particular purpose, title, and non-infringement. The Services are provided "as is" and "as available." We do not act as your broker-dealer, intermediary, agent, or advisor.</p>
+      <p>To the maximum extent permitted by applicable law, our aggregate liability for all claims shall be limited to USD $100.00.</p>
+
+      <h2>9. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless the Service Provider and its affiliates from and against all claims, damages, losses, and costs arising from your use or misuse of the Services, your violation of these Terms, or your violation of third-party rights.</p>
+
+      <h2>10. Termination</h2>
+      <p><strong>By the Service Provider.</strong> We may suspend, restrict, or terminate your access to any portion of the Services for any reason, with or without notice.</p>
+      <p><strong>By You.</strong> These Terms cease to apply when you cancel all use of the Services and Software.</p>
+
+      <h2>11. Governing Law &amp; Dispute Resolution</h2>
+      <p>These Terms shall be governed by the laws of the British Virgin Islands. Disputes shall be referred to the BVI International Arbitration Centre. The language of arbitration shall be English.</p>
+      <p><strong>Waiver of Class Actions.</strong> All claims must be arbitrated on an individual basis. No class arbitrations are permitted without written consent of all affected parties.</p>
+
+      <h2>12. Amendment</h2>
+      <p>We reserve the right to change or modify these Terms at any time. By continuing to use the Services, you accept the revised Terms. It is your responsibility to review the Terms periodically.</p>
+
+      <h2>13. Contact</h2>
+      <p>All notices and communications shall be made via email: <a href="mailto:hello@harmonix.fi" style="color:var(--green);">hello@harmonix.fi</a></p>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('faq',null)">
+          <span class="page-nav-dir">← Previous</span><span>FAQ</span>
+        </a>
+        <a class="page-nav-link" onclick="show('glossary',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Glossary</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── GLOSSARY ── -->
+    <section class="section" id="s-glossary">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Glossary</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
+      <div class="page-hero">
+        <span class="page-tag">Reference</span>
+        <h1>Glossary</h1>
+        <p class="page-subtitle">Key terms and concepts used throughout the Harmonix protocol and documentation.</p>
+      </div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:200px;">Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Accountant</strong></td><td>Smart contract that publishes and updates the vault's exchange rate. Includes on-chain safety mechanisms that restrict update frequency and constrain rate movements between updates.</td></tr>
+          <tr><td><strong>APR / APY</strong></td><td>Annual Percentage Rate (simple) and Annual Percentage Yield (compounded). APY accounts for the effect of yield compounding into the share price over time. Harmonix displays APY on the app dashboard.</td></tr>
+          <tr><td><strong>Basis Trade</strong></td><td>A delta-neutral strategy that goes long spot and short perpetual futures on the same asset to earn funding rate income while eliminating directional price exposure.</td></tr>
+          <tr><td><strong>BoringVault</strong></td><td>The core vault contract that holds all deposited funds. It is deliberately minimal (~100 lines of code) and delegates all complex operations to external modules (Teller, Accountant, Manager) for enhanced security.</td></tr>
+          <tr><td><strong>DecoderAndSanitizer</strong></td><td>A validation module that decodes and examines calldata for every external call the vault makes, ensuring only approved interactions execute.</td></tr>
+          <tr><td><strong>Delta Neutral</strong></td><td>A portfolio strategy where the net directional exposure to price movements is zero. Achieved by holding offsetting long and short positions of equal notional value.</td></tr>
+          <tr><td><strong>ERC-4626</strong></td><td>An Ethereum standard for tokenized yield-bearing vaults. Defines a standard API for deposits, withdrawals, and share price calculation. All Harmonix V2 vaults implement this standard.</td></tr>
+          <tr><td><strong>Exchange Rate</strong></td><td>The price of one vault share in terms of the underlying asset. Increases over time as yield accrues. Calculated as total vault assets divided by total shares outstanding.</td></tr>
+          <tr><td><strong>Funding Rate</strong></td><td>A periodic payment between long and short perpetual futures holders. When positive, longs pay shorts — creating income for delta-neutral strategies that hold short perp positions.</td></tr>
+          <tr><td><strong>ha-token</strong></td><td>Harmonix receipt tokens (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE). Each represents a share in its respective yield-bearing vault. The share price appreciates as yield compounds.</td></tr>
+          <tr><td><strong>HAR</strong></td><td>The native governance and utility token of the Harmonix protocol.</td></tr>
+          <tr><td><strong>HyperCore</strong></td><td>Hyperliquid's native perpetual futures and spot trading engine. Harmonix deploys capital here for delta-neutral and funding rate strategies.</td></tr>
+          <tr><td><strong>HyperEVM</strong></td><td>The EVM-compatible execution layer of Hyperliquid. All Harmonix smart contracts are deployed on HyperEVM.</td></tr>
+          <tr><td><strong>Idle Buffer</strong></td><td>A reserve of undeployed capital maintained in each vault to support smooth redemptions without unwinding active positions. Typically 5% of vault TVL.</td></tr>
+          <tr><td><strong>kHYPE</strong></td><td>Kinetiq's liquid staked HYPE token. Represents staked HYPE and earns native staking yield. Used as the underlying asset for hakHYPE.</td></tr>
+          <tr><td><strong>Lens</strong></td><td>A read-only smart contract that aggregates vault data. Provides functions like <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">getVaultData()</code> and <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">getUserData()</code> for integrators.</td></tr>
+          <tr><td><strong>Manager</strong></td><td>Smart contract that stores authorized operations in a Merkle tree and validates all rebalance actions. Only pre-approved protocol interactions can execute through the vault.</td></tr>
+          <tr><td><strong>Merkle Tree</strong></td><td>A cryptographic data structure used by the Manager to whitelist allowed vault operations. Each rebalance call is verified against the Merkle root before execution.</td></tr>
+          <tr><td><strong>PPS (Price Per Share)</strong></td><td>The current value of one vault share in terms of the underlying asset. Equivalent to the exchange rate. Monotonically increases as yield accrues.</td></tr>
+          <tr><td><strong>RolesAuthority</strong></td><td>The on-chain role-based access control contract that gates which addresses can call which functions on the vault system.</td></tr>
+          <tr><td><strong>Share Lock Period</strong></td><td>A brief lock after deposit (enforced by the Teller) to mitigate MEV attacks on the vault's exchange rate.</td></tr>
+          <tr><td><strong>Teller</strong></td><td>The entry point contract for all V2 vault interactions. Handles deposits (minting shares), withdrawal requests (locking shares), and withdrawal claims (burning shares and returning assets).</td></tr>
+          <tr><td><strong>TVL</strong></td><td>Total Value Locked — the aggregate value of all assets deposited in a vault or protocol, denominated in USD or the underlying asset.</td></tr>
+          <tr><td><strong>V1 / V2</strong></td><td>Vault version generations. V1 refers to the original Basis Trade Vault (custom HypeVault contract on Arbitrum). V2 refers to all BoringVault-based vaults on HyperEVM (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE).</td></tr>
+          <tr><td><strong>WHYPE</strong></td><td>Wrapped HYPE — the HyperEVM-native ERC-20 form of HYPE. Used as the withdrawal token for haHYPE since native HYPE transfers are not yet supported on HyperEVM.</td></tr>
+          <tr><td><strong>Withdrawal Queue</strong></td><td>The asynchronous mechanism for exiting a vault. Users request a withdrawal, positions are unwound, and assets become claimable once fulfilled (typically 24–72 hours).</td></tr>
+          <tr><td><strong>YBT</strong></td><td>Yield Bearing Token — the collective term for all Harmonix receipt tokens that automatically accrue yield via the ERC-4626 exchange rate.</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('terms',null)">
+          <span class="page-nav-dir">← Previous</span><span>Terms of Use</span>
+        </a>
+        <a class="page-nav-link" onclick="show('welcome',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Home</span>
+        </a>
+      </div>
+    </section>
+
   </div><!-- /content -->
 
 </main>
@@ -2768,7 +3036,9 @@ const pages = {
   solvency: 'Proof of Solvency',
   risks: 'Risks & Audits',
   points: 'Points & Rewards',
-  faq: 'FAQ'
+  faq: 'FAQ',
+  terms: 'Terms of Use',
+  glossary: 'Glossary'
 };
 
 
