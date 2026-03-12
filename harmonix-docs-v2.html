@@ -762,6 +762,7 @@ html, body {
         <a class="nav-item" onclick="show('overview',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>Protocol Overview</a>
         <a class="nav-item" onclick="show('solvency',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Proof of Solvency</a>
         <a class="nav-item" onclick="show('risks',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3L13.71 4.14a2 2 0 0 0-3.42-.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Risks &amp; Audits</a>
+        <a class="nav-item" onclick="show('fees',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Fees</a>
         <a class="nav-item" onclick="show('points',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Points &amp; Rewards</a>
         <a class="nav-item" onclick="show('faq',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
       </div>
@@ -803,7 +804,8 @@ html, body {
         <a class="nav-item" onclick="show('contracts',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Smart Contracts</a>
         <a class="nav-item" onclick="show('deposits-withdrawals',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>Deposits &amp; Withdrawals</a>
         <a class="nav-item" onclick="show('api-integration',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Smart Contract Integration</a>
-        <a class="nav-item" onclick="show('api-reference',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" rx="2"/><path d="M8 9h8M8 12h6M8 15h4"/></svg>API Reference</a>
+        <a class="nav-item" onclick="show('api-reference',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" rx="2"/><path d="M8 9h8M8 12h6M8 15h4"/></svg>Harmonix API</a>
+        <a class="nav-item" onclick="show('sdk',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Harmonix SDK</a>
       </div>
     </div>
   </nav>
@@ -1989,16 +1991,16 @@ if (canWithdraw) {
           <span class="page-nav-dir">← Previous</span><span>Smart Contracts</span>
         </a>
         <a class="page-nav-link" onclick="show('api-reference',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span><span>API Reference</span>
+          <span class="page-nav-dir">Next →</span><span>Harmonix API</span>
         </a>
       </div>
     </section>
 
     <section class="section" id="s-api-reference">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">API Reference</span></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix API</span></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
-        <h1>API Reference</h1>
+        <h1>Harmonix API</h1>
         <p class="page-subtitle">REST API for fetching vault data, APY metrics, TVL, and points. No authentication required.</p>
       </div>
 
@@ -2110,6 +2112,33 @@ if (canWithdraw) {
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('api-integration',null)">
           <span class="page-nav-dir">← Previous</span><span>Smart Contract Integration</span>
+        </a>
+        <a class="page-nav-link" onclick="show('sdk',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Harmonix SDK</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SDK ── -->
+    <section class="section" id="s-sdk">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix SDK</span></div>
+      <div class="page-hero">
+        <span class="page-tag">For Developers</span>
+        <h1>Harmonix SDK</h1>
+        <p class="page-subtitle">Official SDK for integrating Harmonix vaults, reading on-chain data, and building on the Harmonix protocol.</p>
+      </div>
+
+      <div style="background:#0b1510;border:1px solid #1c2e1f;border-radius:12px;padding:48px 32px;text-align:center;margin:0 0 32px;">
+        <svg style="width:48px;height:48px;color:var(--green);margin-bottom:16px;opacity:0.5;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <h2 style="font-size:20px;color:var(--text);margin:0 0 8px;">Coming Soon</h2>
+        <p style="font-size:14px;color:var(--text2);margin:0;max-width:400px;display:inline-block;line-height:1.6;">The Harmonix SDK is currently in development. It will include TypeScript and Python libraries for vault interactions, position tracking, and yield data.</p>
+      </div>
+
+      <p style="font-size:13px;color:var(--text3);">In the meantime, use the <a onclick="show('api-reference',null)" href="#" style="color:var(--green);">Harmonix API</a> for data queries and the <a onclick="show('api-integration',null)" href="#" style="color:var(--green);">Smart Contract Integration</a> guide for on-chain interactions.</p>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('api-reference',null)">
+          <span class="page-nav-dir">← Previous</span><span>Harmonix API</span>
         </a>
         <a class="page-nav-link" onclick="show('solvency',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span><span>Proof of Solvency</span>
@@ -2240,6 +2269,47 @@ if (canWithdraw) {
         <a class="page-nav-link" onclick="show('solvency',null)">
           <span class="page-nav-dir">← Previous</span><span>Proof of Solvency</span>
         </a>
+        <a class="page-nav-link" onclick="show('fees',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span><span>Fees</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── FEES ── -->
+    <section class="section" id="s-fees">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Fees</span></div>
+      <div class="page-hero">
+        <span class="page-tag">Learn</span>
+        <h1>Fees</h1>
+        <p class="page-subtitle">Transparent, simple fee structure across all Harmonix vaults.</p>
+      </div>
+
+      <div class="callout" style="margin:0 0 28px;">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body">Harmonix is currently in <strong style="color:var(--green);">Growth Mode</strong> — fees are minimised to accelerate TVL and reward early depositors.</div>
+      </div>
+
+      <h2>Current Fee Schedule</h2>
+      <div class="table-wrap" style="margin-bottom:28px;"><table>
+        <thead><tr><th>Fee Type</th><th>Rate</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Management Fee</td><td><strong>1%</strong> annualised</td><td>Applied across all yield-bearing tokens (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE, HYPE Basis Trade Vault). Accrues daily into the vault share price.</td></tr>
+          <tr><td>Performance Fee</td><td><strong>0%</strong></td><td>No performance fees during Growth Mode.</td></tr>
+          <tr><td>Deposit Fee</td><td><strong>0%</strong></td><td>No fees on deposits.</td></tr>
+          <tr><td>Withdrawal Fee</td><td><strong>0%</strong></td><td>No fees on withdrawals.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>How Fees Are Applied</h2>
+      <p>The 1% management fee accrues continuously and is reflected in the vault share price. There is no separate fee transaction — the fee is built into the price-per-share calculation, so the APY figures displayed in the app and API are always <strong>net of fees</strong>.</p>
+
+      <h2>Growth Mode</h2>
+      <p>During the current growth phase, Harmonix operates with a minimal fee structure to maximise depositor returns and attract TVL. As the protocol matures and governance launches, the fee schedule may be updated via HAR governance proposals.</p>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('risks',null)">
+          <span class="page-nav-dir">← Previous</span><span>Risks &amp; Audits</span>
+        </a>
         <a class="page-nav-link" onclick="show('points',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span><span>Points &amp; Rewards</span>
         </a>
@@ -2364,7 +2434,9 @@ const pages = {
   contracts: 'Smart Contracts',
   'deposits-withdrawals': 'Deposits & Withdrawals',
   'api-integration': 'Smart Contract Integration',
-  'api-reference': 'API Reference',
+  'api-reference': 'Harmonix API',
+  sdk: 'Harmonix SDK',
+  fees: 'Fees',
   'basis-trade-vault': 'HYPE Basis Trade Vault',
   solvency: 'Proof of Solvency',
   risks: 'Risks & Audits',
