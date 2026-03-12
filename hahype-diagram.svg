@@ -5,8 +5,14 @@
     <marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
       <path d="M0 0 L10 4 L0 8 Z" fill="#c8f07a"/>
     </marker>
-    <marker id="au" markerWidth="10" markerHeight="8" refX="4" refY="0" orient="auto">
-      <path d="M0 8 L4 0 L8 8 Z" fill="#c8f07a"/>
+    <marker id="au" markerWidth="8" markerHeight="10" refX="4" refY="1" orient="auto">
+      <path d="M0 10 L4 0 L8 10 Z" fill="#c8f07a"/>
+    </marker>
+    <marker id="ad" markerWidth="8" markerHeight="10" refX="4" refY="9" orient="auto">
+      <path d="M0 0 L4 10 L8 0 Z" fill="#c8f07a"/>
+    </marker>
+    <marker id="al" markerWidth="10" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M10 0 L0 4 L10 8 Z" fill="#c8f07a"/>
     </marker>
   </defs>
 
@@ -21,117 +27,107 @@
     .pct { fill: #c8f07a; font-family: monospace; font-size: 11px; font-weight: 600; }
   </style>
 
-  <!-- ════ LEFT COLUMN ════ -->
+  <!-- ══════ 1. USER BOX ══════ -->
+  <rect class="box" x="30" y="230" width="150" height="90"/>
+  <text class="lbl" x="105" y="256" text-anchor="middle">USER</text>
+  <text class="ttl-lg" x="105" y="284" text-anchor="middle">Deposit HYPE</text>
+  <text class="sub" x="105" y="304" text-anchor="middle">HyperEVM wallet</text>
 
-  <!-- BOX: User Deposit HYPE -->
-  <rect class="box" x="30" y="240" width="155" height="100"/>
-  <text class="lbl" x="108" y="266" text-anchor="middle">USER</text>
-  <text class="ttl-lg" x="108" y="296" text-anchor="middle">Deposit HYPE</text>
-  <text class="sub" x="108" y="316" text-anchor="middle">HyperEVM wallet</text>
+  <!-- ARROW 1: User → Vault -->
+  <line x1="180" y1="275" x2="248" y2="275" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="flow" x="195" y="266">deposit</text>
 
-  <!-- ARROW → Vault -->
-  <line x1="185" y1="290" x2="248" y2="290" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
-  <text class="flow" x="200" y="282">deposit</text>
+  <!-- ══════ 2. VAULT BOX ══════ -->
+  <rect class="box" x="250" y="215" width="185" height="125"/>
+  <text class="lbl" x="342" y="244" text-anchor="middle">VAULT</text>
+  <text class="ttl-lg" x="342" y="272" text-anchor="middle">Harmonix</text>
+  <text class="ttl-lg" x="342" y="298" text-anchor="middle">Vault</text>
+  <text class="sub" x="342" y="322" text-anchor="middle">ERC-4626 · Automates strategy</text>
 
-  <!-- BOX: Harmonix Vault -->
-  <rect class="box" x="250" y="225" width="190" height="130"/>
-  <text class="lbl" x="345" y="255" text-anchor="middle">VAULT</text>
-  <text class="ttl-lg" x="345" y="284" text-anchor="middle">Harmonix</text>
-  <text class="ttl-lg" x="345" y="310" text-anchor="middle">Vault</text>
-  <text class="sub" x="345" y="335" text-anchor="middle">ERC-4626 · Automates strategy</text>
+  <!-- ARROW 2: Vault ↓ Felix (single clean arrow) -->
+  <line x1="342" y1="340" x2="342" y2="393" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#ad)"/>
+  <text class="flow" x="352" y="372">collateral</text>
 
-  <!-- ARROW ↑ Vault → Receipt Token -->
-  <path d="M345 225 L345 148" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#au)"/>
-  <text class="flow" x="355" y="190">user receives</text>
+  <!-- ══════ 3. FELIX BOX ══════ -->
+  <rect class="box" x="250" y="395" width="185" height="100"/>
+  <text class="lbl" x="342" y="420" text-anchor="middle">FELIX PROTOCOL</text>
+  <text class="ttl" x="342" y="447" text-anchor="middle">Mint feUSD</text>
+  <text class="sub" x="342" y="467" text-anchor="middle">HYPE as collateral</text>
+  <text class="sub" x="342" y="483" text-anchor="middle">CDP mechanism</text>
 
-  <!-- BOX: Receipt Token haHYPE/kHYPE -->
-  <rect class="box" x="240" y="48" width="210" height="95"/>
-  <text class="lbl" x="345" y="76" text-anchor="middle">RECEIPT TOKEN</text>
-  <text class="ttl-lg" x="345" y="106" text-anchor="middle">haHYPE / kHYPE</text>
-  <text class="sub" x="345" y="128" text-anchor="middle">ERC-4626</text>
+  <!-- ARROW 3: Felix → Swap -->
+  <line x1="435" y1="445" x2="498" y2="445" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="flow" x="450" y="436">swap</text>
 
-  <!-- ════ COLLATERAL PATH (downward) ════ -->
+  <!-- ══════ 4. SWAP BOX ══════ -->
+  <rect class="box" x="500" y="400" width="165" height="90"/>
+  <text class="lbl" x="582" y="425" text-anchor="middle">SWAP</text>
+  <text class="ttl" x="582" y="450" text-anchor="middle">feUSD → USDC</text>
+  <text class="sub" x="582" y="472" text-anchor="middle">Short hedge basis</text>
 
-  <!-- ARROW ↓ Vault → Felix -->
-  <path d="M345 355 L345 408" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)" transform="rotate(90 345 381)"/>
-  <path d="M345 355 L345 398" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
-  <text class="flow" x="355" y="380">collateral</text>
+  <!-- ══════ 5. CAPITAL SPLIT — vertical line UP from Swap ══════ -->
+  <!-- Horizontal from Swap to split column -->
+  <line x1="665" y1="445" x2="700" y2="445" stroke="#c8f07a" stroke-width="1.5"/>
+  <!-- Vertical line going UP -->
+  <line x1="700" y1="445" x2="700" y2="170" stroke="#c8f07a" stroke-width="1.5"/>
+  <!-- "capital split" label on the vertical line -->
+  <text class="flow" x="688" y="310" text-anchor="end" transform="rotate(-90 688 310)">capital split</text>
 
-  <!-- BOX: Felix Protocol — Mint feUSD -->
-  <rect class="box" x="250" y="400" width="190" height="105"/>
-  <text class="lbl" x="345" y="425" text-anchor="middle">FELIX PROTOCOL</text>
-  <text class="ttl" x="345" y="452" text-anchor="middle">Mint feUSD</text>
-  <text class="sub" x="345" y="472" text-anchor="middle">HYPE as collateral</text>
-  <text class="sub" x="345" y="490" text-anchor="middle">CDP mechanism</text>
+  <!-- Upper branch: split → Perps -->
+  <line x1="700" y1="190" x2="738" y2="190" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="pct" x="706" y="178">PERPS — 50%</text>
 
-  <!-- ARROW → Swap -->
-  <line x1="440" y1="450" x2="498" y2="450" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
-  <text class="flow" x="452" y="442">swap</text>
+  <!-- Lower branch: split → Spot -->
+  <line x1="700" y1="430" x2="738" y2="430" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="pct" x="706" y="418">SPOT — 50%</text>
 
-  <!-- BOX: feUSD → USDC swap -->
-  <rect class="box" x="500" y="405" width="170" height="95"/>
-  <text class="lbl" x="585" y="430" text-anchor="middle">SWAP</text>
-  <text class="ttl" x="585" y="457" text-anchor="middle">feUSD → USDC</text>
-  <text class="sub" x="585" y="480" text-anchor="middle">Short hedge basis</text>
+  <!-- ══════ 6. PERPS BOX (with yield source INSIDE) ══════ -->
+  <rect class="box" x="740" y="125" width="220" height="135"/>
+  <text class="lbl" x="850" y="148" text-anchor="middle">PERPS · YIELD SOURCE</text>
+  <text class="ttl" x="850" y="176" text-anchor="middle">Short HYPE</text>
+  <text class="sub" x="850" y="198" text-anchor="middle">HyperCore perpetuals</text>
+  <text class="sub" x="850" y="214" text-anchor="middle">Positive funding capture</text>
+  <line x1="760" y1="222" x2="940" y2="222" stroke="#3d5a1e" stroke-width="0.5" stroke-dasharray="4 3"/>
+  <text class="sub" x="850" y="240" text-anchor="middle" style="fill:#c8f07a;font-size:11px">Funding Rate · 3.8–4% APY</text>
 
-  <!-- ════ CAPITAL SPLIT ════ -->
+  <!-- ══════ 7. SPOT BOX (with yield source INSIDE) ══════ -->
+  <rect class="box" x="740" y="365" width="220" height="135"/>
+  <text class="lbl" x="850" y="388" text-anchor="middle">SPOT · YIELD SOURCE</text>
+  <text class="ttl" x="850" y="416" text-anchor="middle">Buy Back + Restake</text>
+  <text class="sub" x="850" y="438" text-anchor="middle">HyperEVM DEXs</text>
+  <text class="sub" x="850" y="454" text-anchor="middle">Lending · Pendle · Kinetiq</text>
+  <line x1="760" y1="462" x2="940" y2="462" stroke="#3d5a1e" stroke-width="0.5" stroke-dasharray="4 3"/>
+  <text class="sub" x="850" y="482" text-anchor="middle" style="fill:#c8f07a;font-size:11px">Ecosystem Yield + partner points</text>
 
-  <!-- Vertical split line from swap box up -->
-  <text class="flow" x="700" y="328" transform="rotate(-90 700 340)">capital split</text>
+  <!-- ══════ 8. CONVERGE ARROWS → NET APY ══════ -->
+  <!-- Perps → APY (diagonal down-right) -->
+  <path d="M960 192 L1000 192 L1000 270 L1008 270" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+  <!-- Spot → APY (diagonal up-right) -->
+  <path d="M960 432 L1000 432 L1000 310 L1008 310" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
 
-  <!-- ARROW upper fork → Short HYPE -->
-  <path d="M670 440 L710 440 L710 180 L748 180" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
-  <text class="pct" x="718" y="270">PERPS — 50%</text>
+  <!-- ══════ 9. NET APY BOX (highlight) ══════ -->
+  <rect class="box-hl" x="1010" y="250" width="100" height="100"/>
+  <text class="lbl" x="1060" y="275" text-anchor="middle">NET APY</text>
+  <text fill="#e8e8e8" font-family="sans-serif" font-size="34" font-weight="800" x="1060" y="316" text-anchor="middle">3.8–</text>
+  <text fill="#e8e8e8" font-family="sans-serif" font-size="28" font-weight="800" x="1060" y="342" text-anchor="middle">4%</text>
 
-  <!-- ARROW lower fork → Buy Back -->
-  <path d="M670 460 L710 460 L710 440 L710 440" stroke="#c8f07a" stroke-width="1" fill="none"/>
-  <!-- Already sharing the vertical line, just need the lower branch -->
-  <path d="M710 440 L710 460 L748 460" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
-  <text class="pct" x="718" y="420">SPOT — 50%</text>
+  <!-- ══════ 10. RETURN PATH: APY → up → diag left → Receipt Token ══════ -->
+  <!-- APY goes straight UP -->
+  <path d="M1060 250 L1060 87 L460 87" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#al)"/>
+  <text class="flow" x="760" y="78">yield accrues via exchange rate</text>
 
-  <!-- BOX: Short HYPE (Perps) -->
-  <rect class="box" x="750" y="130" width="185" height="100"/>
-  <text class="ttl" x="843" y="165" text-anchor="middle">Short HYPE</text>
-  <text class="sub" x="843" y="188" text-anchor="middle">HyperCore perpetuals</text>
-  <text class="sub" x="843" y="206" text-anchor="middle">Positive funding capture</text>
+  <!-- ══════ 11. RECEIPT TOKEN BOX ══════ -->
+  <rect class="box" x="255" y="45" width="200" height="85"/>
+  <text class="lbl" x="355" y="70" text-anchor="middle">RECEIPT TOKEN</text>
+  <text class="ttl-lg" x="355" y="98" text-anchor="middle">haHYPE / kHYPE</text>
+  <text class="sub" x="355" y="118" text-anchor="middle">ERC-4626</text>
 
-  <!-- BOX: Buy Back + Restake (Spot) -->
-  <rect class="box" x="750" y="405" width="185" height="110"/>
-  <text class="ttl" x="843" y="438" text-anchor="middle">Buy Back +</text>
-  <text class="ttl" x="843" y="460" text-anchor="middle">Restake</text>
-  <text class="sub" x="843" y="482" text-anchor="middle">HyperEVM DEXs</text>
-  <text class="sub" x="843" y="500" text-anchor="middle">Lending · Pendle · Kinetiq</text>
+  <!-- ══════ 12. RETURN PATH: Receipt Token → User ══════ -->
+  <path d="M255 87 L105 87 L105 230" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#ad)"/>
+  <text class="flow" x="165" y="78">user holds</text>
 
-  <!-- ARROW: Perps → Funding Rate -->
-  <line x1="935" y1="180" x2="968" y2="180" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
-
-  <!-- ARROW: Spot → Ecosystem Yield -->
-  <line x1="935" y1="460" x2="968" y2="460" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#a)"/>
-
-  <!-- BOX: Funding Rate -->
-  <rect class="box" x="970" y="135" width="160" height="90"/>
-  <text class="lbl" x="1050" y="158" text-anchor="middle">YIELD SOURCE</text>
-  <text class="ttl" x="1050" y="185" text-anchor="middle">Funding Rate</text>
-  <text class="sub" x="1050" y="206" text-anchor="middle">Longs pay shorts</text>
-  <text class="sub" x="1050" y="220" text-anchor="middle">3.8–4% APY</text>
-
-  <!-- BOX: Ecosystem Yield -->
-  <rect class="box" x="970" y="410" width="160" height="105"/>
-  <text class="lbl" x="1050" y="433" text-anchor="middle">YIELD SOURCE</text>
-  <text class="ttl" x="1050" y="460" text-anchor="middle">Ecosystem Yield</text>
-  <text class="sub" x="1050" y="482" text-anchor="middle">Pendle · Kinetiq · Lending</text>
-  <text class="sub" x="1050" y="498" text-anchor="middle">+ partner protocol points</text>
-
-  <!-- ════ NET APY BOX ════ -->
-
-  <!-- ARROWS → APY box -->
-  <path d="M1050 225 L1050 265" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
-  <path d="M1050 410 L1050 365" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#au)"/>
-
-  <!-- BOX: Net APY (highlight) -->
-  <rect class="box-hl" x="1000" y="270" width="100" height="95"/>
-  <text class="lbl" x="1050" y="293" text-anchor="middle">NET APY</text>
-  <text fill="#e8e8e8" font-family="sans-serif" font-size="36" font-weight="800" x="1050" y="332" text-anchor="middle">3.8–</text>
-  <text fill="#e8e8e8" font-family="sans-serif" font-size="30" font-weight="800" x="1050" y="356" text-anchor="middle">4%</text>
+  <!-- ══════ 13. Vault → Receipt Token (direct issue) ══════ -->
+  <line x1="342" y1="215" x2="342" y2="133" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#au)"/>
+  <text class="flow" x="352" y="178">receives</text>
 
 </svg>
