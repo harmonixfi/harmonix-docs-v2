@@ -943,7 +943,7 @@ html, body {
           </div>
           <div style="display:flex;gap:16px;align-items:flex-start;">
             <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">3</div>
-            <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Click <strong style="color:var(--text);">Connect</strong> when prompted. This authorises the Harmonix app as a trusted site in Rabby.</div>
+            <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Click <strong style="color:var(--text);">Connect</strong> when prompted. This authorizes the Harmonix app as a trusted site in Rabby.</div>
           </div>
         </div>
       </div>
@@ -951,7 +951,7 @@ html, body {
       <div style="margin:0 0 32px;">
         <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:480px;">
           <img src="images/onboarding-step2.png" alt="Connecting Rabby to Harmonix" style="width:100%;display:block;" />
-          <div style="padding:12px 14px;font-size:12px;color:var(--text3);">Click Connect to authorise Harmonix in Rabby</div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text3);">Click Connect to authorize Harmonix in Rabby</div>
         </div>
       </div>
 
@@ -1047,31 +1047,7 @@ html, body {
           </tr>
         </tbody>
       </table></div>
-      <p>V1 proved the core basis trade thesis on Hyperliquid. V2 generalises that engine across multiple underlying assets and yield sources, giving users a broader suite of yield-bearing tokens that work as composable building blocks across DeFi.</p>
-
-      <div class="ps-grid">
-        <div class="ps-item" onclick="show('stablecoins',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Yield-Bearing Stablecoins →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">USD-denominated yield-bearing vault shares that compound sustainable on-chain yield through market-neutral strategies.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">haUSDC</span><span class="ps-tag">haUSDT</span><span class="ps-tag">haUSDH</span></div>
-          </div>
-        </div>
-        <div class="ps-item" onclick="show('tokens',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Yield-Bearing Tokens →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Yield-enhanced versions of HYPE and kHYPE that automatically compound funding income and ecosystem rewards into your position.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">haHYPE</span><span class="ps-tag">hakHYPE</span></div>
-          </div>
-        </div>
-        <div class="ps-item" onclick="show('har',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">HAR Token →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">The native Harmonix token that captures protocol growth, aligns long-term incentives, and governs ecosystem direction.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">HAR</span></div>
-          </div>
-        </div>
-      </div>
+      <p>V1 proved the core basis trade thesis on Hyperliquid. V2 generalizes that engine across multiple underlying assets and yield sources, giving users a broader suite of yield-bearing tokens that work as composable building blocks across DeFi.</p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('welcome',null)">
@@ -1096,13 +1072,13 @@ html, body {
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 40px;">
 
-        <div onclick="show('vault-arch',null)" style="background:#0a0a0a;border:1px solid #1c1c1c;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c1c1c'">
+        <div onclick="show('api-integration',null)" style="background:#0a0a0a;border:1px solid #1c1c1c;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c1c1c'">
           <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v6M14.5 17h6"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
           </div>
-          <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">SDK</div>
-          <div style="font-size:13px;color:#8a8a8a;line-height:1.55;">TypeScript SDK for deposits, redemptions, and vault reads. Wraps BoringVault and Teller with typed methods.</div>
-          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">npm install @harmonix/sdk →</div>
+          <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">SC Integration</div>
+          <div style="font-size:13px;color:#8a8a8a;line-height:1.55;">On-chain integration guide for ERC-4626 and Basis Trade vaults with code examples.</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">deposit() · redeem() →</div>
         </div>
 
         <div onclick="show('contracts',null)" style="background:#0a0a0a;border:1px solid #1c1c1c;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#1c1c1c'">
@@ -1126,24 +1102,20 @@ html, body {
       </div>
 
       <div style="margin:0 0 40px;">
-        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d3d3d;margin-bottom:0;">Quickstart · haUSDC deposit + async redeem</div>
-        <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-top:2px solid #c8f07a;border-radius:0 0 8px 8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;"><span style="color:#4a6741;font-style:italic;">// install: npm install @harmonix/sdk viem</span>
-<span style="color:#c8f07a;">import</span> { createHarmonixClient } <span style="color:#c8f07a;">from</span> <span style="color:#c3e88d;">'@harmonix/sdk'</span>
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:#3d3d3d;margin-bottom:0;">Quickstart · V2 Vault deposit + async redeem (ethers.js)</div>
+        <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-top:2px solid #c8f07a;border-radius:0 0 8px 8px;padding:22px 26px;overflow-x:auto;margin:0;"><code style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;"><span style="color:#4a6741;font-style:italic;">// V2 vaults use the Teller contract as entry point</span>
 
-<span style="color:#c8f07a;">const</span> harmonix = <span style="color:#82aaff;">createHarmonixClient</span>({ vault: <span style="color:#c3e88d;">'haUSDC'</span>, walletClient, publicClient })
+<span style="color:#4a6741;font-style:italic;">// 1. Approve the Teller to spend your USDC</span>
+<span style="color:#c8f07a;">await</span> usdc.<span style="color:#82aaff;">approve</span>(TELLER_ADDRESS, amount);
 
-<span style="color:#4a6741;font-style:italic;">// 1. Deposit 1,000 USDC — approve + deposit in one call</span>
-<span style="color:#c8f07a;">const</span> { shares } = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">deposit</span>({ amount: <span style="color:#82aaff;">parseUnits</span>(<span style="color:#c3e88d;">'1000'</span>, <span style="color:#e0e0e0;">6</span>), receiver })
+<span style="color:#4a6741;font-style:italic;">// 2. Deposit via Teller — receive ha-token shares instantly</span>
+<span style="color:#c8f07a;">await</span> teller.<span style="color:#82aaff;">deposit</span>(USDC_ADDRESS, amount, minShares, receiver);
 
-<span style="color:#4a6741;font-style:italic;">// 2. Read your position via ERC-4626</span>
-<span style="color:#c8f07a;">const</span> value = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">convertToAssets</span>(shares) <span style="color:#4a6741;font-style:italic;">// USDC value of shares</span>
+<span style="color:#4a6741;font-style:italic;">// 3. Queue a withdrawal — returns a requestId</span>
+<span style="color:#c8f07a;">const</span> requestId = <span style="color:#c8f07a;">await</span> teller.<span style="color:#82aaff;">requestWithdraw</span>(shares);
 
-<span style="color:#4a6741;font-style:italic;">// 3. Queue a redemption — returns a requestId</span>
-<span style="color:#c8f07a;">const</span> { requestId } = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">requestRedeem</span>({ shares })
-
-<span style="color:#4a6741;font-style:italic;">// 4. Poll until Solver fulfills (24–72h), then claim</span>
-<span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">waitForFulfillment</span>({ requestId })
-<span style="color:#c8f07a;">const</span> { assets } = <span style="color:#c8f07a;">await</span> harmonix.vault.<span style="color:#82aaff;">claimRedeem</span>({ requestId })</code></pre>
+<span style="color:#4a6741;font-style:italic;">// 4. Claim once fulfilled (24–72h)</span>
+<span style="color:#c8f07a;">const</span> assets = <span style="color:#c8f07a;">await</span> teller.<span style="color:#82aaff;">claimWithdraw</span>(requestId);</code></pre>
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
@@ -1477,7 +1449,7 @@ html, body {
 
       <h2>FAQs</h2>
       <h3>How do I get HAR?</h3>
-      <p>Through the public sale, by converting a cdharUSD3 position at maturity, or via community airdrop allocations. HAR will also be tradeable on open markets post-TGE.</p>
+      <p>Through the public sale or via community airdrop allocations. HAR will also be tradeable on open markets post-TGE.</p>
 
       <h3>How does governance work?</h3>
       <p>HAR holders propose and vote on protocol parameters, treasury allocations, and emissions schedules. Details on governance mechanics will be published separately.</p>
@@ -1800,9 +1772,6 @@ html, body {
           <tr><td>haUSDC Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
           <tr><td>haHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0xfde5b062…8d725c</code></td></tr>
           <tr><td>hakHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0x1368ee9d…9eebc42</code></td></tr>
-          <tr><td>cdharUSD1 Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
-          <tr><td>cdharUSD2 Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
-          <tr><td>cdharUSD3 Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
           <tr><td>HAR Token</td><td>ERC-20</td><td>HyperEVM</td><td><code>0x391121d8…af18</code></td></tr>
 
           <tr><td>NAV Oracle</td><td>Custom</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
@@ -1811,7 +1780,7 @@ html, body {
 
       <div class="callout">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></span>
-        <div class="callout-body"><strong>Vault Framework:</strong> Harmonix's stablecoin yield-bearing vault tokens (haUSDC, cdharUSD series) are built using the <strong>BoringVault</strong> framework (deployed via Veda) — a modular, audited vault infrastructure designed for institutional-grade DeFi products. BoringVault provides the ERC-4626 base, role-based access control, and upgrade patterns used across the Harmonix vault stack.</div>
+        <div class="callout-body"><strong>Vault Framework:</strong> Harmonix's yield-bearing vault tokens (haUSDC, haUSDT, haUSDH) are built using the <strong>BoringVault</strong> framework (deployed via Veda) — a modular, audited vault infrastructure designed for institutional-grade DeFi products. BoringVault provides the ERC-4626 base, role-based access control, and upgrade patterns used across the Harmonix vault stack.</div>
       </div>
 
       <div class="page-nav">
@@ -2057,36 +2026,31 @@ html, body {
         </div>
       </div>
 
-      <h2>ERC-4626 Vaults Integration</h2>
-      <p>All Harmonix ERC-4626 vaults follow the same integration pattern with a withdrawal queue system.</p>
-      
+      <h2>ERC-4626 Vaults Integration (V2)</h2>
+      <p>All V2 vaults (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE) use the BoringVault framework. Deposits go through the <code>Teller</code> contract; withdrawals use an async queue.</p>
+
       <h3>Quick Start</h3>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
-        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code>// 1. Approve vault to spend your tokens
-await token.approve(vaultAddress, amount);
+        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code>// 1. Approve the Teller to spend your tokens
+await token.approve(TELLER_ADDRESS, amount);
 
-// 2. Deposit with slippage protection  
-const shares = await vault.depositWithSlippage(amount, receiver, minSharesOut);
+// 2. Deposit via Teller — shares minted instantly
+const shares = await teller.deposit(asset, amount, minShares, receiver);
 
-// 3. Initiate withdrawal when ready
-await vault.initiateWithdrawal(shares, minAssetsOut);
+// 3. Request withdrawal — shares locked, requestId returned
+const requestId = await teller.requestWithdraw(shares);
 
-// 4. Check if withdrawal is ready
-const canRedeem = await vault.canCompleteWithdraw(userAddress);
-
-// 5. Complete withdrawal
-if (canRedeem) {
-  await vault.redeem(shares, receiver, owner);
-}</code></pre>
+// 4. Claim once fulfilled (24–72h)
+const assets = await teller.claimWithdraw(requestId);</code></pre>
       </div>
 
       <h3>Contract Addresses</h3>
       <div class="table-wrap"><table>
         <thead><tr><th>Vault</th><th>Network</th><th>Contract Address</th></tr></thead>
         <tbody>
-          <tr><td><strong>haHYPE</strong></td><td>HyperEVM</td><td><code>0x...</code></td></tr>
-          <tr><td><strong>hakHYPE</strong></td><td>HyperEVM</td><td><code>0x...</code></td></tr>
-          <tr><td><strong>haUSDC</strong></td><td>HyperEVM</td><td><code>0x...</code></td></tr>
+          <tr><td><strong>haHYPE</strong></td><td>HyperEVM</td><td><code>0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c</code></td></tr>
+          <tr><td><strong>hakHYPE</strong></td><td>HyperEVM</td><td><code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
+          <tr><td><strong>haUSDC</strong></td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
         </tbody>
       </table></div>
 
@@ -2303,12 +2267,23 @@ if (canWithdraw) {
         <p class="page-subtitle">How Harmonix verifies that vault liabilities are always backed by real on-chain assets.</p>
       </div>
       <p>Harmonix publishes a Merkle tree of all vault positions and corresponding liabilities. Anyone can verify that total assets exceed total share token supply at any given time — no trust required, no waiting for an audit cycle.</p>
+
+      <div class="callout" style="border-left-color:#c8f07a;margin:0 0 28px;">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <div class="callout-body">
+          <strong>Verification dashboard in development</strong> — A public dashboard for real-time solvency verification is being built. Once live it will be accessible at <a href="https://t.co/h1HjtZO4PQ" target="_blank" rel="noopener" style="color:var(--green);">harmonix.fi/solvency ↗</a>
+        </div>
+      </div>
+
       <div class="table-wrap"><table>
         <thead><tr><th>Vault</th><th>Coverage</th><th>Verification</th></tr></thead>
         <tbody>
           <tr><td>haUSDC</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
+          <tr><td>haUSDT</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
+          <tr><td>haUSDH</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>haHYPE</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>hakHYPE</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
+          <tr><td>Basis Trade Vault</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + Arbitrum state</td></tr>
         </tbody>
       </table></div>
       <div class="page-nav">
@@ -2327,25 +2302,10 @@ if (canWithdraw) {
       <div class="page-hero">
         <span class="page-tag">Security</span>
         <h1>Risks &amp; Audits</h1>
-        <p class="page-subtitle">Platform-wide risk disclosures and security audit information.</p>
+        <p class="page-subtitle">Harmonix has undergone rigorous security reviews by Verichains, Shieldify, and Zenith, plus real-time on-chain risk monitoring by Hypernative. Security extends beyond Harmonix's own contracts — all integrated external protocols, DEXs, and lending platforms are carefully vetted to minimize third-party risk exposure.</p>
       </div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Risk</th><th>Products Affected</th><th>Mitigation</th></tr></thead>
-        <tbody>
-          <tr><td>Funding rate turns negative</td><td>haUSDC, haHYPE, hakHYPE, cdharUSD</td><td>Real-time monitoring, automatic rotation to lending/staking</td></tr>
-          <tr><td>Directional HYPE exposure</td><td>haHYPE, hakHYPE</td><td>Delta-neutral sub-strategy reduces but does not eliminate exposure</td></tr>
-          <tr><td>Smart contract vulnerability</td><td>All products</td><td>Audited by Verichains, Shieldify, Zenith</td></tr>
-          <tr><td>Venue / counterparty risk</td><td>All products</td><td>Diversified across HyperEVM protocols; no single-venue concentration</td></tr>
-          <tr><td>Pendle PT maturity</td><td>haHYPE, hakHYPE</td><td>Positions rolled ahead of maturity</td></tr>
-          <tr><td>HAR conversion price risk</td><td>cdharUSD</td><td>Conversion always optional; principal unaffected if HAR below locked price</td></tr>
-        </tbody>
-      </table></div>
-      <div class="callout danger">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,90,80,0.85)" stroke-width="1.7" width="18" height="18"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <div class="callout-body">Interacting with Harmonix involves financial risk. This page is not exhaustive. Always review the complete risks before depositing capital.</div>
-      </div>
+
       <h2>Audits</h2>
-      <p>Harmonix has undergone rigorous security reviews by Verichains, Shieldify, and Zenith, plus real-time on-chain risk monitoring by <strong>Hypernative</strong>. Security extends beyond Harmonix's own contracts — all integrated external protocols, DEXs, and lending platforms are carefully vetted to minimize third-party risk exposure.</p>
 
       <div style="display:flex;flex-direction:column;gap:12px;margin:24px 0;">
 
@@ -2413,6 +2373,22 @@ if (canWithdraw) {
         <div class="callout-body"><strong>Real-time monitoring:</strong> In addition to audits, Harmonix uses <strong>Hypernative</strong> for continuous on-chain risk monitoring — detecting anomalies, suspicious activity, and potential exploits before they can cause harm.</div>
       </div>
 
+      <h2>Risk Disclosures</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Risk</th><th>Products Affected</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td>Funding rate turns negative</td><td>haUSDC, haHYPE, hakHYPE</td><td>Real-time monitoring, automatic rotation to lending/staking</td></tr>
+          <tr><td>Directional HYPE exposure</td><td>haHYPE, hakHYPE</td><td>Delta-neutral sub-strategy reduces but does not eliminate exposure</td></tr>
+          <tr><td>Smart contract vulnerability</td><td>All products</td><td>Audited by Verichains, Shieldify, Zenith</td></tr>
+          <tr><td>Venue / counterparty risk</td><td>All products</td><td>Diversified across HyperEVM protocols; no single-venue concentration</td></tr>
+          <tr><td>Pendle PT maturity</td><td>haHYPE, hakHYPE</td><td>Positions rolled ahead of maturity</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout danger">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,90,80,0.85)" stroke-width="1.7" width="18" height="18"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div class="callout-body">Interacting with Harmonix involves financial risk. This page is not exhaustive. Always review the complete risks before depositing capital.</div>
+      </div>
+
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('solvency',null)">
           <span class="page-nav-dir">← Previous</span><span>Proof of Solvency</span>
@@ -2429,23 +2405,28 @@ if (canWithdraw) {
       <div class="page-hero">
         <span class="page-tag">Learn</span>
         <h1>Fees</h1>
-        <p class="page-subtitle">Transparent, simple fee structure across all Harmonix vaults.</p>
+        <p class="page-subtitle">The 1% management fee accrues continuously and is reflected in the vault share price. There is no separate fee transaction — the fee is built into the price-per-share calculation, so the APY figures displayed in the app and API are always net of fees.</p>
       </div>
 
-      <p>Harmonix vaults are designed to be transparent and user-friendly:</p>
-
-      <h2>Fee Schedule</h2>
+      <h2>V2 Vaults (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE)</h2>
       <div class="table-wrap" style="margin-bottom:28px;"><table>
         <thead><tr><th>Fee Type</th><th>Rate</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td>Entry / Withdrawal Fee</td><td><strong>0%</strong></td><td>Deposit and redeem without cost.</td></tr>
-          <tr><td>Management Fee</td><td><strong>1%</strong> annualised</td><td>Charged on total assets under management. Accrues daily into the vault share price.</td></tr>
-          <tr><td>Performance Fee</td><td><strong>10%</strong></td><td>Applied only on profits earned.</td></tr>
+          <tr><td>Management Fee</td><td><strong>1%</strong> annualized</td><td>Charged on total assets under management. Accrues daily into the vault share price.</td></tr>
+          <tr><td>Performance Fee</td><td><strong>None</strong></td><td>No performance fee on V2 vaults.</td></tr>
         </tbody>
       </table></div>
 
-      <h2>How Fees Are Applied</h2>
-      <p>The 1% management fee accrues continuously and is reflected in the vault share price. There is no separate fee transaction — the fee is built into the price-per-share calculation, so the APY figures displayed in the app and API are always <strong>net of fees</strong>. The 10% performance fee is applied only on net profits at the time of withdrawal.</p>
+      <h2>V1 Basis Trade Vault</h2>
+      <div class="table-wrap" style="margin-bottom:28px;"><table>
+        <thead><tr><th>Fee Type</th><th>Rate</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Entry / Withdrawal Fee</td><td><strong>0%</strong></td><td>Deposit and redeem without cost.</td></tr>
+          <tr><td>Management Fee</td><td><strong>1%</strong> annualized</td><td>Charged on total assets under management.</td></tr>
+          <tr><td>Performance Fee</td><td><strong>10%</strong></td><td>Applied only on net profits at the time of withdrawal.</td></tr>
+        </tbody>
+      </table></div>
 
       <h2>BuilderCode</h2>
       <p>Harmonix implements <strong>BuilderCode</strong>, a fee-sharing mechanism that collects a small fee based on trading volume on HyperCore from whitelisted vaults. Fees are calibrated to trading volume, ensuring that APY and user yields are not affected.</p>
@@ -2534,7 +2515,6 @@ if (canWithdraw) {
           <tr><td>haUSDH</td><td>✓</td><td>—</td></tr>
           <tr><td>haHYPE</td><td>✓</td><td>HyperLend, Felix, HypurrFi, kPoints, Ventuals</td></tr>
           <tr><td>hakHYPE</td><td>✓</td><td>HyperLend, HypurrFi</td></tr>
-          <tr><td>cdharUSD</td><td>✓</td><td>HIP-3 points, HyperEVM incentives</td></tr>
         </tbody>
       </table></div>
       <div class="page-nav">
@@ -2561,10 +2541,6 @@ if (canWithdraw) {
       <p>Yes. haUSDC is fully market-neutral — capital is deployed into delta-neutral strategies that eliminate directional price exposure. Yield compounds continuously into the share price.</p>
       <h3>Are haHYPE and hakHYPE delta-neutral?</h3>
       <p>No. haHYPE and hakHYPE are not fully delta-neutral products. A sub-strategy within each vault runs a delta-neutral position to reduce net beta, but the overall product carries directional HYPE exposure. If HYPE price changes, your position value changes accordingly on the non-hedged portion.</p>
-      <h3>What is the difference between cdharUSD1, cdharUSD2, and cdharUSD3?</h3>
-      <p>Only the lock term differs. cdharUSD1 = 1-month lock, cdharUSD2 = 2-month, cdharUSD3 = 3-month. All three use the same yield engine and HAR conversion mechanic.</p>
-      <h3>Do I have to convert into HAR at cdharUSD maturity?</h3>
-      <p>No. Conversion is always optional. If HAR is trading below your locked conversion price, the right has no value and you simply redeem stablecoins plus yield.</p>
       <h3>Does yield pay out automatically?</h3>
       <p>Yes. Yield accrues into the share price continuously. There is no claim step — holding the ha-token is sufficient. When you redeem, you receive more of the underlying than you deposited.</p>
       <h3>Why are haHYPE withdrawals in WHYPE and not HYPE?</h3>
@@ -2669,7 +2645,7 @@ if (canWithdraw) {
 
       <h2>Risks</h2>
       <p><strong>Negative funding rates.</strong> If HYPE perpetual funding rates turn negative (shorts pay longs), the strategy incurs a cost rather than income. The vault monitors rates in real time and adjusts position sizing or pauses the strategy if conditions deteriorate.</p>
-      <p><strong>Execution risk.</strong> Rebalancing the spot and perp legs involves timing. Rapid price movements during rebalancing may temporarily create small directional exposure, though positions are sized to minimise this window.</p>
+      <p><strong>Execution risk.</strong> Rebalancing the spot and perp legs involves timing. Rapid price movements during rebalancing may temporarily create small directional exposure, though positions are sized to minimize this window.</p>
       <p><strong>Venue risk.</strong> Capital is deployed on HyperCore for both spot and perpetual trades. Exchange downtime, liquidity gaps, or smart contract issues on HyperCore could impact the vault's ability to manage positions.</p>
 
       <div class="callout warn">
@@ -2700,7 +2676,7 @@ if (canWithdraw) {
       <div style="margin:20px 0;">
         <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">completeWithdrawal()</div>
         <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function completeWithdrawal(uint256 shares) external</pre>
-        <p style="font-size:13px;color:#8a8a8a;">Finalises a previously initiated withdrawal. Burns <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">shares</code> and transfers the corresponding USDC to the caller.</p>
+        <p style="font-size:13px;color:#8a8a8a;">Finalizes a previously initiated withdrawal. Burns <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">shares</code> and transfers the corresponding USDC to the caller.</p>
       </div>
 
       <h3>View Functions</h3>
@@ -2757,7 +2733,6 @@ const pages = {
   architecture: 'Technical Architecture',
   stablecoins: 'Yield-Bearing Stablecoins',
   tokens: 'Yield-Bearing Tokens',
-  cdharusd: 'cdharUSD',
   har: 'HAR Token',
   'vault-arch': 'Vault Architecture',
   contracts: 'Smart Contracts',
