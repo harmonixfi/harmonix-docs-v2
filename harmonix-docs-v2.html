@@ -1833,61 +1833,169 @@ html, body {
         <p class="page-subtitle">How capital enters and exits Harmonix vaults, including timing, queuing, and fee mechanics.</p>
       </div>
 
-      <h2>Deposits</h2>
+      <p>Harmonix operates three vault types, each with different deposit and withdrawal mechanics.</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Vault Type</th><th>Version</th><th>Products</th><th>Standard</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Basis Trade Vault</strong></td><td>V1</td><td>HYPE-BASIS</td><td>Custom (HypeVault)</td></tr>
+          <tr><td><strong>Yield-Bearing Tokens</strong></td><td>V2</td><td>haHYPE, hakHYPE</td><td>ERC-4626 (BoringVault)</td></tr>
+          <tr><td><strong>Yield-Bearing Stablecoins</strong></td><td>V2</td><td>haUSDC, haUSDT, haUSDH</td><td>ERC-4626 (BoringVault)</td></tr>
+        </tbody>
+      </table></div>
+
+      <!-- ── V1: BASIS TRADE VAULT ── -->
+      <h2>V1 — Basis Trade Vault</h2>
+      <p>The Basis Trade Vault uses a custom <code>HypeVault</code> contract with a two-step withdrawal mechanism designed for the delta-neutral strategy.</p>
+
+      <h3>Deposit</h3>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h4>Approve the vault</h4>
-            <p>Call <code>approve(vaultAddress, amount)</code> on the underlying token contract (USDC, HYPE, kHYPE, etc.).</p>
+            <h4>Approve</h4>
+            <p>Call <code>approve(vaultAddress, amount)</code> on the USDC contract.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-body">
             <h4>Deposit</h4>
-            <p>Call <code>deposit(assets, receiver)</code> on the vault. Shares are minted instantly at current PPS. In V2, multi-asset deposits (via swap-in path) and async deposits are supported.</p>
+            <p>Call <code>deposit(amount, receiver)</code> on the HypeVault. Shares are minted at the current <code>pricePerShare()</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Withdraw (Two-Step)</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Initiate</h4>
+            <p>Call <code>initiateWithdrawal(shares)</code>. Shares are locked and a withdrawal request is created. Check eligibility with <code>canCompleteWithdraw()</code>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Complete</h4>
+            <p>Once the cooldown period passes, call <code>completeWithdrawal()</code> to receive USDC. Typical fulfillment: <strong>24–72 hours</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── V2: YIELD-BEARING TOKENS ── -->
+      <h2>V2 — Yield-Bearing Tokens</h2>
+      <p>haHYPE and hakHYPE use the <strong>BoringVault</strong> framework (ERC-4626). Deposits go through the <code>Teller</code> contract; withdrawals use an async queue.</p>
+
+      <h3>Deposit</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Approve the Teller</h4>
+            <p>Call <code>approve(TELLER_ADDRESS, amount)</code> on the underlying token (HYPE or kHYPE).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Deposit via Teller</h4>
+            <p>Call <code>teller.deposit(asset, amount, minShares, receiver)</code>. Shares are minted <strong>instantly</strong> at the current price-per-share.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Withdraw (Async Queue)</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Request</h4>
+            <p>Call <code>requestWithdraw(shares)</code>. Shares are locked in escrow and a <code>requestId</code> is returned. Shares stop accruing yield immediately.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Wait</h4>
+            <p>The Manager unwinds positions to free liquidity. Typical fulfillment: <strong>24–72 hours</strong>.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h4>Receive ha-tokens</h4>
-            <p>You receive ERC-4626 shares (<code>haUSDC</code>, <code>haHYPE</code>, etc.) to your wallet. These compound yield into the exchange rate over time.</p>
+            <h4>Claim</h4>
+            <p>Call <code>claimWithdraw(requestId)</code> to receive the underlying token.</p>
           </div>
         </div>
       </div>
-
-      <h2>Withdrawals</h2>
-      <p>Harmonix uses a withdrawal queue to allow large withdrawals without disrupting active strategy positions. A 5% buffer pool is maintained at all times for near-instant exits.</p>
-
-      <div class="table-wrap"><table>
-        <thead><tr><th>Withdrawal Type</th><th>Condition</th><th>Estimated Time</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Buffer Pool</strong></td><td>Request ≤ 5% of vault TVL, within buffer</td><td>~1 day</td></tr>
-          <tr><td><strong>Normal Queue</strong></td><td>Request below buffer, next day settlement</td><td>1 day</td></tr>
-          <tr><td><strong>Large Withdrawal</strong></td><td>Request &gt; 5% of vault TVL</td><td>Up to 3 days</td></tr>
-          <tr><td><strong>cdharUSD Early Exit</strong></td><td>Before term maturity</td><td>1–3 days + early exit fee</td></tr>
-        </tbody>
-      </table></div>
 
       <div class="callout warn">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <div class="callout-body">haHYPE and hakHYPE withdrawals are settled in <strong>WHYPE</strong> (wrapped HYPE on HyperEVM), not native HYPE. Native HYPE withdrawal support is coming soon.</div>
       </div>
 
+      <!-- ── V2: YIELD-BEARING STABLECOINS ── -->
+      <h2>V2 — Yield-Bearing Stablecoins</h2>
+      <p>haUSDC, haUSDT, and haUSDH follow the same BoringVault / ERC-4626 architecture as the yield-bearing tokens. The Teller handles deposits; withdrawals go through the same async queue.</p>
+
+      <h3>Deposit</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Approve the Teller</h4>
+            <p>Call <code>approve(TELLER_ADDRESS, amount)</code> on the stablecoin contract (USDC, USDT, or USDH).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Deposit via Teller</h4>
+            <p>Call <code>teller.deposit(asset, amount, minShares, receiver)</code>. Receive ha-token shares instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Withdraw (Async Queue)</h3>
+      <p>Same three-step flow as yield-bearing tokens: <code>requestWithdraw</code> → wait → <code>claimWithdraw</code>. You receive the original stablecoin (USDC, USDT, or USDH).</p>
+
+      <!-- ── WITHDRAWAL TIMING ── -->
+      <h2>Withdrawal Timing</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Vault</th><th>Condition</th><th>Estimated Time</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Basis Trade (V1)</strong></td><td>Two-step: initiate → complete</td><td>24–72 hours</td></tr>
+          <tr><td><strong>V2 Vaults</strong></td><td>Request ≤ buffer pool (~5% TVL)</td><td>~1 day</td></tr>
+          <tr><td><strong>V2 Vaults</strong></td><td>Normal queue</td><td>1–3 days</td></tr>
+          <tr><td><strong>V2 Vaults</strong></td><td>Large withdrawal (&gt; 5% TVL)</td><td>Up to 3 days</td></tr>
+        </tbody>
+      </table></div>
+
+      <!-- ── WHAT YOU RECEIVE ── -->
       <h2>What You Receive</h2>
       <div class="table-wrap"><table>
         <thead><tr><th>Product</th><th>Redeem / Exit Path</th><th>Receive</th></tr></thead>
         <tbody>
-          <tr><td>haUSDC / haUSDT / haUSDH</td><td>Redeem shares</td><td>USDC, USDT, USDH</td></tr>
-          <tr><td>haHYPE</td><td>Redeem shares</td><td>WHYPE</td></tr>
-          <tr><td>hakHYPE</td><td>Redeem shares</td><td>kHYPE</td></tr>
-          <tr><td>cdharUSD1/2/3</td><td>Full term redeem</td><td>USDC or USDH + accrued yield</td></tr>
-          <tr><td>cdharUSD1/2/3</td><td>Convert at maturity</td><td>HAR at locked conversion price</td></tr>
-          <tr><td>cdharUSD1/2/3</td><td>Early exit</td><td>USDC/USDH + partial yield − early exit fee</td></tr>
+          <tr><td>Basis Trade Vault</td><td>Two-step withdrawal</td><td>USDC</td></tr>
+          <tr><td>haUSDC / haUSDT / haUSDH</td><td>Async queue</td><td>USDC, USDT, USDH</td></tr>
+          <tr><td>haHYPE</td><td>Async queue</td><td>WHYPE</td></tr>
+          <tr><td>hakHYPE</td><td>Async queue</td><td>kHYPE</td></tr>
         </tbody>
       </table></div>
+
+      <!-- ── ERC-7540 UPGRADE ── -->
+      <h2>Coming Upgrade: ERC-7540</h2>
+      <div class="callout" style="border-left-color:#c8f07a;">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <div class="callout-body">
+          <strong>Upgrade in progress</strong> — Harmonix is implementing ERC-7540, the official async extension of ERC-4626.
+        </div>
+      </div>
+      <p>ERC-7540 standardizes asynchronous deposit and withdrawal flows at the contract level. This unlocks native cross-chain integrations — users will be able to deposit into haUSDC from <strong>any chain</strong>, using <strong>any asset</strong>, via supported aggregator platforms and mobile apps. No manual bridging. No extra steps.</p>
+      <p>The upgrade supports Harmonix's existing asynchronous withdrawal architecture (where users initiate a withdrawal request before claiming) while keeping <strong>instant deposits</strong> — the standard design for vault strategies that take time to unwind positions.</p>
+      <p>Cross-chain aggregator integrations have confirmed compatibility out of the box once the upgrade is live.</p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('contracts',null)">
