@@ -439,14 +439,8 @@ td a:hover { text-decoration: underline; }
 .ps-banner-cd::before  { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
 .ps-item-tags { display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 1; }
 .ps-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 9px; border-radius: 6px; border: 1px solid rgba(200,240,122,0.25); background: rgba(0,0,0,0.35); color: var(--green); font-weight: 500; backdrop-filter: blur(4px); }
-.wnc-pill { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; border: 1px solid rgba(200,240,122,0.22); background: rgba(0,0,0,0.25); color: var(--green); font-weight: 500; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
-.wnc-pill:hover { border-color: rgba(200,240,122,0.5); color: #c8f07a; }
-.wnc-pill-dev { border-color: rgba(80,140,255,0.25); color: var(--green); }
-.wnc-pill-dev:hover { border-color: rgba(80,140,255,0.55); color: #90bfff; }
-.wnc-pill-sec { border-color: rgba(245,200,66,0.25); color: #f5c842; }
-.wnc-pill-sec:hover { border-color: rgba(245,200,66,0.55); color: #ffd95a; }
-.wnc-pill-res { border-color: rgba(160,120,255,0.25); color: #a078ff; }
-.wnc-pill-res:hover { border-color: rgba(160,120,255,0.55); color: #bf9fff; }
+.wnc-pill, .wnc-pill-dev, .wnc-pill-sec, .wnc-pill-res { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; border: 1px solid rgba(200,240,122,0.18); background: rgba(200,240,122,0.05); color: var(--green); font-weight: 500; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+.wnc-pill:hover, .wnc-pill-dev:hover, .wnc-pill-sec:hover, .wnc-pill-res:hover { border-color: rgba(200,240,122,0.45); color: #c8f07a; }
 .ps-banner-dev .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--green); }
 .ps-banner-pts .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--green); }
 .ps-banner-har .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--yellow); }
@@ -491,8 +485,8 @@ td a:hover { text-decoration: underline; }
   gap: 16px !important;
   margin: 32px 0 40px !important;
 }
-.wnc { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
-.wnc:hover { border-color: rgba(180,230,100,0.35); transform: translateY(-2px); }
+.wnc { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; display: flex; flex-direction: column; }
+.wnc:hover { border-color: rgba(200,240,122,0.3); }
 .wnc-icon { height: 0px; display: flex; align-items: flex-end; padding: 12px 16px; background: var(--bg); position: relative; overflow: hidden; }
 .wnc-icon::before { content: ""; position: absolute; inset: 0; background: none; pointer-events: none; }
 .wnc-icon::after { content: ""; position: absolute; inset: 0; background: none; pointer-events: none; }
@@ -852,63 +846,40 @@ html, body {
 
     <!-- ── WELCOME ── -->
     <section class="section active" id="s-welcome">
-      <div class="page-hero" style="margin-bottom:14px;padding-bottom:16px;">
-        <span class="page-tag">Documentation</span>
-        <h1 style="margin-bottom:6px;">Harmonix Finance</h1>
-        <p class="page-subtitle" style="margin:0;">Yield infrastructure built natively on Hyperliquid — turning deep, performant liquidity into sustainable on-chain yield.</p>
+      <div style="margin-bottom:28px;">
+        <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:28px;color:var(--text);margin:0 0 10px;line-height:1.3;">Harmonix Finance</h1>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7;margin:0;max-width:560px;">Yield infrastructure built natively on Hyperliquid. Learn the fundamentals, explore our products, and start building.</p>
       </div>
 
-      <p style="margin:0 0 14px;">Harmonix captures real economic activity — perpetual funding rates, lending yields, and ecosystem incentives across HyperCore and HyperEVM — and distributes that yield through a suite of composable yield-bearing tokens and the HAR ecosystem.</p>
+      <!-- Polymarket / Morpho style — 2x2 icon cards, two colors only -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px;">
 
-      <h2 style="margin:0 0 12px;font-size:15px;color:var(--text2);font-weight:500;letter-spacing:.01em;">What You'll Find Here</h2>
-
-      <!-- 3 equal cards -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:0 0 16px;">
-
-        <!-- Learn -->
-        <div class="wnc" onclick="show('onboarding',null)">
-          <div class="wnc-body" style="padding:18px 20px 20px;">
-            <div class="wnc-title">Learn →</div>
-            <div class="wnc-desc" style="margin-top:5px;">Get started, understand the protocol, and explore security and risk disclosures.</div>
-            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('onboarding',null)" class="wnc-pill wnc-pill-res">Getting Started</span>
-              <span onclick="event.stopPropagation();show('overview',null)" class="wnc-pill wnc-pill-res">Protocol Overview</span>
-              <span onclick="event.stopPropagation();show('solvency',null)" class="wnc-pill wnc-pill-res">Proof of Solvency</span>
-              <span onclick="event.stopPropagation();show('risks',null)" class="wnc-pill wnc-pill-res">Risks &amp; Audits</span>
-              <span onclick="event.stopPropagation();show('points',null)" class="wnc-pill wnc-pill-res">Points &amp; Rewards</span>
-              <span onclick="event.stopPropagation();show('faq',null)" class="wnc-pill wnc-pill-res">FAQ</span>
-            </div>
-          </div>
+        <!-- Getting Started -->
+        <div class="wnc" onclick="show('onboarding',null)" style="padding:24px;">
+          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Getting Started</div>
+          <div class="wnc-desc">Set up your wallet, connect to Harmonix, and make your first deposit in minutes.</div>
         </div>
 
-        <!-- Product Suite -->
-        <div class="wnc" onclick="show('product-suite',null)">
-          <div class="wnc-body" style="padding:18px 20px 20px;">
-            <div class="wnc-title">Product Suite →</div>
-            <div class="wnc-desc" style="margin-top:5px;">Yield-bearing tokens and the HAR ecosystem, all built natively on Hyperliquid.</div>
-            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('stablecoins',null)" class="wnc-pill">Yield-Bearing Stablecoins</span>
-              <span onclick="event.stopPropagation();show('tokens',null)" class="wnc-pill">Yield-Bearing Tokens</span>
-              <span onclick="event.stopPropagation();show('basis-trade-vault',null)" class="wnc-pill">HYPE Basis Trade</span>
-              <span onclick="event.stopPropagation();show('har',null)" class="wnc-pill">HAR Token</span>
-              <span onclick="event.stopPropagation();show('xhar',null)" class="wnc-pill">xHAR</span>
-            </div>
-          </div>
+        <!-- Products -->
+        <div class="wnc" onclick="show('product-suite',null)" style="padding:24px;">
+          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Products</div>
+          <div class="wnc-desc">Yield-bearing stablecoins, tokens, the HYPE Basis Trade vault, and the HAR ecosystem.</div>
         </div>
 
-        <!-- For Developers -->
-        <div class="wnc" onclick="show('for-developers',null)">
-          <div class="wnc-body" style="padding:18px 20px 20px;">
-            <div class="wnc-title">For Developers →</div>
-            <div class="wnc-desc" style="margin-top:5px;">Architecture, smart contracts, integration guides, and the full REST API reference.</div>
-            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;">
-              <span onclick="event.stopPropagation();show('vault-arch',null)" class="wnc-pill wnc-pill-dev">Vault Architecture</span>
-              <span onclick="event.stopPropagation();show('contracts',null)" class="wnc-pill wnc-pill-dev">Smart Contracts</span>
-              <span onclick="event.stopPropagation();show('deposits-withdrawals',null)" class="wnc-pill wnc-pill-dev">Deposits &amp; Withdrawals</span>
-              <span onclick="event.stopPropagation();show('api-integration',null)" class="wnc-pill wnc-pill-dev">SC Integration</span>
-              <span onclick="event.stopPropagation();show('api-reference',null)" class="wnc-pill wnc-pill-dev">API Reference</span>
-            </div>
-          </div>
+        <!-- Developers -->
+        <div class="wnc" onclick="show('for-developers',null)" style="padding:24px;">
+          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Developers</div>
+          <div class="wnc-desc">Vault architecture, smart contracts, integration guides, and the REST API reference.</div>
+        </div>
+
+        <!-- Security -->
+        <div class="wnc" onclick="show('solvency',null)" style="padding:24px;">
+          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Security</div>
+          <div class="wnc-desc">Proof of solvency, risk disclosures, audits, and how the protocol keeps funds safe.</div>
         </div>
 
       </div>
@@ -916,7 +887,7 @@ html, body {
       <div class="page-nav">
         <div></div>
         <a class="page-nav-link" onclick="show('onboarding',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span>
+          <span class="page-nav-dir">Next</span>
           <span>Getting Started</span>
         </a>
       </div>
