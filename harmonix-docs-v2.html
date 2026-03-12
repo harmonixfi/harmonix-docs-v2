@@ -694,32 +694,29 @@ html, body {
    
 }
 
-/* Simple mobile menu */
+/* Mobile hamburger menu button */
 @media (max-width: 900px) {
-  #mobile-hamburger { 
-    display: flex !important; 
-    align-items: center; 
-    justify-content: center; 
-    width: 40px; 
-    height: 40px; 
-    background: rgba(200,240,122,0.1) !important; 
-    border: 1px solid rgba(200,240,122,0.3) !important; 
-    border-radius: 6px !important; 
+  #mobile-hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(200,240,122,0.1) !important;
+    border: 1px solid rgba(200,240,122,0.3) !important;
+    border-radius: 6px !important;
   }
-}
-
-/* Simple mobile menu */
-@media (max-width: 900px) {
-  #mobile-hamburger { 
-    display: flex !important; 
-    align-items: center; 
-    justify-content: center; 
-    width: 40px; 
-    height: 40px; 
-    background: rgba(200,240,122,0.1) !important; 
-    border: 1px solid rgba(200,240,122,0.3) !important; 
-    border-radius: 6px !important; 
-  }
+  /* Images must not overflow on mobile */
+  img { max-width: 100% !important; height: auto !important; }
+  /* Tables scroll horizontally instead of breaking layout */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Steps stack better */
+  .steps { gap: 12px; }
+  .step-num { min-width: 28px; width: 28px; height: 28px; font-size: 12px; }
+  /* Analytics cards stack */
+  .section a[style*="display:flex"][style*="gap:16px"] { flex-direction: column !important; gap: 12px !important; }
+  /* Welcome nav cards single column on phones */
+  .welcome-nav-cards { grid-template-columns: 1fr !important; }
 }
 </style>
 <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
@@ -2614,6 +2611,8 @@ function show(id, el) {
   }
   document.getElementById('breadcrumb-page').textContent = pages[id] || id;
   window.scrollTo(0, 0);
+  // Close sidebar on mobile after navigation
+  if (window.innerWidth <= 900) closeSidebar();
 }
 
 function copyAddr(btn, addr) {
