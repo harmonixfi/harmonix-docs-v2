@@ -770,7 +770,7 @@ html, body {
         </div>
         <a class="nav-item" onclick="show('basis-trade-vault',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>HYPE Basis Trade Vault</a>
         <a class="nav-item" onclick="show('har',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/></svg>HAR Token</a>
-        <a class="nav-item" onclick="show('xhar',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>xHAR</a>
+
       </div>
     </div>
     <hr class="nav-divider">
@@ -851,20 +851,20 @@ html, body {
         <p style="font-size:15px;color:var(--text2);line-height:1.7;margin:0;max-width:560px;">Yield infrastructure built natively on Hyperliquid. Learn the fundamentals, explore our products, and start building.</p>
       </div>
 
-      <!-- Polymarket / Morpho style — 2x2 icon cards, two colors only -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px;">
+      <!-- 3 cards: Learn · Product Suite · Developers -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:0 0 16px;">
 
-        <!-- Getting Started -->
+        <!-- Learn -->
         <div class="wnc" onclick="show('onboarding',null)" style="padding:24px;">
-          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Getting Started</div>
-          <div class="wnc-desc">Set up your wallet, connect to Harmonix, and make your first deposit in minutes.</div>
+          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Learn</div>
+          <div class="wnc-desc">Get started, understand the protocol, explore security and risk disclosures, and earn rewards.</div>
         </div>
 
-        <!-- Products -->
+        <!-- Product Suite -->
         <div class="wnc" onclick="show('product-suite',null)" style="padding:24px;">
           <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Products</div>
+          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Product Suite</div>
           <div class="wnc-desc">Yield-bearing stablecoins, tokens, the HYPE Basis Trade vault, and the HAR ecosystem.</div>
         </div>
 
@@ -873,13 +873,6 @@ html, body {
           <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Developers</div>
           <div class="wnc-desc">Vault architecture, smart contracts, integration guides, and the REST API reference.</div>
-        </div>
-
-        <!-- Security -->
-        <div class="wnc" onclick="show('solvency',null)" style="padding:24px;">
-          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Security</div>
-          <div class="wnc-desc">Proof of solvency, risk disclosures, audits, and how the protocol keeps funds safe.</div>
         </div>
 
       </div>
@@ -969,10 +962,7 @@ html, body {
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haHYPE →</div>
           <div style="font-size:12px;color:var(--text3);">Earn yield on your HYPE tokens</div>
         </div>
-        <div onclick="show('xhar',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Stake HAR → xHAR →</div>
-          <div style="font-size:12px;color:var(--text3);">Lock HAR to earn protocol revenue</div>
-        </div>
+
         <div onclick="show('points',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Points &amp; Rewards →</div>
           <div style="font-size:12px;color:var(--text3);">Learn how the points program works</div>
@@ -1204,13 +1194,7 @@ html, body {
             <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">HAR</span></div>
           </div>
         </div>
-        <div class="ps-item" onclick="show('xhar',null)">
-          <div class="ps-item-body" style="padding:20px;">
-            <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">xHAR →</div>
-            <div class="ps-item-desc" style="margin-bottom:14px;">Staked HAR that earns protocol revenue and aligns long-term holders with Harmonix ecosystem growth.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">xHAR</span></div>
-          </div>
-        </div>
+
       </div>
 
       <div class="page-nav">
@@ -1477,45 +1461,19 @@ html, body {
       <h2>FAQs</h2>
       <h3>How do I get HAR?</h3>
       <p>Through the public sale, by converting a cdharUSD3 position at maturity, or via community airdrop allocations. HAR will also be tradeable on open markets post-TGE.</p>
-      <h3>What is the difference between HAR and xHAR?</h3>
-      <p>HAR is the base governance and ownership token. xHAR is staked HAR — the yield-accruing position that receives protocol revenue from cdharUSD3 conversions and HYPE treasury yield.</p>
-      <h3>Can I unstake xHAR?</h3>
-      <p>Unstaking converts xHAR back to HAR at the prevailing rate. Timing and any cooldown parameters are shown in the app.</p>
+
       <h3>How does governance work?</h3>
       <p>HAR holders propose and vote on protocol parameters, treasury allocations, and emissions schedules. Details on governance mechanics will be published separately.</p>
 
       <p style="font-size:13px;color:var(--text3);"><div class="callout warning"><span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,200,50,0.85)" stroke-width="1.7" width="18" height="18"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div class="callout-body">HAR is not a promise of fixed yield or guaranteed returns. Market prices vary, protocol revenue fluctuates, and governance outcomes depend on participation. Nothing on this page is investment advice. For platform-wide risks see <a onclick="show('risks',null)" href="#">Risks, Security &amp; Audits</a></div></div>.</p>
 
       <div class="page-nav">
-        <a class="page-nav-link" onclick="show('xhar',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span><span>xHAR</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ── XHAR ── -->
-    <section class="section" id="s-xhar">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">xHAR</span></div>
-      <div class="page-hero">
-        <span class="page-tag">Tokenomics</span>
-        <h1>xHAR — Staked HAR</h1>
-        <p class="page-subtitle">The yield-accruing position that receives protocol revenue from cdharUSD3 conversions and HYPE treasury yield.</p>
-      </div>
-      <p>Stake HAR to receive xHAR. xHAR accumulates yield automatically from three sources: early-exit fees from cdharUSD3 holders who leave before maturity, yield generated on HYPE purchased with converted stablecoins, and additional protocol revenue.</p>
-      <p>You do not manage positions or track individual vaults. You hold xHAR, and when the system generates revenue the token appreciates. xHAR holders are the equity layer of Harmonix — when the treasury's HYPE stack grows, so does their yield.</p>
-      <h2>Revenue Sources</h2>
-      <p>xHAR accumulates yield from three sources: early-exit fees from cdharUSD3 holders who leave before maturity, yield generated on HYPE purchased with converted stablecoins, and additional protocol revenue as new products launch.</p>
-      <h2>The Flywheel</h2>
-      <p>Stable users deposit into cdharUSD3 and earn yield. When they convert into HAR at maturity, their stablecoins move into the Harmonix treasury and are used to acquire HYPE. That HYPE generates real yield. That yield flows into the xHAR vault. A stronger xHAR makes HAR more attractive. A more attractive HAR draws more stable depositors. The loop restarts.</p>
-      <div class="page-nav">
-        <a class="page-nav-link" onclick="show('har',null)">
-          <span class="page-nav-dir">← Previous</span><span>HAR Token</span>
-        </a>
         <a class="page-nav-link" onclick="show('vault-arch',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span><span>Vault Architecture</span>
         </a>
       </div>
     </section>
+
 
     <!-- ── VAULT ARCH ── -->
     <section class="section" id="s-vault-arch">
@@ -1797,7 +1755,7 @@ html, body {
           <tr><td>cdharUSD2 Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
           <tr><td>cdharUSD3 Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
           <tr><td>HAR Token</td><td>ERC-20</td><td>HyperEVM</td><td><code>0x391121d8…af18</code></td></tr>
-          <tr><td>xHAR Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
+
           <tr><td>NAV Oracle</td><td>Custom</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
         </tbody>
       </table></div>
@@ -2395,7 +2353,6 @@ const pages = {
   tokens: 'Yield-Bearing Tokens',
   cdharusd: 'cdharUSD',
   har: 'HAR Token',
-  xhar: 'xHAR',
   'vault-arch': 'Vault Architecture',
   contracts: 'Smart Contracts',
   'deposits-withdrawals': 'Deposits & Withdrawals',
