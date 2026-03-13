@@ -813,7 +813,7 @@ html, body {
         <a class="nav-item" onclick="show('deposits-withdrawals',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>Deposits &amp; Withdrawals</a>
         <a class="nav-item" onclick="show('api-integration',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Smart Contract Integration</a>
         <a class="nav-item" onclick="show('api-reference',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" rx="2"/><path d="M8 9h8M8 12h6M8 15h4"/></svg>Harmonix API</a>
-        <a class="nav-item" onclick="show('sdk',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Harmonix SDK</a>
+        <a class="nav-item" onclick="show('sdk',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Developer Toolkit</a>
       </div>
       <div class="nav-label">Legal &amp; Reference</div>
       <div class="nav-group">
@@ -2396,27 +2396,118 @@ const tvl = vault.tvl;         <span style="color:#4a6741;">// total value locke
           <span class="page-nav-dir">← Previous</span><span>Smart Contract Integration</span>
         </a>
         <a class="page-nav-link" onclick="show('sdk',null)" style="text-align:right">
-          <span class="page-nav-dir">Next →</span><span>Harmonix SDK</span>
+          <span class="page-nav-dir">Next →</span><span>Developer Toolkit</span>
         </a>
       </div>
     </section>
 
     <!-- ── SDK ── -->
     <section class="section" id="s-sdk">
-      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Harmonix SDK</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Developer Toolkit</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
-        <h1>Harmonix SDK</h1>
-        <p class="page-subtitle">Official SDK for integrating Harmonix vaults, reading on-chain data, and building on the Harmonix protocol.</p>
+        <h1>Developer Toolkit</h1>
+        <p class="page-subtitle">Libraries, providers, and tools for building on Harmonix vaults. No proprietary SDK required — use the same JavaScript stack you already know.</p>
       </div>
 
-      <div style="background:#0a0a0a;border:1px solid #1c1c1c;border-radius:12px;padding:48px 32px;text-align:center;margin:0 0 32px;">
-        <svg style="width:48px;height:48px;color:var(--green);margin-bottom:16px;opacity:0.5;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        <h2 style="font-size:20px;color:var(--text);margin:0 0 8px;">Coming Soon</h2>
-        <p style="font-size:14px;color:var(--text2);margin:0;max-width:400px;display:inline-block;line-height:1.6;">The Harmonix SDK is currently in development. It will include TypeScript and Python libraries for vault interactions, position tracking, and yield data.</p>
+      <h2>Recommended Libraries</h2>
+      <p>Harmonix vaults are standard EVM smart contracts on HyperEVM. Interact with them using the same libraries used across Ethereum, Arbitrum, and every other EVM chain:</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Library</th><th>Language</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://viem.sh" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:600;">Viem ↗</a></td>
+            <td>TypeScript / JavaScript</td>
+            <td>Modern, type-safe contract interactions. Recommended for new projects. Lightweight, tree-shakeable, and designed for the latest EVM patterns.</td>
+          </tr>
+          <tr>
+            <td><a href="https://docs.ethers.org/v6/" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:600;">Ethers.js v6 ↗</a></td>
+            <td>TypeScript / JavaScript</td>
+            <td>The most widely used EVM library. Mature ecosystem, extensive documentation, and broad community support. Great for projects already using Ethers.</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <h2>Quick Start — Read Vault Data with Viem</h2>
+      <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-radius:8px;padding:16px 20px;margin:0 0 12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;line-height:1.7;"><span style="color:#555;">// npm install viem</span>
+import { createPublicClient, http, formatUnits } from 'viem'
+import { hyperevm } from 'viem/chains'
+
+const client = createPublicClient({
+  chain: hyperevm,
+  transport: http()
+})
+
+<span style="color:#555;">// Read price-per-share from a Harmonix vault</span>
+const pps = await client.readContract({
+  address: '<span style="color:#8a8a8a;">VAULT_ADDRESS</span>',
+  abi: [{ name: 'totalAssets', type: 'function',
+          inputs: [], outputs: [{ type: 'uint256' }],
+          stateMutability: 'view' }],
+  functionName: 'totalAssets'
+})
+
+console.log('Total assets:', formatUnits(pps, 6))</pre>
+      <p style="font-size:13px;color:var(--text3);margin:0 0 32px;">See the <a onclick="show('api-integration',null)" href="javascript:void(0)" style="color:var(--green);">Smart Contract Integration</a> guide for full deposit/withdraw flows with working code.</p>
+
+      <h2>Quick Start — Read Vault Data with Ethers.js</h2>
+      <pre style="background:#0f0f0f;border:1px solid #1c1c1c;border-radius:8px;padding:16px 20px;margin:0 0 12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;line-height:1.7;"><span style="color:#555;">// npm install ethers</span>
+import { JsonRpcProvider, Contract, formatUnits } from 'ethers'
+
+const provider = new JsonRpcProvider('<span style="color:#8a8a8a;">https://rpc.hyperliquid.xyz/evm</span>')
+
+const vault = new Contract('<span style="color:#8a8a8a;">VAULT_ADDRESS</span>', [
+  'function totalAssets() view returns (uint256)',
+  'function totalSupply() view returns (uint256)'
+], provider)
+
+const [assets, supply] = await Promise.all([
+  vault.totalAssets(),
+  vault.totalSupply()
+])
+
+console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
+
+      <h2>RPC &amp; Data Providers</h2>
+      <p>For production apps that need reliable RPC endpoints, indexing, or enhanced APIs beyond raw node calls:</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Provider</th><th>Services</th><th>HyperEVM Support</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Hyperliquid RPC</strong></td>
+            <td>Native public RPC endpoint</td>
+            <td style="color:#c8f07a;">Direct — <code style="font-size:11px;background:#0f0f0f;border:1px solid #1c1c1c;padding:1px 5px;border-radius:3px;color:#c8f07a;">rpc.hyperliquid.xyz/evm</code></td>
+          </tr>
+          <tr>
+            <td><a href="https://www.alchemy.com/" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:600;">Alchemy ↗</a></td>
+            <td>Enhanced RPC, webhooks, NFT/token APIs, transaction simulation</td>
+            <td style="color:var(--text3);">Check availability</td>
+          </tr>
+          <tr>
+            <td><a href="https://moralis.io/" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:600;">Moralis ↗</a></td>
+            <td>Web3 data API, token balances, transaction history, real-time streams</td>
+            <td style="color:var(--text3);">Check availability</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body">For off-chain data (APY, TVL history, vault metadata), use the <a onclick="show('api-reference',null)" href="javascript:void(0)" style="color:var(--green);">Harmonix REST API</a>. For on-chain reads and transactions, use Viem or Ethers.js with the RPC endpoints above.</div>
       </div>
 
-      <p style="font-size:13px;color:var(--text3);">In the meantime, use the <a onclick="show('api-reference',null)" href="javascript:void(0)" style="color:var(--green);">Harmonix API</a> for data queries and the <a onclick="show('api-integration',null)" href="javascript:void(0)" style="color:var(--green);">Smart Contract Integration</a> guide for on-chain interactions.</p>
+      <h2>What You Need</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Task</th><th>Use</th><th>Docs</th></tr></thead>
+        <tbody>
+          <tr><td>Read vault APY, TVL, metadata</td><td>Harmonix REST API</td><td><a onclick="show('api-reference',null)" href="javascript:void(0)" style="color:var(--green);">API Reference →</a></td></tr>
+          <tr><td>Deposit / withdraw / check balances</td><td>Viem or Ethers.js + vault ABIs</td><td><a onclick="show('api-integration',null)" href="javascript:void(0)" style="color:var(--green);">Smart Contract Integration →</a></td></tr>
+          <tr><td>Look up contract addresses</td><td>On-chain registry</td><td><a onclick="show('contracts',null)" href="javascript:void(0)" style="color:var(--green);">Smart Contracts →</a></td></tr>
+          <tr><td>Query user positions in bulk</td><td>Lens contract</td><td><a onclick="show('api-integration',null)" href="javascript:void(0)" style="color:var(--green);">Lens Functions →</a></td></tr>
+        </tbody>
+      </table></div>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('api-reference',null)">
@@ -3072,7 +3163,7 @@ const pages = {
   'deposits-withdrawals': 'Deposits & Withdrawals',
   'api-integration': 'Smart Contract Integration',
   'api-reference': 'Harmonix API',
-  sdk: 'Harmonix SDK',
+  sdk: 'Developer Toolkit',
   fees: 'Fees',
   analytics: 'Analytics',
   'basis-trade-vault': 'Basis Trade Vault',
