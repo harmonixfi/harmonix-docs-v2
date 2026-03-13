@@ -1178,6 +1178,28 @@ html, body {
       </table></div>
       <p>V1 proved the core basis trade thesis on Hyperliquid. V2 generalizes that engine across multiple underlying assets and yield sources, giving users a broader suite of yield-bearing tokens that work as composable building blocks across DeFi.</p>
 
+      <!-- Infrastructure Layer -->
+      <h2>Infrastructure Layer</h2>
+      <p>Harmonix's yield strategies depend on multiple layers of the Hyperliquid ecosystem. Understanding how these components connect explains where yield originates and how it flows through to vault depositors.</p>
+
+      <h3>Hyperliquid Overview</h3>
+      <p>Hyperliquid is the core environment behind the platform, combining a high-performance perp trading venue with an expanding onchain ecosystem that supports strategy execution, product distribution, and capital formation.</p>
+
+      <h3>HyperEVM</h3>
+      <p>HyperEVM is the smart contract execution layer where vault logic, DeFi integrations, and yield-bearing product structures are built, making it the main base for product expansion beyond trading alone.</p>
+
+      <h3>Hyperliquid DEX</h3>
+      <p>The Hyperliquid DEX is the main perp venue used to source funding, basis, and other market-driven opportunities that power delta-neutral and trading-based strategies.</p>
+
+      <h3>HIP-3 DEXs</h3>
+      <p>HIP-3 markets extend the perp surface area by bringing in new assets and narratives, creating more room for funding-driven strategies, vault design, and future product growth.</p>
+
+      <h3>DeFi Layer on HyperEVM</h3>
+      <p>The DeFi layer adds lending, LP, looping, and fixed-yield integrations on top of the trading layer, helping capital move beyond pure perp strategies into broader yield opportunities.</p>
+
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">Hyperliquid · HyperCore · HyperEVM · perpetual DEX · HIP-3 · DeFi · lending · LP · looping · Pendle · money markets</p>
+
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('welcome',null)">
           <span class="page-nav-dir">← Previous</span><span>Welcome</span>
@@ -1843,6 +1865,36 @@ html, body {
           <tr><td><strong>Allocation UI</strong></td><td style="color:var(--text3);">Exploring</td><td>User-facing allocation dashboard for vault transparency — similar to Accountable-style breakdowns of where capital is deployed.</td></tr>
         </tbody>
       </table></div>
+
+      <!-- Strategy Execution Flow -->
+      <h2>Strategy Execution Flow</h2>
+      <p>When users deposit into a Harmonix vault, their capital follows a structured path from deposit to active strategy deployment. The Teller accepts deposits and mints shares, the BoringVault holds custodial funds, and the Manager authorizes specific strategy allocations via Merkle-verified operations. Offchain keepers trigger rebalances that deploy capital into funding positions on HyperCore, lending on HyperEVM protocols, and other yield sources — all validated on-chain before execution.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">deposit flow · allocation · rebalance · execution · keeper</p>
+
+      <!-- Withdraw and Settlement Operations -->
+      <h2>Withdraw and Settlement Operations</h2>
+      <p>Withdrawal operations span both on-chain and offchain processes. When a user requests redemption, shares are locked in escrow by the Teller. The offchain Solver batches pending requests, unwinds the necessary positions on HyperCore and HyperEVM, and calls <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">fulfillRedeems()</code> to make assets claimable. The idle buffer absorbs most routine withdrawals without unwinding, but large redemptions require position settlement — which is why fulfillment takes 24–72 hours.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">withdraw ops · pending withdrawal · backend · signer · tx batching</p>
+
+      <!-- Monitoring and Dashboards -->
+      <h2>Monitoring and Dashboards</h2>
+      <p>The team monitors vault health through real-time dashboards that track TVL, APY, price-per-share movements, position utilization, and exposure across HyperCore and HyperEVM. Alerts fire on NAV deviations, unusual redemption volume, funding rate compression, and contract interaction anomalies. The Lens contract provides on-chain read access to the same data used internally.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">TVL dashboard · monitoring · alerts · NAV · utilization · exposure</p>
+
+      <!-- Security and Controls -->
+      <h2>Security and Controls</h2>
+      <p>All vault admin operations require a Safe multisig (3-of-5). Sensitive parameter changes go through a timelock. The RolesAuthority contract enforces on-chain RBAC for every function across the vault system — no contract can be called by an unauthorized address. The Manager's Merkle tree restricts which external protocols the vault can interact with, and the DecoderAndSanitizer validates every calldata payload before execution.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">safe wallet · multisig · timelock · admin control · contract upgrade</p>
+
+      <!-- Known Constraints -->
+      <h2>Known Constraints</h2>
+      <p>Harmonix is transparent about current operational constraints and active areas of improvement. These include infrastructure dependencies on Hyperliquid's RPC availability, manual components in the NAV oracle pipeline that are being automated, withdrawal fulfillment times that depend on position unwinding complexity, and HyperEVM-specific limitations around native HYPE transfers (requiring WHYPE as a withdrawal token for haHYPE). The team tracks these as active roadmap items.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">limitations · infra risk · human error · RPC risk · roadmap blockers</p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('har',null)">
