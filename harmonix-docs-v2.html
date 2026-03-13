@@ -1700,6 +1700,35 @@ html, body {
         </tbody>
       </table></div>
 
+      <!-- Standards Roadmap -->
+      <h2>Standards Roadmap</h2>
+      <p>Harmonix vaults currently implement <strong>ERC-4626</strong> for tokenized vault shares. The following standards are being added to HIP-3 vaults as part of the next architecture iteration:</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Standard</th><th>Status</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ERC-4626</strong></td><td style="color:#c8f07a;">Live</td><td>Tokenized vault shares — deposit, redeem, price-per-share accounting.</td></tr>
+          <tr><td><strong>ERC-7575</strong></td><td style="color:rgba(255,200,50,0.85);">Planned</td><td>Multi-deposit support — accept multiple asset types into a single vault without wrapper contracts.</td></tr>
+          <tr><td><strong>ERC-7540</strong></td><td style="color:rgba(255,200,50,0.85);">Planned</td><td>Asynchronous redemption standard — native Superform integration and cross-protocol vault composability.</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body"><strong>Scope note:</strong> ERC-7575 and ERC-7540 changes currently apply to <strong>HIP-3 vaults</strong> only. Other vault types retain the existing ERC-4626 interface. This page will be updated with full architecture details after the implementation demo.</div>
+      </div>
+
+      <!-- Upcoming Integrations -->
+      <h2>Upcoming Integrations</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Integration</th><th>Status</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Superform</strong></td><td style="color:rgba(255,200,50,0.85);">In progress</td><td>Cross-chain vault deposits via ERC-7540. Enables users on other chains to deposit into Harmonix vaults without bridging manually.</td></tr>
+          <tr><td><strong>Corewriter</strong></td><td style="color:var(--text3);">Exploring</td><td>On-chain strategy automation for vault rebalancing and position management.</td></tr>
+          <tr><td><strong>Allocation UI</strong></td><td style="color:var(--text3);">Exploring</td><td>User-facing allocation dashboard for vault transparency — similar to Accountable-style breakdowns of where capital is deployed.</td></tr>
+        </tbody>
+      </table></div>
+
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('har',null)">
           <span class="page-nav-dir">← Previous</span><span>HAR Token</span>
