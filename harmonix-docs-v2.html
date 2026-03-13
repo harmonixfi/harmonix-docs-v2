@@ -767,6 +767,7 @@ html, body {
       </div>
       <div class="nav-collapse open">
         <a class="nav-item" onclick="show('onboarding',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Getting Started</a>
+        <a class="nav-item" onclick="show('core-concepts',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Core Concepts</a>
         <a class="nav-item" onclick="show('solvency',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Proof of Solvency</a>
         <a class="nav-item" onclick="show('risks',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3L13.71 4.14a2 2 0 0 0-3.42-.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Risks &amp; Audits</a>
         <a class="nav-item" onclick="show('fees',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Fees</a>
@@ -996,6 +997,120 @@ html, body {
         <a class="page-nav-link" onclick="show('welcome',null)">
           <span class="page-nav-dir">← Previous</span>
           <span>Welcome</span>
+        </a>
+        <a class="page-nav-link" onclick="show('core-concepts',null)" style="text-align:right">
+          <span class="page-nav-dir">Next →</span>
+          <span>Core Concepts</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── CORE CONCEPTS ── -->
+    <section class="section" id="s-core-concepts">
+      <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('onboarding',null)">Learn</span><span class="bc-sep">›</span><span class="bc-current">Core Concepts</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
+      <div class="page-hero">
+        <span class="page-tag" style="background:rgba(200,240,122,0.1);color:var(--green);border-color:rgba(200,240,122,0.2);">Learn</span>
+        <h1>Core Concepts</h1>
+        <p class="page-subtitle">The key topics every new contributor, integrator, or community member should understand to work effectively with the Harmonix protocol.</p>
+      </div>
+
+      <!-- Vault Mechanics 101 -->
+      <h2>Vault Mechanics 101</h2>
+      <p>Harmonix vaults use the ERC-4626 standard to manage deposits, shares, NAV (net asset value), exchange rates, and withdrawals. Users deposit assets, receive yield-bearing shares, and redeem them later at a higher price-per-share as yield accrues.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">ERC-4626 · share price · NAV · assets · liabilities · deposit · redeem</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://eips.ethereum.org/EIPS/eip-4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-4626: Tokenized Vaults ↗</a> ·
+        <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc20#ERC4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">OpenZeppelin ERC4626 Docs ↗</a> ·
+        <a href="https://eips.ethereum.org/EIPS/eip-7540" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-7540: Async ERC-4626 Vaults ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-l1/vaults" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Vaults ↗</a>
+      </div>
+
+      <!-- Delta-Neutral Strategies 101 -->
+      <h2>Delta-Neutral Strategies 101</h2>
+      <p>Harmonix uses delta-neutral strategies to reduce directional exposure while capturing market-driven returns — mainly through spot-perp positioning, funding rate capture, and related basis opportunities.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">long spot · short perp · delta-neutral · carry trade · basis trade · funding rates · market regimes</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Funding ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/technical/contract-specifications" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Contract Specs ↗</a> ·
+        <a href="https://ethena-labs.gitbook.io/ethena-labs/solution-overview/usde-overview" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Ethena USDe Overview ↗</a> ·
+        <a href="https://ethena-labs.gitbook.io/ethena-labs/solution-overview/hedging-system" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Ethena Hedging System ↗</a>
+      </div>
+
+      <!-- Funding Rates and Market Regimes -->
+      <h2>Funding Rates and Market Regimes</h2>
+      <p>Harmonix focuses on market conditions where funding and trading activity are strong enough to support attractive returns, while also monitoring periods when funding compresses and strategy performance becomes less favorable.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">funding rates · positive funding · negative funding · market regimes · volatility · trading activity · funding compression · perp demand · open interest</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Funding ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/perpetuals" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Hyperps ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/technical/contract-specifications" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Contract Specifications ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/margining" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Margining ↗</a>
+      </div>
+
+      <!-- HyperCore vs HyperEVM vs HIP-3 -->
+      <h2>HyperCore vs HyperEVM vs HIP-3</h2>
+      <p>Harmonix uses HyperCore as the trading layer where perp-driven yield opportunities are created, and HyperEVM as the application layer where DeFi integrations, vault logic, and yield-bearing product structures are built.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">HyperCore · HyperEVM · trading layer · app layer · perp venue · DeFi integrations · vault infrastructure · execution layer</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/about-hyperliquid/about" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">About Hyperliquid ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-l1/hypercore" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">HyperCore ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-l1/hyperevm" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">HyperEVM ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-l1/hip-3" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">HIP-3: Builder-Deployed Perpetuals ↗</a> ·
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/evm/interacting-with-hypercore" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">HyperCore ↔ HyperEVM ↗</a>
+      </div>
+
+      <!-- Underlying Asset Primitives -->
+      <h2>Underlying Asset Primitives</h2>
+      <p>Harmonix structures products around assets such as HYPE, kHYPE, stHYPE, BTC, ETH, and stablecoins, using each asset based on its role in staking, trading, collateral, or yield optimization strategies.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">HYPE · kHYPE · stHYPE · BTC · ETH · stablecoins · LST · collateral · yield-bearing assets · asset primitives</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-l1/staking" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Hyperliquid Staking ↗</a> ·
+        <a href="https://docs.kinetiq.xyz/introduction" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Introduction to Kinetiq ↗</a> ·
+        <a href="https://docs.kinetiq.xyz/liquid-staking-primer" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Liquid Staking Primer ↗</a> ·
+        <a href="https://docs.valantis.xyz/sthype" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">stHYPE — Valantis Docs ↗</a>
+      </div>
+
+      <!-- Yield-Bearing Stablecoins -->
+      <h2>Yield-Bearing Stablecoins</h2>
+      <p>Harmonix turns stablecoins like USDC, USDH, and USDT into yield-bearing products by routing them into market-neutral and DeFi-native strategies, allowing users to keep stablecoin exposure while earning through vault share growth over time.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">yield-bearing stablecoins · stablecoin vaults · ERC-4626 · delta-neutral · dollar-denominated yield · exchange rate · vault share growth</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://ethena-labs.gitbook.io/ethena-labs" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Ethena Overview ↗</a> ·
+        <a href="https://ethena-labs.gitbook.io/ethena-labs/solution-overview/usde-overview" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">USDe Overview ↗</a> ·
+        <a href="https://docs.aave.com/" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Aave Documentation ↗</a> ·
+        <a href="https://eips.ethereum.org/EIPS/eip-4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-4626: Tokenized Vaults ↗</a>
+      </div>
+
+      <!-- ERC-4626 Vault Standard -->
+      <h2>ERC-4626 Vault Standard</h2>
+      <p>Vault products are built around the ERC-4626 standard so deposits, shares, asset accounting, and yield accrual follow a structured and composable framework across DeFi integrations.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">ERC-4626 · tokenized vault standard · vault shares · assets under management · deposit · redeem · share accounting · composability · yield-bearing vaults</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://eips.ethereum.org/EIPS/eip-4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-4626: Tokenized Vaults ↗</a> ·
+        <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc20#ERC4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">OpenZeppelin ERC4626 Docs ↗</a> ·
+        <a href="https://eips.ethereum.org/EIPS/eip-7540" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-7540: Async ERC-4626 Vaults ↗</a> ·
+        <a href="https://eips.ethereum.org/EIPS/eip-7575" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-7575: Multi-Asset Vaults ↗</a> ·
+        <a href="https://docs.openzeppelin.com/contracts/5.x/api/interfaces#IERC4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">OpenZeppelin IERC4626 Interface ↗</a>
+      </div>
+
+      <div class="page-nav">
+        <a class="page-nav-link" onclick="show('onboarding',null)">
+          <span class="page-nav-dir">← Previous</span>
+          <span>Getting Started</span>
         </a>
         <a class="page-nav-link" onclick="show('overview',null)" style="text-align:right">
           <span class="page-nav-dir">Next →</span>
@@ -3108,28 +3223,42 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
         <tbody>
           <tr><td><strong>Accountant</strong></td><td>Smart contract that publishes and updates the vault's exchange rate. Includes on-chain safety mechanisms that restrict update frequency and constrain rate movements between updates.</td></tr>
           <tr><td><strong>APR / APY</strong></td><td>Annual Percentage Rate (simple) and Annual Percentage Yield (compounded). APY accounts for the effect of yield compounding into the share price over time. Harmonix displays APY on the app dashboard.</td></tr>
-          <tr><td><strong>Basis Trade</strong></td><td>A delta-neutral strategy that goes long spot and short perpetual futures on the same asset to earn funding rate income while eliminating directional price exposure.</td></tr>
+          <tr><td><strong>Basis Trade / Carry Trade</strong></td><td>A delta-neutral strategy that captures the spread between spot and perpetual futures pricing on the same asset, earning funding rate income while eliminating directional price exposure.</td></tr>
           <tr><td><strong>BoringVault</strong></td><td>The core vault contract that holds all deposited funds. It is deliberately minimal (~100 lines of code) and delegates all complex operations to external modules (Teller, Accountant, Manager) for enhanced security.</td></tr>
+          <tr><td><strong>CDP</strong></td><td>Collateralized Debt Position — a mechanism where users lock collateral to mint or borrow assets. Used in protocols like Felix on Hyperliquid.</td></tr>
           <tr><td><strong>DecoderAndSanitizer</strong></td><td>A validation module that decodes and examines calldata for every external call the vault makes, ensuring only approved interactions execute.</td></tr>
           <tr><td><strong>Delta Neutral</strong></td><td>A portfolio strategy where the net directional exposure to price movements is zero. Achieved by holding offsetting long and short positions of equal notional value.</td></tr>
+          <tr><td><strong>Depeg Arb</strong></td><td>A strategy that captures mispricing when a token trades away from its expected peg. Relevant for stablecoin and LST vaults that can profit from temporary price dislocations.</td></tr>
           <tr><td><strong>ERC-4626</strong></td><td>An Ethereum standard for tokenized yield-bearing vaults. Defines a standard API for deposits, withdrawals, and share price calculation. All Harmonix V2 vaults implement this standard.</td></tr>
           <tr><td><strong>Exchange Rate</strong></td><td>The price of one vault share in terms of the underlying asset. Increases over time as yield accrues. Calculated as total vault assets divided by total shares outstanding.</td></tr>
           <tr><td><strong>Funding Rate</strong></td><td>A periodic payment between long and short perpetual futures holders. When positive, longs pay shorts — creating income for delta-neutral strategies that hold short perp positions.</td></tr>
           <tr><td><strong>ha-token</strong></td><td>Harmonix receipt tokens (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE). Each represents a share in its respective yield-bearing vault. The share price appreciates as yield compounds.</td></tr>
           <tr><td><strong>HAR</strong></td><td>The native governance and utility token of the Harmonix protocol.</td></tr>
+          <tr><td><strong>Harmonix</strong></td><td>A yield and vault platform built around market-neutral and DeFi-native strategies in the Hyperliquid ecosystem.</td></tr>
+          <tr><td><strong>HIP-3</strong></td><td>Hyperliquid Improvement Proposal 3 — builder-deployed perpetual markets on Hyperliquid infrastructure, often relevant for funding-rate-based vault strategies.</td></tr>
           <tr><td><strong>HyperCore</strong></td><td>Hyperliquid's native perpetual futures and spot trading engine. Harmonix deploys capital here for delta-neutral and funding rate strategies.</td></tr>
           <tr><td><strong>HyperEVM</strong></td><td>The EVM-compatible execution layer of Hyperliquid. All Harmonix smart contracts are deployed on HyperEVM.</td></tr>
+          <tr><td><strong>Hyperliquid</strong></td><td>The broader trading and infrastructure ecosystem that includes perpetual trading (HyperCore) and an EVM-compatible execution layer (HyperEVM).</td></tr>
+          <tr><td><strong>Hyperliquid DEX</strong></td><td>The perpetual trading venue on HyperCore used for strategies such as delta-neutral carry and funding rate capture.</td></tr>
           <tr><td><strong>Idle Buffer</strong></td><td>A reserve of undeployed capital maintained in each vault to support smooth redemptions without unwinding active positions. Typically 5% of vault TVL.</td></tr>
           <tr><td><strong>kHYPE</strong></td><td>Kinetiq's liquid staked HYPE token. Represents staked HYPE and earns native staking yield. Used as the underlying asset for hakHYPE.</td></tr>
           <tr><td><strong>Lens</strong></td><td>A read-only smart contract that aggregates vault data. Provides functions like <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">getVaultData()</code> and <code style="font-size:12px;background:#0f0f0f;border:1px solid #1c1c1c;padding:2px 5px;border-radius:4px;color:#c8f07a;">getUserData()</code> for integrators.</td></tr>
+          <tr><td><strong>Looping</strong></td><td>Borrowing against collateral and re-supplying to increase exposure or optimize yield. A leverage strategy used in lending protocols.</td></tr>
+          <tr><td><strong>LP</strong></td><td>Liquidity Provider / Liquidity Provision — depositing assets into a DEX pool or liquidity venue to earn trading fees and incentives.</td></tr>
+          <tr><td><strong>LST</strong></td><td>Liquid Staking Token — a token representing staked assets that remains liquid and tradeable. Examples: kHYPE (Kinetiq) and stHYPE (Valantis).</td></tr>
           <tr><td><strong>Manager</strong></td><td>Smart contract that stores authorized operations in a Merkle tree and validates all rebalance actions. Only pre-approved protocol interactions can execute through the vault.</td></tr>
           <tr><td><strong>Merkle Tree</strong></td><td>A cryptographic data structure used by the Manager to whitelist allowed vault operations. Each rebalance call is verified against the Merkle root before execution.</td></tr>
+          <tr><td><strong>NAV</strong></td><td>Net Asset Value — the total value of a vault after accounting for all positions and liabilities. Used to calculate the exchange rate (NAV ÷ total shares).</td></tr>
+          <tr><td><strong>OI</strong></td><td>Open Interest — total notional exposure in derivatives markets. Relevant for HIP-3 capacity limits and funding rate dynamics.</td></tr>
+          <tr><td><strong>Pendle</strong></td><td>A fixed-yield and yield-trading protocol that splits yield-bearing tokens into principal and yield components. Relevant for structured yield opportunities.</td></tr>
           <tr><td><strong>PPS (Price Per Share)</strong></td><td>The current value of one vault share in terms of the underlying asset. Equivalent to the exchange rate. Monotonically increases as yield accrues.</td></tr>
           <tr><td><strong>RolesAuthority</strong></td><td>The on-chain role-based access control contract that gates which addresses can call which functions on the vault system.</td></tr>
           <tr><td><strong>Share Lock Period</strong></td><td>A brief lock after deposit (enforced by the Teller) to mitigate MEV attacks on the vault's exchange rate.</td></tr>
+          <tr><td><strong>stHYPE</strong></td><td>Staked HYPE liquid staking token from Valantis. Represents staked HYPE while remaining liquid and composable across DeFi.</td></tr>
           <tr><td><strong>Teller</strong></td><td>The entry point contract for all V2 vault interactions. Handles deposits (minting shares), withdrawal requests (locking shares), and withdrawal claims (burning shares and returning assets).</td></tr>
           <tr><td><strong>TVL</strong></td><td>Total Value Locked — the aggregate value of all assets deposited in a vault or protocol, denominated in USD or the underlying asset.</td></tr>
           <tr><td><strong>V1 / V2</strong></td><td>Vault version generations. V1 refers to the original Basis Trade Vault (custom HypeVault contract on Arbitrum). V2 refers to all BoringVault-based vaults on HyperEVM (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE).</td></tr>
+          <tr><td><strong>Vault</strong></td><td>A smart contract product where users deposit assets and receive shares representing pooled strategy exposure. Harmonix vaults use the ERC-4626 standard.</td></tr>
           <tr><td><strong>WHYPE</strong></td><td>Wrapped HYPE — the HyperEVM-native ERC-20 form of HYPE. Used as the withdrawal token for haHYPE since native HYPE transfers are not yet supported on HyperEVM.</td></tr>
           <tr><td><strong>Withdrawal Queue</strong></td><td>The asynchronous mechanism for exiting a vault. Users request a withdrawal, positions are unwound, and assets become claimable once fulfilled (typically 24–72 hours).</td></tr>
           <tr><td><strong>YBT</strong></td><td>Yield Bearing Token — the collective term for all Harmonix receipt tokens that automatically accrue yield via the ERC-4626 exchange rate.</td></tr>
@@ -3172,6 +3301,7 @@ const pages = {
   points: 'Points & Rewards',
   faq: 'FAQ',
   terms: 'Terms of Use',
+  'core-concepts': 'Core Concepts',
   glossary: 'Glossary'
 };
 
