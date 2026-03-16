@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 560" fill="none">
-  <rect width="1140" height="560" fill="#000000"/>
+  <rect width="1140" height="560" fill="#2e2e2e"/>
 
   <defs>
     <marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
@@ -17,8 +17,8 @@
   </defs>
 
   <style>
-    .box { fill: #080808; stroke: #3d5a1e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
-    .box-hl { fill: #0d1a04; stroke: #c8f07a; stroke-width: 2; rx: 10; }
+    .box { fill: #383838; stroke: #5a7a2e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
+    .box-hl { fill: #2a3a1a; stroke: #c8f07a; stroke-width: 2; rx: 10; }
     .lbl { fill: #c8f07a; font-family: monospace; font-size: 9px; letter-spacing: 1.5px; }
     .ttl { fill: #e8e8e8; font-family: sans-serif; font-size: 17px; font-weight: 700; }
     .ttl-lg { fill: #e8e8e8; font-family: sans-serif; font-size: 20px; font-weight: 700; }

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" fill="none">
-  <rect width="1000" height="480" fill="#000000"/>
+  <rect width="1000" height="480" fill="#2e2e2e"/>
 
   <!-- DEFS: arrow marker + fonts -->
   <defs>
@@ -12,14 +12,14 @@
   </defs>
 
   <style>
-    .box { fill: #080808; stroke: #3d5a1e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
-    .box-highlight { fill: #0d1a04; stroke: #c8f07a; stroke-width: 2; stroke-dasharray: none; rx: 10; }
+    .box { fill: #383838; stroke: #5a7a2e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
+    .box-highlight { fill: #2a3a1a; stroke: #c8f07a; stroke-width: 2; stroke-dasharray: none; rx: 10; }
     .label { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
     .title { fill: #e8e8e8; font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; }
     .title-lg { fill: #e8e8e8; font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; }
     .sub { fill: #9a9a9a; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; }
     .flow-label { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-style: italic; }
-    .badge { fill: #0d1a04; stroke: #c8f07a; stroke-width: 1.2; rx: 14; }
+    .badge { fill: #2a3a1a; stroke: #c8f07a; stroke-width: 1.2; rx: 14; }
     .badge-text { fill: #c8f07a; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; }
     .pct { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
   </style>
