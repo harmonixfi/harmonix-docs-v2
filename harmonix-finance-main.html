@@ -495,50 +495,70 @@ ul{list-style:none}
             <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:4px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;margin-left:8px">app.harmonix.fi/vault/haUSD</div>
           </div>
           <!-- Screen content -->
-          <div style="background:#0d1117;border-radius:4px 4px 0 0;overflow:hidden;padding:24px">
+          <div style="background:#0d1117;border-radius:4px 4px 0 0;overflow:hidden;padding:20px">
             <!-- Nav bar -->
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
               <div style="display:flex;align-items:center;gap:8px">
-                <svg width="16" height="16" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
-                <span style="font-size:14px;font-weight:700;color:#fff">Harmonix</span>
+                <svg width="14" height="14" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
+                <span style="font-size:13px;font-weight:700;color:#fff">Harmonix</span>
               </div>
-              <div style="background:#2d6a2e;color:#fff;padding:5px 14px;border-radius:6px;font-size:10px;font-weight:600">Connected</div>
+              <div style="background:#2d6a2e;color:#fff;padding:4px 12px;border-radius:6px;font-size:9px;font-weight:600">Connected</div>
             </div>
-            <!-- haUSD Vault card -->
-            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;margin-bottom:16px">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <!-- BALANCE SECTION (Coinbase-style) -->
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px;margin-bottom:14px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between">
                 <div>
-                  <div style="font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.5px">haUSD Vault</div>
-                  <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Delta Neutral Stablecoin Vault</div>
+                  <div style="font-size:28px;font-weight:800;color:#fff;letter-spacing:-1px">$110,000</div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
+                    <span style="font-size:11px;color:#4caf50;font-weight:600">&#9650; $6,420 (6.2%)</span>
+                    <span style="font-size:10px;color:rgba(255,255,255,0.3)">1Y</span>
+                    <span style="font-size:10px;color:rgba(255,255,255,0.25)">&#x203A;</span>
+                  </div>
                 </div>
-                <div style="text-align:right">
-                  <div style="font-size:22px;font-weight:800;color:#4caf50">7.0%</div>
-                  <div style="font-size:10px;color:rgba(255,255,255,0.4)">APY</div>
+                <!-- Mini growth chart SVG -->
+                <svg width="120" height="48" viewBox="0 0 120 48" fill="none" style="margin-top:4px">
+                  <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4caf50" stop-opacity="0.3"/><stop offset="100%" stop-color="#4caf50" stop-opacity="0"/></linearGradient></defs>
+                  <path d="M0,40 C8,38 12,36 20,34 C28,32 32,35 40,30 C48,25 52,28 60,22 C68,16 72,18 80,14 C88,10 92,12 100,8 C108,5 112,6 120,4" stroke="#4caf50" stroke-width="2" fill="none"/>
+                  <path d="M0,40 C8,38 12,36 20,34 C28,32 32,35 40,30 C48,25 52,28 60,22 C68,16 72,18 80,14 C88,10 92,12 100,8 C108,5 112,6 120,4 L120,48 L0,48 Z" fill="url(#cg)"/>
+                </svg>
+              </div>
+              <!-- Crypto & Stablecoins breakdown -->
+              <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.06);padding-top:12px">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="width:24px;height:24px;border-radius:6px;background:rgba(76,175,80,0.15);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <span style="font-size:12px;font-weight:600;color:#fff">Crypto</span>
+                  </div>
+                  <span style="font-size:13px;font-weight:700;color:#fff">$10,000</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="width:24px;height:24px;border-radius:6px;background:rgba(100,181,246,0.15);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64b5f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8M8 14h8"/></svg></div>
+                    <span style="font-size:12px;font-weight:600;color:#fff">Stablecoins</span>
+                  </div>
+                  <span style="font-size:13px;font-weight:700;color:#fff">$100,000</span>
                 </div>
               </div>
-              <!-- Stats row -->
-              <div style="display:flex;gap:12px;margin-bottom:16px">
-                <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;text-align:center">
-                  <div style="font-size:16px;font-weight:800;color:#fff">$7M</div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px">TVL</div>
-                </div>
-                <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;text-align:center">
-                  <div style="font-size:16px;font-weight:800;color:#fff">ERC-4626</div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px">Standard</div>
-                </div>
-                <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;text-align:center">
-                  <div style="font-size:16px;font-weight:800;color:#fff">3</div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px">Audits</div>
-                </div>
+            </div>
+            <!-- VAULTS LIST -->
+            <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Vaults</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:10px 12px">
+                <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#4caf50"></div><span style="font-size:12px;font-weight:700;color:#fff">haUSDC</span></div>
+                <div style="display:flex;align-items:center;gap:16px"><span style="font-size:11px;color:rgba(255,255,255,0.4)">$2.4M TVL</span><span style="font-size:12px;font-weight:700;color:#4caf50">7.0%</span></div>
               </div>
-              <!-- Supported tokens -->
-              <div style="display:flex;gap:6px;margin-bottom:16px">
-                <div style="background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.2);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:#4caf50">haUSDC</div>
-                <div style="background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.2);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:#4caf50">haUSDT</div>
-                <div style="background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.2);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:#4caf50">haUSDH</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:10px 12px">
+                <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#4caf50"></div><span style="font-size:12px;font-weight:700;color:#fff">haUSDT</span></div>
+                <div style="display:flex;align-items:center;gap:16px"><span style="font-size:11px;color:rgba(255,255,255,0.4)">$1.8M TVL</span><span style="font-size:12px;font-weight:700;color:#4caf50">5.8%</span></div>
               </div>
-              <!-- Deposit button -->
-              <div style="background:#2d6a2e;color:#fff;text-align:center;padding:12px;border-radius:8px;font-size:13px;font-weight:700">Deposit</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:10px 12px">
+                <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#4caf50"></div><span style="font-size:12px;font-weight:700;color:#fff">haUSDH</span></div>
+                <div style="display:flex;align-items:center;gap:16px"><span style="font-size:11px;color:rgba(255,255,255,0.4)">$1.5M TVL</span><span style="font-size:12px;font-weight:700;color:#4caf50">6.4%</span></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:10px 12px">
+                <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#64b5f6"></div><span style="font-size:12px;font-weight:700;color:#fff">haHYPE</span></div>
+                <div style="display:flex;align-items:center;gap:16px"><span style="font-size:11px;color:rgba(255,255,255,0.4)">$3.1M TVL</span><span style="font-size:12px;font-weight:700;color:#4caf50">8.1%</span></div>
+              </div>
             </div>
           </div>
         </div>
