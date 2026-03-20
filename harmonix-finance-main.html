@@ -27,16 +27,16 @@
 :root {
   --green-900: #08181F;
   --green-800: #0d2129;
-  --green-700: #122a33;
-  --green-600: #08181F;
-  --green-500: #E1F6A2;
-  --green-400: #E1F6A2;
-  --green-300: #E1F6A2;
-  --green-200: #d5ea96;
-  --green-100: #E1F6A2;
-  --green-50: #f3fbe0;
-  --green-25: #f9fdf0;
-  --green-bg: #fcfef8;
+  --green-700: #1a5c34;
+  --green-600: #2d6a2e;
+  --green-500: #3a8c3e;
+  --green-400: #4caf50;
+  --green-300: #81c784;
+  --green-200: #a5d6a7;
+  --green-100: #c8e6c9;
+  --green-50: #e8f5e9;
+  --green-25: #f1f8f1;
+  --green-bg: #f6fbf4;
   --text-primary: #000000;
   --text-secondary: #3a3a3a;
   --text-muted: #6b6b6b;
@@ -87,12 +87,12 @@ ul{list-style:none}
 /* ─── HERO ─── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:72px}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#f9fdf0 0%,#f3fbe0 40%,#fcfef8 70%,#ffffff 100%)}
-.hero-bg::after{content:'';position:absolute;right:-10%;bottom:-20%;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(225,246,162,0.15) 0%,rgba(225,246,162,0.05) 40%,transparent 70%);pointer-events:none}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--green-25) 0%,var(--green-50) 40%,var(--green-bg) 70%,var(--white) 100%)}
+.hero-bg::after{content:'';position:absolute;right:-10%;bottom:-20%;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,0.08) 0%,rgba(76,175,80,0.03) 40%,transparent 70%);pointer-events:none}
 .hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.hero-orb-1{width:600px;height:600px;right:-100px;top:10%;background:radial-gradient(circle,rgba(225,246,162,0.12) 0%,transparent 70%)}
-.hero-orb-2{width:400px;height:400px;left:-50px;bottom:20%;background:radial-gradient(circle,rgba(225,246,162,0.1) 0%,transparent 70%)}
-.hero-orb-3{width:300px;height:300px;right:20%;bottom:5%;background:radial-gradient(circle,rgba(225,246,162,0.1) 0%,transparent 70%)}
+.hero-orb-1{width:600px;height:600px;right:-100px;top:10%;background:radial-gradient(circle,rgba(76,175,80,0.06) 0%,transparent 70%)}
+.hero-orb-2{width:400px;height:400px;left:-50px;bottom:20%;background:radial-gradient(circle,rgba(42,140,62,0.05) 0%,transparent 70%)}
+.hero-orb-3{width:300px;height:300px;right:20%;bottom:5%;background:radial-gradient(circle,rgba(168,213,159,0.08) 0%,transparent 70%)}
 .hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:80px 32px 120px;text-align:center}
 .hero h1{font-size:clamp(42px,6vw,76px);font-weight:800;line-height:1.05;letter-spacing:-2px;color:var(--text-primary);margin-bottom:28px}
 .hero h1 .accent{color:var(--green-500);display:block}
@@ -139,31 +139,31 @@ section{padding:100px 0}
 @media(max-width:968px){.integrations-grid{grid-template-columns:1fr}}
 
 /* ─── DARK SECTIONS ─── */
-.dark-section{background:#08181F;color:#e8e8e8}
-.dark-section .section-label{color:#E1F6A2}
-.dark-section .section-label::before{background:#E1F6A2}
-.dark-section .section-title{color:#ffffff}
-.dark-section .section-desc{color:#a0a0a0}
+.dark-section{background:#08181F;color:#e2ede8}
+.dark-section .section-label{color:#81c784}
+.dark-section .section-label::before{background:#81c784}
+.dark-section .section-title{color:#e8f5e9}
+.dark-section .section-desc{color:#8faa98}
 
 /* ─── PRODUCTS ─── */
-.products-section{background:#08181F;color:#e8e8e8}
+.products-section{background:#08181F;color:#e2ede8}
 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
 .product-card{position:relative;background:#0d2129;border:1px solid #1a3340;border-radius:var(--radius-lg);padding:36px 28px;transition:all 0.3s;overflow:hidden}
-.product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#E1F6A2,#d5ea96);opacity:0;transition:opacity 0.3s}
+.product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-400),var(--green-300));opacity:0;transition:opacity 0.3s}
 .product-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.3);border-color:#2a4450}
 .product-card:hover::before{opacity:1}
 .product-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
-.product-icon.stablecoin{background:rgba(225,246,162,0.12)}
-.product-icon.stablecoin svg{stroke:#E1F6A2}
-.product-icon.token{background:rgba(225,246,162,0.08)}
-.product-icon.vault{background:rgba(225,246,162,0.08)}
-.product-card h3{font-size:20px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px;color:#ffffff}
+.product-icon.stablecoin{background:rgba(76,175,80,0.15)}
+.product-icon.stablecoin svg{stroke:#81c784}
+.product-icon.token{background:rgba(100,181,246,0.12)}
+.product-icon.vault{background:rgba(255,183,77,0.12)}
+.product-card h3{font-size:20px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px;color:#e8f5e9}
 .product-card .product-tokens{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.product-card .token-badge{font-size:12px;font-weight:600;padding:3px 10px;border-radius:var(--radius-full);background:rgba(225,246,162,0.1);color:#E1F6A2;border:1px solid rgba(225,246,162,0.2)}
-.product-card .token-badge.blue{background:rgba(225,246,162,0.08);color:#E1F6A2;border-color:rgba(225,246,162,0.15)}
-.product-card .token-badge.orange{background:rgba(225,246,162,0.08);color:#E1F6A2;border-color:rgba(225,246,162,0.15)}
-.product-card p{font-size:14px;color:#a0a0a0;line-height:1.6}
-.product-card .product-tag{font-size:11px;font-weight:600;color:#6b6b6b;text-transform:uppercase;letter-spacing:0.8px;margin-top:16px}
+.product-card .token-badge{font-size:12px;font-weight:600;padding:3px 10px;border-radius:var(--radius-full);background:rgba(76,175,80,0.12);color:#81c784;border:1px solid rgba(76,175,80,0.25)}
+.product-card .token-badge.blue{background:rgba(100,181,246,0.1);color:#90caf9;border-color:rgba(100,181,246,0.2)}
+.product-card .token-badge.orange{background:rgba(255,183,77,0.1);color:#ffcc80;border-color:rgba(255,183,77,0.2)}
+.product-card p{font-size:14px;color:#8faa98;line-height:1.6}
+.product-card .product-tag{font-size:11px;font-weight:600;color:#5c7a65;text-transform:uppercase;letter-spacing:0.8px;margin-top:16px}
 
 /* ─── HOW IT WORKS ─── */
 .how-section{background:var(--green-25)}
@@ -186,9 +186,9 @@ section{padding:100px 0}
 .security-card{background:#0d2129;border:1px solid #1a3340;border-radius:var(--radius-lg);padding:32px 28px;text-align:center;transition:all 0.3s}
 .security-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25)}
 .security-card .shield{margin-bottom:16px}
-.security-card .shield svg{stroke:#E1F6A2}
-.security-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:#ffffff}
-.security-card p{font-size:14px;color:#a0a0a0;line-height:1.6}
+.security-card .shield svg{stroke:#81c784}
+.security-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:#e8f5e9}
+.security-card p{font-size:14px;color:#8faa98;line-height:1.6}
 
 /* ─── TOKEN ─── */
 .token-section{background:var(--green-25)}
@@ -207,14 +207,14 @@ section{padding:100px 0}
 .legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
 
 /* ─── ECOSYSTEM ─── */
-.eco-section{background:#08181F;color:#e8e8e8}
+.eco-section{background:#08181F;color:#e2ede8}
 .eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
 .eco-card{background:#0d2129;border:1px solid #1a3340;border-radius:var(--radius-lg);padding:32px 24px;text-align:center;transition:all 0.25s}
 .eco-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25)}
 .eco-card .eco-icon{margin-bottom:14px}
-.eco-card .eco-icon svg{stroke:#E1F6A2}
-.eco-card h3{font-size:16px;font-weight:700;margin-bottom:6px;color:#ffffff}
-.eco-card p{font-size:13px;color:#a0a0a0;line-height:1.5}
+.eco-card .eco-icon svg{stroke:#81c784}
+.eco-card h3{font-size:16px;font-weight:700;margin-bottom:6px;color:#e8f5e9}
+.eco-card p{font-size:13px;color:#8faa98;line-height:1.5}
 
 /* ─── CONTACT ─── */
 .contact-section{background:var(--green-25);padding:100px 0}
@@ -250,19 +250,19 @@ section{padding:100px 0}
 .cta-banner .btn-cta:hover .arrow{transform:translateX(3px)}
 
 /* ─── FOOTER ─── */
-.footer{background:#000000;border-top:1px solid #1a2830;padding:64px 0 32px;color:#e8e8e8}
+.footer{background:#000000;border-top:1px solid #1a2830;padding:64px 0 32px;color:#e2ede8}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
-.footer-brand p{font-size:14px;color:#888888;line-height:1.65;margin-top:16px;max-width:280px}
-.footer-brand .nav-logo svg path{fill:#E1F6A2}
+.footer-brand p{font-size:14px;color:#6b8a72;line-height:1.65;margin-top:16px;max-width:280px}
+.footer-brand .nav-logo svg path{fill:#81c784}
 .footer-socials{display:flex;gap:10px;margin-top:20px}
-.footer-social{width:36px;height:36px;border-radius:var(--radius-sm);background:#0d2129;border:1px solid #1a3340;display:flex;align-items:center;justify-content:center;transition:all 0.2s;color:#888888}
-.footer-social:hover{border-color:#E1F6A2;color:#E1F6A2;transform:translateY(-1px)}
-.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#666666;margin-bottom:16px}
-.footer-col a{display:block;font-size:14px;color:#888888;padding:4px 0;transition:color 0.15s}
-.footer-col a:hover{color:#E1F6A2}
-.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid #1a2830;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#666666}
-.footer-bottom a{color:#888888}
-.footer-bottom a:hover{color:#E1F6A2}
+.footer-social{width:36px;height:36px;border-radius:var(--radius-sm);background:#0d2129;border:1px solid #1a3340;display:flex;align-items:center;justify-content:center;transition:all 0.2s;color:#6b8a72}
+.footer-social:hover{border-color:#4caf50;color:#81c784;transform:translateY(-1px)}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#4a6a50;margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:#6b8a72;padding:4px 0;transition:color 0.15s}
+.footer-col a:hover{color:#81c784}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid #1a2830;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#4a6a50}
+.footer-bottom a{color:#6b8a72}
+.footer-bottom a:hover{color:#81c784}
 
 /* ─── MOBILE ─── */
 .mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--white);padding:80px 32px 32px;flex-direction:column;gap:8px;overflow-y:auto}
@@ -647,26 +647,26 @@ section{padding:100px 0}
         <div class="token-ring">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <!-- Community 50% = 180deg -->
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#08181F" stroke-width="28" stroke-dasharray="251.3 502.6" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#2d6a2e" stroke-width="28" stroke-dasharray="251.3 502.6" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
             <!-- Core 18% = 64.8deg -->
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#1a3340" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-251.3" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#4caf50" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-251.3" transform="rotate(-90 100 100)"/>
             <!-- Sale 18% = 64.8deg -->
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#E1F6A2" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-341.8" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#81c784" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-341.8" transform="rotate(-90 100 100)"/>
             <!-- Foundation 10% = 36deg -->
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#c8e090" stroke-width="28" stroke-dasharray="50.3 502.6" stroke-dashoffset="-432.3" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#a5d6a7" stroke-width="28" stroke-dasharray="50.3 502.6" stroke-dashoffset="-432.3" transform="rotate(-90 100 100)"/>
             <!-- Liquidity 4% = 14.4deg -->
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#d5ea96" stroke-width="28" stroke-dasharray="20.1 502.6" stroke-dashoffset="-482.6" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#c8e6c9" stroke-width="28" stroke-dasharray="20.1 502.6" stroke-dashoffset="-482.6" transform="rotate(-90 100 100)"/>
             <!-- Center text -->
             <text x="100" y="94" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="800" fill="#08181F">1B HAR</text>
-            <text x="100" y="112" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#6b6b6b">Fixed Supply</text>
+            <text x="100" y="112" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#7a9a7a">Fixed Supply</text>
           </svg>
         </div>
         <div class="token-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:#08181F"></div>Community</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#1a3340"></div>Core</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#E1F6A2"></div>Sale</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#c8e090"></div>Foundation</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#d5ea96"></div>Liquidity</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#2d6a2e"></div>Community</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#4caf50"></div>Core</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#81c784"></div>Sale</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#a5d6a7"></div>Foundation</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#c8e6c9"></div>Liquidity</div>
         </div>
       </div>
     </div>
