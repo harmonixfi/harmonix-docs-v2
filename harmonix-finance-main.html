@@ -483,26 +483,20 @@ ul{list-style:none}
 <!-- HERO — Desktop screen with haUSD vault + text -->
 <section class="hero">
   <div class="hero-inner">
-    <!-- LEFT: Desktop screen with haUSD vault -->
-    <div class="hero-phone anim visible" style="height:auto;padding:0;background:none;border-radius:0">
-      <div style="width:100%;max-width:520px">
-        <!-- Desktop bezel -->
-        <div style="background:#111;border-radius:12px 12px 0 0;padding:8px 8px 0;box-shadow:0 -8px 40px rgba(0,0,0,0.15),0 24px 80px rgba(0,0,0,0.2)">
-          <div style="display:flex;align-items:center;gap:6px;padding:6px 10px 8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57"></div>
-            <div style="width:8px;height:8px;border-radius:50%;background:#febc2e"></div>
-            <div style="width:8px;height:8px;border-radius:50%;background:#28c840"></div>
-            <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:4px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;margin-left:8px">app.harmonix.fi/vault/haUSD</div>
-          </div>
+    <!-- LEFT: iPad in green gradient box (Coinbase-style) -->
+    <div class="hero-phone anim visible" style="height:520px;padding:40px 48px 0">
+      <div style="width:340px;height:680px;background:#000;border-radius:28px;padding:12px;box-shadow:0 -10px 60px rgba(67,160,71,0.15),0 24px 80px rgba(0,0,0,0.3);position:relative;z-index:1;border:3px solid #222;flex-shrink:0">
+        <!-- iPad camera dot -->
+        <div style="position:absolute;top:6px;left:50%;transform:translateX(-50%);width:8px;height:8px;background:#1a1a1a;border-radius:50%;z-index:5;border:1px solid #333"></div>
           <!-- Screen content -->
-          <div style="background:#0d1117;border-radius:4px 4px 0 0;overflow:hidden;padding:20px">
+          <div style="background:#0d1117;border-radius:18px;overflow:hidden;padding:20px;height:100%">
             <!-- Nav bar -->
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
               <div style="display:flex;align-items:center;gap:8px">
                 <svg width="14" height="14" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
                 <span style="font-size:13px;font-weight:700;color:#fff">Harmonix</span>
               </div>
-              <div style="background:#2d6a2e;color:#fff;padding:4px 12px;border-radius:6px;font-size:9px;font-weight:600">Connected</div>
+              <div style="background:#43a047;color:#fff;padding:4px 12px;border-radius:6px;font-size:9px;font-weight:600">Connected</div>
             </div>
             <!-- BALANCE SECTION (Coinbase-style) -->
             <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px;margin-bottom:14px">
@@ -562,9 +556,6 @@ ul{list-style:none}
             </div>
           </div>
         </div>
-        <!-- Desktop base/stand -->
-        <div style="background:linear-gradient(to bottom,#111 0%,#1a1a1a 100%);height:14px;border-radius:0 0 4px 4px"></div>
-        <div style="width:60%;height:8px;background:#1a1a1a;margin:0 auto;border-radius:0 0 8px 8px"></div>
       </div>
     </div>
     <!-- RIGHT: Text -->
@@ -735,13 +726,13 @@ ul{list-style:none}
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
             <div style="font-size:14px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
-            <div style="font-size:9px;padding:3px 8px;border-radius:100px;background:rgba(45,106,46,0.1);color:#2d6a2e;font-weight:600">LIVE</div>
+            <div style="font-size:9px;padding:3px 8px;border-radius:100px;background:rgba(45,106,46,0.1);color:#43a047;font-weight:600">LIVE</div>
           </div>
           <!-- Vault picker -->
           <div style="display:flex;gap:4px;margin-bottom:12px">
             <button onclick="selectVault('haUSDC',7.0)" class="yc-vault yc-active" id="yc-v-haUSDC" style="flex:1;text-align:center;padding:8px 4px;background:rgba(45,106,46,0.08);border:1px solid rgba(45,106,46,0.2);border-radius:6px;cursor:pointer;font-family:inherit">
               <div style="font-size:10px;font-weight:700;color:#000">haUSDC</div>
-              <div style="font-size:9px;font-weight:700;color:#2d6a2e">7.0%</div>
+              <div style="font-size:9px;font-weight:700;color:#43a047">7.0%</div>
             </button>
             <button onclick="selectVault('hakHYPE',7.4)" class="yc-vault" id="yc-v-hakHYPE" style="flex:1;text-align:center;padding:8px 4px;background:#fff;border:1px solid #dee2e6;border-radius:6px;cursor:pointer;font-family:inherit">
               <div style="font-size:10px;font-weight:700;color:#495057">hakHYPE</div>
@@ -755,7 +746,7 @@ ul{list-style:none}
           <!-- Amount input -->
           <div style="background:#fff;border:1px solid #dee2e6;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:10px;transition:border-color 0.2s" id="yc-input-wrap">
             <span style="font-size:16px;color:#adb5bd;font-weight:600">$</span>
-            <input type="text" id="yc-amount" value="50,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='#2d6a2e'" onblur="document.getElementById('yc-input-wrap').style.borderColor='#dee2e6'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#000;width:100%">
+            <input type="text" id="yc-amount" value="50,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='#43a047'" onblur="document.getElementById('yc-input-wrap').style.borderColor='#dee2e6'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#000;width:100%">
             <span style="font-size:10px;font-weight:600;color:#495057;padding:3px 8px;border-radius:4px;background:#f1f3f5">USDC</span>
           </div>
           <!-- Quick amounts -->
@@ -769,7 +760,7 @@ ul{list-style:none}
           <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:8px;padding:12px">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
               <span style="font-size:10px;color:#495057" data-i18n="yc_annual">Est. Annual Yield</span>
-              <span style="font-size:20px;font-weight:800;color:#2d6a2e;letter-spacing:-0.5px" id="yc-annual">$3,500</span>
+              <span style="font-size:20px;font-weight:800;color:#43a047;letter-spacing:-0.5px" id="yc-annual">$3,500</span>
             </div>
             <div style="display:flex;gap:6px">
               <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
@@ -782,7 +773,7 @@ ul{list-style:none}
               </div>
               <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
                 <div style="font-size:7px;color:#868e96">APY</div>
-                <div style="font-size:11px;font-weight:700;color:#2d6a2e" id="yc-apy-display">7.0%</div>
+                <div style="font-size:11px;font-weight:700;color:#43a047" id="yc-apy-display">7.0%</div>
               </div>
             </div>
           </div>
@@ -793,16 +784,16 @@ ul{list-style:none}
             <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_vault_apy">Vault APY</div>
             <div style="display:flex;gap:3px">
               <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">1W</span>
-              <span style="font-size:8px;background:rgba(45,106,46,0.12);padding:2px 6px;border-radius:3px;color:#2d6a2e">1M</span>
+              <span style="font-size:8px;background:rgba(45,106,46,0.12);padding:2px 6px;border-radius:3px;color:#43a047">1M</span>
               <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">ALL</span>
             </div>
           </div>
           <svg viewBox="0 0 300 50" width="100%" height="50" fill="none" style="display:block">
             <line x1="0" y1="25" x2="300" y2="25" stroke="#e9ecef" stroke-width="0.5" stroke-dasharray="4"/>
             <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26 L300 50 L0 50Z" fill="rgba(45,106,46,0.06)"/>
-            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26" stroke="#2d6a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <circle cx="300" cy="26" r="2.5" fill="#2d6a2e"/>
-            <text x="290" y="22" font-size="7" fill="#2d6a2e" font-family="Inter,sans-serif" text-anchor="end">7.0%</text>
+            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26" stroke="#43a047" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="300" cy="26" r="2.5" fill="#43a047"/>
+            <text x="290" y="22" font-size="7" fill="#43a047" font-family="Inter,sans-serif" text-anchor="end">7.0%</text>
           </svg>
         </div>
       </div>
@@ -886,8 +877,8 @@ ul{list-style:none}
                 <div class="sp-meta"><span>Strategy</span><span>Compound</span></div>
               </div>
               <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:6px;padding:5px 6px;margin-top:6px;display:flex;align-items:center;gap:3px">
-                <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#2d6a2e" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <span style="font-size:7px;font-weight:600;color:#2d6a2e">Earning 3x points</span>
+                <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span style="font-size:7px;font-weight:600;color:#43a047">Earning 3x points</span>
               </div>
             </div>
           </div>
@@ -996,8 +987,8 @@ ul{list-style:none}
               <!-- To -->
               <div style="font-size:8px;color:#868e96;margin-bottom:3px">To</div>
               <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between">
-                <span style="font-size:11px;font-weight:700;color:#2d6a2e">Harmonix Vault</span>
-                <span style="font-size:8px;color:#2d6a2e">&#10003;</span>
+                <span style="font-size:11px;font-weight:700;color:#43a047">Harmonix Vault</span>
+                <span style="font-size:8px;color:#43a047">&#10003;</span>
               </div>
             </div>
           </div>
@@ -1126,7 +1117,7 @@ ul{list-style:none}
         <h3 style="font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-0.5px" data-i18n="dev_sdk">SDK &amp; API</h3>
         <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px" data-i18n="dev_sdk_desc">Integrate with Harmonix vaults</p>
         <div style="display:flex;justify-content:center;gap:8px;margin-bottom:20px">
-          <span style="font-size:11px;font-weight:600;color:#2d6a2e;background:#e8f5e9;padding:4px 12px;border-radius:100px;border:1px solid #c8e6c9">Coming Soon</span>
+          <span style="font-size:11px;font-weight:600;color:#43a047;background:#e8f5e9;padding:4px 12px;border-radius:100px;border:1px solid #c8e6c9">Coming Soon</span>
         </div>
         <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" style="font-size:13px;color:var(--gray-500);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#000'" onmouseout="this.style.color='var(--gray-500)'">Read Docs &rarr;</a>
       </div>
