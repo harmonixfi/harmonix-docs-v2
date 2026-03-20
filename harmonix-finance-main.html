@@ -106,7 +106,7 @@ ul{list-style:none}
 .phone-vault-card .pv-row{display:flex;justify-content:space-between;font-size:9px;color:var(--gray-500);margin-top:2px}
 .phone-vault-card .pv-row span:last-child{font-weight:600;color:var(--gray-700)}
 .hero-text h1{font-size:clamp(44px,6vw,76px);font-weight:800;line-height:0.95;letter-spacing:-3px;color:var(--black);margin-bottom:28px}
-.hero-text h1 span{color:var(--green)}
+.hero-text h1 span{color:var(--black)}
 .hero-text .hero-sub{font-size:18px;font-weight:400;color:var(--gray-600);max-width:480px;line-height:1.6;margin-bottom:40px;letter-spacing:-0.02em}
 .hero-ctas{display:flex;gap:12px;margin-bottom:48px}
 .hero-stats{display:flex;gap:40px;padding-top:40px;border-top:1px solid var(--gray-200)}
@@ -539,7 +539,7 @@ ul{list-style:none}
       <h1 class="anim visible"><span data-i18n="hero_title_1">The future of </span><span data-i18n="hero_yield">yield</span><span data-i18n="hero_title_2"> is here.</span></h1>
       <p class="hero-sub anim visible d1" data-i18n="hero_sub">Delta neutral yield bearing stablecoins on Hyperliquid. Secure, automated, institutional-grade.</p>
       <div class="hero-ctas anim visible d2">
-        <a href="https://app.harmonix.fi" class="btn btn-dark btn-large" target="_blank" data-i18n="hero_cta">Launch App</a>
+        <a href="https://app.harmonix.fi" class="btn btn-green btn-large" target="_blank" data-i18n="hero_cta">Launch App</a>
         <a href="#products" class="btn btn-outline btn-large" data-i18n="hero_learn">Learn More</a>
       </div>
       <div class="hero-stats anim visible d3">
@@ -1072,37 +1072,36 @@ ul{list-style:none}
       <h2 class="section-heading" data-i18n="partners_title">Powered by Harmonix</h2>
       <p class="section-desc" style="margin:12px auto 0" data-i18n="partners_desc">Integrated with leading protocols across the Hyperliquid ecosystem.</p>
     </div>
-    <!-- Floating logo grid — Morpho style but light -->
+    <!-- Partner logos grid -->
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:800px;margin:0 auto">
-      <!-- Each partner is a circle with logo placeholder — user will add real logos -->
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Hyperliquid" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
-        <span style="font-size:11px;font-weight:700;color:var(--dark)">HL</span>
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default;overflow:hidden" title="Hyperliquid" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
+        <img src="partner-hyperliquid.png" alt="Hyperliquid" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Kelp" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
-        <span style="font-size:11px;font-weight:700;color:var(--dark)">Kelp</span>
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default;overflow:hidden" title="HyperLend" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
+        <img src="partner-hyperlend.png" alt="HyperLend" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Kyber Network" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
-        <span style="font-size:10px;font-weight:700;color:var(--dark)">Kyber</span>
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default;overflow:hidden" title="Kinetiq" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
+        <img src="partner-kinetiq.png" alt="Kinetiq" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Felix" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
-        <span style="font-size:11px;font-weight:700;color:var(--dark)">Felix</span>
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default;overflow:hidden" title="Felix" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
+        <img src="partner-felix.png" alt="Felix" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Pendle" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default;overflow:hidden" title="USDC" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
+        <img src="partner-usdc.png" alt="USDC" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
+      </div>
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Pendle" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
         <span style="font-size:10px;font-weight:700;color:var(--dark)">Pendle</span>
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Wormhole" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Wormhole" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
         <span style="font-size:8px;font-weight:700;color:var(--dark)">Worm<br>hole</span>
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Pyth" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
-        <span style="font-size:11px;font-weight:700;color:var(--dark)">Pyth</span>
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default;overflow:hidden" title="Pyth" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
+        <img src="partner-pyth.png" alt="Pyth" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="ValDAO" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
-        <span style="font-size:9px;font-weight:700;color:var(--dark)">Val<br>DAO</span>
-      </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="ASXN" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="ASXN" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
         <span style="font-size:11px;font-weight:700;color:var(--dark)">ASXN</span>
       </div>
-      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Ticks" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.04)'">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s;cursor:default" title="Ticks" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='none'">
         <span style="font-size:11px;font-weight:700;color:var(--dark)">Ticks</span>
       </div>
     </div>
