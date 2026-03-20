@@ -465,13 +465,13 @@ ul{list-style:none}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#products">Products</a>
-  <a href="#how">How It Works</a>
+  <a href="#products" data-i18n="nav_products">Products</a>
+  <a href="#how" data-i18n="nav_how">How It Works</a>
   <a href="#security" data-i18n="nav_security">Security</a>
   <a href="#token" data-i18n="nav_token">Token</a>
   <a href="#contact" data-i18n="nav_contact_m">Contact</a>
-  <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank">Docs</a>
-  <a href="https://app.harmonix.fi" class="btn btn-dark btn-large" target="_blank" style="text-align:center;margin-top:16px">Launch App</a>
+  <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" data-i18n="docs_cta">Docs</a>
+  <a href="https://app.harmonix.fi" class="btn btn-dark btn-large" target="_blank" style="text-align:center;margin-top:16px" data-i18n="nav_launch">Launch App</a>
 </div>
 
 <!-- HERO — Phone with vault list + text -->
@@ -530,7 +530,7 @@ ul{list-style:none}
     </div>
     <!-- RIGHT: Text -->
     <div class="hero-text">
-      <h1 class="anim visible"><span data-i18n="hero_title_1">The future of </span><span>yield</span><span data-i18n="hero_title_2"> is here.</span></h1>
+      <h1 class="anim visible"><span data-i18n="hero_title_1">The future of </span><span data-i18n="hero_yield">yield</span><span data-i18n="hero_title_2"> is here.</span></h1>
       <p class="hero-sub anim visible d1" data-i18n="hero_sub">Delta neutral yield bearing stablecoins on Hyperliquid. Secure, automated, institutional-grade.</p>
       <div class="hero-ctas anim visible d2">
         <a href="https://app.harmonix.fi" class="btn btn-dark btn-large" target="_blank" data-i18n="hero_cta">Launch App</a>
@@ -683,7 +683,7 @@ ul{list-style:none}
         <div class="showcase-pill"><span class="pill-dot"></span data-i18n="earn_pill">EARN MARKETS</div>
         <h2 data-i18n="earn_title">Compound your HYPE. Earn on stables.</h2>
         <p data-i18n="earn_desc">HYPE and kHYPE tokens compound yield into share price. The Basis Trade vault captures funding rates delta-neutral at 7% APY on USDC with zero HYPE exposure.</p>
-        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" data-i18n="vaults_cta">Deposit now</a>
       </div>
     </div>
   </div>
@@ -697,7 +697,7 @@ ul{list-style:none}
         <!-- Interactive Yield Calculator (compact, light) -->
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-            <div style="font-size:14px;font-weight:700;color:#000">Yield Calculator</div>
+            <div style="font-size:14px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
             <div style="font-size:9px;padding:3px 8px;border-radius:100px;background:rgba(45,106,46,0.1);color:#2d6a2e;font-weight:600">LIVE</div>
           </div>
           <!-- Vault picker -->
@@ -731,16 +731,16 @@ ul{list-style:none}
           <!-- Result -->
           <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:8px;padding:12px">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-              <span style="font-size:10px;color:#495057">Est. Annual Yield</span>
+              <span style="font-size:10px;color:#495057" data-i18n="yc_annual">Est. Annual Yield</span>
               <span style="font-size:20px;font-weight:800;color:#2d6a2e;letter-spacing:-0.5px" id="yc-annual">$3,500</span>
             </div>
             <div style="display:flex;gap:6px">
               <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
-                <div style="font-size:7px;color:#868e96">Monthly</div>
+                <div style="font-size:7px;color:#868e96" data-i18n="yc_monthly">Monthly</div>
                 <div style="font-size:11px;font-weight:700;color:#000" id="yc-monthly">$292</div>
               </div>
               <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
-                <div style="font-size:7px;color:#868e96">Daily</div>
+                <div style="font-size:7px;color:#868e96" data-i18n="yc_daily">Daily</div>
                 <div style="font-size:11px;font-weight:700;color:#000" id="yc-daily">$9.59</div>
               </div>
               <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
@@ -753,7 +753,7 @@ ul{list-style:none}
         <!-- Vault APY chart -->
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:14px">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-            <div style="font-size:12px;font-weight:700;color:#000">Vault APY</div>
+            <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_vault_apy">Vault APY</div>
             <div style="display:flex;gap:3px">
               <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">1W</span>
               <span style="font-size:8px;background:rgba(45,106,46,0.12);padding:2px 6px;border-radius:3px;color:#2d6a2e">1M</span>
@@ -789,8 +789,8 @@ ul{list-style:none}
         <div style="width:100%;max-width:480px;background:#fff;border-radius:16px;padding:20px;box-shadow:0 8px 40px rgba(0,0,0,0.2)">
           <!-- Header -->
           <div style="margin-bottom:16px">
-            <div style="font-size:16px;font-weight:800;color:#000;letter-spacing:-0.3px;margin-bottom:3px">Choose Your Staking Duration</div>
-            <div style="font-size:9px;color:#868e96;line-height:1.4">Higher lock periods offer greater rewards. Early participants receive bonus APR.</div>
+            <div style="font-size:16px;font-weight:800;color:#000;letter-spacing:-0.3px;margin-bottom:3px" data-i18n="stk_title">Choose Your Staking Duration</div>
+            <div style="font-size:9px;color:#868e96;line-height:1.4" data-i18n="stk_desc">Higher lock periods offer greater rewards. Early participants receive bonus APR.</div>
           </div>
           <!-- Two staking cards side by side -->
           <div style="display:flex;gap:10px">
@@ -869,7 +869,7 @@ ul{list-style:none}
         <div style="width:100%;max-width:320px">
           <!-- Your Position card -->
           <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px;margin-bottom:8px">
-            <div style="font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Your Position</div>
+            <div style="font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px" data-i18n="pts_position">Your Position</div>
             <div style="font-size:24px;font-weight:800;color:var(--black);display:flex;align-items:center;gap:8px">
               <span style="width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>12,450 pts
             </div>
@@ -891,7 +891,7 @@ ul{list-style:none}
           </div>
           <!-- Rewards card -->
           <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px">
-            <div style="font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Rewards Available</div>
+            <div style="font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px" data-i18n="pts_rewards">Rewards Available</div>
             <div style="font-size:18px;font-weight:800;color:var(--black);display:flex;align-items:center;gap:8px">
               <span style="width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>Claimable
             </div>
@@ -917,7 +917,7 @@ ul{list-style:none}
       <div class="showcase-visual v-charcoal" style="padding:32px;flex-direction:column;align-items:center;justify-content:center">
         <div style="width:100%;max-width:300px">
           <!-- From selector -->
-          <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px">From</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px" data-i18n="xc_from">From</div>
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <span style="font-size:14px;font-weight:700;color:#fff">HyperEVM</span>
             <span style="font-size:10px;color:rgba(255,255,255,0.3)">▲</span>
@@ -945,7 +945,7 @@ ul{list-style:none}
         <div class="showcase-pill"><span class="pill-dot"></span data-i18n="cross_pill">CROSS-CHAIN</div>
         <h2 data-i18n="cross_title">Deposit from any chain.</h2>
         <p data-i18n="cross_desc">Bridge and deposit in one transaction. Support for HyperEVM, Ethereum, Base, Arbitrum, BNB Chain, and Solana.</p>
-        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" data-i18n="vaults_cta">Deposit now</a>
       </div>
     </div>
   </div>
@@ -1150,7 +1150,7 @@ ul{list-style:none}
       <!-- Security Audits -->
       <div style="background:#fff;padding:40px 32px;text-align:center">
         <h3 style="font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-0.5px" data-i18n="dev_audits">Security Audits</h3>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px">By independent firms</p>
+        <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px" data-i18n="dev_audits_desc">By independent firms</p>
         <div style="display:flex;justify-content:center;gap:12px;margin-bottom:20px">
           <div style="width:36px;height:36px;border-radius:50%;background:var(--gray-100);border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gray-700)">V</div>
           <div style="width:36px;height:36px;border-radius:50%;background:var(--gray-100);border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gray-700)">S</div>
@@ -1161,7 +1161,7 @@ ul{list-style:none}
       <!-- SDK -->
       <div style="background:#fff;padding:40px 32px;text-align:center">
         <h3 style="font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-0.5px" data-i18n="dev_sdk">SDK &amp; API</h3>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px">Integrate with Harmonix vaults</p>
+        <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px" data-i18n="dev_sdk_desc">Integrate with Harmonix vaults</p>
         <div style="display:flex;justify-content:center;gap:8px;margin-bottom:20px">
           <span style="font-size:11px;font-weight:600;color:#2d6a2e;background:#e8f5e9;padding:4px 12px;border-radius:100px;border:1px solid #c8e6c9">Coming Soon</span>
         </div>
@@ -1169,8 +1169,8 @@ ul{list-style:none}
       </div>
       <!-- BoringVault -->
       <div style="background:#fff;padding:40px 32px;text-align:center">
-        <h3 style="font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-0.5px">BoringVault</h3>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px">Battle-tested vault framework</p>
+        <h3 style="font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-0.5px" data-i18n="dev_bv">BoringVault</h3>
+        <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px" data-i18n="dev_bv_desc">Battle-tested vault framework</p>
         <div style="display:flex;justify-content:center;gap:8px;margin-bottom:20px">
           <span style="font-size:11px;font-weight:600;color:var(--gray-700);background:var(--gray-100);padding:4px 12px;border-radius:100px;border:1px solid var(--gray-200)">ERC-4626</span>
           <span style="font-size:11px;font-weight:600;color:var(--gray-700);background:var(--gray-100);padding:4px 12px;border-radius:100px;border:1px solid var(--gray-200)">ERC-7540</span>
@@ -1187,7 +1187,7 @@ ul{list-style:none}
     <div class="section-header anim">
       <div class="section-eyebrow" data-i18n="sec_eyebrow">Security</div>
       <h2 class="section-heading" data-i18n="sec_title">Battle-tested<br>and audited</h2>
-      <p class="section-desc">Multiple independent audits, multisig governance, proven vault framework.</p>
+      <p class="section-desc" data-i18n="sec_desc">Multiple independent audits, multisig governance, proven vault framework.</p>
     </div>
     <div class="security-grid">
       <div class="security-card anim d1">
@@ -1213,7 +1213,7 @@ ul{list-style:none}
 <section class="section" id="partners" style="padding:80px 0;position:relative;overflow:hidden">
   <div class="container" style="position:relative;z-index:1">
     <div style="text-align:center;margin-bottom:48px">
-      <div class="section-eyebrow">Partners &amp; Integrations</div>
+      <div class="section-eyebrow" data-i18n="partners_eyebrow">Partners &amp; Integrations</div>
       <h2 class="section-heading" data-i18n="partners_title">Powered by Harmonix</h2>
       <p class="section-desc" style="margin:12px auto 0" data-i18n="partners_desc">Integrated with leading protocols across the Hyperliquid ecosystem.</p>
     </div>
@@ -1271,7 +1271,7 @@ ul{list-style:none}
           <div>
             <h4 data-i18n="contact_discord">Discord</h4>
             <p data-i18n="contact_discord_desc">Real-time community support and discussions.</p>
-            <a href="https://discord.gg/harmonix" target="_blank" class="link">Join Discord &rarr;</a>
+            <a href="https://discord.gg/harmonix" target="_blank" class="link" data-i18n="ct_discord_link">Join Discord &rarr;</a>
           </div>
         </div>
         <div class="contact-card">
@@ -1281,7 +1281,7 @@ ul{list-style:none}
           <div>
             <h4 data-i18n="contact_telegram">Telegram</h4>
             <p data-i18n="contact_telegram_desc">Updates and announcements from the team.</p>
-            <a href="https://t.me/harmonixfi" target="_blank" class="link">Open Telegram &rarr;</a>
+            <a href="https://t.me/harmonixfi" target="_blank" class="link" data-i18n="ct_telegram_link">Open Telegram &rarr;</a>
           </div>
         </div>
         <div class="contact-card">
@@ -1291,15 +1291,15 @@ ul{list-style:none}
           <div>
             <h4 data-i18n="contact_twitter">Twitter / X</h4>
             <p data-i18n="contact_twitter_desc">Protocol updates and DeFi insights.</p>
-            <a href="https://twitter.com/harmonixfi" target="_blank" class="link">Follow on X &rarr;</a>
+            <a href="https://twitter.com/harmonixfi" target="_blank" class="link" data-i18n="ct_twitter_link">Follow on X &rarr;</a>
           </div>
         </div>
       </div>
       <div class="contact-form anim d2">
-        <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com"></div>
-        <div class="form-group"><label>Topic</label><select><option value="">Select a topic</option><option>General Inquiry</option><option>Partnership</option><option>Integration</option><option>Support</option></select></div>
-        <div class="form-group"><label>Message</label><textarea placeholder="How can we help?"></textarea></div>
+        <div class="form-group"><label data-i18n="form_name">Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label data-i18n="form_email">Email</label><input type="email" placeholder="you@example.com"></div>
+        <div class="form-group"><label data-i18n="form_topic">Topic</label><select><option value="">Select a topic</option><option>General Inquiry</option><option>Partnership</option><option>Integration</option><option>Support</option></select></div>
+        <div class="form-group"><label data-i18n="form_message">Message</label><textarea placeholder="How can we help?"></textarea></div>
         <button class="btn btn-dark btn-large" style="width:100%" data-i18n="contact_send">Send Message</button>
       </div>
     </div>
@@ -1334,28 +1334,28 @@ ul{list-style:none}
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer_products">Products</h4>
-        <a href="#hausd">haUSDC Vault</a>
-        <a href="#products">haHYPE Vault</a>
-        <a href="#products">Basis Trade</a>
-        <a href="https://app.harmonix.fi" target="_blank">Dashboard</a>
+        <a href="#hausd" data-i18n="ft_hausdc">haUSDC Vault</a>
+        <a href="#products" data-i18n="ft_hahype">haHYPE Vault</a>
+        <a href="#products" data-i18n="ft_basis">Basis Trade</a>
+        <a href="https://app.harmonix.fi" target="_blank" data-i18n="ft_dashboard">Dashboard</a>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer_resources">Resources</h4>
-        <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank">Documentation</a>
-        <a href="https://blog.harmonix.fi" target="_blank">Blog</a>
-        <a href="#security">Risks &amp; Audits</a>
-        <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank">API Reference</a>
+        <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" data-i18n="ft_docs">Documentation</a>
+        <a href="https://blog.harmonix.fi" target="_blank" data-i18n="ft_blog">Blog</a>
+        <a href="#security" data-i18n="ft_risks">Risks &amp; Audits</a>
+        <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" data-i18n="ft_api">API Reference</a>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer_legal">Legal</h4>
-        <a href="#">Terms of Use</a>
+        <a href="#" data-i18n="ft_terms">Terms of Use</a>
         <a href="#security">Risks &amp; Audits</a>
-        <a href="#">Privacy Policy</a>
+        <a href="#" data-i18n="ft_privacy">Privacy Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2025 Harmonix Finance. All rights reserved.</span>
-      <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank">Read the Docs &rarr;</a>
+      <span data-i18n="ft_copy">&copy; 2025 Harmonix Finance. All rights reserved.</span>
+      <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" data-i18n="ft_read_docs">Read the Docs &rarr;</a>
     </div>
   </div>
 </footer>
@@ -1493,6 +1493,22 @@ ru:{'vaults_showcase_desc':'Stablecoins, HYPE tokens, and delta-neutral strategi
 };Object.keys(X).forEach(lang=>{if(T[lang])Object.assign(T[lang],X[lang])});
 // Re-apply if already switched
 const saved=localStorage.getItem('harmonix-lang');if(saved&&T[saved])switchLang(saved);
+})();
+// More translations
+(function(){const X2={
+en:{yc_title:'Yield Calculator',yc_annual:'Est. Annual Yield',yc_monthly:'Monthly',yc_daily:'Daily',yc_vault_apy:'Vault APY',stk_title:'Choose Your Staking Duration',stk_desc:'Higher lock periods offer greater rewards. Early participants receive bonus APR.',pts_position:'Your Position',pts_rewards:'Rewards Available',xc_from:'From',form_name:'Name',form_email:'Email',form_topic:'Topic',form_message:'Message',ft_hausdc:'haUSDC Vault',ft_hahype:'haHYPE Vault',ft_basis:'Basis Trade',ft_dashboard:'Dashboard',ft_docs:'Documentation',ft_blog:'Blog',ft_risks:'Risks & Audits',ft_api:'API Reference',ft_terms:'Terms of Use',ft_privacy:'Privacy Policy',partners_eyebrow:'Partners & Integrations',sec_desc:'Multiple independent audits, multisig governance, proven vault framework.',dev_audits_desc:'By independent firms',dev_sdk_desc:'Integrate with Harmonix vaults',dev_bv_desc:'Battle-tested vault framework',dev_bv:'BoringVault',hero_yield:'yield',ct_discord_link:'Join Discord \u2192',ct_telegram_link:'Open Telegram \u2192',ct_twitter_link:'Follow on X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. All rights reserved.',ft_read_docs:'Read the Docs \u2192'},
+es:{yc_title:'Calculadora de Rendimiento',yc_annual:'Rendimiento Anual Est.',yc_monthly:'Mensual',yc_daily:'Diario',yc_vault_apy:'APY del Vault',stk_title:'Elige tu Duraci\u00f3n de Staking',stk_desc:'Mayor bloqueo ofrece mayores recompensas. Los primeros participantes reciben APR adicional.',pts_position:'Tu Posici\u00f3n',pts_rewards:'Recompensas Disponibles',xc_from:'Desde',form_name:'Nombre',form_email:'Correo',form_topic:'Tema',form_message:'Mensaje',ft_hausdc:'Vault haUSDC',ft_hahype:'Vault haHYPE',ft_basis:'Basis Trade',ft_dashboard:'Panel',ft_docs:'Documentaci\u00f3n',ft_blog:'Blog',ft_risks:'Riesgos y Auditor\u00edas',ft_api:'Referencia API',ft_terms:'T\u00e9rminos de Uso',ft_privacy:'Pol\u00edtica de Privacidad',partners_eyebrow:'Socios e Integraciones',sec_desc:'M\u00faltiples auditor\u00edas independientes, gobernanza multisig, framework de vaults probado.',dev_audits_desc:'Por firmas independientes',dev_sdk_desc:'Integra con los vaults de Harmonix',dev_bv_desc:'Framework de vaults probado en batalla',dev_bv:'BoringVault',hero_yield:'rendimiento',ct_discord_link:'Unirse a Discord \u2192',ct_telegram_link:'Abrir Telegram \u2192',ct_twitter_link:'Seguir en X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. Todos los derechos reservados.',ft_read_docs:'Leer los Docs \u2192'},
+zh:{yc_title:'\u6536\u76ca\u8ba1\u7b97\u5668',yc_annual:'\u9884\u4f30\u5e74\u6536\u76ca',yc_monthly:'\u6708\u6536\u76ca',yc_daily:'\u65e5\u6536\u76ca',yc_vault_apy:'\u91d1\u5e93 APY',stk_title:'\u9009\u62e9\u60a8\u7684\u8d28\u62bc\u65f6\u95f4',stk_desc:'\u66f4\u957f\u7684\u9501\u5b9a\u671f\u63d0\u4f9b\u66f4\u9ad8\u7684\u5956\u52b1\u3002\u65e9\u671f\u53c2\u4e0e\u8005\u83b7\u5f97\u989d\u5916APR\u3002',pts_position:'\u60a8\u7684\u4ed3\u4f4d',pts_rewards:'\u53ef\u9886\u53d6\u5956\u52b1',xc_from:'\u4ece',form_name:'\u59d3\u540d',form_email:'\u90ae\u7bb1',form_topic:'\u4e3b\u9898',form_message:'\u6d88\u606f',ft_hausdc:'haUSDC \u91d1\u5e93',ft_hahype:'haHYPE \u91d1\u5e93',ft_basis:'Basis Trade',ft_dashboard:'\u4eea\u8868\u76d8',ft_docs:'\u6587\u6863',ft_blog:'\u535a\u5ba2',ft_risks:'\u98ce\u9669\u4e0e\u5ba1\u8ba1',ft_api:'API\u53c2\u8003',ft_terms:'\u4f7f\u7528\u6761\u6b3e',ft_privacy:'\u9690\u79c1\u653f\u7b56',partners_eyebrow:'\u5408\u4f5c\u4f19\u4f34\u4e0e\u96c6\u6210',sec_desc:'\u591a\u6b21\u72ec\u7acb\u5ba1\u8ba1\uff0c\u591a\u7b7e\u6cbb\u7406\uff0c\u7ecf\u8fc7\u9a8c\u8bc1\u7684\u91d1\u5e93\u6846\u67b6\u3002',dev_audits_desc:'\u7531\u72ec\u7acb\u516c\u53f8\u5ba1\u8ba1',dev_sdk_desc:'\u4e0e Harmonix \u91d1\u5e93\u96c6\u6210',dev_bv_desc:'\u4e45\u7ecf\u8003\u9a8c\u7684\u91d1\u5e93\u6846\u67b6',dev_bv:'BoringVault',hero_yield:'\u6536\u76ca',ct_discord_link:'\u52a0\u5165 Discord \u2192',ct_telegram_link:'\u6253\u5f00 Telegram \u2192',ct_twitter_link:'\u5173\u6ce8 X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance\u3002\u4fdd\u7559\u6240\u6709\u6743\u5229\u3002',ft_read_docs:'\u9605\u8bfb\u6587\u6863 \u2192'},
+ko:{yc_title:'\uc218\uc775 \uacc4\uc0b0\uae30',yc_annual:'\uc608\uc0c1 \uc5f0\uac04 \uc218\uc775',yc_monthly:'\uc6d4\uac04',yc_daily:'\uc77c\uac04',yc_vault_apy:'\ubcfc\ud2b8 APY',stk_title:'\uc2a4\ud14c\uc774\ud0b9 \uae30\uac04 \uc120\ud0dd',stk_desc:'\ub354 \uae34 \uc7a0\uae08 \uae30\uac04\uc774 \ub354 \ub192\uc740 \ubcf4\uc0c1\uc744 \uc81c\uacf5\ud569\ub2c8\ub2e4.',pts_position:'\ub0b4 \ud3ec\uc9c0\uc158',pts_rewards:'\uc218\ub839 \uac00\ub2a5\ud55c \ubcf4\uc0c1',xc_from:'\ubcf4\ub0b4\ub294 \uacf3',form_name:'\uc774\ub984',form_email:'\uc774\uba54\uc77c',form_topic:'\uc8fc\uc81c',form_message:'\uba54\uc2dc\uc9c0',ft_hausdc:'haUSDC \ubcfc\ud2b8',ft_hahype:'haHYPE \ubcfc\ud2b8',ft_basis:'Basis Trade',ft_dashboard:'\ub300\uc2dc\ubcf4\ub4dc',ft_docs:'\ubb38\uc11c',ft_blog:'\ube14\ub85c\uadf8',ft_risks:'\uc704\ud5d8 \ubc0f \uac10\uc0ac',ft_api:'API \ucc38\uc870',ft_terms:'\uc774\uc6a9\uc57d\uad00',ft_privacy:'\uac1c\uc778\uc815\ubcf4\ucc98\ub9ac\ubc29\uce68',partners_eyebrow:'\ud30c\ud2b8\ub108 \ubc0f \ud1b5\ud569',sec_desc:'\ub2e4\uc218\uc758 \ub3c5\ub9bd \uac10\uc0ac, \uba40\ud2f0\uc2dc\uadf8 \uac70\ubc84\ub10c\uc2a4, \uac80\uc99d\ub41c \ubcfc\ud2b8 \ud504\ub808\uc784\uc6cc\ud06c.',dev_audits_desc:'\ub3c5\ub9bd \uae30\uc5c5\uc5d0 \uc758\ud574',dev_sdk_desc:'Harmonix \ubcfc\ud2b8\uc640 \ud1b5\ud569',dev_bv_desc:'\uc804\ud22c \uac80\uc99d\ub41c \ubcfc\ud2b8 \ud504\ub808\uc784\uc6cc\ud06c',dev_bv:'BoringVault',hero_yield:'\uc218\uc775',ct_discord_link:'Discord \uac00\uc785 \u2192',ct_telegram_link:'Telegram \uc5f4\uae30 \u2192',ct_twitter_link:'X \ud314\ub85c\uc6b0 \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. \ubaa8\ub4e0 \uad8c\ub9ac \ubcf4\uc720.',ft_read_docs:'\ubb38\uc11c \uc77d\uae30 \u2192'},
+ja:{yc_title:'\u5229\u56de\u308a\u8a08\u7b97\u6a5f',yc_annual:'\u4e88\u60f3\u5e74\u9593\u5229\u56de\u308a',yc_monthly:'\u6708\u9593',yc_daily:'\u65e5\u6b21',yc_vault_apy:'\u30dc\u30fc\u30eb\u30c8 APY',stk_title:'\u30b9\u30c6\u30fc\u30ad\u30f3\u30b0\u671f\u9593\u3092\u9078\u629e',stk_desc:'\u9577\u3044\u30ed\u30c3\u30af\u671f\u9593\u307b\u3069\u5831\u916c\u304c\u9ad8\u304f\u306a\u308a\u307e\u3059\u3002',pts_position:'\u3042\u306a\u305f\u306e\u30dd\u30b8\u30b7\u30e7\u30f3',pts_rewards:'\u53d7\u53d6\u53ef\u80fd\u306a\u5831\u916c',xc_from:'\u9001\u4fe1\u5143',form_name:'\u540d\u524d',form_email:'\u30e1\u30fc\u30eb',form_topic:'\u30c8\u30d4\u30c3\u30af',form_message:'\u30e1\u30c3\u30bb\u30fc\u30b8',ft_hausdc:'haUSDC\u30dc\u30fc\u30eb\u30c8',ft_hahype:'haHYPE\u30dc\u30fc\u30eb\u30c8',ft_basis:'Basis Trade',ft_dashboard:'\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9',ft_docs:'\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8',ft_blog:'\u30d6\u30ed\u30b0',ft_risks:'\u30ea\u30b9\u30af\u3068\u76e3\u67fb',ft_api:'API\u30ea\u30d5\u30a1\u30ec\u30f3\u30b9',ft_terms:'\u5229\u7528\u898f\u7d04',ft_privacy:'\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc',partners_eyebrow:'\u30d1\u30fc\u30c8\u30ca\u30fc\u3068\u7d71\u5408',sec_desc:'\u8907\u6570\u306e\u72ec\u7acb\u76e3\u67fb\u3001\u30de\u30eb\u30c1\u30b7\u30b0\u30ac\u30d0\u30ca\u30f3\u30b9\u3001\u5b9f\u7e3e\u3042\u308b\u30dc\u30fc\u30eb\u30c8\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u3002',dev_audits_desc:'\u72ec\u7acb\u4f01\u696d\u306b\u3088\u308b',dev_sdk_desc:'Harmonix\u30dc\u30fc\u30eb\u30c8\u3068\u7d71\u5408',dev_bv_desc:'\u5b9f\u6226\u691c\u8a3c\u6e08\u307f\u30dc\u30fc\u30eb\u30c8\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af',dev_bv:'BoringVault',hero_yield:'\u5229\u56de\u308a',ct_discord_link:'Discord\u306b\u53c2\u52a0 \u2192',ct_telegram_link:'Telegram\u3092\u958b\u304f \u2192',ct_twitter_link:'X\u3067\u30d5\u30a9\u30ed\u30fc \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. \u5168\u6a29\u5229\u4fdd\u6709\u3002',ft_read_docs:'\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u3092\u8aad\u3080 \u2192'},
+fr:{yc_title:'Calculateur de Rendement',yc_annual:'Rendement Annuel Est.',yc_monthly:'Mensuel',yc_daily:'Quotidien',yc_vault_apy:'APY du Coffre',stk_title:'Choisissez votre Dur\u00e9e de Staking',stk_desc:'Des p\u00e9riodes de verrouillage plus longues offrent de meilleures r\u00e9compenses.',pts_position:'Votre Position',pts_rewards:'R\u00e9compenses Disponibles',xc_from:'De',form_name:'Nom',form_email:'Email',form_topic:'Sujet',form_message:'Message',ft_hausdc:'Coffre haUSDC',ft_hahype:'Coffre haHYPE',ft_basis:'Basis Trade',ft_dashboard:'Tableau de bord',ft_docs:'Documentation',ft_blog:'Blog',ft_risks:'Risques et Audits',ft_api:'R\u00e9f\u00e9rence API',ft_terms:'Conditions d\u2019utilisation',ft_privacy:'Politique de confidentialit\u00e9',partners_eyebrow:'Partenaires et Int\u00e9grations',sec_desc:'Multiples audits ind\u00e9pendants, gouvernance multisig, framework de coffres \u00e9prouv\u00e9.',dev_audits_desc:'Par des firmes ind\u00e9pendantes',dev_sdk_desc:'Int\u00e9grez avec les coffres Harmonix',dev_bv_desc:'Framework de coffres \u00e9prouv\u00e9 au combat',dev_bv:'BoringVault',hero_yield:'rendement',ct_discord_link:'Rejoindre Discord \u2192',ct_telegram_link:'Ouvrir Telegram \u2192',ct_twitter_link:'Suivre sur X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. Tous droits r\u00e9serv\u00e9s.',ft_read_docs:'Lire les Docs \u2192'},
+de:{yc_title:'Rendite-Rechner',yc_annual:'Gesch. Jahresrendite',yc_monthly:'Monatlich',yc_daily:'T\u00e4glich',yc_vault_apy:'Vault APY',stk_title:'W\u00e4hlen Sie Ihre Staking-Dauer',stk_desc:'L\u00e4ngere Sperrfristen bieten h\u00f6here Belohnungen.',pts_position:'Ihre Position',pts_rewards:'Verf\u00fcgbare Belohnungen',xc_from:'Von',form_name:'Name',form_email:'E-Mail',form_topic:'Thema',form_message:'Nachricht',ft_hausdc:'haUSDC Vault',ft_hahype:'haHYPE Vault',ft_basis:'Basis Trade',ft_dashboard:'Dashboard',ft_docs:'Dokumentation',ft_blog:'Blog',ft_risks:'Risiken & Audits',ft_api:'API-Referenz',ft_terms:'Nutzungsbedingungen',ft_privacy:'Datenschutz',partners_eyebrow:'Partner & Integrationen',sec_desc:'Mehrere unabh\u00e4ngige Audits, Multisig-Governance, bew\u00e4hrtes Vault-Framework.',dev_audits_desc:'Von unabh\u00e4ngigen Firmen',dev_sdk_desc:'Mit Harmonix Vaults integrieren',dev_bv_desc:'Kampferprobtes Vault-Framework',dev_bv:'BoringVault',hero_yield:'Rendite',ct_discord_link:'Discord beitreten \u2192',ct_telegram_link:'Telegram \u00f6ffnen \u2192',ct_twitter_link:'Auf X folgen \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. Alle Rechte vorbehalten.',ft_read_docs:'Docs lesen \u2192'},
+pt:{yc_title:'Calculadora de Rendimento',yc_annual:'Rendimento Anual Est.',yc_monthly:'Mensal',yc_daily:'Di\u00e1rio',yc_vault_apy:'APY do Cofre',stk_title:'Escolha sua Dura\u00e7\u00e3o de Staking',stk_desc:'Per\u00edodos de bloqueio mais longos oferecem maiores recompensas.',pts_position:'Sua Posi\u00e7\u00e3o',pts_rewards:'Recompensas Dispon\u00edveis',xc_from:'De',form_name:'Nome',form_email:'Email',form_topic:'Assunto',form_message:'Mensagem',ft_hausdc:'Cofre haUSDC',ft_hahype:'Cofre haHYPE',ft_basis:'Basis Trade',ft_dashboard:'Painel',ft_docs:'Documenta\u00e7\u00e3o',ft_blog:'Blog',ft_risks:'Riscos e Auditorias',ft_api:'Refer\u00eancia API',ft_terms:'Termos de Uso',ft_privacy:'Pol\u00edtica de Privacidade',partners_eyebrow:'Parceiros e Integra\u00e7\u00f5es',sec_desc:'M\u00faltiplas auditorias independentes, governan\u00e7a multisig, framework de cofres comprovado.',dev_audits_desc:'Por empresas independentes',dev_sdk_desc:'Integre com os cofres Harmonix',dev_bv_desc:'Framework de cofres testado em batalha',dev_bv:'BoringVault',hero_yield:'rendimento',ct_discord_link:'Entrar no Discord \u2192',ct_telegram_link:'Abrir Telegram \u2192',ct_twitter_link:'Seguir no X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. Todos os direitos reservados.',ft_read_docs:'Ler os Docs \u2192'},
+tr:{yc_title:'Getiri Hesaplay\u0131c\u0131',yc_annual:'Tahmini Y\u0131ll\u0131k Getiri',yc_monthly:'Ayl\u0131k',yc_daily:'G\u00fcnl\u00fck',yc_vault_apy:'Kasa APY',stk_title:'Staking S\u00fcrenizi Se\u00e7in',stk_desc:'Daha uzun kilitleme s\u00fcreleri daha y\u00fcksek \u00f6d\u00fcller sunar.',pts_position:'Pozisyonunuz',pts_rewards:'Mevcut \u00d6d\u00fcller',xc_from:'G\u00f6nderen',form_name:'Ad',form_email:'E-posta',form_topic:'Konu',form_message:'Mesaj',ft_hausdc:'haUSDC Kasas\u0131',ft_hahype:'haHYPE Kasas\u0131',ft_basis:'Basis Trade',ft_dashboard:'Panel',ft_docs:'Dok\u00fcmantasyon',ft_blog:'Blog',ft_risks:'Riskler ve Denetimler',ft_api:'API Referans\u0131',ft_terms:'Kullan\u0131m Ko\u015fullar\u0131',ft_privacy:'Gizlilik Politikas\u0131',partners_eyebrow:'Ortaklar ve Entegrasyonlar',sec_desc:'\u00c7oklu ba\u011f\u0131ms\u0131z denetimler, multisig y\u00f6netimi, kan\u0131tlanm\u0131\u015f kasa framework.',dev_audits_desc:'Ba\u011f\u0131ms\u0131z firmalar taraf\u0131ndan',dev_sdk_desc:'Harmonix kasalar\u0131yla entegre edin',dev_bv_desc:'Sava\u015f test edilmi\u015f kasa framework',dev_bv:'BoringVault',hero_yield:'getiri',ct_discord_link:'Discord\u2019a Kat\u0131l \u2192',ct_telegram_link:'Telegram\u2019\u0131 A\u00e7 \u2192',ct_twitter_link:'X\u2019te Takip Et \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. T\u00fcm haklar\u0131 sakl\u0131d\u0131r.',ft_read_docs:'Dok\u00fcmanlar\u0131 Oku \u2192'},
+vi:{yc_title:'M\u00e1y t\u00ednh L\u1ee3i nhu\u1eadn',yc_annual:'L\u1ee3i nhu\u1eadn N\u0103m \u01af\u1edbc t\u00ednh',yc_monthly:'H\u00e0ng th\u00e1ng',yc_daily:'H\u00e0ng ng\u00e0y',yc_vault_apy:'APY Kho',stk_title:'Ch\u1ecdn Th\u1eddi gian Staking',stk_desc:'Th\u1eddi gian kh\u00f3a l\u00e2u h\u01a1n mang l\u1ea1i ph\u1ea7n th\u01b0\u1edfng cao h\u01a1n.',pts_position:'V\u1ecb tr\u00ed c\u1ee7a b\u1ea1n',pts_rewards:'Ph\u1ea7n th\u01b0\u1edfng Kh\u1ea3 d\u1ee5ng',xc_from:'T\u1eeb',form_name:'T\u00ean',form_email:'Email',form_topic:'Ch\u1ee7 \u0111\u1ec1',form_message:'Tin nh\u1eafn',ft_hausdc:'Kho haUSDC',ft_hahype:'Kho haHYPE',ft_basis:'Basis Trade',ft_dashboard:'B\u1ea3ng \u0111i\u1ec1u khi\u1ec3n',ft_docs:'T\u00e0i li\u1ec7u',ft_blog:'Blog',ft_risks:'R\u1ee7i ro & Ki\u1ec3m to\u00e1n',ft_api:'Tham chi\u1ebfu API',ft_terms:'\u0110i\u1ec1u kho\u1ea3n',ft_privacy:'Ch\u00ednh s\u00e1ch B\u1ea3o m\u1eadt',partners_eyebrow:'\u0110\u1ed1i t\u00e1c & T\u00edch h\u1ee3p',sec_desc:'Nhi\u1ec1u ki\u1ec3m to\u00e1n \u0111\u1ed9c l\u1eadp, qu\u1ea3n tr\u1ecb multisig, framework kho \u0111\u00e3 \u0111\u01b0\u1ee3c ch\u1ee9ng minh.',dev_audits_desc:'B\u1edfi c\u00e1c c\u00f4ng ty \u0111\u1ed9c l\u1eadp',dev_sdk_desc:'T\u00edch h\u1ee3p v\u1edbi c\u00e1c kho Harmonix',dev_bv_desc:'Framework kho \u0111\u00e3 \u0111\u01b0\u1ee3c ki\u1ec3m ch\u1ee9ng',dev_bv:'BoringVault',hero_yield:'l\u1ee3i nhu\u1eadn',ct_discord_link:'Tham gia Discord \u2192',ct_telegram_link:'M\u1edf Telegram \u2192',ct_twitter_link:'Theo d\u00f5i tr\u00ean X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. B\u1ea3o l\u01b0u m\u1ecdi quy\u1ec1n.',ft_read_docs:'\u0110\u1ecdc t\u00e0i li\u1ec7u \u2192'},
+ru:{yc_title:'\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 \u0434\u043e\u0445\u043e\u0434\u043d\u043e\u0441\u0442\u0438',yc_annual:'\u041e\u0436\u0438\u0434. \u0433\u043e\u0434\u043e\u0432\u043e\u0439 \u0434\u043e\u0445\u043e\u0434',yc_monthly:'\u041c\u0435\u0441\u044f\u0447\u043d\u043e',yc_daily:'\u0415\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u043e',yc_vault_apy:'APY \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0430',stk_title:'\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0441\u0440\u043e\u043a \u0441\u0442\u0435\u0439\u043a\u0438\u043d\u0433\u0430',stk_desc:'\u0411\u043e\u043b\u0435\u0435 \u0434\u043b\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0430 \u043f\u0440\u0438\u043d\u043e\u0441\u0438\u0442 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0430\u0433\u0440\u0430\u0434.',pts_position:'\u0412\u0430\u0448\u0430 \u043f\u043e\u0437\u0438\u0446\u0438\u044f',pts_rewards:'\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0435 \u043d\u0430\u0433\u0440\u0430\u0434\u044b',xc_from:'\u041e\u0442\u043a\u0443\u0434\u0430',form_name:'\u0418\u043c\u044f',form_email:'Email',form_topic:'\u0422\u0435\u043c\u0430',form_message:'\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435',ft_hausdc:'\u0425\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 haUSDC',ft_hahype:'\u0425\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 haHYPE',ft_basis:'Basis Trade',ft_dashboard:'\u041f\u0430\u043d\u0435\u043b\u044c',ft_docs:'\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f',ft_blog:'\u0411\u043b\u043e\u0433',ft_risks:'\u0420\u0438\u0441\u043a\u0438 \u0438 \u0430\u0443\u0434\u0438\u0442',ft_api:'API \u0441\u043f\u0440\u0430\u0432\u043a\u0430',ft_terms:'\u0423\u0441\u043b\u043e\u0432\u0438\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f',ft_privacy:'\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438',partners_eyebrow:'\u041f\u0430\u0440\u0442\u043d\u0451\u0440\u044b \u0438 \u0438\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u0438',sec_desc:'\u041c\u043d\u043e\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u0435 \u0430\u0443\u0434\u0438\u0442\u044b, multisig \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435, \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u044b\u0439 \u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a.',dev_audits_desc:'\u041d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u043c\u0438 \u0444\u0438\u0440\u043c\u0430\u043c\u0438',dev_sdk_desc:'\u0418\u043d\u0442\u0435\u0433\u0440\u0438\u0440\u0443\u0439\u0442\u0435\u0441\u044c \u0441 \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0430\u043c\u0438 Harmonix',dev_bv_desc:'\u0411\u043e\u0435\u0432\u043e\u0439 \u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449',dev_bv:'BoringVault',hero_yield:'\u0434\u043e\u0445\u043e\u0434\u043d\u043e\u0441\u0442\u0438',ct_discord_link:'\u041f\u0440\u0438\u0441\u043e\u0435\u0434\u0438\u043d\u0438\u0442\u044c\u0441\u044f \u043a Discord \u2192',ct_telegram_link:'\u041e\u0442\u043a\u0440\u044b\u0442\u044c Telegram \u2192',ct_twitter_link:'\u041f\u043e\u0434\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0432 X \u2192',ft_copy:'\u00a9 2025 Harmonix Finance. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u044b.',ft_read_docs:'\u0427\u0438\u0442\u0430\u0442\u044c \u0434\u043e\u043a\u0438 \u2192'}
+};Object.keys(X2).forEach(l=>{if(T[l])Object.assign(T[l],X2[l])});
+const s2=localStorage.getItem('harmonix-lang');if(s2&&T[s2])switchLang(s2);
 })();
 </script>
 </body>
