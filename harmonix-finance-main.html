@@ -551,42 +551,196 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- Buy HAR + Tokenomics (dark section) -->
+<!-- HAR TOKEN & STAKING — two phones side by side -->
 <section class="section section-dark" id="buy-har">
   <div class="container">
     <div class="showcase anim">
-      <div class="showcase-visual" style="padding:32px 20px 0;align-items:flex-end;overflow:hidden;background:#f8f9fa">
-        <!-- Desktop frame with actual Hyperliquid screenshot -->
-        <div class="showcase-desktop-wrap">
-          <div class="showcase-desktop">
-            <div class="sd-bezel">
-              <div class="sd-topbar">
-                <div class="sd-dot" style="background:#ff5f57"></div>
-                <div class="sd-dot" style="background:#ffbd2e"></div>
-                <div class="sd-dot" style="background:#28c840"></div>
-                <div class="sd-url">app.hyperliquid.xyz/trade/HAR/USDC</div>
+      <div class="showcase-visual v-mint" style="padding:40px 24px 0;display:flex;gap:16px;align-items:flex-start;justify-content:center;overflow:hidden">
+        <!-- Phone 1: HAR Trading -->
+        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0">
+          <div class="sp-screen">
+            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+            <div class="sp-app">
+              <div class="sp-title">HAR / USDC</div>
+              <!-- Price header -->
+              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px">
+                <div style="width:16px;height:16px;border-radius:50%;background:#2d6a2e;display:flex;align-items:center;justify-content:center"><svg width="7" height="7" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></div>
+                <span style="font-size:14px;font-weight:800;color:#000">$0.0048</span>
+                <span style="font-size:8px;font-weight:700;color:#2d6a2e;background:#e8f5e9;padding:2px 5px;border-radius:3px">+12.4%</span>
               </div>
-              <div class="sd-screen" style="padding:0;min-height:auto;background:#0b0e11">
-                <img src="har-trading-view.png" alt="HAR/USDC Trading on Hyperliquid" style="width:100%;display:block;border-radius:4px 4px 0 0">
+              <!-- Mini chart -->
+              <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:8px;margin-bottom:6px">
+                <svg viewBox="0 0 160 40" width="100%" height="32" style="display:block">
+                  <path d="M0 30 Q10 28 20 25 Q30 22 40 18 Q50 12 60 8 Q70 15 80 20 Q90 24 100 22 Q110 20 120 18 Q130 16 140 14 L160 12" stroke="#2d6a2e" stroke-width="1.5" fill="none"/>
+                  <path d="M0 30 Q10 28 20 25 Q30 22 40 18 Q50 12 60 8 Q70 15 80 20 Q90 24 100 22 Q110 20 120 18 Q130 16 140 14 L160 12 L160 40 L0 40Z" fill="rgba(45,106,46,0.06)"/>
+                </svg>
               </div>
+              <!-- Stats -->
+              <div style="display:flex;gap:4px;margin-bottom:6px">
+                <div style="flex:1;background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:5px;text-align:center">
+                  <div style="font-size:6px;color:#868e96">Supply</div>
+                  <div style="font-size:9px;font-weight:700;color:#000">1B</div>
+                </div>
+                <div style="flex:1;background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:5px;text-align:center">
+                  <div style="font-size:6px;color:#868e96">Airdrop</div>
+                  <div style="font-size:9px;font-weight:700;color:#2d6a2e">50%</div>
+                </div>
+                <div style="flex:1;background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:5px;text-align:center">
+                  <div style="font-size:6px;color:#868e96">24h Vol</div>
+                  <div style="font-size:9px;font-weight:700;color:#000">$284K</div>
+                </div>
+              </div>
+              <!-- Trade button -->
+              <div style="background:#2d6a2e;color:#fff;text-align:center;padding:8px;border-radius:8px;font-size:9px;font-weight:700">Trade on Hyperliquid</div>
             </div>
-            <div class="sd-base"></div>
+          </div>
+        </div>
+        <!-- Phone 2: Staking -->
+        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0;margin-top:32px">
+          <div class="sp-screen">
+            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+            <div class="sp-app">
+              <div class="sp-title">Staking</div>
+              <!-- 180 Days mini card -->
+              <div style="border:1.5px solid #c5e1a5;border-radius:8px;padding:8px;margin-bottom:5px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                  <span style="font-size:11px;font-weight:800;color:#000">180 Days</span>
+                  <span style="font-size:6px;font-weight:600;color:#5c6bc0;background:#e8eaf6;padding:2px 5px;border-radius:3px">Upcoming</span>
+                </div>
+                <div style="background:#f8f9fa;border-radius:5px;padding:5px;margin-bottom:4px">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:7px;color:#868e96">APR:</span><span style="font-size:9px;font-weight:800;color:#000">25%</span></div>
+                  <div style="display:flex;gap:3px">
+                    <div style="flex:1;background:#dce775;border-radius:4px;padding:3px;text-align:center;font-size:6px;font-weight:700;color:#33691e">17% HAR</div>
+                    <div style="flex:1;background:#dce775;border-radius:4px;padding:3px;text-align:center;font-size:6px;font-weight:700;color:#33691e">8% HYPE</div>
+                  </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:6px;color:#868e96"><span>Capacity</span><span style="font-weight:600;color:#495057">10M HAR</span></div>
+              </div>
+              <!-- 360 Days mini card -->
+              <div style="border:1.5px solid #c5e1a5;border-radius:8px;padding:8px;margin-bottom:5px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                  <span style="font-size:11px;font-weight:800;color:#000">360 Days</span>
+                  <span style="font-size:6px;font-weight:600;color:#5c6bc0;background:#e8eaf6;padding:2px 5px;border-radius:3px">Upcoming</span>
+                </div>
+                <div style="background:#f8f9fa;border-radius:5px;padding:5px;margin-bottom:4px">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:7px;color:#868e96">APR:</span><span style="font-size:9px;font-weight:800;color:#000">35%</span></div>
+                  <div style="display:flex;gap:3px">
+                    <div style="flex:1;background:#dce775;border-radius:4px;padding:3px;text-align:center;font-size:6px;font-weight:700;color:#33691e">23% HAR</div>
+                    <div style="flex:1;background:#dce775;border-radius:4px;padding:3px;text-align:center;font-size:6px;font-weight:700;color:#33691e">12% HYPE</div>
+                  </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:6px;color:#868e96"><span>Capacity</span><span style="font-weight:600;color:#495057">20M HAR</span></div>
+              </div>
+              <!-- Stake button -->
+              <div style="background:#1a1d23;color:#fff;text-align:center;padding:8px;border-radius:8px;font-size:9px;font-weight:700">Stake HAR</div>
+            </div>
           </div>
         </div>
       </div>
       <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span data-i18n="har_pill">HAR TOKEN</div>
+        <div class="showcase-pill"><span class="pill-dot"></span>HAR TOKEN & STAKING</div>
         <h2 data-i18n="har_title">Buy HAR.</h2>
         <p data-i18n="har_desc">Governance and rewards token for Harmonix Finance. 50% airdropped to the community. Trade HAR/USDC on Hyperliquid.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <p style="margin-top:12px" data-i18n="stake_desc">Stake HAR tokens for 180 or 360 days. Earn rewards in both HAR and HYPE. Higher lock periods, greater rewards.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
           <a href="https://app.hyperliquid.xyz/trade/HAR/USDC" target="_blank" class="btn-pill" data-i18n="har_buy">Buy HAR</a>
-          <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" class="btn-pill" style="background:transparent;border:1px solid var(--gray-300);color:var(--gray-700)" data-i18n="har_tokenomics">Tokenomics</a>
+          <a href="https://app.harmonix.fi/staking" target="_blank" class="btn-pill" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff" data-i18n="stake_cta">Stake now</a>
+          <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" class="btn-pill" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff" data-i18n="har_tokenomics">Tokenomics</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PRODUCT 2: Yield & Analytics — white/light section -->
+<section class="section" id="yield-analytics">
+  <div class="container">
+    <div class="showcase reverse anim">
+      <div class="showcase-visual" style="padding:24px;flex-direction:column;gap:10px;align-items:stretch;background:#fff">
+        <!-- Interactive Yield Calculator (compact, light) -->
+        <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <div style="font-size:14px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
+            <div style="font-size:9px;padding:3px 8px;border-radius:100px;background:rgba(45,106,46,0.1);color:#2d6a2e;font-weight:600">LIVE</div>
+          </div>
+          <!-- Vault picker -->
+          <div style="display:flex;gap:4px;margin-bottom:12px">
+            <button onclick="selectVault('haUSDC',7.0)" class="yc-vault yc-active" id="yc-v-haUSDC" style="flex:1;text-align:center;padding:8px 4px;background:rgba(45,106,46,0.08);border:1px solid rgba(45,106,46,0.2);border-radius:6px;cursor:pointer;font-family:inherit">
+              <div style="font-size:10px;font-weight:700;color:#000">haUSDC</div>
+              <div style="font-size:9px;font-weight:700;color:#2d6a2e">7.0%</div>
+            </button>
+            <button onclick="selectVault('hakHYPE',7.4)" class="yc-vault" id="yc-v-hakHYPE" style="flex:1;text-align:center;padding:8px 4px;background:#fff;border:1px solid #dee2e6;border-radius:6px;cursor:pointer;font-family:inherit">
+              <div style="font-size:10px;font-weight:700;color:#495057">hakHYPE</div>
+              <div style="font-size:9px;font-weight:600;color:#868e96">7.4%</div>
+            </button>
+            <button onclick="selectVault('Basis Trade',7.0)" class="yc-vault" id="yc-v-basis" style="flex:1;text-align:center;padding:8px 4px;background:#fff;border:1px solid #dee2e6;border-radius:6px;cursor:pointer;font-family:inherit">
+              <div style="font-size:10px;font-weight:700;color:#495057">Basis Trade</div>
+              <div style="font-size:9px;font-weight:600;color:#868e96">7.0%</div>
+            </button>
+          </div>
+          <!-- Amount input -->
+          <div style="background:#fff;border:1px solid #dee2e6;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:10px;transition:border-color 0.2s" id="yc-input-wrap">
+            <span style="font-size:16px;color:#adb5bd;font-weight:600">$</span>
+            <input type="text" id="yc-amount" value="50,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='#2d6a2e'" onblur="document.getElementById('yc-input-wrap').style.borderColor='#dee2e6'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#000;width:100%">
+            <span style="font-size:10px;font-weight:600;color:#495057;padding:3px 8px;border-radius:4px;background:#f1f3f5">USDC</span>
+          </div>
+          <!-- Quick amounts -->
+          <div style="display:flex;gap:4px;margin-bottom:12px">
+            <button onclick="setAmount(1000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$1K</button>
+            <button onclick="setAmount(10000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$10K</button>
+            <button onclick="setAmount(50000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$50K</button>
+            <button onclick="setAmount(100000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$100K</button>
+          </div>
+          <!-- Result -->
+          <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <span style="font-size:10px;color:#495057" data-i18n="yc_annual">Est. Annual Yield</span>
+              <span style="font-size:20px;font-weight:800;color:#2d6a2e;letter-spacing:-0.5px" id="yc-annual">$3,500</span>
+            </div>
+            <div style="display:flex;gap:6px">
+              <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
+                <div style="font-size:7px;color:#868e96" data-i18n="yc_monthly">Monthly</div>
+                <div style="font-size:11px;font-weight:700;color:#000" id="yc-monthly">$292</div>
+              </div>
+              <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
+                <div style="font-size:7px;color:#868e96" data-i18n="yc_daily">Daily</div>
+                <div style="font-size:11px;font-weight:700;color:#000" id="yc-daily">$9.59</div>
+              </div>
+              <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
+                <div style="font-size:7px;color:#868e96">APY</div>
+                <div style="font-size:11px;font-weight:700;color:#2d6a2e" id="yc-apy-display">7.0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Vault APY chart -->
+        <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_vault_apy">Vault APY</div>
+            <div style="display:flex;gap:3px">
+              <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">1W</span>
+              <span style="font-size:8px;background:rgba(45,106,46,0.12);padding:2px 6px;border-radius:3px;color:#2d6a2e">1M</span>
+              <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">ALL</span>
+            </div>
+          </div>
+          <svg viewBox="0 0 300 50" width="100%" height="50" fill="none" style="display:block">
+            <line x1="0" y1="25" x2="300" y2="25" stroke="#e9ecef" stroke-width="0.5" stroke-dasharray="4"/>
+            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26 L300 50 L0 50Z" fill="rgba(45,106,46,0.06)"/>
+            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26" stroke="#2d6a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="300" cy="26" r="2.5" fill="#2d6a2e"/>
+            <text x="290" y="22" font-size="7" fill="#2d6a2e" font-family="Inter,sans-serif" text-anchor="end">7.0%</text>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span data-i18n="yield_pill">YIELD &amp; ANALYTICS</div>
+        <h2 data-i18n="yield_title">Estimate and track your yield.</h2>
+        <p data-i18n="yield_desc">Enter any amount, pick a vault, and see estimated returns instantly. Track vault APY trends in real-time — all verifiable onchain.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" data-i18n="yield_cta">Start earning</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- VAULTS & EARN MARKETS -->
 <section class="section" id="products">
@@ -694,175 +848,7 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCT 2: Yield & Analytics — white/light section -->
-<section class="section" id="yield-analytics">
-  <div class="container">
-    <div class="showcase reverse anim">
-      <div class="showcase-visual" style="padding:24px;flex-direction:column;gap:10px;align-items:stretch;background:#fff">
-        <!-- Interactive Yield Calculator (compact, light) -->
-        <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-            <div style="font-size:14px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
-            <div style="font-size:9px;padding:3px 8px;border-radius:100px;background:rgba(45,106,46,0.1);color:#2d6a2e;font-weight:600">LIVE</div>
-          </div>
-          <!-- Vault picker -->
-          <div style="display:flex;gap:4px;margin-bottom:12px">
-            <button onclick="selectVault('haUSDC',7.0)" class="yc-vault yc-active" id="yc-v-haUSDC" style="flex:1;text-align:center;padding:8px 4px;background:rgba(45,106,46,0.08);border:1px solid rgba(45,106,46,0.2);border-radius:6px;cursor:pointer;font-family:inherit">
-              <div style="font-size:10px;font-weight:700;color:#000">haUSDC</div>
-              <div style="font-size:9px;font-weight:700;color:#2d6a2e">7.0%</div>
-            </button>
-            <button onclick="selectVault('hakHYPE',7.4)" class="yc-vault" id="yc-v-hakHYPE" style="flex:1;text-align:center;padding:8px 4px;background:#fff;border:1px solid #dee2e6;border-radius:6px;cursor:pointer;font-family:inherit">
-              <div style="font-size:10px;font-weight:700;color:#495057">hakHYPE</div>
-              <div style="font-size:9px;font-weight:600;color:#868e96">7.4%</div>
-            </button>
-            <button onclick="selectVault('Basis Trade',7.0)" class="yc-vault" id="yc-v-basis" style="flex:1;text-align:center;padding:8px 4px;background:#fff;border:1px solid #dee2e6;border-radius:6px;cursor:pointer;font-family:inherit">
-              <div style="font-size:10px;font-weight:700;color:#495057">Basis Trade</div>
-              <div style="font-size:9px;font-weight:600;color:#868e96">7.0%</div>
-            </button>
-          </div>
-          <!-- Amount input -->
-          <div style="background:#fff;border:1px solid #dee2e6;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:10px;transition:border-color 0.2s" id="yc-input-wrap">
-            <span style="font-size:16px;color:#adb5bd;font-weight:600">$</span>
-            <input type="text" id="yc-amount" value="50,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='#2d6a2e'" onblur="document.getElementById('yc-input-wrap').style.borderColor='#dee2e6'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#000;width:100%">
-            <span style="font-size:10px;font-weight:600;color:#495057;padding:3px 8px;border-radius:4px;background:#f1f3f5">USDC</span>
-          </div>
-          <!-- Quick amounts -->
-          <div style="display:flex;gap:4px;margin-bottom:12px">
-            <button onclick="setAmount(1000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$1K</button>
-            <button onclick="setAmount(10000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$10K</button>
-            <button onclick="setAmount(50000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$50K</button>
-            <button onclick="setAmount(100000)" style="flex:1;padding:5px;border-radius:5px;background:#fff;border:1px solid #dee2e6;font-size:10px;font-weight:600;color:#495057;cursor:pointer;font-family:inherit">$100K</button>
-          </div>
-          <!-- Result -->
-          <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:8px;padding:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-              <span style="font-size:10px;color:#495057" data-i18n="yc_annual">Est. Annual Yield</span>
-              <span style="font-size:20px;font-weight:800;color:#2d6a2e;letter-spacing:-0.5px" id="yc-annual">$3,500</span>
-            </div>
-            <div style="display:flex;gap:6px">
-              <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
-                <div style="font-size:7px;color:#868e96" data-i18n="yc_monthly">Monthly</div>
-                <div style="font-size:11px;font-weight:700;color:#000" id="yc-monthly">$292</div>
-              </div>
-              <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
-                <div style="font-size:7px;color:#868e96" data-i18n="yc_daily">Daily</div>
-                <div style="font-size:11px;font-weight:700;color:#000" id="yc-daily">$9.59</div>
-              </div>
-              <div style="flex:1;background:#fff;border-radius:5px;padding:6px;text-align:center">
-                <div style="font-size:7px;color:#868e96">APY</div>
-                <div style="font-size:11px;font-weight:700;color:#2d6a2e" id="yc-apy-display">7.0%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Vault APY chart -->
-        <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:14px">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-            <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_vault_apy">Vault APY</div>
-            <div style="display:flex;gap:3px">
-              <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">1W</span>
-              <span style="font-size:8px;background:rgba(45,106,46,0.12);padding:2px 6px;border-radius:3px;color:#2d6a2e">1M</span>
-              <span style="font-size:8px;background:#e9ecef;padding:2px 6px;border-radius:3px;color:#868e96">ALL</span>
-            </div>
-          </div>
-          <svg viewBox="0 0 300 50" width="100%" height="50" fill="none" style="display:block">
-            <line x1="0" y1="25" x2="300" y2="25" stroke="#e9ecef" stroke-width="0.5" stroke-dasharray="4"/>
-            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26 L300 50 L0 50Z" fill="rgba(45,106,46,0.06)"/>
-            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26" stroke="#2d6a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <circle cx="300" cy="26" r="2.5" fill="#2d6a2e"/>
-            <text x="290" y="22" font-size="7" fill="#2d6a2e" font-family="Inter,sans-serif" text-anchor="end">7.0%</text>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span data-i18n="yield_pill">YIELD &amp; ANALYTICS</div>
-        <h2 data-i18n="yield_title">Estimate and track your yield.</h2>
-        <p data-i18n="yield_desc">Enter any amount, pick a vault, and see estimated returns instantly. Track vault APY trends in real-time — all verifiable onchain.</p>
-        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" data-i18n="yield_cta">Start earning</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- PRODUCT 4: Staking — exact replica of real staking page (dark section, reversed) -->
-<section class="section section-dark" id="staking">
-  <div class="container">
-    <div class="showcase reverse anim">
-      <div class="showcase-visual v-charcoal" style="padding:24px;align-items:center;justify-content:center;flex-direction:column">
-        <!-- Exact replica of the real staking page UI -->
-        <div style="width:100%;max-width:480px;background:#fff;border-radius:16px;padding:20px;box-shadow:0 8px 40px rgba(0,0,0,0.2)">
-          <!-- Header -->
-          <div style="margin-bottom:16px">
-            <div style="font-size:16px;font-weight:800;color:#000;letter-spacing:-0.3px;margin-bottom:3px" data-i18n="stk_title">Choose Your Staking Duration</div>
-            <div style="font-size:9px;color:#868e96;line-height:1.4" data-i18n="stk_desc">Higher lock periods offer greater rewards. Early participants receive bonus APR.</div>
-          </div>
-          <!-- Two staking cards side by side -->
-          <div style="display:flex;gap:10px">
-            <!-- 180 Days Card -->
-            <div style="flex:1;border:2px solid #c5e1a5;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:0">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
-                <span style="font-size:14px;font-weight:800;color:#000">180 Days</span>
-                <span style="font-size:7px;font-weight:600;color:#5c6bc0;background:#e8eaf6;padding:3px 8px;border-radius:4px">Upcoming</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-                <span style="font-size:8px;color:#868e96">Opens in</span>
-                <span style="font-size:11px;font-weight:700;color:#000;letter-spacing:0.5px">00 : 06 : 49 : 00</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:8px;color:#868e96;margin-bottom:3px"><span>Pool Filled</span><span style="font-weight:600;color:#495057">0%</span></div>
-              <div style="height:3px;background:#f1f3f5;border-radius:2px;overflow:hidden;margin-bottom:12px"><div style="width:0%;height:100%;background:#c5e1a5;border-radius:2px"></div></div>
-              <div style="background:#f8f9fa;border:1px solid #f1f3f5;border-radius:8px;padding:10px;margin-bottom:12px">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:9px;color:#868e96">APR:</span><span style="font-size:12px;font-weight:800;color:#000">25%</span></div>
-                <div style="display:flex;gap:5px">
-                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">17% in HAR</div>
-                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">8% in HYPE</div>
-                </div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:14px">
-                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Pool Capacity:</span><span style="font-weight:700;color:#000">10,000,000 HAR</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">TVL:</span><span style="font-weight:700;color:#000">0 HAR</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Early Unstake Penalty:</span><span style="font-weight:700;color:#5c6bc0">10%</span></div>
-              </div>
-              <div style="background:#9e9e9e;color:#fff;text-align:center;padding:10px;border-radius:100px;font-size:10px;font-weight:700;cursor:default">Stake</div>
-            </div>
-            <!-- 360 Days Card -->
-            <div style="flex:1;border:2px solid #c5e1a5;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:0">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
-                <span style="font-size:14px;font-weight:800;color:#000">360 Days</span>
-                <span style="font-size:7px;font-weight:600;color:#5c6bc0;background:#e8eaf6;padding:3px 8px;border-radius:4px">Upcoming</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-                <span style="font-size:8px;color:#868e96">Opens in</span>
-                <span style="font-size:11px;font-weight:700;color:#000;letter-spacing:0.5px">00 : 06 : 49 : 00</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:8px;color:#868e96;margin-bottom:3px"><span>Pool Filled</span><span style="font-weight:600;color:#495057">0%</span></div>
-              <div style="height:3px;background:#f1f3f5;border-radius:2px;overflow:hidden;margin-bottom:12px"><div style="width:0%;height:100%;background:#c5e1a5;border-radius:2px"></div></div>
-              <div style="background:#f8f9fa;border:1px solid #f1f3f5;border-radius:8px;padding:10px;margin-bottom:12px">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:9px;color:#868e96">APR:</span><span style="font-size:12px;font-weight:800;color:#000">35%</span></div>
-                <div style="display:flex;gap:5px">
-                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">23% in HAR</div>
-                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">12% in HYPE</div>
-                </div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:14px">
-                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Pool Capacity:</span><span style="font-weight:700;color:#000">20,000,000 HAR</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">TVL:</span><span style="font-weight:700;color:#000">0 HAR</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Early Unstake Penalty:</span><span style="font-weight:700;color:#5c6bc0">10%</span></div>
-              </div>
-              <div style="background:#9e9e9e;color:#fff;text-align:center;padding:10px;border-radius:100px;font-size:10px;font-weight:700;cursor:default">Stake</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span data-i18n="stake_pill">STAKING</div>
-        <h2 data-i18n="stake_title">Earn up to 35% APR.</h2>
-        <p data-i18n="stake_desc">Stake HAR tokens for 180 or 360 days. Earn rewards in both HAR and HYPE. Higher lock periods, greater rewards.</p>
-        <a href="https://app.harmonix.fi/staking" target="_blank" class="btn-pill" data-i18n="stake_cta">Stake now</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Analytics section removed — moved to position 2 -->
 
@@ -990,118 +976,45 @@ ul{list-style:none}
 <section class="section section-gray" id="learn">
   <div class="container">
     <div class="showcase anim">
-      <div class="showcase-visual" style="padding:0;align-items:stretch;background:#2e2e2e;overflow:hidden;min-height:460px">
-        <!-- Exact replica of the real docs page -->
-        <div style="display:flex;width:100%;height:100%">
-          <!-- Sidebar -->
-          <div style="width:38%;background:#282828;border-right:1px solid #424242;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0">
-            <!-- Logo bar -->
-            <div style="padding:10px 12px;border-bottom:1px solid #424242;display:flex;align-items:center;gap:6px">
-              <div style="width:18px;height:18px;background:#c8f07a;border-radius:5px;display:flex;align-items:center;justify-content:center">
-                <svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#282828" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
-              </div>
-              <span style="font-size:10px;font-weight:700;color:#fff">Harmonix</span>
-            </div>
-            <!-- Nav items -->
-            <div style="padding:10px 6px;flex:1;overflow:hidden">
-              <!-- Welcome - active -->
-              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;border-radius:4px;background:#2e2e2e;margin-bottom:1px">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                <span style="font-size:8px;font-weight:600;color:#c8f07a">Welcome</span>
-              </div>
-              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-bottom:1px">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-                <span style="font-size:8px;color:rgba(255,255,255,0.55)">Protocol Overview</span>
-              </div>
-              <!-- Learn group -->
-              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-top:6px;margin-bottom:1px">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 9h6M9 13h6"/></svg>
-                <span style="font-size:8px;font-weight:600;color:rgba(255,255,255,0.7)">Learn</span>
-                <span style="font-size:6px;color:rgba(255,255,255,0.25);margin-left:auto">&#9650;</span>
-              </div>
-              <div style="padding-left:22px;display:flex;flex-direction:column;gap:1px">
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Getting Started</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Core Concepts</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Proof of Solvency</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Risks &amp; Audits</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Fees</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Analytics</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Points &amp; Rewards</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">FAQ</span></div>
-              </div>
-              <!-- Product Suite group -->
-              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-top:6px;margin-bottom:1px">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                <span style="font-size:8px;font-weight:600;color:rgba(255,255,255,0.7)">Product Suite</span>
-                <span style="font-size:6px;color:rgba(255,255,255,0.25);margin-left:auto">&#9650;</span>
-              </div>
-              <div style="padding-left:22px;display:flex;flex-direction:column;gap:1px">
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">Yield-Bearing Stablecoins</span></div>
-                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haUSDC</span></div>
-                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haUSDT</span></div>
-                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haUSDH</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">Yield-Bearing Tokens</span></div>
-                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haHYPE</span></div>
-                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; hakHYPE</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">Basis Trade Vault</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">HAR Token</span></div>
-              </div>
-              <!-- For Developers group -->
-              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-top:6px;margin-bottom:1px">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                <span style="font-size:8px;font-weight:600;color:rgba(255,255,255,0.7)">For Developers</span>
-                <span style="font-size:6px;color:rgba(255,255,255,0.25);margin-left:auto">&#9650;</span>
-              </div>
-              <div style="padding-left:22px;display:flex;flex-direction:column;gap:1px">
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Vault Architecture</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Smart Contracts</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Deposits &amp; Withdrawals</span></div>
-                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Smart Contract Integration</span></div>
-              </div>
-            </div>
-            <!-- Footer icons -->
-            <div style="padding:8px 12px;border-top:1px solid #424242;display:flex;align-items:center;gap:8px">
-              <span style="font-size:8px;color:rgba(255,255,255,0.3);font-weight:700">X</span>
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span style="font-size:7px;color:rgba(255,255,255,0.3)">Get help</span>
-            </div>
-          </div>
-          <!-- Main content -->
-          <div style="flex:1;display:flex;flex-direction:column">
-            <!-- Top bar with search + Launch App -->
-            <div style="padding:8px 16px;border-bottom:1px solid #424242;display:flex;align-items:center;justify-content:flex-end;gap:10px">
-              <div style="display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.05);border:1px solid #424242;border-radius:5px;padding:4px 10px">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                <span style="font-size:7px;color:rgba(255,255,255,0.25)">Search docs...</span>
-              </div>
-              <div style="background:#c8f07a;border-radius:100px;padding:4px 12px;font-size:7px;font-weight:700;color:#282828">Launch App &rarr;</div>
-            </div>
-            <!-- Page content -->
-            <div style="flex:1;padding:24px 20px;overflow:hidden">
-              <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-0.5px;font-family:serif">Harmonix Finance</div>
-              <div style="font-size:8px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:20px;max-width:320px">Yield infrastructure built natively on Hyperliquid. Learn the fundamentals, explore our products, and start building.</div>
-              <!-- Three cards -->
-              <div style="display:flex;gap:8px;margin-bottom:20px">
-                <div style="flex:1;border:1px solid #424242;border-radius:8px;padding:12px">
-                  <div style="margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-                  <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:4px">Learn</div>
-                  <div style="font-size:6.5px;color:rgba(255,255,255,0.35);line-height:1.5">Get started, understand the protocol, explore security and risk disclosures, and earn rewards.</div>
+      <div class="showcase-visual v-mint" style="padding:40px 48px 0;align-items:flex-start;justify-content:center;overflow:hidden">
+        <!-- Docs phone mockup -->
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone">
+            <div class="sp-screen" style="background:#2e2e2e">
+              <div class="sp-status" style="color:#fff"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+              <div style="padding:8px 10px">
+                <!-- Logo -->
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:10px">
+                  <div style="width:16px;height:16px;background:#c8f07a;border-radius:4px;display:flex;align-items:center;justify-content:center"><svg width="8" height="8" viewBox="0 0 30 28" fill="none"><path fill="#2e2e2e" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></div>
+                  <span style="font-size:11px;font-weight:700;color:#fff">Harmonix</span>
                 </div>
-                <div style="flex:1;border:1px solid #424242;border-radius:8px;padding:12px">
-                  <div style="margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                  <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:4px">Product Suite</div>
-                  <div style="font-size:6.5px;color:rgba(255,255,255,0.35);line-height:1.5">Yield-bearing stablecoins, tokens, the Basis Trade vault, and the HAR ecosystem.</div>
+                <!-- Title -->
+                <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:5px;letter-spacing:-0.3px;font-family:serif">Harmonix Finance</div>
+                <div style="font-size:7px;color:rgba(255,255,255,0.45);line-height:1.5;margin-bottom:10px">Yield infrastructure built natively on Hyperliquid.</div>
+                <!-- Three cards -->
+                <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+                  <div style="border:1px solid #424242;border-radius:6px;padding:8px;display:flex;align-items:center;gap:8px">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                    <div><div style="font-size:9px;font-weight:700;color:#fff">Learn</div><div style="font-size:6px;color:rgba(255,255,255,0.3)">Protocol, security, risk disclosures</div></div>
+                  </div>
+                  <div style="border:1px solid #424242;border-radius:6px;padding:8px;display:flex;align-items:center;gap:8px">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div><div style="font-size:9px;font-weight:700;color:#fff">Product Suite</div><div style="font-size:6px;color:rgba(255,255,255,0.3)">Vaults, tokens, staking, HAR</div></div>
+                  </div>
+                  <div style="border:1px solid #424242;border-radius:6px;padding:8px;display:flex;align-items:center;gap:8px">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <div><div style="font-size:9px;font-weight:700;color:#fff">Developers</div><div style="font-size:6px;color:rgba(255,255,255,0.3)">Architecture, contracts, API</div></div>
+                  </div>
                 </div>
-                <div style="flex:1;border:1px solid #424242;border-radius:8px;padding:12px">
-                  <div style="margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-                  <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:4px">Developers</div>
-                  <div style="font-size:6.5px;color:rgba(255,255,255,0.35);line-height:1.5">Vault architecture, smart contracts, integration guides, and the REST API reference.</div>
+                <!-- Nav items -->
+                <div style="font-size:7px;color:rgba(255,255,255,0.3);display:flex;flex-direction:column;gap:2px">
+                  <div style="color:#c8f07a;font-weight:600">Welcome</div>
+                  <div>Protocol Overview</div>
+                  <div>Getting Started</div>
+                  <div>Risks &amp; Audits</div>
+                  <div>Product Suite</div>
+                  <div>For Developers</div>
                 </div>
-              </div>
-              <!-- Next page nav -->
-              <div style="border-top:1px solid #424242;padding-top:12px;text-align:right">
-                <div style="font-size:7px;color:rgba(255,255,255,0.3)">Next</div>
-                <div style="font-size:9px;font-weight:600;color:#fff">Getting Started</div>
               </div>
             </div>
           </div>
