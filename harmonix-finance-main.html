@@ -160,18 +160,18 @@ ul{list-style:none}
 .section:not(.section-dark) .showcase-text .btn-pill:hover{background:var(--dark)}
 /* Showcase phone - cropped at bottom like Coinbase */
 .showcase-phone-wrap{display:flex;align-items:flex-start;justify-content:center;padding:40px 32px 0;height:100%;overflow:hidden}
-.showcase-phone{width:260px;height:560px;background:#000;border-radius:40px;padding:12px;box-shadow:0 -8px 40px rgba(76,175,80,0.1),0 20px 60px rgba(0,0,0,0.2);position:relative;z-index:1;border:3px solid #222;flex-shrink:0}
-.showcase-phone::before{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:26px;background:#000;border-radius:18px;z-index:5}
-.showcase-phone .sp-screen{width:100%;height:100%;background:#f8f9fa;border-radius:30px;overflow:hidden;position:relative}
-.showcase-phone .sp-status{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 6px;font-size:11px;font-weight:600;color:#000}
-.showcase-phone .sp-app{padding:6px 12px 12px}
-.showcase-phone .sp-title{font-size:16px;font-weight:800;color:#000;margin-bottom:10px;padding:0 4px}
-.showcase-phone .sp-row{background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:11px;margin-bottom:5px}
+.showcase-phone{width:220px;height:440px;background:#000;border-radius:36px;padding:10px;box-shadow:0 -8px 40px rgba(76,175,80,0.1),0 20px 60px rgba(0,0,0,0.2);position:relative;z-index:1;border:3px solid #222;flex-shrink:0}
+.showcase-phone::before{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:72px;height:22px;background:#000;border-radius:14px;z-index:5}
+.showcase-phone .sp-screen{width:100%;height:100%;background:#f8f9fa;border-radius:28px;overflow:hidden;position:relative}
+.showcase-phone .sp-status{display:flex;justify-content:space-between;align-items:center;padding:10px 18px 4px;font-size:9px;font-weight:600;color:#000}
+.showcase-phone .sp-app{padding:4px 10px 10px}
+.showcase-phone .sp-title{font-size:13px;font-weight:800;color:#000;margin-bottom:8px;padding:0 2px}
+.showcase-phone .sp-row{background:#fff;border:1px solid var(--gray-200);border-radius:8px;padding:8px;margin-bottom:4px}
 .showcase-phone .sp-row-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
-.showcase-phone .sp-name{font-size:12px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:5px}
-.showcase-phone .sp-name .dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
-.showcase-phone .sp-apy{font-size:11px;font-weight:700;color:var(--green)}
-.showcase-phone .sp-meta{font-size:9px;color:var(--gray-500);display:flex;justify-content:space-between}
+.showcase-phone .sp-name{font-size:10px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:4px}
+.showcase-phone .sp-name .dot{width:4px;height:4px;border-radius:50%;background:var(--green)}
+.showcase-phone .sp-apy{font-size:9px;font-weight:700;color:var(--green)}
+.showcase-phone .sp-meta{font-size:8px;color:var(--gray-500);display:flex;justify-content:space-between}
 .showcase-phone .sp-meta span:last-child{font-weight:600;color:var(--gray-700)}
 /* Desktop/laptop frame for showcase */
 .showcase-desktop-wrap{display:flex;align-items:flex-end;justify-content:center;padding:48px 24px 0;height:100%;overflow:hidden}
@@ -572,7 +572,97 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCT 2: HYPE Tokens (dark bg, text LEFT, dashboard RIGHT) -->
+<!-- PRODUCT 2: Yield & Analytics — combined (dark section, reversed) -->
+<section class="section section-dark" id="yield-analytics">
+  <div class="container">
+    <div class="showcase reverse anim">
+      <div class="showcase-visual v-charcoal" style="padding:24px;flex-direction:column;gap:10px;align-items:stretch">
+        <!-- Interactive Yield Calculator (compact) -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px" id="yield-calc">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <div style="font-size:14px;font-weight:700;color:#fff">Yield Calculator</div>
+            <div style="font-size:9px;padding:3px 8px;border-radius:100px;background:rgba(76,175,80,0.15);color:#4caf50;font-weight:600">LIVE</div>
+          </div>
+          <!-- Vault picker -->
+          <div style="display:flex;gap:4px;margin-bottom:12px">
+            <button onclick="selectVault('haUSDC',6.2)" class="yc-vault yc-active" id="yc-v-haUSDC" style="flex:1;text-align:center;padding:8px 4px;background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.25);border-radius:6px;cursor:pointer;font-family:inherit">
+              <div style="font-size:10px;font-weight:700;color:#fff">haUSDC</div>
+              <div style="font-size:9px;font-weight:700;color:#4caf50">6.2%</div>
+            </button>
+            <button onclick="selectVault('haUSDT',5.8)" class="yc-vault" id="yc-v-haUSDT" style="flex:1;text-align:center;padding:8px 4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;cursor:pointer;font-family:inherit">
+              <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.6)">haUSDT</div>
+              <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,0.3)">5.8%</div>
+            </button>
+            <button onclick="selectVault('haHYPE',8.1)" class="yc-vault" id="yc-v-haHYPE" style="flex:1;text-align:center;padding:8px 4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;cursor:pointer;font-family:inherit">
+              <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.6)">haHYPE</div>
+              <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,0.3)">8.1%</div>
+            </button>
+          </div>
+          <!-- Amount input -->
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:10px;transition:border-color 0.2s" id="yc-input-wrap">
+            <span style="font-size:16px;color:rgba(255,255,255,0.3);font-weight:600">$</span>
+            <input type="text" id="yc-amount" value="50,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='rgba(76,175,80,0.5)'" onblur="document.getElementById('yc-input-wrap').style.borderColor='rgba(255,255,255,0.1)'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#fff;width:100%">
+            <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);padding:3px 8px;border-radius:4px;background:rgba(255,255,255,0.06)">USDC</span>
+          </div>
+          <!-- Quick amounts -->
+          <div style="display:flex;gap:4px;margin-bottom:12px">
+            <button onclick="setAmount(1000)" style="flex:1;padding:5px;border-radius:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit">$1K</button>
+            <button onclick="setAmount(10000)" style="flex:1;padding:5px;border-radius:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit">$10K</button>
+            <button onclick="setAmount(50000)" style="flex:1;padding:5px;border-radius:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit">$50K</button>
+            <button onclick="setAmount(100000)" style="flex:1;padding:5px;border-radius:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit">$100K</button>
+          </div>
+          <!-- Result -->
+          <div style="background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.15);border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <span style="font-size:10px;color:rgba(255,255,255,0.4)">Est. Annual Yield</span>
+              <span style="font-size:20px;font-weight:800;color:#4caf50;letter-spacing:-0.5px" id="yc-annual">$3,100</span>
+            </div>
+            <div style="display:flex;gap:6px">
+              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:5px;padding:6px;text-align:center">
+                <div style="font-size:7px;color:rgba(255,255,255,0.3)">Monthly</div>
+                <div style="font-size:11px;font-weight:700;color:#fff" id="yc-monthly">$258</div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:5px;padding:6px;text-align:center">
+                <div style="font-size:7px;color:rgba(255,255,255,0.3)">Daily</div>
+                <div style="font-size:11px;font-weight:700;color:#fff" id="yc-daily">$8.49</div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:5px;padding:6px;text-align:center">
+                <div style="font-size:7px;color:rgba(255,255,255,0.3)">APY</div>
+                <div style="font-size:11px;font-weight:700;color:#4caf50" id="yc-apy-display">6.2%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Vault APY chart -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <div style="font-size:12px;font-weight:700;color:#fff">Vault APY</div>
+            <div style="display:flex;gap:3px">
+              <span style="font-size:8px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:3px;color:rgba(255,255,255,0.3)">1W</span>
+              <span style="font-size:8px;background:rgba(76,175,80,0.2);padding:2px 6px;border-radius:3px;color:#4caf50">1M</span>
+              <span style="font-size:8px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:3px;color:rgba(255,255,255,0.3)">ALL</span>
+            </div>
+          </div>
+          <svg viewBox="0 0 300 50" width="100%" height="50" fill="none" style="display:block">
+            <line x1="0" y1="25" x2="300" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="4"/>
+            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26 L300 50 L0 50Z" fill="rgba(76,175,80,0.06)"/>
+            <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26" stroke="#4caf50" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="300" cy="26" r="2.5" fill="#4caf50"/>
+            <text x="290" y="22" font-size="7" fill="#4caf50" font-family="Inter,sans-serif" text-anchor="end">6.2%</text>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>YIELD &amp; ANALYTICS</div>
+        <h2>Estimate and track your yield.</h2>
+        <p>Enter any amount, pick a vault, and see estimated returns instantly. Track vault APY trends in real-time — all verifiable onchain.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Start earning</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT 3: HYPE Tokens (dark bg, text LEFT, dashboard RIGHT) -->
 <section class="section section-dark" id="hype-vaults">
   <div class="container">
     <div class="showcase reverse anim">
@@ -670,83 +760,7 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCT 5: Analytics (white section) — deposit growth chart -->
-<section class="section" id="analytics">
-  <div class="container">
-    <div class="showcase anim">
-      <div class="showcase-visual v-dark" style="padding:28px;flex-direction:column;gap:10px;align-items:stretch">
-        <!-- Protocol stats row -->
-        <div style="display:flex;gap:8px">
-          <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px">
-            <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">AUM</div>
-            <div style="font-size:22px;font-weight:800;color:#4caf50">$7M</div>
-          </div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px">
-            <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Depositors</div>
-            <div style="font-size:22px;font-weight:800;color:#fff">13,110</div>
-          </div>
-        </div>
-        <!-- Your deposit card — 50K USDC growing -->
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;position:relative">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-            <div style="font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px">Your Deposit</div>
-            <div style="display:flex;gap:4px">
-              <span style="font-size:8px;background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:3px;color:rgba(255,255,255,0.3)">1W</span>
-              <span style="font-size:8px;background:rgba(76,175,80,0.2);padding:2px 8px;border-radius:3px;color:#4caf50">1M</span>
-              <span style="font-size:8px;background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:3px;color:rgba(255,255,255,0.3)">ALL</span>
-            </div>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:2px">
-            <span style="font-size:28px;font-weight:800;color:#fff;letter-spacing:-1px">$50,847</span>
-            <span style="font-size:12px;font-weight:600;color:#4caf50">+$847.23</span>
-          </div>
-          <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:14px">50,000 USDC deposited · haUSDC Vault · 6.2% APY</div>
-          <!-- Growth chart — slowly rising line -->
-          <svg viewBox="0 0 320 80" width="100%" height="80" fill="none" style="display:block">
-            <!-- Grid lines -->
-            <line x1="0" y1="20" x2="320" y2="20" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-            <line x1="0" y1="40" x2="320" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-            <line x1="0" y1="60" x2="320" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-            <!-- Y labels -->
-            <text x="2" y="18" font-size="7" fill="rgba(255,255,255,0.15)" font-family="Inter,sans-serif">$51K</text>
-            <text x="2" y="58" font-size="7" fill="rgba(255,255,255,0.15)" font-family="Inter,sans-serif">$50K</text>
-            <!-- Growth fill area -->
-            <path d="M0 62 Q20 62 40 60 Q60 58 80 56 Q100 54 120 52 Q140 50 160 47 Q180 44 200 40 Q220 36 240 32 Q260 28 280 24 Q300 20 320 16 L320 80 L0 80Z" fill="rgba(76,175,80,0.08)"/>
-            <!-- Growth line — steady upward curve -->
-            <path d="M0 62 Q20 62 40 60 Q60 58 80 56 Q100 54 120 52 Q140 50 160 47 Q180 44 200 40 Q220 36 240 32 Q260 28 280 24 Q300 20 320 16" stroke="#4caf50" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <!-- Current value dot -->
-            <circle cx="320" cy="16" r="3.5" fill="#4caf50"/>
-            <circle cx="320" cy="16" r="6" fill="rgba(76,175,80,0.2)"/>
-            <!-- Deposit marker -->
-            <line x1="0" y1="62" x2="0" y2="72" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="2"/>
-            <text x="4" y="76" font-size="6" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif">Deposited</text>
-            <!-- X labels -->
-            <text x="60" y="76" font-size="6" fill="rgba(255,255,255,0.12)" font-family="Inter,sans-serif">Feb</text>
-            <text x="160" y="76" font-size="6" fill="rgba(255,255,255,0.12)" font-family="Inter,sans-serif">Mar</text>
-            <text x="260" y="76" font-size="6" fill="rgba(255,255,255,0.12)" font-family="Inter,sans-serif">Apr</text>
-          </svg>
-        </div>
-        <!-- Interest breakdown -->
-        <div style="display:flex;gap:8px">
-          <div style="flex:1;background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.15);border-radius:10px;padding:12px;text-align:center">
-            <div style="font-size:9px;color:rgba(255,255,255,0.35);margin-bottom:3px">Interest Earned</div>
-            <div style="font-size:16px;font-weight:800;color:#4caf50">+$847.23</div>
-          </div>
-          <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;text-align:center">
-            <div style="font-size:9px;color:rgba(255,255,255,0.35);margin-bottom:3px">Daily Yield</div>
-            <div style="font-size:16px;font-weight:800;color:#fff">+$8.49</div>
-          </div>
-        </div>
-      </div>
-      <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span>ANALYTICS</div>
-        <h2>Track your yield.</h2>
-        <p>$7M AUM, 13,110 depositors. Watch your deposit grow in real-time. Deposit 50K USDC and see interest compound daily — all verifiable onchain.</p>
-        <a href="https://app.harmonix.fi" target="_blank" class="btn-pill">View dashboard</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Analytics section removed — moved to position 2 -->
 
 <!-- PRODUCT 6: Points (dark section, reversed) -->
 <section class="section section-dark" id="points">
@@ -779,83 +793,7 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCT 7: Yield Estimator — INTERACTIVE (white section) -->
-<section class="section" id="yield-estimator">
-  <div class="container">
-    <div class="showcase anim">
-      <div class="showcase-visual v-dark" style="padding:32px;flex-direction:column;align-items:center;justify-content:center">
-        <div style="width:100%;max-width:340px" id="yield-calc">
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px">
-            <!-- Vault selector -->
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-              <div style="font-size:17px;font-weight:700;color:#fff">Yield Calculator</div>
-              <div style="font-size:10px;padding:4px 10px;border-radius:100px;background:rgba(76,175,80,0.15);color:#4caf50;font-weight:600;border:1px solid rgba(76,175,80,0.2)">LIVE</div>
-            </div>
-            <!-- Vault picker -->
-            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:6px">Select Vault</div>
-            <div style="display:flex;gap:6px;margin-bottom:18px">
-              <button onclick="selectVault('haUSDC',6.2)" class="yc-vault yc-active" id="yc-v-haUSDC" style="flex:1;text-align:center;padding:10px 6px;background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.25);border-radius:8px;cursor:pointer;font-family:inherit">
-                <div style="font-size:12px;font-weight:700;color:#fff">haUSDC</div>
-                <div style="font-size:10px;font-weight:700;color:#4caf50">6.2%</div>
-              </button>
-              <button onclick="selectVault('haUSDT',5.8)" class="yc-vault" id="yc-v-haUSDT" style="flex:1;text-align:center;padding:10px 6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;cursor:pointer;font-family:inherit">
-                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">haUSDT</div>
-                <div style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.3)">5.8%</div>
-              </button>
-              <button onclick="selectVault('haHYPE',8.1)" class="yc-vault" id="yc-v-haHYPE" style="flex:1;text-align:center;padding:10px 6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;cursor:pointer;font-family:inherit">
-                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">haHYPE</div>
-                <div style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.3)">8.1%</div>
-              </button>
-            </div>
-            <!-- Amount input - REAL INPUT -->
-            <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:6px">Deposit Amount (USDC)</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:10px;margin-bottom:16px;transition:border-color 0.2s" id="yc-input-wrap">
-              <span style="font-size:18px;color:rgba(255,255,255,0.3);font-weight:600">$</span>
-              <input type="text" id="yc-amount" value="50,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='rgba(76,175,80,0.5)'" onblur="document.getElementById('yc-input-wrap').style.borderColor='rgba(255,255,255,0.12)'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:24px;font-weight:800;color:#fff;width:100%">
-              <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);padding:4px 10px;border-radius:6px;background:rgba(255,255,255,0.06)">USDC</span>
-            </div>
-            <!-- Quick amount buttons -->
-            <div style="display:flex;gap:6px;margin-bottom:18px">
-              <button onclick="setAmount(1000)" style="flex:1;padding:7px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit;transition:all 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.color='rgba(255,255,255,0.4)'">$1K</button>
-              <button onclick="setAmount(10000)" style="flex:1;padding:7px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit;transition:all 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.color='rgba(255,255,255,0.4)'">$10K</button>
-              <button onclick="setAmount(50000)" style="flex:1;padding:7px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit;transition:all 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.color='rgba(255,255,255,0.4)'">$50K</button>
-              <button onclick="setAmount(100000)" style="flex:1;padding:7px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;font-family:inherit;transition:all 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.color='rgba(255,255,255,0.4)'">$100K</button>
-            </div>
-            <!-- Results - animated -->
-            <div style="background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.15);border-radius:12px;padding:16px;margin-bottom:6px">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-                <span style="font-size:11px;color:rgba(255,255,255,0.4)">Est. Annual Yield</span>
-                <span style="font-size:24px;font-weight:800;color:#4caf50;letter-spacing:-0.5px;transition:all 0.2s" id="yc-annual">$3,100</span>
-              </div>
-              <div style="display:flex;gap:8px">
-                <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:6px;padding:8px;text-align:center">
-                  <div style="font-size:8px;color:rgba(255,255,255,0.3)">Monthly</div>
-                  <div style="font-size:13px;font-weight:700;color:#fff;transition:all 0.2s" id="yc-monthly">$258</div>
-                </div>
-                <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:6px;padding:8px;text-align:center">
-                  <div style="font-size:8px;color:rgba(255,255,255,0.3)">Daily</div>
-                  <div style="font-size:13px;font-weight:700;color:#fff;transition:all 0.2s" id="yc-daily">$8.49</div>
-                </div>
-                <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:6px;padding:8px;text-align:center">
-                  <div style="font-size:8px;color:rgba(255,255,255,0.3)">APY</div>
-                  <div style="font-size:13px;font-weight:700;color:#4caf50;transition:all 0.2s" id="yc-apy-display">6.2%</div>
-                </div>
-              </div>
-            </div>
-            <!-- Deposit CTA -->
-            <a href="https://app.harmonix.fi/earn" target="_blank" style="display:block;background:#fff;color:#000;text-align:center;padding:13px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s;margin-top:12px" onmouseover="this.style.background='#e8f5e9';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#fff';this.style.transform='none'">Deposit on Harmonix</a>
-          </div>
-        </div>
-      </div>
-      <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span>YIELD ESTIMATOR</div>
-        <h2>Know your yield before you deposit.</h2>
-        <p>Type any amount and instantly see estimated returns across vaults. Switch between haUSDC, haUSDT, and haHYPE to compare yields.</p>
-        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Start earning</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Yield Estimator removed — merged into Product 2 -->
 
 <!-- PRODUCT 8: Cross-chain Deposits (dark section, reversed) -->
 <section class="section section-dark" id="crosschain">
