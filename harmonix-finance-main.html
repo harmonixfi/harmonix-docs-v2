@@ -145,14 +145,29 @@ ul{list-style:none}
 .legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-600);font-weight:500}
 .legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 
-/* INTEGRATIONS */
-.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.int-card{border:1px solid var(--gray-200);border-radius:10px;padding:28px 24px;display:flex;align-items:flex-start;gap:16px}
-.int-logo{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
-.int-logo img{width:40px;height:40px;object-fit:contain;border-radius:10px}
-.int-card h4{font-size:16px;font-weight:700;margin-bottom:4px;letter-spacing:-0.02em}
-.int-card p{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:8px}
-.int-card .int-tag{font-size:11px;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px}
+/* PARTNERS / INTEGRATIONS */
+.partners-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.partners-header .ph-left{display:flex;align-items:center;gap:12px}
+.partners-header .ph-left .divider{width:1px;height:20px;background:rgba(255,255,255,0.2)}
+.partners-header .ph-left span{font-size:15px;font-weight:500;color:rgba(255,255,255,0.5)}
+.partners-header .ph-right{font-size:14px;color:rgba(255,255,255,0.35);font-style:italic}
+.partner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.partner-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:32px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}
+.partner-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);transform:translateY(-2px)}
+.partner-card img{width:48px;height:48px;border-radius:12px;object-fit:cover}
+.partner-card .partner-name{font-size:13px;color:rgba(255,255,255,0.5);font-weight:500}
+/* Community */
+.community-section{background:var(--dark);padding:80px 0 120px}
+.community-header{text-align:right;margin-bottom:48px}
+.community-header h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-1.5px;color:var(--white);line-height:1.1}
+.community-header h2 span{color:var(--green)}
+.community-group{margin-bottom:32px}
+.community-group h4{font-size:14px;font-weight:600;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.community-avatars{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.community-avatars img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.08);transition:transform 0.2s}
+.community-avatars img:hover{transform:scale(1.1)}
+.community-avatars .more{font-size:13px;color:rgba(255,255,255,0.3);font-weight:500;margin-left:8px}
+@media(max-width:960px){.partner-grid{grid-template-columns:repeat(2,1fr)}.community-header{text-align:left}}
 
 /* CONTACT */
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px}
@@ -496,37 +511,80 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- INTEGRATIONS -->
-<section class="section" id="integrations">
+<!-- INTEGRATIONS / PARTNERS -->
+<section class="section section-dark" id="integrations">
   <div class="container">
-    <div class="section-header anim">
-      <div class="section-eyebrow">Integrations</div>
-      <h2 class="section-heading">Connected across<br>the ecosystem</h2>
+    <div class="partners-header anim">
+      <div class="ph-left">
+        <a href="/" class="nav-logo"><svg viewBox="0 0 146 28" height="20" xmlns="http://www.w3.org/2000/svg"><g><g><path fill="rgba(255,255,255,0.8)" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></g><path fill="rgba(255,255,255,0.8)" d="M73.9,24.5c-1.1,0-2.1-0.7-2.6-1.6c-0.3,0.3-0.6,0.5-1,0.7c-1,0.6-2.1,0.8-3.3,0.8c-1.2,0-2.3-0.3-3.3-0.8c-1-0.6-1.8-1.4-2.3-2.3c-0.6-1-0.8-2.1-0.8-3.3c0-1.2,0.3-2.3,0.8-3.2c0.6-1,1.4-1.7,2.3-2.3c1-0.6,2.1-0.9,3.3-0.9s2.3,0.3,3.3,0.8c0.2,0.1,0.5,0.3,0.7,0.5v-1.3h3L73.9,24.5z M58.7,21c0,1.9-1.5,3.5-3.5,3.5v-9.3h-9.9V21c0,1.9-1.5,3.5-3.5,3.5V7c0-1.9,1.5-3.5,3.5-3.5V12h9.9V7c0-1.9,1.5-3.5,3.5-3.5z"/></g></svg></a>
+        <div class="divider"></div>
+        <span>Integrations</span>
+      </div>
+      <div class="ph-right">Powered by</div>
     </div>
-    <div class="int-grid">
-      <div class="int-card anim d1">
-        <div class="int-logo"><img src="https://avatars.githubusercontent.com/u/168029493?s=80" alt="Hyperliquid"></div>
-        <div><h4>Hyperliquid</h4><p>HyperCore perpetuals and HyperEVM smart contracts.</p><span class="int-tag">Infrastructure</span></div>
+    <div class="partner-grid anim d1">
+      <div class="partner-card">
+        <img src="https://avatars.githubusercontent.com/u/168029493?s=80" alt="Hyperliquid">
+        <div class="partner-name">Hyperliquid</div>
       </div>
-      <div class="int-card anim d2">
-        <div class="int-logo"><img src="https://pbs.twimg.com/profile_images/1868374651413319680/T2VJFooH_200x200.jpg" alt="Felix"></div>
-        <div><h4>Felix</h4><p>Lending and borrowing for capital-efficient supply strategies.</p><span class="int-tag">Lending</span></div>
+      <div class="partner-card">
+        <img src="https://pbs.twimg.com/profile_images/1750911584224804864/N7MbBJDP_200x200.jpg" alt="Pendle">
+        <div class="partner-name">Pendle</div>
       </div>
-      <div class="int-card anim d3">
-        <div class="int-logo"><img src="https://pbs.twimg.com/profile_images/1886803724137238528/bGCEuMzK_200x200.jpg" alt="Hyperswap"></div>
-        <div><h4>Hyperswap</h4><p>Spot market liquidity and yield sourcing.</p><span class="int-tag">DEX</span></div>
+      <div class="partner-card">
+        <img src="https://pbs.twimg.com/profile_images/1868374651413319680/T2VJFooH_200x200.jpg" alt="Felix">
+        <div class="partner-name">Felix</div>
       </div>
-      <div class="int-card anim d1">
-        <div class="int-logo"><img src="https://pbs.twimg.com/profile_images/1796909564001939458/LyajRhXX_200x200.jpg" alt="HyperLend"></div>
-        <div><h4>HyperLend</h4><p>Additional yield streams for vault capital.</p><span class="int-tag">Lending</span></div>
+      <div class="partner-card">
+        <img src="https://pbs.twimg.com/profile_images/1886803724137238528/bGCEuMzK_200x200.jpg" alt="Hyperswap">
+        <div class="partner-name">Hyperswap</div>
       </div>
-      <div class="int-card anim d2">
-        <div class="int-logo" style="background:var(--gray-100)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gray-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-        <div><h4>BoringVault</h4><p>Modular vault framework with Merkle tree auth.</p><span class="int-tag">Framework</span></div>
+    </div>
+    <div class="partner-grid anim d2" style="grid-template-columns:repeat(3,1fr);max-width:840px;margin:12px auto 0">
+      <div class="partner-card">
+        <img src="https://pbs.twimg.com/profile_images/1837141563102334976/Rk3S5Y2D_200x200.jpg" alt="Kinetiq">
+        <div class="partner-name">Kinetiq</div>
       </div>
-      <div class="int-card anim d3">
-        <div class="int-logo" style="background:var(--gray-100)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gray-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
-        <div><h4>ERC-4626</h4><p>Tokenized vault standard for DeFi composability.</p><span class="int-tag">Standard</span></div>
+      <div class="partner-card">
+        <img src="https://pbs.twimg.com/profile_images/1796909564001939458/LyajRhXX_200x200.jpg" alt="HyperLend">
+        <div class="partner-name">HyperLend</div>
+      </div>
+      <div class="partner-card">
+        <img src="https://pbs.twimg.com/profile_images/1771602101061160960/nKOBsQib_200x200.jpg" alt="HypurrFi">
+        <div class="partner-name">HypurrFi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community-section">
+  <div class="container">
+    <div class="community-header anim">
+      <h2>Supported by<br><span>Community</span></h2>
+    </div>
+    <div class="community-group anim d1">
+      <h4>Builders</h4>
+      <div class="community-avatars">
+        <img src="https://pbs.twimg.com/profile_images/1851953782847619072/0fuL9dYo_200x200.jpg" alt="Builder">
+        <img src="https://pbs.twimg.com/profile_images/1879879736488165376/tLYGMWY0_200x200.jpg" alt="Builder">
+        <img src="https://pbs.twimg.com/profile_images/1825897082843795456/0_8Gx5jT_200x200.jpg" alt="Builder">
+        <img src="https://pbs.twimg.com/profile_images/1872032736497213440/lXscnxmm_200x200.jpg" alt="Builder">
+        <img src="https://pbs.twimg.com/profile_images/1866897133891911680/Hkd-VLfT_200x200.jpg" alt="Builder">
+        <img src="https://pbs.twimg.com/profile_images/1862170837706481664/skU_nLJV_200x200.jpg" alt="Builder">
+        <span class="more">and more</span>
+      </div>
+    </div>
+    <div class="community-group anim d2">
+      <h4>Active Community Members</h4>
+      <div class="community-avatars">
+        <img src="https://pbs.twimg.com/profile_images/1884267534674706432/gRQxLOPW_200x200.jpg" alt="Member">
+        <img src="https://pbs.twimg.com/profile_images/1878442696953233408/R5GNJa_W_200x200.jpg" alt="Member">
+        <img src="https://pbs.twimg.com/profile_images/1870819000369823745/oLLIHYKe_200x200.jpg" alt="Member">
+        <img src="https://pbs.twimg.com/profile_images/1856737447150977025/AHCLi1CK_200x200.jpg" alt="Member">
+        <img src="https://pbs.twimg.com/profile_images/1861789389388345344/EoP_NmeY_200x200.jpg" alt="Member">
+        <img src="https://pbs.twimg.com/profile_images/1875224755197755392/sRlyJMpb_200x200.jpg" alt="Member">
+        <span class="more">and more</span>
       </div>
     </div>
   </div>
