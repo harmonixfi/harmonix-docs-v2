@@ -120,14 +120,33 @@ ul{list-style:none}
 .hausd-coming .big{font-size:24px;font-weight:800;letter-spacing:-0.5px;color:#4caf50}
 .hausd-coming .label{font-size:14px;color:#4caf50;margin-top:4px;font-weight:500}
 
-/* PRODUCTS - white section */
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:12px;overflow:hidden}
-.product-card{padding:40px 32px;background:var(--white)}
-.product-card h3{font-size:20px;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em;color:var(--black)}
-.product-card .tokens{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.product-card .tok{font-size:12px;font-weight:600;padding:3px 10px;border-radius:4px;background:var(--gray-50);color:var(--gray-700);border:1px solid var(--gray-200)}
-.product-card p{font-size:14px;color:var(--gray-600);line-height:1.6}
-.product-card .tag{font-size:11px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:0.8px;margin-top:16px}
+/* PRODUCTS SLIDESHOW - Coinbase style */
+.slideshow{position:relative;background:var(--dark);border-radius:20px;padding:80px 64px;overflow:hidden;min-height:480px}
+.slideshow::before{content:'';position:absolute;top:0;left:50%;width:600px;height:300px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(45,106,46,0.1) 0%,transparent 70%);pointer-events:none}
+.slide{display:none;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.slide.active{display:grid}
+.slide-visual{display:flex;align-items:center;justify-content:center}
+.slide-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px;width:100%;max-width:360px}
+.slide-card .sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.slide-card .sc-name{font-size:20px;font-weight:700;color:#fff}
+.slide-card .sc-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;background:rgba(45,106,46,0.2);color:#4caf50;text-transform:uppercase;letter-spacing:0.5px}
+.slide-card .sc-stat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.slide-card .sc-stat:last-child{border-bottom:none}
+.slide-card .sc-stat .sc-label{font-size:13px;color:rgba(255,255,255,0.4)}
+.slide-card .sc-stat .sc-val{font-size:13px;font-weight:600;color:#fff}
+.slide-card .sc-stat .sc-val.green{color:#4caf50}
+.slide-text h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-2px;line-height:1.05;color:#fff;margin-bottom:16px}
+.slide-text p{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:32px;max-width:400px}
+.slide-text .btn{background:var(--white);color:var(--black);font-weight:600;border-radius:100px;padding:14px 32px;font-size:15px}
+.slide-text .btn:hover{background:var(--gray-100)}
+.slide-controls{display:flex;align-items:center;justify-content:space-between;margin-top:40px}
+.slide-dots{display:flex;align-items:center;gap:8px}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:all 0.3s}
+.slide-dot.active{width:24px;border-radius:4px;background:rgba(255,255,255,0.6)}
+.slide-arrows{display:flex;gap:8px}
+.slide-arrow{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;color:rgba(255,255,255,0.5)}
+.slide-arrow:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff}
+@media(max-width:960px){.slide.active{grid-template-columns:1fr}.slide-visual{order:-1}.slideshow{padding:48px 28px}}
 
 /* HOW - dark section */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -412,33 +431,78 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- PRODUCTS SLIDESHOW -->
 <section class="section" id="products">
   <div class="container">
-    <div class="section-header anim">
-      <div class="section-eyebrow">Product Suite</div>
-      <h2 class="section-heading">Yield infrastructure<br>on Hyperliquid</h2>
-      <p class="section-desc">Funding rates, lending yields, ecosystem incentives. Distributed via yield-bearing tokens.</p>
-    </div>
-    <div class="products-grid">
-      <a href="https://app.harmonix.fi/earn" target="_blank" class="product-card anim d1" style="text-decoration:none;color:inherit;display:block">
-        <h3>Yield-Bearing Stablecoins</h3>
-        <div class="tokens"><span class="tok">haUSDC</span><span class="tok">haUSDT</span><span class="tok">haUSDH</span></div>
-        <p>ERC-4626 tokens deploying capital across market-neutral strategies. 1% annualized management fee. No other fees.</p>
-        <div class="tag">Hyperliquid</div>
-      </a>
-      <a href="https://app.harmonix.fi/earn" target="_blank" class="product-card anim d2" style="text-decoration:none;color:inherit;display:block">
-        <h3>Yield-Bearing Tokens</h3>
-        <div class="tokens"><span class="tok">haHYPE</span><span class="tok">hakHYPE</span></div>
-        <p>HYPE and kHYPE tokens that compound yield into share price while accruing points from multiple protocols.</p>
-        <div class="tag">Hyperliquid</div>
-      </a>
-      <a href="https://app.harmonix.fi/earn" target="_blank" class="product-card anim d3" style="text-decoration:none;color:inherit;display:block">
-        <h3>Basis Trade Vault</h3>
-        <div class="tokens"><span class="tok">USDC</span></div>
-        <p>Delta-neutral strategy capturing funding rates with zero directional HYPE exposure. Deployed on Arbitrum.</p>
-        <div class="tag">Arbitrum</div>
-      </a>
+    <div class="slideshow anim" id="productSlideshow">
+      <!-- Slide 1: Stablecoins -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-visual">
+          <div class="slide-card">
+            <div class="sc-header"><div class="sc-name">haUSD Vaults</div><div class="sc-badge">Live</div></div>
+            <div class="sc-stat"><span class="sc-label">haUSDC APY</span><span class="sc-val green">6.2%</span></div>
+            <div class="sc-stat"><span class="sc-label">haUSDT APY</span><span class="sc-val green">5.8%</span></div>
+            <div class="sc-stat"><span class="sc-label">haUSDH APY</span><span class="sc-val green">5.5%</span></div>
+            <div class="sc-stat"><span class="sc-label">Strategy</span><span class="sc-val">Delta Neutral</span></div>
+            <div class="sc-stat"><span class="sc-label">Fee</span><span class="sc-val">1% mgmt</span></div>
+          </div>
+        </div>
+        <div class="slide-text">
+          <h2>Yield-bearing stablecoins</h2>
+          <p>Deposit USDC, USDT, or USDH and receive ERC-4626 tokens that grow in value through delta-neutral strategies.</p>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="btn">Deposit now</a>
+        </div>
+      </div>
+      <!-- Slide 2: HYPE Tokens -->
+      <div class="slide" data-slide="1">
+        <div class="slide-visual">
+          <div class="slide-card">
+            <div class="sc-header"><div class="sc-name">HYPE Vaults</div><div class="sc-badge">Live</div></div>
+            <div class="sc-stat"><span class="sc-label">haHYPE APY</span><span class="sc-val green">8.1%</span></div>
+            <div class="sc-stat"><span class="sc-label">hakHYPE APY</span><span class="sc-val green">7.4%</span></div>
+            <div class="sc-stat"><span class="sc-label">Points</span><span class="sc-val green">Accruing</span></div>
+            <div class="sc-stat"><span class="sc-label">Strategy</span><span class="sc-val">Yield Compound</span></div>
+            <div class="sc-stat"><span class="sc-label">Network</span><span class="sc-val">Hyperliquid</span></div>
+          </div>
+        </div>
+        <div class="slide-text">
+          <h2>Compound your HYPE</h2>
+          <p>HYPE and kHYPE tokens that compound yield into share price while accruing points from multiple protocols.</p>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="btn">Deposit now</a>
+        </div>
+      </div>
+      <!-- Slide 3: Basis Trade -->
+      <div class="slide" data-slide="2">
+        <div class="slide-visual">
+          <div class="slide-card">
+            <div class="sc-header"><div class="sc-name">Basis Trade</div><div class="sc-badge">Live</div></div>
+            <div class="sc-stat"><span class="sc-label">APY</span><span class="sc-val green">6.5%</span></div>
+            <div class="sc-stat"><span class="sc-label">Deposit</span><span class="sc-val">USDC</span></div>
+            <div class="sc-stat"><span class="sc-label">HYPE Exposure</span><span class="sc-val">0%</span></div>
+            <div class="sc-stat"><span class="sc-label">Strategy</span><span class="sc-val">Funding Rates</span></div>
+            <div class="sc-stat"><span class="sc-label">Network</span><span class="sc-val">Arbitrum</span></div>
+          </div>
+        </div>
+        <div class="slide-text">
+          <h2>Trade more with less</h2>
+          <p>Delta-neutral strategy capturing funding rates with zero directional HYPE exposure. Fully automated.</p>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="btn">Deposit now</a>
+        </div>
+      </div>
+      <!-- Controls -->
+      <div class="slide-controls">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div class="slide-dots">
+            <div class="slide-dot active" data-goto="0"></div>
+            <div class="slide-dot" data-goto="1"></div>
+            <div class="slide-dot" data-goto="2"></div>
+          </div>
+        </div>
+        <div class="slide-arrows">
+          <div class="slide-arrow" id="prevSlide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></div>
+          <div class="slide-arrow" id="nextSlide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -675,6 +739,21 @@ window.addEventListener('scroll',()=>{
 // Hamburger
 document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('open')});
 document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open')));
+// Product Slideshow
+(function(){
+  let cur=0;const total=3;
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.slide-dot');
+  function goTo(n){
+    slides[cur].classList.remove('active');dots[cur].classList.remove('active');
+    cur=((n%total)+total)%total;
+    slides[cur].classList.add('active');dots[cur].classList.add('active');
+  }
+  document.getElementById('nextSlide').addEventListener('click',()=>goTo(cur+1));
+  document.getElementById('prevSlide').addEventListener('click',()=>goTo(cur-1));
+  dots.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.goto)));
+  setInterval(()=>goTo(cur+1),6000);
+})();
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
