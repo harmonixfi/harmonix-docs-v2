@@ -190,13 +190,15 @@ ul{list-style:none}
 .phone-screen .ps-logo-center{display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;z-index:1}
 .phone-screen .ps-logo-center svg{filter:drop-shadow(0 4px 24px rgba(0,0,0,0.3))}
 .phone-home-bar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:120px;height:4px;background:rgba(255,255,255,0.25);border-radius:4px}
-.phone-text{display:flex;flex-direction:column;justify-content:center;padding:80px 64px;background:var(--bg)}
-.phone-text h2{font-size:clamp(36px,5vw,60px);font-weight:300;letter-spacing:-2px;line-height:1.1;margin-bottom:24px;color:var(--white)}
-.phone-text h2 strong{font-weight:700}
-.phone-text p{font-size:17px;color:var(--text-dim);line-height:1.7;margin-bottom:36px;font-weight:300;max-width:440px}
+.phone-text{display:flex;flex-direction:column;justify-content:center;padding:80px 64px;background:#ffffff}
+.phone-text h2{font-size:clamp(36px,5vw,60px);font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:24px;color:#000}
+.phone-text h2 strong{font-weight:800}
+.phone-text p{font-size:17px;color:#555;line-height:1.7;margin-bottom:36px;font-weight:400;max-width:440px}
 .phone-features{display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
-.phone-feature{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--text);font-weight:400}
-.phone-feature .check{width:22px;height:22px;border-radius:50%;background:rgba(45,106,46,0.25);border:1px solid rgba(76,175,80,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent-light);font-size:11px}
+.phone-feature{display:flex;align-items:center;gap:12px;font-size:15px;color:#333;font-weight:400}
+.phone-feature .check{width:22px;height:22px;border-radius:50%;background:rgba(0,200,5,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#00C805;font-size:11px;font-weight:700}
+.phone-text .btn-accent{background:#00C805;color:#fff;font-weight:600}
+.phone-text .btn-accent:hover{background:#00b004}
 @media(max-width:960px){.phone-layout{grid-template-columns:1fr}.phone-visual{padding:60px 40px;min-height:500px}.phone-text{padding:60px 40px;text-align:center}.phone-text p{margin:0 auto 36px}.phone-features{align-items:center}}
 
 /* CONTACT */
@@ -497,23 +499,10 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PHONE MOCKUP -->
+<!-- PHONE MOCKUP - Coinbase style -->
 <section class="phone-section">
-  <div class="container">
     <div class="phone-layout">
-      <div class="phone-text anim">
-        <div class="section-pill">Mobile Experience</div>
-        <h2>Your yield, <strong>in your pocket</strong></h2>
-        <p>Access Harmonix vaults, track your earnings, and manage positions directly from your browser. Built for speed on Hyperliquid.</p>
-        <div class="phone-features">
-          <div class="phone-feature"><div class="check">&#10003;</div>Real-time APY tracking</div>
-          <div class="phone-feature"><div class="check">&#10003;</div>One-tap deposit &amp; withdraw</div>
-          <div class="phone-feature"><div class="check">&#10003;</div>Multi-vault portfolio view</div>
-          <div class="phone-feature"><div class="check">&#10003;</div>Yield notifications</div>
-        </div>
-        <a href="https://app.harmonix.fi" class="btn btn-accent btn-large btn-arrow" target="_blank">Open App</a>
-      </div>
-      <div class="phone-mockup anim d2">
+      <div class="phone-visual anim">
         <div class="phone-frame">
           <div class="phone-screen">
             <div class="ps-logo-center">
@@ -524,8 +513,18 @@ ul{list-style:none}
           </div>
         </div>
       </div>
+      <div class="phone-text anim d1">
+        <h2>The future of yield is here.</h2>
+        <p>Access Harmonix vaults, track your earnings, and manage positions directly from your browser. Built for speed on Hyperliquid.</p>
+        <div class="phone-features">
+          <div class="phone-feature"><div class="check">&#10003;</div>Real-time APY tracking</div>
+          <div class="phone-feature"><div class="check">&#10003;</div>One-tap deposit &amp; withdraw</div>
+          <div class="phone-feature"><div class="check">&#10003;</div>Multi-vault portfolio view</div>
+          <div class="phone-feature"><div class="check">&#10003;</div>Yield notifications</div>
+        </div>
+        <a href="https://app.harmonix.fi" class="btn btn-accent btn-large btn-arrow" target="_blank">Launch App</a>
+      </div>
     </div>
-  </div>
 </section>
 
 <!-- INTEGRATIONS / PARTNERS -->
