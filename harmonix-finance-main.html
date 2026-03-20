@@ -355,6 +355,34 @@ ul{list-style:none}
   .token-stats{grid-template-columns:1fr 1fr}
 }
 
+/* EARN STEPS — Hero interactive section */
+.earn-steps{display:flex;flex-direction:column;gap:0}
+.earn-step{display:flex;align-items:flex-start;gap:18px;padding:16px 0;cursor:pointer;position:relative}
+.earn-step:not(:last-child)::after{content:'';position:absolute;left:16px;top:52px;bottom:-8px;width:1px;background:#e8ede4}
+.es-num{width:34px;height:34px;border-radius:50%;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all 0.2s}
+.earn-step.active .es-num{background:#d4f050;color:#1a2a0a}
+.earn-step.inactive .es-num{background:transparent;border:1.5px solid #dde5d8;color:#b8c8b0}
+.es-title{font-size:26px;font-weight:800;line-height:1.1;margin-bottom:8px;transition:color 0.2s}
+.earn-step.active .es-title{color:#111}
+.earn-step.inactive .es-title{color:#c8d4c0}
+.es-desc{font-size:14px;line-height:1.65;color:#6b7a66;max-width:300px;margin-bottom:16px}
+.earn-step.inactive .es-desc{display:none}
+.es-btn{background:#1c2a12;color:#d4f050;border:none;border-radius:100px;padding:10px 22px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-block}
+.es-btn:hover{background:#2d4018}
+.earn-step.inactive .es-btn{display:none}
+/* Earn card */
+.earn-card{background:#f4f7f0;border-radius:22px;border:1px solid #e4ece0;padding:28px;overflow:hidden}
+.earn-card-state{display:none}
+.earn-card-state.visible{display:block}
+.earn-info-box{background:#fff;border-radius:14px;padding:16px 18px;border:1px solid #eaefe6}
+.eib-label{font-size:11px;font-weight:600;color:#a8b8a0;margin-bottom:6px;background:#edf4e0;display:inline-block;padding:2px 8px;border-radius:100px}
+.eib-val{font-size:17px;font-weight:700;color:#111;margin-top:6px}
+.earn-points-box{background:#fff;border-radius:14px;padding:16px 18px;border:1px solid #eaefe6;display:flex;align-items:center;gap:12px}
+.epb-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.epb-label{font-size:11px;color:#9ab090;font-weight:500;margin-bottom:3px}
+.epb-val{font-size:20px;font-weight:800;color:#111}
+@media(max-width:960px){.earn-steps{margin-bottom:32px}.hero-inner{gap:40px !important}}
+
 /* ANIMATIONS - Aave/Morpho style */
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -417,84 +445,61 @@ ul{list-style:none}
   <a href="https://app.harmonix.fi" class="btn btn-dark btn-large" target="_blank" style="text-align:center;margin-top:16px">Launch App</a>
 </div>
 
-<!-- HERO — Morpho-style desktop screen + text -->
+<!-- HERO — Phone with vault list + text -->
 <section class="hero">
   <div class="hero-inner">
-    <!-- Desktop screen — Morpho style (flat screen, no laptop base) -->
-    <div class="anim visible" style="position:relative">
-      <div style="background:#111;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.15);border:1px solid #e9ecef">
-        <!-- Browser chrome -->
-        <div style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#f8f9fa;border-bottom:1px solid #e9ecef">
-          <div style="width:10px;height:10px;border-radius:50%;background:#ff5f57"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#ffbd2e"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#28c840"></div>
-          <div style="flex:1;background:#fff;border:1px solid #dee2e6;border-radius:6px;padding:5px 12px;font-size:12px;color:#868e96;margin-left:8px">app.harmonix.fi/earn</div>
-        </div>
-        <!-- Screen content — white earn page with vault list -->
-        <div style="background:#fff;padding:24px">
-          <!-- Earn page header -->
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-            <div style="display:flex;align-items:center;gap:10px">
-              <svg width="16" height="16" viewBox="0 0 30 28" fill="none"><path fill="#2d6a2e" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
-              <span style="font-size:16px;font-weight:800;color:#000;letter-spacing:-0.5px">Earn</span>
+    <!-- LEFT: Phone with vault list -->
+    <div class="hero-phone anim visible">
+      <div class="hero-phone-frame">
+        <div class="hero-phone-screen">
+          <div class="phone-status-bar">
+            <span class="time">9:41</span>
+            <span class="icons"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M5 12.55a10.94 10.94 0 0114 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg> <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="1" y="6" width="18" height="12" rx="2" stroke="#000" stroke-width="1.5"/><rect x="20" y="10" width="3" height="4" rx="1" fill="#000"/><rect x="3" y="8" width="10" height="8" rx="1" fill="#000"/></svg></span>
+          </div>
+          <div class="phone-app">
+            <!-- Earn header -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:0 2px">
+              <div style="display:flex;align-items:center;gap:6px">
+                <svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#2d6a2e" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
+                <span style="font-size:15px;font-weight:800;color:#000;letter-spacing:-0.3px">Earn</span>
+              </div>
+              <div style="display:flex;gap:2px;background:#f1f3f5;border-radius:5px;padding:2px">
+                <span style="font-size:9px;font-weight:700;color:#fff;background:#2d6a2e;padding:3px 8px;border-radius:3px">All</span>
+                <span style="font-size:9px;font-weight:600;color:#868e96;padding:3px 8px">Stables</span>
+                <span style="font-size:9px;font-weight:600;color:#868e96;padding:3px 8px">HYPE</span>
+              </div>
             </div>
-            <div style="display:flex;gap:2px;background:#f1f3f5;border-radius:6px;padding:2px">
-              <span style="font-size:11px;font-weight:700;color:#fff;background:#2d6a2e;padding:4px 12px;border-radius:4px">All</span>
-              <span style="font-size:11px;font-weight:600;color:#868e96;padding:4px 12px;border-radius:4px">Stables</span>
-              <span style="font-size:11px;font-weight:600;color:#868e96;padding:4px 12px;border-radius:4px">HYPE</span>
+            <!-- Vault list -->
+            <div class="phone-vault-card">
+              <div class="pv-top"><div class="pv-name"><span class="pv-dot"></span>haUSDC</div><div class="pv-apy">7.0% APY</div></div>
+              <div class="pv-row"><span>TVL</span><span>$2.4M</span></div>
+              <div class="pv-row"><span>Strategy</span><span>Delta Neutral</span></div>
             </div>
-          </div>
-          <!-- Vault list header -->
-          <div style="display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #f1f3f5;font-size:11px;font-weight:600;color:#adb5bd;text-transform:uppercase;letter-spacing:0.5px">
-            <span style="flex:2">Vault</span>
-            <span style="flex:1;text-align:right">APY</span>
-            <span style="flex:1;text-align:right">TVL</span>
-            <span style="flex:1.5;text-align:right">Strategy</span>
-            <span style="flex:1;text-align:right"></span>
-          </div>
-          <!-- haUSDC -->
-          <div style="display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #f8f9fa">
-            <div style="flex:2;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#2d6a2e"></span><span style="font-size:14px;font-weight:700;color:#000">haUSDC</span></div>
-            <div style="flex:1;text-align:right;font-size:14px;font-weight:800;color:#2d6a2e">7.0%</div>
-            <div style="flex:1;text-align:right;font-size:13px;color:#495057">$2.4M</div>
-            <div style="flex:1.5;text-align:right;font-size:12px;color:#868e96">Delta Neutral</div>
-            <div style="flex:1;text-align:right"><span style="background:#2d6a2e;color:#fff;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700">Deposit</span></div>
-          </div>
-          <!-- haUSDT -->
-          <div style="display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #f8f9fa">
-            <div style="flex:2;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#2d6a2e"></span><span style="font-size:14px;font-weight:700;color:#000">haUSDT</span></div>
-            <div style="flex:1;text-align:right;font-size:14px;font-weight:800;color:#2d6a2e">5.8%</div>
-            <div style="flex:1;text-align:right;font-size:13px;color:#495057">$1.8M</div>
-            <div style="flex:1.5;text-align:right;font-size:12px;color:#868e96">Delta Neutral</div>
-            <div style="flex:1;text-align:right"><span style="background:#2d6a2e;color:#fff;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700">Deposit</span></div>
-          </div>
-          <!-- haHYPE -->
-          <div style="display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #f8f9fa">
-            <div style="flex:2;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#2d6a2e"></span><span style="font-size:14px;font-weight:700;color:#000">haHYPE</span></div>
-            <div style="flex:1;text-align:right;font-size:14px;font-weight:800;color:#2d6a2e">8.1%</div>
-            <div style="flex:1;text-align:right;font-size:13px;color:#495057">$3.1M</div>
-            <div style="flex:1.5;text-align:right;font-size:12px;color:#868e96">Yield Compound</div>
-            <div style="flex:1;text-align:right"><span style="background:#2d6a2e;color:#fff;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700">Deposit</span></div>
-          </div>
-          <!-- hakHYPE -->
-          <div style="display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #f8f9fa">
-            <div style="flex:2;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#2d6a2e"></span><span style="font-size:14px;font-weight:700;color:#000">hakHYPE</span></div>
-            <div style="flex:1;text-align:right;font-size:14px;font-weight:800;color:#2d6a2e">7.4%</div>
-            <div style="flex:1;text-align:right;font-size:13px;color:#495057">$1.2M</div>
-            <div style="flex:1.5;text-align:right;font-size:12px;color:#868e96">Yield Compound</div>
-            <div style="flex:1;text-align:right"><span style="background:#2d6a2e;color:#fff;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700">Deposit</span></div>
-          </div>
-          <!-- USDC Basis -->
-          <div style="display:flex;align-items:center;padding:14px 0">
-            <div style="flex:2;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#1565c0"></span><span style="font-size:14px;font-weight:700;color:#000">Basis Trade</span></div>
-            <div style="flex:1;text-align:right;font-size:14px;font-weight:800;color:#1565c0">7.0%</div>
-            <div style="flex:1;text-align:right;font-size:13px;color:#495057">$2.4M</div>
-            <div style="flex:1.5;text-align:right;font-size:12px;color:#868e96">Funding Rates</div>
-            <div style="flex:1;text-align:right"><span style="background:#1565c0;color:#fff;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700">Deposit</span></div>
+            <div class="phone-vault-card">
+              <div class="pv-top"><div class="pv-name"><span class="pv-dot"></span>haUSDT</div><div class="pv-apy">5.8% APY</div></div>
+              <div class="pv-row"><span>TVL</span><span>$1.8M</span></div>
+              <div class="pv-row"><span>Strategy</span><span>Delta Neutral</span></div>
+            </div>
+            <div class="phone-vault-card">
+              <div class="pv-top"><div class="pv-name"><span class="pv-dot"></span>haHYPE</div><div class="pv-apy">8.1% APY</div></div>
+              <div class="pv-row"><span>TVL</span><span>$3.1M</span></div>
+              <div class="pv-row"><span>Strategy</span><span>Yield Compound</span></div>
+            </div>
+            <div class="phone-vault-card">
+              <div class="pv-top"><div class="pv-name"><span class="pv-dot"></span>hakHYPE</div><div class="pv-apy">7.4% APY</div></div>
+              <div class="pv-row"><span>TVL</span><span>$1.2M</span></div>
+              <div class="pv-row"><span>Strategy</span><span>Yield Compound</span></div>
+            </div>
+            <div class="phone-vault-card" style="border-color:#bbdefb">
+              <div class="pv-top"><div class="pv-name"><span class="pv-dot" style="background:#1565c0"></span>Basis Trade</div><div class="pv-apy" style="color:#1565c0">7.0% APY</div></div>
+              <div class="pv-row"><span>TVL</span><span>$2.4M</span></div>
+              <div class="pv-row"><span>Strategy</span><span>Funding Rates</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- RIGHT: Text -->
     <div class="hero-text">
       <h1 class="anim visible">The future of <span>yield</span> is here.</h1>
       <p class="hero-sub anim visible d1">Delta neutral yield bearing stablecoins on Hyperliquid. Secure, automated, institutional-grade.</p>
@@ -512,9 +517,160 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCT 1: haUSD Vaults (white bg, phone LEFT, text RIGHT) -->
+<!-- Buy HAR + Tokenomics (white section) -->
+<section class="section" id="buy-har">
+  <div class="container">
+    <div class="showcase anim">
+      <div class="showcase-visual v-charcoal" style="padding:32px 20px;align-items:center;justify-content:center;position:relative">
+        <!-- Coinbase-style rounded box behind the desktop -->
+        <div style="position:absolute;inset:24px;background:linear-gradient(145deg,rgba(76,175,80,0.08),rgba(76,175,80,0.02));border:1px solid rgba(76,175,80,0.12);border-radius:24px"></div>
+        <!-- Desktop frame with Hyperliquid trading view -->
+        <div style="position:relative;z-index:1;width:100%;max-width:460px">
+          <div style="background:#111;border-radius:12px 12px 0 0;padding:8px 12px 0;box-shadow:0 -8px 40px rgba(0,0,0,0.3)">
+            <!-- Browser chrome -->
+            <div style="display:flex;align-items:center;gap:6px;padding-bottom:8px">
+              <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57"></div>
+              <div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e"></div>
+              <div style="width:8px;height:8px;border-radius:50%;background:#28c840"></div>
+              <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:4px;padding:4px 10px;font-size:9px;color:rgba(255,255,255,0.4);margin-left:8px">app.hyperliquid.xyz/trade/HAR/USDC</div>
+            </div>
+            <!-- Trading interface -->
+            <div style="background:#0b0e11;border-radius:4px 4px 0 0;overflow:hidden">
+              <!-- Top ticker bar -->
+              <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid #1e2329;font-size:7px;color:rgba(255,255,255,0.3);overflow:hidden;white-space:nowrap">
+                <span style="color:rgba(255,255,255,0.15)">BTC-USDC</span>
+                <span style="color:rgba(255,255,255,0.15)">ETH-USDC</span>
+                <span style="color:#fff;font-weight:700;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:3px">HAR/USDC</span>
+                <span style="color:rgba(255,255,255,0.15)">HYPE-USDC</span>
+              </div>
+              <!-- Price header -->
+              <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #1e2329">
+                <div style="width:16px;height:16px;border-radius:50%;background:#4caf50;display:flex;align-items:center;justify-content:center"><svg width="7" height="7" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></div>
+                <span style="font-size:11px;font-weight:700;color:#fff">HAR/USDC</span>
+                <span style="font-size:10px;font-weight:700;color:#4caf50">$0.004725</span>
+                <span style="font-size:8px;color:#ef5350">-1.51%</span>
+                <div style="margin-left:auto;display:flex;gap:10px;font-size:7px;color:rgba(255,255,255,0.3)">
+                  <span>24h Vol: <span style="color:rgba(255,255,255,0.5)">4,710,000</span></span>
+                  <span>Mkt Cap: <span style="color:rgba(255,255,255,0.5)">$284K</span></span>
+                </div>
+              </div>
+              <!-- Chart + Order book row -->
+              <div style="display:flex">
+                <!-- Chart -->
+                <div style="flex:1;padding:8px;min-height:200px">
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:7px;color:rgba(255,255,255,0.3)">
+                    <span>HAR/USDC @261</span>
+                    <span>1D</span>
+                    <span style="color:rgba(255,255,255,0.15)">Hyperliquid</span>
+                  </div>
+                  <svg viewBox="0 0 300 130" width="100%" height="140" style="display:block">
+                    <line x1="0" y1="32" x2="300" y2="32" stroke="#1e2329" stroke-width="0.5"/>
+                    <line x1="0" y1="65" x2="300" y2="65" stroke="#1e2329" stroke-width="0.5"/>
+                    <line x1="0" y1="98" x2="300" y2="98" stroke="#1e2329" stroke-width="0.5"/>
+                    <!-- Price labels -->
+                    <text x="295" y="30" font-size="6" fill="rgba(255,255,255,0.2)" font-family="monospace" text-anchor="end">0.016</text>
+                    <text x="295" y="63" font-size="6" fill="rgba(255,255,255,0.2)" font-family="monospace" text-anchor="end">0.010</text>
+                    <text x="295" y="96" font-size="6" fill="rgba(255,255,255,0.2)" font-family="monospace" text-anchor="end">0.004</text>
+                    <!-- Candles matching the screenshot pattern: pump then dump then settle -->
+                    <rect x="8" y="85" width="3" height="10" fill="#4caf50"/><line x1="9.5" y1="80" x2="9.5" y2="100" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="16" y="82" width="3" height="8" fill="#4caf50"/><line x1="17.5" y1="78" x2="17.5" y2="95" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="24" y="78" width="3" height="12" fill="#4caf50"/><line x1="25.5" y1="72" x2="25.5" y2="95" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="32" y="70" width="3" height="15" fill="#4caf50"/><line x1="33.5" y1="62" x2="33.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="40" y="60" width="3" height="18" fill="#4caf50"/><line x1="41.5" y1="50" x2="41.5" y2="85" stroke="#4caf50" stroke-width="0.7"/>
+                    <!-- Big spike -->
+                    <rect x="48" y="25" width="3" height="40" fill="#4caf50"/><line x1="49.5" y1="15" x2="49.5" y2="70" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="56" y="20" width="3" height="30" fill="#4caf50"/><line x1="57.5" y1="12" x2="57.5" y2="55" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="64" y="18" width="3" height="25" fill="#ef5350"/><line x1="65.5" y1="10" x2="65.5" y2="48" stroke="#ef5350" stroke-width="0.7"/>
+                    <!-- Dump -->
+                    <rect x="72" y="35" width="3" height="20" fill="#ef5350"/><line x1="73.5" y1="25" x2="73.5" y2="60" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="80" y="45" width="3" height="18" fill="#ef5350"/><line x1="81.5" y1="35" x2="81.5" y2="68" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="88" y="55" width="3" height="15" fill="#ef5350"/><line x1="89.5" y1="45" x2="89.5" y2="75" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="96" y="60" width="3" height="12" fill="#4caf50"/><line x1="97.5" y1="52" x2="97.5" y2="78" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="104" y="65" width="3" height="10" fill="#ef5350"/><line x1="105.5" y1="58" x2="105.5" y2="80" stroke="#ef5350" stroke-width="0.7"/>
+                    <!-- Settle low -->
+                    <rect x="112" y="75" width="3" height="8" fill="#4caf50"/><line x1="113.5" y1="70" x2="113.5" y2="88" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="120" y="78" width="3" height="6" fill="#ef5350"/><line x1="121.5" y1="74" x2="121.5" y2="90" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="128" y="80" width="3" height="5" fill="#4caf50"/><line x1="129.5" y1="76" x2="129.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="136" y="82" width="3" height="6" fill="#ef5350"/><line x1="137.5" y1="78" x2="137.5" y2="92" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="144" y="80" width="3" height="7" fill="#4caf50"/><line x1="145.5" y1="75" x2="145.5" y2="92" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="152" y="83" width="3" height="5" fill="#ef5350"/><line x1="153.5" y1="80" x2="153.5" y2="93" stroke="#ef5350" stroke-width="0.7"/>
+                    <!-- Second pump -->
+                    <rect x="160" y="70" width="3" height="15" fill="#4caf50"/><line x1="161.5" y1="62" x2="161.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="168" y="55" width="3" height="20" fill="#4caf50"/><line x1="169.5" y1="45" x2="169.5" y2="80" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="176" y="45" width="3" height="15" fill="#4caf50"/><line x1="177.5" y1="35" x2="177.5" y2="65" stroke="#4caf50" stroke-width="0.7"/>
+                    <!-- Pull back -->
+                    <rect x="184" y="55" width="3" height="12" fill="#ef5350"/><line x1="185.5" y1="48" x2="185.5" y2="72" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="192" y="60" width="3" height="10" fill="#ef5350"/><line x1="193.5" y1="55" x2="193.5" y2="75" stroke="#ef5350" stroke-width="0.7"/>
+                    <!-- Recent candles -->
+                    <rect x="200" y="70" width="3" height="8" fill="#4caf50"/><line x1="201.5" y1="65" x2="201.5" y2="83" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="208" y="72" width="3" height="6" fill="#ef5350"/><line x1="209.5" y1="68" x2="209.5" y2="83" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="216" y="75" width="3" height="5" fill="#4caf50"/><line x1="217.5" y1="72" x2="217.5" y2="85" stroke="#4caf50" stroke-width="0.7"/>
+                    <rect x="224" y="78" width="3" height="4" fill="#ef5350"/><line x1="225.5" y1="75" x2="225.5" y2="86" stroke="#ef5350" stroke-width="0.7"/>
+                    <rect x="232" y="80" width="3" height="5" fill="#4caf50"/><line x1="233.5" y1="77" x2="233.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
+                    <!-- Volume bars -->
+                    <rect x="48" y="118" width="3" height="12" fill="rgba(76,175,80,0.3)"/>
+                    <rect x="56" y="116" width="3" height="14" fill="rgba(76,175,80,0.3)"/>
+                    <rect x="64" y="119" width="3" height="11" fill="rgba(239,83,80,0.3)"/>
+                    <rect x="72" y="120" width="3" height="10" fill="rgba(239,83,80,0.3)"/>
+                    <rect x="160" y="120" width="3" height="10" fill="rgba(76,175,80,0.3)"/>
+                    <rect x="168" y="118" width="3" height="12" fill="rgba(76,175,80,0.3)"/>
+                    <text x="10" y="128" font-size="5" fill="rgba(255,255,255,0.15)" font-family="monospace">Volume SMA 131.352k</text>
+                  </svg>
+                  <!-- Time axis -->
+                  <div style="display:flex;justify-content:space-between;font-size:6px;color:rgba(255,255,255,0.15);padding:0 4px">
+                    <span>2026</span><span>Feb</span><span>19</span><span>Mar</span><span>17</span>
+                  </div>
+                </div>
+                <!-- Order book -->
+                <div style="width:30%;border-left:1px solid #1e2329;padding:6px;font-size:7px;font-family:monospace">
+                  <div style="display:flex;justify-content:space-between;font-size:6px;color:rgba(255,255,255,0.25);margin-bottom:4px;padding:0 2px"><span>Price</span><span>Size (USDC)</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0050</span><span>2,776</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0049</span><span>1,844</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0048</span><span>3,215</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0048</span><span>5,133</span></div>
+                  <div style="text-align:center;padding:3px 0;font-size:9px;font-weight:700;color:#4caf50;border-top:1px solid #1e2329;border-bottom:1px solid #1e2329;margin:3px 0">0.004725</div>
+                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0047</span><span>4,170</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0046</span><span>2,892</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0045</span><span>1,563</span></div>
+                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0044</span><span>987</span></div>
+                </div>
+              </div>
+              <!-- Bottom tabs -->
+              <div style="border-top:1px solid #1e2329;padding:6px 10px;display:flex;gap:12px;font-size:7px;color:rgba(255,255,255,0.25)">
+                <span style="color:rgba(255,255,255,0.5)">Balances</span>
+                <span>Positions</span>
+                <span>Open Orders</span>
+                <span>Trade History</span>
+                <span>Funding History</span>
+              </div>
+            </div>
+          </div>
+          <!-- Laptop base -->
+          <div style="background:linear-gradient(to bottom,#111 0%,#1a1a1a 100%);height:14px;border-radius:0 0 4px 4px"></div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>HAR TOKEN</div>
+        <h2>Buy HAR.</h2>
+        <p>Governance and rewards token for Harmonix Finance. 50% airdropped to the community. Trade HAR/USDC on Hyperliquid.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://app.hyperliquid.xyz/trade/HAR/USDC" target="_blank" class="btn-pill">Buy HAR</a>
+          <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" class="btn-pill" style="background:transparent;border:1px solid var(--gray-300);color:var(--gray-700)">Tokenomics</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VAULTS & EARN MARKETS -->
 <section class="section" id="products">
   <div class="container">
+    <div class="section-header anim" style="margin-bottom:48px">
+      <div class="section-eyebrow">Products</div>
+      <h2 class="section-heading">Vaults &amp; Earn Markets</h2>
+      <p class="section-desc">Stablecoins, HYPE tokens, and delta-neutral strategies. All in one place.</p>
+    </div>
     <div class="showcase anim">
       <div class="showcase-visual v-mint" style="padding:0;align-items:flex-start">
         <div class="showcase-phone-wrap">
@@ -552,6 +708,61 @@ ul{list-style:none}
         <div class="showcase-pill"><span class="pill-dot"></span>VAULTS</div>
         <h2>All your yield, one place.</h2>
         <p>Stablecoins, HYPE tokens, and delta-neutral strategies. Deposit and receive ERC-4626 tokens that grow in value automatically. 1% management fee. No performance fees.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
+      </div>
+    </div>
+
+    <!-- HYPE + Basis Trade -->
+    <div class="showcase reverse anim">
+      <div class="showcase-visual v-mint" style="padding:40px 24px 0;display:flex;gap:16px;align-items:flex-start;justify-content:center;overflow:hidden">
+        <!-- Phone 1: HYPE Vaults -->
+        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0">
+          <div class="sp-screen">
+            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+            <div class="sp-app">
+              <div class="sp-title">HYPE Vaults</div>
+              <div class="sp-row">
+                <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haHYPE</div><div class="sp-apy">8.1% APY</div></div>
+                <div class="sp-meta"><span>TVL</span><span>$3.1M</span></div>
+                <div class="sp-meta"><span>Strategy</span><span>Compound</span></div>
+              </div>
+              <div class="sp-row">
+                <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>hakHYPE</div><div class="sp-apy">7.4% APY</div></div>
+                <div class="sp-meta"><span>TVL</span><span>$1.2M</span></div>
+                <div class="sp-meta"><span>Strategy</span><span>Compound</span></div>
+              </div>
+              <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:6px;padding:5px 6px;margin-top:6px;display:flex;align-items:center;gap:3px">
+                <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#2d6a2e" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span style="font-size:7px;font-weight:600;color:#2d6a2e">Earning 3x points</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Phone 2: Basis Trade -->
+        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0;margin-top:32px">
+          <div class="sp-screen">
+            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+            <div class="sp-app">
+              <div class="sp-title">Basis Trade</div>
+              <div class="sp-row" style="border-color:#bbdefb">
+                <div class="sp-row-top"><div class="sp-name"><span class="dot" style="background:#1565c0"></span>USDC Vault</div><div class="sp-apy" style="color:#1565c0">7.0% APY</div></div>
+                <div class="sp-meta"><span>TVL</span><span>$2.4M</span></div>
+                <div class="sp-meta"><span>Strategy</span><span>Funding Rates</span></div>
+              </div>
+              <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:6px;margin-top:6px">
+                <div style="display:flex;justify-content:space-between;font-size:7px;margin-bottom:3px"><span style="color:#868e96">HYPE Exposure</span><span style="font-weight:700;color:#000">0%</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:7px;margin-bottom:3px"><span style="color:#868e96">Network</span><span style="font-weight:700;color:#000">Arbitrum</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:7px"><span style="color:#868e96">Type</span><span style="font-weight:700;color:#000">Delta Neutral</span></div>
+              </div>
+              <div style="background:#1565c0;color:#fff;text-align:center;padding:8px;border-radius:8px;font-size:9px;font-weight:700;margin-top:8px">Deposit USDC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>EARN MARKETS</div>
+        <h2>Compound your HYPE. Earn on stables.</h2>
+        <p>HYPE and kHYPE tokens compound yield into share price. The Basis Trade vault captures funding rates delta-neutral at 7% APY on USDC with zero HYPE exposure.</p>
         <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
       </div>
     </div>
@@ -648,145 +859,73 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCT 3: HYPE + Basis Trade — two phones side by side (dark section) -->
-<section class="section section-dark" id="hype-vaults">
-  <div class="container">
-    <div class="showcase reverse anim">
-      <div class="showcase-visual v-mint" style="padding:40px 24px 0;display:flex;gap:16px;align-items:flex-start;justify-content:center;overflow:hidden">
-        <!-- Phone 1: HYPE Vaults -->
-        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0">
-          <div class="sp-screen">
-            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
-            <div class="sp-app">
-              <div class="sp-title">HYPE Vaults</div>
-              <div class="sp-row">
-                <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haHYPE</div><div class="sp-apy">8.1% APY</div></div>
-                <div class="sp-meta"><span>TVL</span><span>$3.1M</span></div>
-                <div class="sp-meta"><span>Strategy</span><span>Compound</span></div>
-              </div>
-              <div class="sp-row">
-                <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>hakHYPE</div><div class="sp-apy">7.4% APY</div></div>
-                <div class="sp-meta"><span>TVL</span><span>$1.2M</span></div>
-                <div class="sp-meta"><span>Strategy</span><span>Compound</span></div>
-              </div>
-              <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:6px;padding:5px 6px;margin-top:6px;display:flex;align-items:center;gap:3px">
-                <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#2d6a2e" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <span style="font-size:7px;font-weight:600;color:#2d6a2e">Earning 3x points</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Phone 2: Basis Trade -->
-        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0;margin-top:32px">
-          <div class="sp-screen">
-            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
-            <div class="sp-app">
-              <div class="sp-title">Basis Trade</div>
-              <div class="sp-row" style="border-color:#bbdefb">
-                <div class="sp-row-top"><div class="sp-name"><span class="dot" style="background:#1565c0"></span>USDC Vault</div><div class="sp-apy" style="color:#1565c0">7.0% APY</div></div>
-                <div class="sp-meta"><span>TVL</span><span>$2.4M</span></div>
-                <div class="sp-meta"><span>Strategy</span><span>Funding Rates</span></div>
-              </div>
-              <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;padding:6px;margin-top:6px">
-                <div style="display:flex;justify-content:space-between;font-size:7px;margin-bottom:3px"><span style="color:#868e96">HYPE Exposure</span><span style="font-weight:700;color:#000">0%</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:7px;margin-bottom:3px"><span style="color:#868e96">Network</span><span style="font-weight:700;color:#000">Arbitrum</span></div>
-                <div style="display:flex;justify-content:space-between;font-size:7px"><span style="color:#868e96">Type</span><span style="font-weight:700;color:#000">Delta Neutral</span></div>
-              </div>
-              <div style="background:#1565c0;color:#fff;text-align:center;padding:8px;border-radius:8px;font-size:9px;font-weight:700;margin-top:8px">Deposit USDC</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span>EARN MARKETS</div>
-        <h2>Compound your HYPE. Earn on stables.</h2>
-        <p>HYPE and kHYPE tokens compound yield into share price. The Basis Trade vault captures funding rates delta-neutral at 7% APY on USDC with zero HYPE exposure.</p>
-        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- PRODUCT 4: Staking — desktop mockup of actual staking page (dark section, reversed) -->
+<!-- PRODUCT 4: Staking — exact replica of real staking page (dark section, reversed) -->
 <section class="section section-dark" id="staking">
   <div class="container">
     <div class="showcase reverse anim">
-      <div class="showcase-visual v-charcoal" style="padding:0;align-items:flex-end">
-        <div class="showcase-desktop-wrap">
-          <div class="showcase-desktop">
-            <div class="sd-bezel">
-              <div class="sd-topbar">
-                <div class="sd-dot" style="background:#ff5f57"></div>
-                <div class="sd-dot" style="background:#ffbd2e"></div>
-                <div class="sd-dot" style="background:#28c840"></div>
-                <div class="sd-url">app.harmonix.fi/staking</div>
+      <div class="showcase-visual v-charcoal" style="padding:24px;align-items:center;justify-content:center;flex-direction:column">
+        <!-- Exact replica of the real staking page UI -->
+        <div style="width:100%;max-width:480px;background:#fff;border-radius:16px;padding:20px;box-shadow:0 8px 40px rgba(0,0,0,0.2)">
+          <!-- Header -->
+          <div style="margin-bottom:16px">
+            <div style="font-size:16px;font-weight:800;color:#000;letter-spacing:-0.3px;margin-bottom:3px">Choose Your Staking Duration</div>
+            <div style="font-size:9px;color:#868e96;line-height:1.4">Higher lock periods offer greater rewards. Early participants receive bonus APR.</div>
+          </div>
+          <!-- Two staking cards side by side -->
+          <div style="display:flex;gap:10px">
+            <!-- 180 Days Card -->
+            <div style="flex:1;border:2px solid #c5e1a5;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:0">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+                <span style="font-size:14px;font-weight:800;color:#000">180 Days</span>
+                <span style="font-size:7px;font-weight:600;color:#5c6bc0;background:#e8eaf6;padding:3px 8px;border-radius:4px">Upcoming</span>
               </div>
-              <div class="sd-screen" style="background:#f8f9fa;padding:16px;min-height:300px">
-                <!-- Staking page header -->
-                <div style="background:linear-gradient(135deg,#0f2b12,#1a5c35);border-radius:10px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
-                  <div>
-                    <div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:2px">Stake $HAR, Earn More</div>
-                    <div style="font-size:8px;color:rgba(255,255,255,0.5)">Choose a duration, lock your tokens, earn stable yield</div>
-                  </div>
-                  <div style="display:flex;gap:8px">
-                    <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:6px 10px;text-align:center">
-                      <div style="font-size:7px;color:rgba(255,255,255,0.4)">Available</div>
-                      <div style="font-size:10px;font-weight:700;color:#fff">0 HAR</div>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:6px 10px;text-align:center">
-                      <div style="font-size:7px;color:rgba(255,255,255,0.4)">Total Staked</div>
-                      <div style="font-size:10px;font-weight:700;color:#fff">0 HAR</div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Staking cards — 2 side by side like the real page -->
-                <div style="display:flex;gap:8px">
-                  <!-- 180 Days -->
-                  <div style="flex:1;background:#fff;border:1px solid #e9ecef;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                      <span style="font-size:12px;font-weight:800;color:#000">180 Days</span>
-                      <span style="font-size:7px;font-weight:600;color:#2d6a2e;background:#e8f5e9;padding:2px 6px;border-radius:4px">Locked</span>
-                    </div>
-                    <div style="display:flex;justify-content:space-between;font-size:8px;color:#868e96;margin-bottom:2px"><span>Pool Filled</span><span style="font-weight:600;color:#495057">12.81%</span></div>
-                    <div style="height:4px;background:#f1f3f5;border-radius:2px;overflow:hidden;margin-bottom:6px"><div style="width:12.81%;height:100%;background:#c5e1a5;border-radius:2px"></div></div>
-                    <div style="background:#f8f9fa;border:1px solid #f1f3f5;border-radius:6px;padding:8px">
-                      <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:8px;color:#868e96">APR:</span><span style="font-size:10px;font-weight:800;color:#000">25%</span></div>
-                      <div style="display:flex;gap:4px">
-                        <div style="flex:1;background:#c5e1a5;border-radius:4px;padding:4px;text-align:center;font-size:7px;font-weight:700;color:#1b5e20">17% in HAR</div>
-                        <div style="flex:1;background:#c5e1a5;border-radius:4px;padding:4px;text-align:center;font-size:7px;font-weight:700;color:#1b5e20">8% in HYPE</div>
-                      </div>
-                    </div>
-                    <div style="display:flex;flex-direction:column;gap:3px;margin-top:4px">
-                      <div style="display:flex;justify-content:space-between;font-size:7px"><span style="color:#adb5bd">Pool Capacity</span><span style="font-weight:600;color:#495057">10,000,000 HAR</span></div>
-                      <div style="display:flex;justify-content:space-between;font-size:7px"><span style="color:#adb5bd">Penalty</span><span style="font-weight:600;color:#2d6a2e">10%</span></div>
-                    </div>
-                    <div style="background:#1a1d23;color:#fff;text-align:center;padding:7px;border-radius:6px;font-size:9px;font-weight:700;margin-top:auto">Stake</div>
-                  </div>
-                  <!-- 360 Days -->
-                  <div style="flex:1;background:#fff;border:1px solid #e9ecef;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                      <span style="font-size:12px;font-weight:800;color:#000">360 Days</span>
-                      <span style="font-size:7px;font-weight:600;color:#2d6a2e;background:#e8f5e9;padding:2px 6px;border-radius:4px">Locked</span>
-                    </div>
-                    <div style="display:flex;justify-content:space-between;font-size:8px;color:#868e96;margin-bottom:2px"><span>Pool Filled</span><span style="font-weight:600;color:#495057">2.52%</span></div>
-                    <div style="height:4px;background:#f1f3f5;border-radius:2px;overflow:hidden;margin-bottom:6px"><div style="width:2.52%;height:100%;background:#c5e1a5;border-radius:2px"></div></div>
-                    <div style="background:#f8f9fa;border:1px solid #f1f3f5;border-radius:6px;padding:8px">
-                      <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:8px;color:#868e96">APR:</span><span style="font-size:10px;font-weight:800;color:#000">35%</span></div>
-                      <div style="display:flex;gap:4px">
-                        <div style="flex:1;background:#c5e1a5;border-radius:4px;padding:4px;text-align:center;font-size:7px;font-weight:700;color:#1b5e20">23% in HAR</div>
-                        <div style="flex:1;background:#c5e1a5;border-radius:4px;padding:4px;text-align:center;font-size:7px;font-weight:700;color:#1b5e20">12% in HYPE</div>
-                      </div>
-                    </div>
-                    <div style="display:flex;flex-direction:column;gap:3px;margin-top:4px">
-                      <div style="display:flex;justify-content:space-between;font-size:7px"><span style="color:#adb5bd">Pool Capacity</span><span style="font-weight:600;color:#495057">20,000,000 HAR</span></div>
-                      <div style="display:flex;justify-content:space-between;font-size:7px"><span style="color:#adb5bd">Penalty</span><span style="font-weight:600;color:#2d6a2e">10%</span></div>
-                    </div>
-                    <div style="background:#1a1d23;color:#fff;text-align:center;padding:7px;border-radius:6px;font-size:9px;font-weight:700;margin-top:auto">Stake</div>
-                  </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span style="font-size:8px;color:#868e96">Opens in</span>
+                <span style="font-size:11px;font-weight:700;color:#000;letter-spacing:0.5px">00 : 06 : 49 : 00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:#868e96;margin-bottom:3px"><span>Pool Filled</span><span style="font-weight:600;color:#495057">0%</span></div>
+              <div style="height:3px;background:#f1f3f5;border-radius:2px;overflow:hidden;margin-bottom:12px"><div style="width:0%;height:100%;background:#c5e1a5;border-radius:2px"></div></div>
+              <div style="background:#f8f9fa;border:1px solid #f1f3f5;border-radius:8px;padding:10px;margin-bottom:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:9px;color:#868e96">APR:</span><span style="font-size:12px;font-weight:800;color:#000">25%</span></div>
+                <div style="display:flex;gap:5px">
+                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">17% in HAR</div>
+                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">8% in HYPE</div>
                 </div>
               </div>
+              <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:14px">
+                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Pool Capacity:</span><span style="font-weight:700;color:#000">10,000,000 HAR</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">TVL:</span><span style="font-weight:700;color:#000">0 HAR</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Early Unstake Penalty:</span><span style="font-weight:700;color:#5c6bc0">10%</span></div>
+              </div>
+              <div style="background:#9e9e9e;color:#fff;text-align:center;padding:10px;border-radius:100px;font-size:10px;font-weight:700;cursor:default">Stake</div>
             </div>
-            <div class="sd-base"></div>
+            <!-- 360 Days Card -->
+            <div style="flex:1;border:2px solid #c5e1a5;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:0">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+                <span style="font-size:14px;font-weight:800;color:#000">360 Days</span>
+                <span style="font-size:7px;font-weight:600;color:#5c6bc0;background:#e8eaf6;padding:3px 8px;border-radius:4px">Upcoming</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span style="font-size:8px;color:#868e96">Opens in</span>
+                <span style="font-size:11px;font-weight:700;color:#000;letter-spacing:0.5px">00 : 06 : 49 : 00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:#868e96;margin-bottom:3px"><span>Pool Filled</span><span style="font-weight:600;color:#495057">0%</span></div>
+              <div style="height:3px;background:#f1f3f5;border-radius:2px;overflow:hidden;margin-bottom:12px"><div style="width:0%;height:100%;background:#c5e1a5;border-radius:2px"></div></div>
+              <div style="background:#f8f9fa;border:1px solid #f1f3f5;border-radius:8px;padding:10px;margin-bottom:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:9px;color:#868e96">APR:</span><span style="font-size:12px;font-weight:800;color:#000">35%</span></div>
+                <div style="display:flex;gap:5px">
+                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">23% in HAR</div>
+                  <div style="flex:1;background:#dce775;border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;font-weight:700;color:#33691e">12% in HYPE</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:14px">
+                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Pool Capacity:</span><span style="font-weight:700;color:#000">20,000,000 HAR</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">TVL:</span><span style="font-weight:700;color:#000">0 HAR</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#868e96">Early Unstake Penalty:</span><span style="font-weight:700;color:#5c6bc0">10%</span></div>
+              </div>
+              <div style="background:#9e9e9e;color:#fff;text-align:center;padding:10px;border-radius:100px;font-size:10px;font-weight:700;cursor:default">Stake</div>
+            </div>
           </div>
         </div>
       </div>
@@ -802,24 +941,40 @@ ul{list-style:none}
 
 <!-- Analytics section removed — moved to position 2 -->
 
-<!-- PRODUCT 6: Points (dark section, reversed) -->
-<section class="section section-dark" id="points">
+<!-- PRODUCT 6: Points (white section, reversed) -->
+<section class="section" id="points">
   <div class="container">
     <div class="showcase reverse anim">
-      <div class="showcase-visual v-deep">
-        <div class="mock-points">
-          <div class="mock-points-card">
-            <div class="mp-label">Your Position</div>
-            <div class="mp-val"><span class="mp-icon"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>12,450 pts</div>
+      <div class="showcase-visual" style="padding:32px;flex-direction:column;align-items:center;justify-content:center;background:#f8f9fa">
+        <div style="width:100%;max-width:320px">
+          <!-- Your Position card -->
+          <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px;margin-bottom:8px">
+            <div style="font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Your Position</div>
+            <div style="font-size:24px;font-weight:800;color:var(--black);display:flex;align-items:center;gap:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>12,450 pts
+            </div>
           </div>
-          <div class="mock-points-row">
-            <div class="mpr"><div class="mpr-label">Harmonix</div><div class="mpr-val">8,200</div></div>
-            <div class="mpr"><div class="mpr-label">Kinetiq</div><div class="mpr-val">2,100</div></div>
-            <div class="mpr"><div class="mpr-label">Felix</div><div class="mpr-val">1,450</div></div>
+          <!-- Points breakdown row -->
+          <div style="display:flex;gap:8px;margin-bottom:8px">
+            <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px;text-align:center">
+              <div style="font-size:9px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.3px;margin-bottom:4px">Harmonix</div>
+              <div style="font-size:16px;font-weight:700;color:var(--green)">8,200</div>
+            </div>
+            <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px;text-align:center">
+              <div style="font-size:9px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.3px;margin-bottom:4px">Kinetiq</div>
+              <div style="font-size:16px;font-weight:700;color:var(--green)">2,100</div>
+            </div>
+            <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px;text-align:center">
+              <div style="font-size:9px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.3px;margin-bottom:4px">Felix</div>
+              <div style="font-size:16px;font-weight:700;color:var(--green)">1,450</div>
+            </div>
           </div>
-          <div class="mock-points-card" style="margin-top:2px">
-            <div class="mp-label">Rewards Available</div>
-            <div class="mp-val" style="font-size:18px"><span class="mp-icon"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>Claimable</div>
+          <!-- Rewards card -->
+          <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px">
+            <div style="font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Rewards Available</div>
+            <div style="font-size:18px;font-weight:800;color:var(--black);display:flex;align-items:center;gap:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>Claimable
+            </div>
           </div>
         </div>
       </div>
@@ -910,60 +1065,120 @@ ul{list-style:none}
 <section class="section section-gray" id="learn">
   <div class="container">
     <div class="showcase anim">
-      <div class="showcase-visual" style="padding:0;align-items:flex-end;background:#e9ecef">
-        <div class="showcase-desktop-wrap" style="padding:32px 16px 0">
-          <div class="showcase-desktop" style="max-width:480px">
-            <div class="sd-bezel" style="background:#1a1a1a">
-              <div class="sd-topbar">
-                <div class="sd-dot" style="background:#ff5f57"></div>
-                <div class="sd-dot" style="background:#ffbd2e"></div>
-                <div class="sd-dot" style="background:#28c840"></div>
-                <div class="sd-url">docs.harmonix.fi</div>
+      <div class="showcase-visual" style="padding:0;align-items:stretch;background:#2e2e2e;overflow:hidden;min-height:460px">
+        <!-- Exact replica of the real docs page -->
+        <div style="display:flex;width:100%;height:100%">
+          <!-- Sidebar -->
+          <div style="width:38%;background:#282828;border-right:1px solid #424242;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0">
+            <!-- Logo bar -->
+            <div style="padding:10px 12px;border-bottom:1px solid #424242;display:flex;align-items:center;gap:6px">
+              <div style="width:18px;height:18px;background:#c8f07a;border-radius:5px;display:flex;align-items:center;justify-content:center">
+                <svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#282828" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
               </div>
-              <div class="sd-screen" style="background:#1e2024;padding:0;min-height:260px;display:flex;flex-direction:column">
-                <!-- Top nav -->
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.08)">
-                  <div style="display:flex;align-items:center;gap:6px">
-                    <svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
-                    <span style="font-size:9px;font-weight:700;color:#fff">Harmonix</span>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:3px 8px">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                    <span style="font-size:7px;color:rgba(255,255,255,0.25)">Search docs...</span>
-                  </div>
-                </div>
-                <!-- Body: sidebar + content -->
-                <div style="display:flex;flex:1">
-                  <div style="width:35%;padding:10px 8px;border-right:1px solid rgba(255,255,255,0.05);overflow:hidden">
-                    <div style="font-size:7px;font-weight:600;color:#c6e84e;padding:3px 4px;margin-bottom:1px">Welcome</div>
-                    <div style="font-size:7px;color:rgba(255,255,255,0.45);padding:3px 4px;margin-bottom:1px">Protocol Overview</div>
-                    <div style="font-size:7px;font-weight:600;color:rgba(255,255,255,0.7);padding:3px 4px;margin-bottom:1px">Product Suite</div>
-                    <div style="padding-left:10px;font-size:6px;color:rgba(255,255,255,0.35);line-height:2">&bull; haUSDC<br>&bull; haUSDT<br>&bull; haHYPE / hakHYPE<br>&bull; Basis Trade<br>&bull; HAR Token</div>
-                    <div style="font-size:7px;font-weight:600;color:rgba(255,255,255,0.7);padding:3px 4px;margin-top:4px">For Developers</div>
-                    <div style="padding-left:10px;font-size:6px;color:rgba(255,255,255,0.35);line-height:2">&bull; Vault Architecture<br>&bull; Smart Contracts<br>&bull; Integration Guide</div>
-                  </div>
-                  <div style="flex:1;padding:14px 12px">
-                    <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-0.3px">Harmonix Finance</div>
-                    <div style="font-size:7px;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:12px">Yield infrastructure built natively on Hyperliquid.</div>
-                    <div style="display:flex;gap:5px">
-                      <div style="flex:1;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:8px">
-                        <div style="font-size:8px;font-weight:700;color:#fff;margin-bottom:3px">Learn</div>
-                        <div style="font-size:6px;color:rgba(255,255,255,0.3);line-height:1.4">Protocol, security, risk disclosures.</div>
-                      </div>
-                      <div style="flex:1;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:8px">
-                        <div style="font-size:8px;font-weight:700;color:#fff;margin-bottom:3px">Products</div>
-                        <div style="font-size:6px;color:rgba(255,255,255,0.3);line-height:1.4">Vaults, tokens, staking, HAR.</div>
-                      </div>
-                      <div style="flex:1;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:8px">
-                        <div style="font-size:8px;font-weight:700;color:#fff;margin-bottom:3px">Developers</div>
-                        <div style="font-size:6px;color:rgba(255,255,255,0.3);line-height:1.4">Architecture, contracts, API.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <span style="font-size:10px;font-weight:700;color:#fff">Harmonix</span>
+            </div>
+            <!-- Nav items -->
+            <div style="padding:10px 6px;flex:1;overflow:hidden">
+              <!-- Welcome - active -->
+              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;border-radius:4px;background:#2e2e2e;margin-bottom:1px">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                <span style="font-size:8px;font-weight:600;color:#c8f07a">Welcome</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-bottom:1px">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                <span style="font-size:8px;color:rgba(255,255,255,0.55)">Protocol Overview</span>
+              </div>
+              <!-- Learn group -->
+              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-top:6px;margin-bottom:1px">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 9h6M9 13h6"/></svg>
+                <span style="font-size:8px;font-weight:600;color:rgba(255,255,255,0.7)">Learn</span>
+                <span style="font-size:6px;color:rgba(255,255,255,0.25);margin-left:auto">&#9650;</span>
+              </div>
+              <div style="padding-left:22px;display:flex;flex-direction:column;gap:1px">
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Getting Started</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Core Concepts</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Proof of Solvency</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Risks &amp; Audits</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Fees</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Analytics</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Points &amp; Rewards</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">FAQ</span></div>
+              </div>
+              <!-- Product Suite group -->
+              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-top:6px;margin-bottom:1px">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                <span style="font-size:8px;font-weight:600;color:rgba(255,255,255,0.7)">Product Suite</span>
+                <span style="font-size:6px;color:rgba(255,255,255,0.25);margin-left:auto">&#9650;</span>
+              </div>
+              <div style="padding-left:22px;display:flex;flex-direction:column;gap:1px">
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">Yield-Bearing Stablecoins</span></div>
+                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haUSDC</span></div>
+                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haUSDT</span></div>
+                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haUSDH</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">Yield-Bearing Tokens</span></div>
+                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; haHYPE</span></div>
+                <div style="padding-left:16px"><span style="font-size:6.5px;color:rgba(255,255,255,0.3)">&#8226; hakHYPE</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">Basis Trade Vault</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.45)">HAR Token</span></div>
+              </div>
+              <!-- For Developers group -->
+              <div style="display:flex;align-items:center;gap:5px;padding:5px 8px;margin-top:6px;margin-bottom:1px">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                <span style="font-size:8px;font-weight:600;color:rgba(255,255,255,0.7)">For Developers</span>
+                <span style="font-size:6px;color:rgba(255,255,255,0.25);margin-left:auto">&#9650;</span>
+              </div>
+              <div style="padding-left:22px;display:flex;flex-direction:column;gap:1px">
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Vault Architecture</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Smart Contracts</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Deposits &amp; Withdrawals</span></div>
+                <div style="padding:3px 8px"><span style="font-size:7px;color:rgba(255,255,255,0.4)">Smart Contract Integration</span></div>
               </div>
             </div>
-            <div class="sd-base"></div>
+            <!-- Footer icons -->
+            <div style="padding:8px 12px;border-top:1px solid #424242;display:flex;align-items:center;gap:8px">
+              <span style="font-size:8px;color:rgba(255,255,255,0.3);font-weight:700">X</span>
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span style="font-size:7px;color:rgba(255,255,255,0.3)">Get help</span>
+            </div>
+          </div>
+          <!-- Main content -->
+          <div style="flex:1;display:flex;flex-direction:column">
+            <!-- Top bar with search + Launch App -->
+            <div style="padding:8px 16px;border-bottom:1px solid #424242;display:flex;align-items:center;justify-content:flex-end;gap:10px">
+              <div style="display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.05);border:1px solid #424242;border-radius:5px;padding:4px 10px">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <span style="font-size:7px;color:rgba(255,255,255,0.25)">Search docs...</span>
+              </div>
+              <div style="background:#c8f07a;border-radius:100px;padding:4px 12px;font-size:7px;font-weight:700;color:#282828">Launch App &rarr;</div>
+            </div>
+            <!-- Page content -->
+            <div style="flex:1;padding:24px 20px;overflow:hidden">
+              <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-0.5px;font-family:serif">Harmonix Finance</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:20px;max-width:320px">Yield infrastructure built natively on Hyperliquid. Learn the fundamentals, explore our products, and start building.</div>
+              <!-- Three cards -->
+              <div style="display:flex;gap:8px;margin-bottom:20px">
+                <div style="flex:1;border:1px solid #424242;border-radius:8px;padding:12px">
+                  <div style="margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+                  <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:4px">Learn</div>
+                  <div style="font-size:6.5px;color:rgba(255,255,255,0.35);line-height:1.5">Get started, understand the protocol, explore security and risk disclosures, and earn rewards.</div>
+                </div>
+                <div style="flex:1;border:1px solid #424242;border-radius:8px;padding:12px">
+                  <div style="margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:4px">Product Suite</div>
+                  <div style="font-size:6.5px;color:rgba(255,255,255,0.35);line-height:1.5">Yield-bearing stablecoins, tokens, the Basis Trade vault, and the HAR ecosystem.</div>
+                </div>
+                <div style="flex:1;border:1px solid #424242;border-radius:8px;padding:12px">
+                  <div style="margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                  <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:4px">Developers</div>
+                  <div style="font-size:6.5px;color:rgba(255,255,255,0.35);line-height:1.5">Vault architecture, smart contracts, integration guides, and the REST API reference.</div>
+                </div>
+              </div>
+              <!-- Next page nav -->
+              <div style="border-top:1px solid #424242;padding-top:12px;text-align:right">
+                <div style="font-size:7px;color:rgba(255,255,255,0.3)">Next</div>
+                <div style="font-size:9px;font-weight:600;color:#fff">Getting Started</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1069,64 +1284,6 @@ ul{list-style:none}
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         <h3>BoringVault Framework</h3>
         <p>Modular vault architecture with Merkle tree authorization and role-based access control.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Buy HAR + Tokenomics (white section) -->
-<section class="section" id="buy-har">
-  <div class="container">
-    <div class="showcase anim">
-      <div class="showcase-visual v-dark" style="padding:32px;flex-direction:column;align-items:center;justify-content:center">
-        <div style="width:100%;max-width:320px">
-          <!-- Token card -->
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;text-align:center">
-            <!-- HAR logo -->
-            <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#2d6a2e,#4caf50);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(76,175,80,0.3)">
-              <svg viewBox="0 0 30 28" width="28" height="28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
-            </div>
-            <div style="font-size:24px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-0.5px">HAR</div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:20px">Governance &amp; Rewards Token</div>
-            <!-- Stats -->
-            <div style="display:flex;gap:6px;margin-bottom:16px">
-              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px">
-                <div style="font-size:8px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px">Supply</div>
-                <div style="font-size:13px;font-weight:700;color:#fff">1B</div>
-              </div>
-              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px">
-                <div style="font-size:8px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px">Airdrop</div>
-                <div style="font-size:13px;font-weight:700;color:#4caf50">50%</div>
-              </div>
-              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px">
-                <div style="font-size:8px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px">Network</div>
-                <div style="font-size:13px;font-weight:700;color:#fff">HyperEVM</div>
-              </div>
-            </div>
-            <!-- Trade pair -->
-            <div style="background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.2);border-radius:8px;padding:14px;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px">
-              <div style="display:flex;align-items:center;gap:6px">
-                <div style="width:24px;height:24px;border-radius:50%;background:#4caf50;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></div>
-                <span style="font-size:14px;font-weight:700;color:#fff">HAR</span>
-              </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              <div style="display:flex;align-items:center;gap:6px">
-                <div style="width:24px;height:24px;border-radius:50%;background:#2775ca;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">$</div>
-                <span style="font-size:14px;font-weight:700;color:#fff">USDC</span>
-              </div>
-            </div>
-            <a href="https://app.hyperliquid.xyz/trade/HAR/USDC" target="_blank" style="display:block;background:#fff;color:#000;text-align:center;padding:13px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s" onmouseover="this.style.background='#e8f5e9';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#fff';this.style.transform='none'">Trade on Hyperliquid</a>
-          </div>
-        </div>
-      </div>
-      <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span>HAR TOKEN</div>
-        <h2>Buy HAR.</h2>
-        <p>Governance and rewards token for Harmonix Finance. 50% airdropped to the community. Trade HAR/USDC on Hyperliquid.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a href="https://app.hyperliquid.xyz/trade/HAR/USDC" target="_blank" class="btn-pill">Buy HAR</a>
-          <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" class="btn-pill" style="background:transparent;border:1px solid var(--gray-300);color:var(--gray-700)">Tokenomics</a>
-        </div>
       </div>
     </div>
   </div>
@@ -1353,6 +1510,15 @@ function selectVault(name,apy){
 }
 // Init calc on load
 if(document.getElementById('yc-amount')){calcYield();}
+
+// Hero step switching
+function switchHeroStep(idx){
+  document.querySelectorAll('.earn-step').forEach(s=>{s.classList.remove('active');s.classList.add('inactive')});
+  document.querySelectorAll('.earn-step')[idx].classList.remove('inactive');
+  document.querySelectorAll('.earn-step')[idx].classList.add('active');
+  document.querySelectorAll('.earn-card-state').forEach(s=>s.classList.remove('visible'));
+  document.getElementById('hero-state-'+idx).classList.add('visible');
+}
 </script>
 </body>
 </html>
