@@ -120,33 +120,44 @@ ul{list-style:none}
 .hausd-coming .big{font-size:24px;font-weight:800;letter-spacing:-0.5px;color:#4caf50}
 .hausd-coming .label{font-size:14px;color:#4caf50;margin-top:4px;font-weight:500}
 
-/* PRODUCTS SLIDESHOW - Coinbase style */
-.slideshow{position:relative;background:var(--dark);border-radius:20px;padding:80px 64px;overflow:hidden;min-height:480px}
-.slideshow::before{content:'';position:absolute;top:0;left:50%;width:600px;height:300px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(45,106,46,0.1) 0%,transparent 70%);pointer-events:none}
-.slide{display:none;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.slide.active{display:grid}
-.slide-visual{display:flex;align-items:center;justify-content:center}
-.slide-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px;width:100%;max-width:360px}
-.slide-card .sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.slide-card .sc-name{font-size:20px;font-weight:700;color:#fff}
-.slide-card .sc-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;background:rgba(45,106,46,0.2);color:#4caf50;text-transform:uppercase;letter-spacing:0.5px}
-.slide-card .sc-stat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
-.slide-card .sc-stat:last-child{border-bottom:none}
-.slide-card .sc-stat .sc-label{font-size:13px;color:rgba(255,255,255,0.4)}
-.slide-card .sc-stat .sc-val{font-size:13px;font-weight:600;color:#fff}
-.slide-card .sc-stat .sc-val.green{color:#4caf50}
-.slide-text h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-2px;line-height:1.05;color:#fff;margin-bottom:16px}
-.slide-text p{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:32px;max-width:400px}
-.slide-text .btn{background:var(--white);color:var(--black);font-weight:600;border-radius:100px;padding:14px 32px;font-size:15px}
-.slide-text .btn:hover{background:var(--gray-100)}
-.slide-controls{display:flex;align-items:center;justify-content:space-between;margin-top:40px}
-.slide-dots{display:flex;align-items:center;gap:8px}
-.slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:all 0.3s}
-.slide-dot.active{width:24px;border-radius:4px;background:rgba(255,255,255,0.6)}
-.slide-arrows{display:flex;gap:8px}
-.slide-arrow{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;color:rgba(255,255,255,0.5)}
-.slide-arrow:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff}
-@media(max-width:960px){.slide.active{grid-template-columns:1fr}.slide-visual{order:-1}.slideshow{padding:48px 28px}}
+/* PRODUCT SHOWCASES - Coinbase style */
+.showcase{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:520px}
+.showcase-visual{background:var(--gray-100);border-radius:24px;display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden;min-height:480px}
+.showcase-visual.dark-bg{background:var(--dark)}
+.showcase-visual.green-bg{background:linear-gradient(145deg,#e8f5e9 0%,#c8e6c9 50%,#a5d6a7 100%)}
+.showcase-visual.blue-bg{background:linear-gradient(145deg,#e3f2fd 0%,#bbdefb 50%,#90caf9 100%)}
+.showcase-text{display:flex;flex-direction:column;justify-content:center;padding:64px}
+.showcase-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gray-200);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:600;color:var(--gray-700);width:fit-content;margin-bottom:24px}
+.showcase-pill .pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.showcase-text h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-2px;line-height:1.05;color:var(--black);margin-bottom:16px}
+.showcase-text p{font-size:17px;color:var(--gray-600);line-height:1.6;margin-bottom:32px;max-width:420px}
+.showcase-text .btn-pill{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);font-weight:600;border-radius:100px;padding:16px 36px;font-size:15px;border:none;cursor:pointer;transition:all 0.2s;width:fit-content}
+.showcase-text .btn-pill:hover{background:var(--dark);transform:translateY(-1px)}
+/* Phone inside showcase */
+.showcase-phone{width:260px;height:380px;background:#fff;border:1px solid var(--gray-200);border-radius:28px;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,0.08);position:relative;z-index:1}
+.showcase-phone .sp-screen{width:100%;height:100%;background:var(--gray-50);border-radius:20px;overflow:hidden;padding:40px 12px 12px;position:relative}
+.showcase-phone .sp-screen::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:60px;height:18px;background:var(--gray-100);border-radius:10px}
+.showcase-phone .sp-row{background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:6px}
+.showcase-phone .sp-row-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.showcase-phone .sp-name{font-size:13px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:5px}
+.showcase-phone .sp-name .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.showcase-phone .sp-apy{font-size:12px;font-weight:700;color:var(--green)}
+.showcase-phone .sp-meta{font-size:9px;color:var(--gray-500);display:flex;justify-content:space-between}
+.showcase-phone .sp-meta span:last-child{font-weight:600;color:var(--gray-700)}
+/* Dashboard card in showcase */
+.showcase-dashboard{background:var(--dark);border-radius:16px;padding:28px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08)}
+.showcase-dashboard .sd-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.showcase-dashboard .sd-title{font-size:18px;font-weight:700;color:#fff}
+.showcase-dashboard .sd-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;background:rgba(76,175,80,0.15);color:#4caf50}
+.showcase-dashboard .sd-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.showcase-dashboard .sd-row:last-child{border-bottom:none}
+.showcase-dashboard .sd-label{font-size:13px;color:rgba(255,255,255,0.4)}
+.showcase-dashboard .sd-val{font-size:13px;font-weight:600;color:#fff}
+.showcase-dashboard .sd-val.green{color:#4caf50}
+/* Reverse layout (visual right, text left) */
+.showcase.reverse{direction:rtl}
+.showcase.reverse > *{direction:ltr}
+@media(max-width:960px){.showcase,.showcase.reverse{grid-template-columns:1fr;direction:ltr}.showcase-visual{min-height:360px;border-radius:16px}.showcase-text{padding:48px 0}}
 
 /* HOW - dark section */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -431,77 +442,85 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- PRODUCTS SLIDESHOW -->
+<!-- PRODUCT 1: haUSD Vaults (white bg, phone LEFT, text RIGHT) -->
 <section class="section" id="products">
   <div class="container">
-    <div class="slideshow anim" id="productSlideshow">
-      <!-- Slide 1: Stablecoins -->
-      <div class="slide active" data-slide="0">
-        <div class="slide-visual">
-          <div class="slide-card">
-            <div class="sc-header"><div class="sc-name">haUSD Vaults</div><div class="sc-badge">Live</div></div>
-            <div class="sc-stat"><span class="sc-label">haUSDC APY</span><span class="sc-val green">6.2%</span></div>
-            <div class="sc-stat"><span class="sc-label">haUSDT APY</span><span class="sc-val green">5.8%</span></div>
-            <div class="sc-stat"><span class="sc-label">haUSDH APY</span><span class="sc-val green">5.5%</span></div>
-            <div class="sc-stat"><span class="sc-label">Strategy</span><span class="sc-val">Delta Neutral</span></div>
-            <div class="sc-stat"><span class="sc-label">Fee</span><span class="sc-val">1% mgmt</span></div>
+    <div class="showcase anim">
+      <div class="showcase-visual green-bg">
+        <div class="showcase-phone">
+          <div class="sp-screen">
+            <div class="sp-row">
+              <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDC</div><div class="sp-apy">6.2%</div></div>
+              <div class="sp-meta"><span>TVL</span><span>$2.4M</span></div>
+            </div>
+            <div class="sp-row">
+              <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDT</div><div class="sp-apy">5.8%</div></div>
+              <div class="sp-meta"><span>TVL</span><span>$1.8M</span></div>
+            </div>
+            <div class="sp-row">
+              <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDH</div><div class="sp-apy">5.5%</div></div>
+              <div class="sp-meta"><span>TVL</span><span>$0.9M</span></div>
+            </div>
+            <div class="sp-row">
+              <div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haHYPE</div><div class="sp-apy">8.1%</div></div>
+              <div class="sp-meta"><span>TVL</span><span>$3.1M</span></div>
+            </div>
           </div>
-        </div>
-        <div class="slide-text">
-          <h2>Yield-bearing stablecoins</h2>
-          <p>Deposit USDC, USDT, or USDH and receive ERC-4626 tokens that grow in value through delta-neutral strategies.</p>
-          <a href="https://app.harmonix.fi/earn" target="_blank" class="btn">Deposit now</a>
         </div>
       </div>
-      <!-- Slide 2: HYPE Tokens -->
-      <div class="slide" data-slide="1">
-        <div class="slide-visual">
-          <div class="slide-card">
-            <div class="sc-header"><div class="sc-name">HYPE Vaults</div><div class="sc-badge">Live</div></div>
-            <div class="sc-stat"><span class="sc-label">haHYPE APY</span><span class="sc-val green">8.1%</span></div>
-            <div class="sc-stat"><span class="sc-label">hakHYPE APY</span><span class="sc-val green">7.4%</span></div>
-            <div class="sc-stat"><span class="sc-label">Points</span><span class="sc-val green">Accruing</span></div>
-            <div class="sc-stat"><span class="sc-label">Strategy</span><span class="sc-val">Yield Compound</span></div>
-            <div class="sc-stat"><span class="sc-label">Network</span><span class="sc-val">Hyperliquid</span></div>
-          </div>
-        </div>
-        <div class="slide-text">
-          <h2>Compound your HYPE</h2>
-          <p>HYPE and kHYPE tokens that compound yield into share price while accruing points from multiple protocols.</p>
-          <a href="https://app.harmonix.fi/earn" target="_blank" class="btn">Deposit now</a>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>HAUSD VAULTS</div>
+        <h2>Yield-bearing stablecoins.</h2>
+        <p>Deposit USDC, USDT, or USDH and receive ERC-4626 tokens that grow in value through delta-neutral strategies. 1% management fee. No performance fees.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT 2: HYPE Tokens (dark bg, text LEFT, dashboard RIGHT) -->
+<section class="section section-dark" id="hype-vaults">
+  <div class="container">
+    <div class="showcase reverse anim">
+      <div class="showcase-visual dark-bg" style="background:#0d1117">
+        <div class="showcase-dashboard">
+          <div class="sd-header"><div class="sd-title">HYPE Vaults</div><div class="sd-badge">LIVE</div></div>
+          <div class="sd-row"><span class="sd-label">haHYPE APY</span><span class="sd-val green">8.1%</span></div>
+          <div class="sd-row"><span class="sd-label">hakHYPE APY</span><span class="sd-val green">7.4%</span></div>
+          <div class="sd-row"><span class="sd-label">Points</span><span class="sd-val green">Accruing</span></div>
+          <div class="sd-row"><span class="sd-label">Strategy</span><span class="sd-val">Yield Compound</span></div>
+          <div class="sd-row"><span class="sd-label">Network</span><span class="sd-val">Hyperliquid</span></div>
         </div>
       </div>
-      <!-- Slide 3: Basis Trade -->
-      <div class="slide" data-slide="2">
-        <div class="slide-visual">
-          <div class="slide-card">
-            <div class="sc-header"><div class="sc-name">Basis Trade</div><div class="sc-badge">Live</div></div>
-            <div class="sc-stat"><span class="sc-label">APY</span><span class="sc-val green">6.5%</span></div>
-            <div class="sc-stat"><span class="sc-label">Deposit</span><span class="sc-val">USDC</span></div>
-            <div class="sc-stat"><span class="sc-label">HYPE Exposure</span><span class="sc-val">0%</span></div>
-            <div class="sc-stat"><span class="sc-label">Strategy</span><span class="sc-val">Funding Rates</span></div>
-            <div class="sc-stat"><span class="sc-label">Network</span><span class="sc-val">Arbitrum</span></div>
-          </div>
-        </div>
-        <div class="slide-text">
-          <h2>Trade more with less</h2>
-          <p>Delta-neutral strategy capturing funding rates with zero directional HYPE exposure. Fully automated.</p>
-          <a href="https://app.harmonix.fi/earn" target="_blank" class="btn">Deposit now</a>
+      <div class="showcase-text">
+        <div class="showcase-pill" style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.6)"><span class="pill-dot"></span>HYPE TOKENS</div>
+        <h2 style="color:var(--white)">Compound your HYPE.</h2>
+        <p style="color:var(--gray-500)">HYPE and kHYPE tokens that compound yield into share price while accruing points from multiple protocols.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" style="background:#fff;color:#000">Deposit now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT 3: Basis Trade (white bg, phone LEFT, text RIGHT) -->
+<section class="section" id="basis-trade">
+  <div class="container">
+    <div class="showcase anim">
+      <div class="showcase-visual dark-bg" style="border-radius:24px">
+        <div class="showcase-dashboard" style="max-width:360px">
+          <div class="sd-header"><div class="sd-title">Basis Trade</div><div class="sd-badge">LIVE</div></div>
+          <div class="sd-row"><span class="sd-label">APY</span><span class="sd-val green">6.5%</span></div>
+          <div class="sd-row"><span class="sd-label">Deposit</span><span class="sd-val">USDC</span></div>
+          <div class="sd-row"><span class="sd-label">HYPE Exposure</span><span class="sd-val">0%</span></div>
+          <div class="sd-row"><span class="sd-label">Strategy</span><span class="sd-val">Funding Rates</span></div>
+          <div class="sd-row"><span class="sd-label">Network</span><span class="sd-val">Arbitrum</span></div>
         </div>
       </div>
-      <!-- Controls -->
-      <div class="slide-controls">
-        <div style="display:flex;align-items:center;gap:16px">
-          <div class="slide-dots">
-            <div class="slide-dot active" data-goto="0"></div>
-            <div class="slide-dot" data-goto="1"></div>
-            <div class="slide-dot" data-goto="2"></div>
-          </div>
-        </div>
-        <div class="slide-arrows">
-          <div class="slide-arrow" id="prevSlide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></div>
-          <div class="slide-arrow" id="nextSlide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg></div>
-        </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>BASIS TRADE</div>
+        <h2>Zero directional exposure.</h2>
+        <p>Delta-neutral strategy capturing funding rates with zero HYPE exposure. Fully automated. Deployed on Arbitrum.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
       </div>
     </div>
   </div>
@@ -739,21 +758,6 @@ window.addEventListener('scroll',()=>{
 // Hamburger
 document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('open')});
 document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open')));
-// Product Slideshow
-(function(){
-  let cur=0;const total=3;
-  const slides=document.querySelectorAll('.slide');
-  const dots=document.querySelectorAll('.slide-dot');
-  function goTo(n){
-    slides[cur].classList.remove('active');dots[cur].classList.remove('active');
-    cur=((n%total)+total)%total;
-    slides[cur].classList.add('active');dots[cur].classList.add('active');
-  }
-  document.getElementById('nextSlide').addEventListener('click',()=>goTo(cur+1));
-  document.getElementById('prevSlide').addEventListener('click',()=>goTo(cur-1));
-  dots.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.goto)));
-  setInterval(()=>goTo(cur+1),6000);
-})();
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
