@@ -483,14 +483,17 @@ ul{list-style:none}
 <!-- HERO — Desktop screen with haUSD vault + text -->
 <section class="hero">
   <div class="hero-inner">
-    <!-- LEFT: iPad in green gradient box (Coinbase-style) -->
-    <div class="hero-phone anim visible" style="height:540px;padding:40px 40px 0;display:flex;align-items:flex-start;justify-content:center">
-      <div style="width:440px;height:640px;background:linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04),rgba(255,255,255,0.08));border-radius:28px;padding:4px;box-shadow:0 -10px 60px rgba(67,160,71,0.15),0 24px 80px rgba(0,0,0,0.3),inset 0 1px 1px rgba(255,255,255,0.15),0 0 0 1px rgba(255,255,255,0.06);position:relative;z-index:1;flex-shrink:0;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)">
-        <div style="width:100%;height:100%;background:#000;border-radius:24px;padding:10px;position:relative;border:1px solid rgba(255,255,255,0.08)">
-        <!-- iPad camera dot -->
-        <div style="position:absolute;top:5px;left:50%;transform:translateX(-50%);width:7px;height:7px;background:#1a1a1a;border-radius:50%;z-index:5;border:1px solid #333"></div>
-        <!-- Screen -->
-        <div style="background:#f8f9fa;border-radius:16px;overflow:hidden;height:100%;display:flex">
+    <!-- LEFT: MacBook in green gradient box (Coinbase-style) -->
+    <div class="hero-phone anim visible" style="height:520px;padding:36px 28px 0;display:flex;align-items:flex-start;justify-content:center">
+      <div style="width:100%;max-width:480px;position:relative;z-index:1">
+        <!-- MacBook lid -->
+        <div style="background:linear-gradient(180deg,#2c2c2e,#1c1c1e);border-radius:12px 12px 0 0;padding:6px 6px 0;position:relative">
+          <!-- Camera notch -->
+          <div style="position:absolute;top:3px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:#0a0a0a;border-radius:50%;border:1px solid #333;z-index:2"></div>
+          <!-- Screen bezel -->
+          <div style="background:#000;border-radius:8px 8px 0 0;padding:2px 2px 0;overflow:hidden">
+            <!-- Screen content -->
+            <div style="background:#f8f9fa;border-radius:6px 6px 0 0;overflow:hidden;display:flex;height:380px">
           <!-- Sidebar (icons only, white — matches Harmonix app) -->
           <div style="width:40px;background:#fff;border-right:1px solid #e9ecef;display:flex;flex-direction:column;align-items:center;padding:14px 0 10px;gap:2px;flex-shrink:0;border-radius:16px 0 0 16px">
             <!-- Home -->
@@ -590,9 +593,16 @@ ul{list-style:none}
             </div>
           </div>
           </div><!-- /main content -->
-        </div><!-- /screen -->
-      </div><!-- /inner black frame -->
-      </div><!-- /glass outline -->
+            </div><!-- /screen -->
+          </div><!-- /bezel -->
+        </div><!-- /lid -->
+        <!-- MacBook hinge -->
+        <div style="height:3px;background:linear-gradient(180deg,#3a3a3c,#48484a,#3a3a3c)"></div>
+        <!-- MacBook base -->
+        <div style="background:linear-gradient(180deg,#c8c8ca,#a8a8aa);height:10px;border-radius:0 0 8px 8px;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.15)">
+          <div style="position:absolute;top:2px;left:50%;transform:translateX(-50%);width:60px;height:2px;background:rgba(0,0,0,0.08);border-radius:2px"></div>
+        </div>
+      </div>
     </div>
     <!-- RIGHT: Text -->
     <div class="hero-text">
