@@ -195,7 +195,38 @@ ul{list-style:none}
 /* Reverse layout (visual right, text left) */
 .showcase.reverse{direction:rtl}
 .showcase.reverse > *{direction:ltr}
-@media(max-width:960px){.showcase,.showcase.reverse{grid-template-columns:1fr;direction:ltr}.showcase-visual{min-height:360px;border-radius:16px}.showcase-text{padding:48px 0}}
+/* Staking card mock */
+.mock-stake{display:flex;flex-direction:column;gap:10px;width:100%;max-width:300px}
+.mock-stake-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px}
+.mock-stake-card .msc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mock-stake-card .msc-dur{font-size:18px;font-weight:800;color:#fff}
+.mock-stake-card .msc-badge{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:rgba(76,175,80,0.15);color:#4caf50;border:1px solid rgba(76,175,80,0.2)}
+.mock-stake-card .msc-row{display:flex;justify-content:space-between;font-size:11px;padding:4px 0}
+.mock-stake-card .msc-row .msc-l{color:rgba(255,255,255,0.35)}
+.mock-stake-card .msc-row .msc-v{color:rgba(255,255,255,0.8);font-weight:600}
+.mock-stake-card .msc-row .msc-v.green{color:#4caf50}
+.mock-stake-card .msc-btn{display:block;text-align:center;background:rgba(76,175,80,0.15);color:#4caf50;border:1px solid rgba(76,175,80,0.2);border-radius:8px;padding:8px;font-size:12px;font-weight:600;margin-top:10px}
+/* Analytics chart mock */
+.mock-chart{width:100%;max-width:340px}
+.mock-chart-card{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px;margin-bottom:10px}
+.mock-chart-card .mc-title{font-size:12px;font-weight:700;color:var(--black);margin-bottom:12px}
+.mock-chart-card .mc-bars{display:flex;align-items:flex-end;gap:4px;height:60px}
+.mock-chart-card .mc-bar{flex:1;background:linear-gradient(to top,#c8e6c9,#4caf50);border-radius:2px 2px 0 0;min-width:8px}
+.mock-chart-card .mc-line{height:48px;background:linear-gradient(to right,transparent,rgba(76,175,80,0.1));border-radius:8px;position:relative;overflow:hidden}
+.mock-chart-card .mc-line::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#4caf50,#81c784)}
+.mock-chart-card .mc-val{font-size:20px;font-weight:800;color:var(--black);margin-top:8px}
+.mock-chart-card .mc-sub{font-size:10px;color:var(--gray-500)}
+/* Points mock */
+.mock-points{width:100%;max-width:320px}
+.mock-points-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;margin-bottom:8px}
+.mock-points-card .mp-label{font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.mock-points-card .mp-val{font-size:24px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}
+.mock-points-card .mp-val .mp-icon{width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center}
+.mock-points-row{display:flex;gap:8px}
+.mock-points-row .mpr{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:14px;text-align:center}
+.mock-points-row .mpr .mpr-label{font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.3px;margin-bottom:4px}
+.mock-points-row .mpr .mpr-val{font-size:16px;font-weight:700;color:#4caf50}
+@media(max-width:960px){.showcase,.showcase.reverse{grid-template-columns:1fr;direction:ltr}.showcase-visual{min-height:300px}.showcase-text{padding:40px 24px}}
 
 /* HOW - dark section */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -596,6 +627,115 @@ ul{list-style:none}
         <h2>Zero directional exposure.</h2>
         <p>Delta-neutral strategy capturing funding rates with zero HYPE exposure. Fully automated. Deployed on Arbitrum.</p>
         <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT 4: Staking (dark section, reversed) -->
+<section class="section section-dark" id="staking">
+  <div class="container">
+    <div class="showcase reverse anim">
+      <div class="showcase-visual dark-bg">
+        <div class="mock-stake">
+          <div class="mock-stake-card">
+            <div class="msc-top"><span class="msc-dur">180 Days</span><span class="msc-badge">Locked</span></div>
+            <div class="msc-row"><span class="msc-l">APR</span><span class="msc-v green">90%</span></div>
+            <div class="msc-row"><span class="msc-l">Pool Capacity</span><span class="msc-v">50,000,000 HAR</span></div>
+            <div class="msc-row"><span class="msc-l">Pool Filled</span><span class="msc-v">12.81%</span></div>
+            <div class="msc-row"><span class="msc-l">Penalty</span><span class="msc-v green">10%</span></div>
+            <div class="msc-btn">Stake HAR</div>
+          </div>
+          <div class="mock-stake-card">
+            <div class="msc-top"><span class="msc-dur">360 Days</span><span class="msc-badge">Locked</span></div>
+            <div class="msc-row"><span class="msc-l">APR</span><span class="msc-v green">120%</span></div>
+            <div class="msc-row"><span class="msc-l">Pool Capacity</span><span class="msc-v">50,000,000 HAR</span></div>
+            <div class="msc-row"><span class="msc-l">Pool Filled</span><span class="msc-v">2.52%</span></div>
+            <div class="msc-row"><span class="msc-l">Penalty</span><span class="msc-v green">10%</span></div>
+            <div class="msc-btn">Stake HAR</div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>STAKING</div>
+        <h2>Earn up to 120% APR.</h2>
+        <p>Stake HAR tokens for 180 or 360 days. Higher lock periods, greater rewards. Early participants receive bonus APR.</p>
+        <a href="https://app.harmonix.fi/staking" target="_blank" class="btn-pill">Stake now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT 5: Analytics (white section) -->
+<section class="section" id="analytics">
+  <div class="container">
+    <div class="showcase anim">
+      <div class="showcase-visual" style="background:var(--gray-50)">
+        <div class="mock-chart">
+          <div class="mock-chart-card">
+            <div class="mc-title">Cumulative TVL</div>
+            <div class="mc-val">$9.2M</div>
+            <div class="mc-sub">+34% this month</div>
+            <div class="mc-line" style="margin-top:12px"></div>
+          </div>
+          <div class="mock-chart-card">
+            <div class="mc-title">Depositors</div>
+            <div class="mc-bars">
+              <div class="mc-bar" style="height:10%"></div>
+              <div class="mc-bar" style="height:15%"></div>
+              <div class="mc-bar" style="height:20%"></div>
+              <div class="mc-bar" style="height:25%"></div>
+              <div class="mc-bar" style="height:35%"></div>
+              <div class="mc-bar" style="height:42%"></div>
+              <div class="mc-bar" style="height:50%"></div>
+              <div class="mc-bar" style="height:55%"></div>
+              <div class="mc-bar" style="height:65%"></div>
+              <div class="mc-bar" style="height:72%"></div>
+              <div class="mc-bar" style="height:80%"></div>
+              <div class="mc-bar" style="height:90%"></div>
+              <div class="mc-bar" style="height:100%"></div>
+            </div>
+            <div class="mc-val" style="margin-top:8px">14,200</div>
+            <div class="mc-sub">Total unique depositors</div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>ANALYTICS</div>
+        <h2>Full transparency, onchain.</h2>
+        <p>Track TVL, depositor growth, delta neutral yield, and vault performance in real-time. All data verifiable onchain.</p>
+        <a href="https://app.harmonix.fi" target="_blank" class="btn-pill">View dashboard</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT 6: Points (dark section, reversed) -->
+<section class="section section-dark" id="points">
+  <div class="container">
+    <div class="showcase reverse anim">
+      <div class="showcase-visual dark-bg">
+        <div class="mock-points">
+          <div class="mock-points-card">
+            <div class="mp-label">Your Position</div>
+            <div class="mp-val"><span class="mp-icon"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>12,450 pts</div>
+          </div>
+          <div class="mock-points-row">
+            <div class="mpr"><div class="mpr-label">Harmonix</div><div class="mpr-val">8,200</div></div>
+            <div class="mpr"><div class="mpr-label">Kinetiq</div><div class="mpr-val">2,100</div></div>
+            <div class="mpr"><div class="mpr-label">Felix</div><div class="mpr-val">1,450</div></div>
+          </div>
+          <div class="mock-points-card" style="margin-top:2px">
+            <div class="mp-label">Rewards Available</div>
+            <div class="mp-val" style="font-size:18px"><span class="mp-icon"><svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></span>Claimable</div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span>POINTS</div>
+        <h2>Track and earn points.</h2>
+        <p>Accrue points from Harmonix, Kinetiq, Felix and more. All tracked in one dashboard. Rewards claimable at TGE.</p>
+        <a href="https://app.harmonix.fi" target="_blank" class="btn-pill">Track points</a>
       </div>
     </div>
   </div>
