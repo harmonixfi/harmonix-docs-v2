@@ -191,19 +191,24 @@ ul{list-style:none}
 .security-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--black)}
 .security-card p{font-size:14px;color:var(--gray-600);line-height:1.6}
 
-/* TOKEN */
-.token-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.token-info h3{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px}
+/* TOKEN - premium full-width */
+.token-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.token-info h3{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;color:#fff}
 .token-info > p{font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:32px}
-.token-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.token-stat{border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px;text-align:center;background:rgba(255,255,255,0.04)}
-.token-stat .val{font-size:24px;font-weight:800;letter-spacing:-0.5px;color:var(--white)}
-.token-stat .lbl{font-size:11px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
-.token-chart{display:flex;flex-direction:column;align-items:center}
-.token-ring svg{width:260px;height:auto}
-.token-legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500);font-weight:500}
-.legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.token-alloc{display:flex;flex-direction:column;gap:0}
+.token-alloc-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.token-alloc-row:last-child{border-bottom:none}
+.token-alloc-row .ta-left{display:flex;align-items:center;gap:10px}
+.token-alloc-row .ta-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.token-alloc-row .ta-name{font-size:14px;font-weight:600;color:rgba(255,255,255,0.8)}
+.token-alloc-row .ta-detail{font-size:11px;color:rgba(255,255,255,0.3);margin-top:1px}
+.token-alloc-row .ta-pct{font-size:20px;font-weight:800;color:#4caf50;letter-spacing:-0.5px}
+.token-chart-wrap{display:flex;flex-direction:column;align-items:center;position:relative}
+.token-chart-wrap svg{width:320px;height:320px}
+.token-chart-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.token-chart-center .tcc-logo{width:32px;height:32px;margin:0 auto 6px}
+.token-chart-center .tcc-title{font-size:14px;font-weight:700;color:#fff;letter-spacing:-0.3px}
+.token-chart-center .tcc-sub{font-size:11px;color:rgba(255,255,255,0.4)}
 
 /* PARTNERS / INTEGRATIONS */
 .partners-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
@@ -627,34 +632,60 @@ ul{list-style:none}
     <div class="token-layout">
       <div class="token-info anim d1">
         <h3>1,000,000,000 HAR</h3>
-        <p>Fixed supply. No inflation. Governance and treasury direction token with 25% airdrop at TGE.</p>
-        <div class="token-stats">
-          <div class="token-stat"><div class="val">50%</div><div class="lbl">Community</div></div>
-          <div class="token-stat"><div class="val">18%</div><div class="lbl">Core</div></div>
-          <div class="token-stat"><div class="val">18%</div><div class="lbl">Sale</div></div>
-          <div class="token-stat"><div class="val">10%</div><div class="lbl">Foundation</div></div>
-          <div class="token-stat"><div class="val">4%</div><div class="lbl">Liquidity</div></div>
-          <div class="token-stat"><div class="val">25%</div><div class="lbl">Airdrop</div></div>
+        <p>Fixed supply. No inflation. Governance and treasury direction token. 50% allocated to community airdrop.</p>
+        <div class="token-alloc">
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#4caf50"></div><div><div class="ta-name">Community Airdrop</div><div class="ta-detail">Future Airdrop + Community Reward</div></div></div>
+            <div class="ta-pct">50%</div>
+          </div>
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#81c784"></div><div><div class="ta-name">Future Airdrop</div></div></div>
+            <div class="ta-pct" style="color:rgba(255,255,255,0.7);font-size:16px">25%</div>
+          </div>
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#66bb6a"></div><div><div class="ta-name">Community Reward</div><div class="ta-detail">Point Holders, Liquina, Catbal, Odd Otties, SaveTheWhal3s</div></div></div>
+            <div class="ta-pct" style="color:rgba(255,255,255,0.7);font-size:16px">25%</div>
+          </div>
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#a5d6a7"></div><div><div class="ta-name">Core Contributors</div></div></div>
+            <div class="ta-pct">18%</div>
+          </div>
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#c8e6c9"></div><div><div class="ta-name">Private &amp; Public Investors</div></div></div>
+            <div class="ta-pct">18%</div>
+          </div>
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#e8f5e9"></div><div><div class="ta-name">Foundation</div></div></div>
+            <div class="ta-pct">10%</div>
+          </div>
+          <div class="token-alloc-row">
+            <div class="ta-left"><div class="ta-dot" style="background:#fff"></div><div><div class="ta-name">Liquidity</div></div></div>
+            <div class="ta-pct">4%</div>
+          </div>
         </div>
       </div>
-      <div class="token-chart anim d2">
-        <div class="token-ring">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#08181F" stroke-width="28" stroke-dasharray="251.3 502.6" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#343a40" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-251.3" transform="rotate(-90 100 100)"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#2d6a2e" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-341.8" transform="rotate(-90 100 100)"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#adb5bd" stroke-width="28" stroke-dasharray="50.3 502.6" stroke-dashoffset="-432.3" transform="rotate(-90 100 100)"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#dee2e6" stroke-width="28" stroke-dasharray="20.1 502.6" stroke-dashoffset="-482.6" transform="rotate(-90 100 100)"/>
-            <text x="100" y="96" text-anchor="middle" font-family="Inter" font-size="15" font-weight="800" fill="#ffffff">1B HAR</text>
-            <text x="100" y="112" text-anchor="middle" font-family="Inter" font-size="10" fill="#868e96">Fixed Supply</text>
-          </svg>
-        </div>
-        <div class="token-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:#08181F"></div>Community</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#343a40"></div>Core</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#2d6a2e"></div>Sale</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#adb5bd"></div>Foundation</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#dee2e6"></div>Liquidity</div>
+      <div class="token-chart-wrap anim d2">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Community Airdrop 50% = 251.3 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#4caf50" stroke-width="32" stroke-dasharray="219.9 439.8" stroke-dashoffset="0" transform="rotate(-90 100 100)" opacity="0.9"/>
+          <!-- Core Contributors 18% = 79.2 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#a5d6a7" stroke-width="32" stroke-dasharray="79.2 439.8" stroke-dashoffset="-219.9" transform="rotate(-90 100 100)"/>
+          <!-- Private & Public 18% = 79.2 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#c8e6c9" stroke-width="32" stroke-dasharray="79.2 439.8" stroke-dashoffset="-299.1" transform="rotate(-90 100 100)"/>
+          <!-- Foundation 10% = 44 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#e8f5e9" stroke-width="32" stroke-dasharray="44 439.8" stroke-dashoffset="-378.3" transform="rotate(-90 100 100)"/>
+          <!-- Liquidity 4% = 17.6 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#ffffff" stroke-width="32" stroke-dasharray="17.6 439.8" stroke-dashoffset="-422.3" transform="rotate(-90 100 100)" opacity="0.6"/>
+          <!-- Inner circle for depth effect -->
+          <circle cx="100" cy="100" r="52" fill="#08181F"/>
+          <circle cx="100" cy="100" r="52" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        </svg>
+        <div class="token-chart-center">
+          <div class="tcc-logo">
+            <svg viewBox="0 0 30 28" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><path fill="#4caf50" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
+          </div>
+          <div class="tcc-title">Harmonix</div>
+          <div class="tcc-sub">Tokenomics</div>
         </div>
       </div>
     </div>
