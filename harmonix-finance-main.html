@@ -85,7 +85,7 @@ ul{list-style:none}
 .phone-header-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:0 4px}
 .phone-header-bar .ph-title{font-size:18px;font-weight:800;color:var(--black);letter-spacing:-0.5px}
 .phone-header-bar .ph-logo{width:24px;height:24px;border-radius:7px;background:var(--green);display:flex;align-items:center;justify-content:center}
-.phone-vault-card{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:14px;margin-bottom:7px}
+.phone-vault-card{background:#fff;border-radius:12px;padding:14px;margin-bottom:7px;position:relative;border:2px solid transparent;background-clip:padding-box}.phone-vault-card::before{content:'';position:absolute;inset:-2px;border-radius:13px;background:linear-gradient(145deg,#c8f07a,#81c784,#a5d6a7,#c8f07a);z-index:-1}
 .phone-vault-card .pv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
 .phone-vault-card .pv-name{font-size:13px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:6px}
 .phone-vault-card .pv-name .pv-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
@@ -460,8 +460,7 @@ ul{list-style:none}
             <!-- Earn header -->
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:0 2px">
               <div style="display:flex;align-items:center;gap:6px">
-                <svg width="12" height="12" viewBox="0 0 30 28" fill="none"><path fill="#2d6a2e" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg>
-                <span style="font-size:15px;font-weight:800;color:#000;letter-spacing:-0.3px">Earn</span>
+                <svg viewBox="0 0 146 28" height="16" xmlns="http://www.w3.org/2000/svg"><g><path fill="#08181F" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/><path fill="#08181F" d="M73.9,24.5c-1.1,0-2.1-0.7-2.6-1.6c-0.3,0.3-0.6,0.5-1,0.7c-1,0.6-2.1,0.8-3.3,0.8c-1.2,0-2.3-0.3-3.3-0.8c-1-0.6-1.8-1.4-2.3-2.3c-0.6-1-0.8-2.1-0.8-3.3c0-1.2,0.3-2.3,0.8-3.2c0.6-1,1.4-1.7,2.3-2.3c1-0.6,2.1-0.9,3.3-0.9s2.3,0.3,3.3,0.8c0.2,0.1,0.5,0.3,0.7,0.5v-1.3h3L73.9,24.5L73.9,24.5z M58.7,21c0,1.9-1.5,3.5-3.5,3.5v-9.3h-9.9V21c0,1.9-1.5,3.5-3.5,3.5V7c0-1.9,1.5-3.5,3.5-3.5V12h9.9V7c0-1.9,1.5-3.5,3.5-3.5C58.7,3.5,58.7,21,58.7,21z M109.8,11.6c1.2,0,2.3,0.3,3.3,0.9c1,0.6,1.7,1.3,2.3,2.3c0.6,1,0.9,2,0.9,3.2s-0.3,2.3-0.9,3.3s-1.3,1.8-2.3,2.3c-1,0.6-2.1,0.9-3.3,0.9c-1.2,0-2.3-0.3-3.3-0.9s-1.8-1.4-2.3-2.3c-0.6-1-0.8-2.1-0.8-3.3c0-1.2,0.3-2.3,0.8-3.2c0.6-1,1.4-1.7,2.3-2.3C107.5,11.9,108.6,11.6,109.8,11.6z"/></g></svg>
               </div>
               <div style="display:flex;gap:2px;background:#f1f3f5;border-radius:5px;padding:2px">
                 <span style="font-size:9px;font-weight:700;color:#fff;background:#2d6a2e;padding:3px 8px;border-radius:3px">All</span>
@@ -521,132 +520,23 @@ ul{list-style:none}
 <section class="section" id="buy-har">
   <div class="container">
     <div class="showcase anim">
-      <div class="showcase-visual v-charcoal" style="padding:32px 20px;align-items:center;justify-content:center;position:relative">
-        <!-- Coinbase-style rounded box behind the desktop -->
-        <div style="position:absolute;inset:24px;background:linear-gradient(145deg,rgba(76,175,80,0.08),rgba(76,175,80,0.02));border:1px solid rgba(76,175,80,0.12);border-radius:24px"></div>
-        <!-- Desktop frame with Hyperliquid trading view -->
-        <div style="position:relative;z-index:1;width:100%;max-width:460px">
-          <div style="background:#111;border-radius:12px 12px 0 0;padding:8px 12px 0;box-shadow:0 -8px 40px rgba(0,0,0,0.3)">
-            <!-- Browser chrome -->
-            <div style="display:flex;align-items:center;gap:6px;padding-bottom:8px">
-              <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#28c840"></div>
-              <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:4px;padding:4px 10px;font-size:9px;color:rgba(255,255,255,0.4);margin-left:8px">app.hyperliquid.xyz/trade/HAR/USDC</div>
-            </div>
-            <!-- Trading interface -->
-            <div style="background:#0b0e11;border-radius:4px 4px 0 0;overflow:hidden">
-              <!-- Top ticker bar -->
-              <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid #1e2329;font-size:7px;color:rgba(255,255,255,0.3);overflow:hidden;white-space:nowrap">
-                <span style="color:rgba(255,255,255,0.15)">BTC-USDC</span>
-                <span style="color:rgba(255,255,255,0.15)">ETH-USDC</span>
-                <span style="color:#fff;font-weight:700;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:3px">HAR/USDC</span>
-                <span style="color:rgba(255,255,255,0.15)">HYPE-USDC</span>
+      <div class="showcase-visual v-charcoal" style="padding:0;align-items:flex-end;overflow:hidden">
+        <!-- Desktop frame with actual Hyperliquid screenshot -->
+        <div class="showcase-desktop-wrap">
+          <div class="showcase-desktop">
+            <div class="sd-bezel">
+              <div class="sd-topbar">
+                <div class="sd-dot" style="background:#ff5f57"></div>
+                <div class="sd-dot" style="background:#ffbd2e"></div>
+                <div class="sd-dot" style="background:#28c840"></div>
+                <div class="sd-url">app.hyperliquid.xyz/trade/HAR/USDC</div>
               </div>
-              <!-- Price header -->
-              <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #1e2329">
-                <div style="width:16px;height:16px;border-radius:50%;background:#4caf50;display:flex;align-items:center;justify-content:center"><svg width="7" height="7" viewBox="0 0 30 28" fill="none"><path fill="#fff" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z"/></svg></div>
-                <span style="font-size:11px;font-weight:700;color:#fff">HAR/USDC</span>
-                <span style="font-size:10px;font-weight:700;color:#4caf50">$0.004725</span>
-                <span style="font-size:8px;color:#ef5350">-1.51%</span>
-                <div style="margin-left:auto;display:flex;gap:10px;font-size:7px;color:rgba(255,255,255,0.3)">
-                  <span>24h Vol: <span style="color:rgba(255,255,255,0.5)">4,710,000</span></span>
-                  <span>Mkt Cap: <span style="color:rgba(255,255,255,0.5)">$284K</span></span>
-                </div>
-              </div>
-              <!-- Chart + Order book row -->
-              <div style="display:flex">
-                <!-- Chart -->
-                <div style="flex:1;padding:8px;min-height:200px">
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:7px;color:rgba(255,255,255,0.3)">
-                    <span>HAR/USDC @261</span>
-                    <span>1D</span>
-                    <span style="color:rgba(255,255,255,0.15)">Hyperliquid</span>
-                  </div>
-                  <svg viewBox="0 0 300 130" width="100%" height="140" style="display:block">
-                    <line x1="0" y1="32" x2="300" y2="32" stroke="#1e2329" stroke-width="0.5"/>
-                    <line x1="0" y1="65" x2="300" y2="65" stroke="#1e2329" stroke-width="0.5"/>
-                    <line x1="0" y1="98" x2="300" y2="98" stroke="#1e2329" stroke-width="0.5"/>
-                    <!-- Price labels -->
-                    <text x="295" y="30" font-size="6" fill="rgba(255,255,255,0.2)" font-family="monospace" text-anchor="end">0.016</text>
-                    <text x="295" y="63" font-size="6" fill="rgba(255,255,255,0.2)" font-family="monospace" text-anchor="end">0.010</text>
-                    <text x="295" y="96" font-size="6" fill="rgba(255,255,255,0.2)" font-family="monospace" text-anchor="end">0.004</text>
-                    <!-- Candles matching the screenshot pattern: pump then dump then settle -->
-                    <rect x="8" y="85" width="3" height="10" fill="#4caf50"/><line x1="9.5" y1="80" x2="9.5" y2="100" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="16" y="82" width="3" height="8" fill="#4caf50"/><line x1="17.5" y1="78" x2="17.5" y2="95" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="24" y="78" width="3" height="12" fill="#4caf50"/><line x1="25.5" y1="72" x2="25.5" y2="95" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="32" y="70" width="3" height="15" fill="#4caf50"/><line x1="33.5" y1="62" x2="33.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="40" y="60" width="3" height="18" fill="#4caf50"/><line x1="41.5" y1="50" x2="41.5" y2="85" stroke="#4caf50" stroke-width="0.7"/>
-                    <!-- Big spike -->
-                    <rect x="48" y="25" width="3" height="40" fill="#4caf50"/><line x1="49.5" y1="15" x2="49.5" y2="70" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="56" y="20" width="3" height="30" fill="#4caf50"/><line x1="57.5" y1="12" x2="57.5" y2="55" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="64" y="18" width="3" height="25" fill="#ef5350"/><line x1="65.5" y1="10" x2="65.5" y2="48" stroke="#ef5350" stroke-width="0.7"/>
-                    <!-- Dump -->
-                    <rect x="72" y="35" width="3" height="20" fill="#ef5350"/><line x1="73.5" y1="25" x2="73.5" y2="60" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="80" y="45" width="3" height="18" fill="#ef5350"/><line x1="81.5" y1="35" x2="81.5" y2="68" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="88" y="55" width="3" height="15" fill="#ef5350"/><line x1="89.5" y1="45" x2="89.5" y2="75" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="96" y="60" width="3" height="12" fill="#4caf50"/><line x1="97.5" y1="52" x2="97.5" y2="78" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="104" y="65" width="3" height="10" fill="#ef5350"/><line x1="105.5" y1="58" x2="105.5" y2="80" stroke="#ef5350" stroke-width="0.7"/>
-                    <!-- Settle low -->
-                    <rect x="112" y="75" width="3" height="8" fill="#4caf50"/><line x1="113.5" y1="70" x2="113.5" y2="88" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="120" y="78" width="3" height="6" fill="#ef5350"/><line x1="121.5" y1="74" x2="121.5" y2="90" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="128" y="80" width="3" height="5" fill="#4caf50"/><line x1="129.5" y1="76" x2="129.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="136" y="82" width="3" height="6" fill="#ef5350"/><line x1="137.5" y1="78" x2="137.5" y2="92" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="144" y="80" width="3" height="7" fill="#4caf50"/><line x1="145.5" y1="75" x2="145.5" y2="92" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="152" y="83" width="3" height="5" fill="#ef5350"/><line x1="153.5" y1="80" x2="153.5" y2="93" stroke="#ef5350" stroke-width="0.7"/>
-                    <!-- Second pump -->
-                    <rect x="160" y="70" width="3" height="15" fill="#4caf50"/><line x1="161.5" y1="62" x2="161.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="168" y="55" width="3" height="20" fill="#4caf50"/><line x1="169.5" y1="45" x2="169.5" y2="80" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="176" y="45" width="3" height="15" fill="#4caf50"/><line x1="177.5" y1="35" x2="177.5" y2="65" stroke="#4caf50" stroke-width="0.7"/>
-                    <!-- Pull back -->
-                    <rect x="184" y="55" width="3" height="12" fill="#ef5350"/><line x1="185.5" y1="48" x2="185.5" y2="72" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="192" y="60" width="3" height="10" fill="#ef5350"/><line x1="193.5" y1="55" x2="193.5" y2="75" stroke="#ef5350" stroke-width="0.7"/>
-                    <!-- Recent candles -->
-                    <rect x="200" y="70" width="3" height="8" fill="#4caf50"/><line x1="201.5" y1="65" x2="201.5" y2="83" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="208" y="72" width="3" height="6" fill="#ef5350"/><line x1="209.5" y1="68" x2="209.5" y2="83" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="216" y="75" width="3" height="5" fill="#4caf50"/><line x1="217.5" y1="72" x2="217.5" y2="85" stroke="#4caf50" stroke-width="0.7"/>
-                    <rect x="224" y="78" width="3" height="4" fill="#ef5350"/><line x1="225.5" y1="75" x2="225.5" y2="86" stroke="#ef5350" stroke-width="0.7"/>
-                    <rect x="232" y="80" width="3" height="5" fill="#4caf50"/><line x1="233.5" y1="77" x2="233.5" y2="90" stroke="#4caf50" stroke-width="0.7"/>
-                    <!-- Volume bars -->
-                    <rect x="48" y="118" width="3" height="12" fill="rgba(76,175,80,0.3)"/>
-                    <rect x="56" y="116" width="3" height="14" fill="rgba(76,175,80,0.3)"/>
-                    <rect x="64" y="119" width="3" height="11" fill="rgba(239,83,80,0.3)"/>
-                    <rect x="72" y="120" width="3" height="10" fill="rgba(239,83,80,0.3)"/>
-                    <rect x="160" y="120" width="3" height="10" fill="rgba(76,175,80,0.3)"/>
-                    <rect x="168" y="118" width="3" height="12" fill="rgba(76,175,80,0.3)"/>
-                    <text x="10" y="128" font-size="5" fill="rgba(255,255,255,0.15)" font-family="monospace">Volume SMA 131.352k</text>
-                  </svg>
-                  <!-- Time axis -->
-                  <div style="display:flex;justify-content:space-between;font-size:6px;color:rgba(255,255,255,0.15);padding:0 4px">
-                    <span>2026</span><span>Feb</span><span>19</span><span>Mar</span><span>17</span>
-                  </div>
-                </div>
-                <!-- Order book -->
-                <div style="width:30%;border-left:1px solid #1e2329;padding:6px;font-size:7px;font-family:monospace">
-                  <div style="display:flex;justify-content:space-between;font-size:6px;color:rgba(255,255,255,0.25);margin-bottom:4px;padding:0 2px"><span>Price</span><span>Size (USDC)</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0050</span><span>2,776</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0049</span><span>1,844</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0048</span><span>3,215</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#ef5350;padding:1px 2px"><span>0.0048</span><span>5,133</span></div>
-                  <div style="text-align:center;padding:3px 0;font-size:9px;font-weight:700;color:#4caf50;border-top:1px solid #1e2329;border-bottom:1px solid #1e2329;margin:3px 0">0.004725</div>
-                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0047</span><span>4,170</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0046</span><span>2,892</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0045</span><span>1,563</span></div>
-                  <div style="display:flex;justify-content:space-between;color:#4caf50;padding:1px 2px"><span>0.0044</span><span>987</span></div>
-                </div>
-              </div>
-              <!-- Bottom tabs -->
-              <div style="border-top:1px solid #1e2329;padding:6px 10px;display:flex;gap:12px;font-size:7px;color:rgba(255,255,255,0.25)">
-                <span style="color:rgba(255,255,255,0.5)">Balances</span>
-                <span>Positions</span>
-                <span>Open Orders</span>
-                <span>Trade History</span>
-                <span>Funding History</span>
+              <div class="sd-screen" style="padding:0;min-height:auto;background:#0b0e11">
+                <img src="har-trading-view.png" alt="HAR/USDC Trading on Hyperliquid" style="width:100%;display:block;border-radius:4px 4px 0 0">
               </div>
             </div>
+            <div class="sd-base"></div>
           </div>
-          <!-- Laptop base -->
-          <div style="background:linear-gradient(to bottom,#111 0%,#1a1a1a 100%);height:14px;border-radius:0 0 4px 4px"></div>
         </div>
       </div>
       <div class="showcase-text">
