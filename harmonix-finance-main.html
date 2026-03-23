@@ -649,147 +649,128 @@ ul{list-style:none}
 <section class="section" id="products" style="padding-bottom:48px">
   <div class="container">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding:0 40px">
-      <h2 style="font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-2px;line-height:1;color:var(--black);max-width:600px" data-i18n="products_title">Products &amp; Features</h2>
-      <a href="https://app.harmonix.fi" target="_blank" style="font-size:15px;color:#2563eb;font-weight:500;white-space:nowrap;display:flex;align-items:center;gap:4px">Explore all <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l5 5-5 5"/></svg></a>
+      <h2 style="font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-2px;line-height:1;color:var(--black);max-width:600px">Products</h2>
+      <a href="https://app.harmonix.fi/earn" target="_blank" style="font-size:15px;color:#2563eb;font-weight:500;white-space:nowrap;display:flex;align-items:center;gap:4px">Explore all <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l5 5-5 5"/></svg></a>
     </div>
     <div class="prod-carousel-wrap">
     <div class="prod-carousel" id="prodCarousel">
 
-      <!-- CARD 1: Vaults -->
+      <!-- haUSDC -->
       <div class="prod-card anim">
         <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Vaults</div>
-          <div class="prod-card-title">All your yield, one place.</div>
-          <div class="prod-card-desc">Stablecoins, HYPE tokens, and delta-neutral strategies. Deposit and receive ERC-4626 tokens that grow automatically.</div>
+          <div class="prod-card-eyebrow">Stablecoin Vault</div>
+          <div class="prod-card-title">haUSDC</div>
+          <div class="prod-card-desc">Delta-neutral yield on USDC. Deposit stablecoins and earn automated yield with zero directional exposure.</div>
         </div>
-        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:24px 24px 0">
-          <div class="showcase-phone" style="width:200px;height:420px;flex-shrink:0">
-            <div class="sp-screen">
-              <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
-              <div class="sp-app">
-                <div class="sp-title">Vaults</div>
-                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDC</div><div class="sp-apy">6.0% APY</div></div><div class="sp-meta"><span>TVL</span><span>$2.4M</span></div></div>
-                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDT</div><div class="sp-apy">5.8% APY</div></div><div class="sp-meta"><span>TVL</span><span>$1.8M</span></div></div>
-                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haHYPE</div><div class="sp-apy">8.1% APY</div></div><div class="sp-meta"><span>TVL</span><span>$3.1M</span></div></div>
-                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>HYPE</div><div class="sp-apy">4.0% APY</div></div><div class="sp-meta"><span>TVL</span><span>$1.2M</span></div></div>
-                <div class="sp-row" style="border-color:#bbdefb"><div class="sp-row-top"><div class="sp-name"><span class="dot" style="background:#1565c0"></span>Basis Trade</div><div class="sp-apy" style="color:#1565c0">5.0% APY</div></div><div class="sp-meta"><span>TVL</span><span>$2.4M</span></div></div>
-              </div>
-            </div>
+        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
+          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
+            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#43a047"></span>haUSDC</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#43a047">7.0%</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$2.4M</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Strategy</span><span style="font-size:10px;font-weight:600;color:#000">Delta Neutral</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Token</span><span style="font-size:10px;font-weight:600;color:#000">ERC-4626</span></div>
           </div>
           <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
         </div>
       </div>
 
-      <!-- CARD 2: Earn Markets -->
+      <!-- haKHYPE -->
       <div class="prod-card anim">
         <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Earn Markets</div>
-          <div class="prod-card-title">Compound your HYPE. Earn on stables.</div>
-          <div class="prod-card-desc">HYPE and kHYPE tokens compound yield. The Basis Trade vault captures funding rates delta-neutral at 7% APY on USDC.</div>
+          <div class="prod-card-eyebrow">Liquid Staking Vault</div>
+          <div class="prod-card-title">hakHYPE</div>
+          <div class="prod-card-desc">Earn compounding yield on kHYPE. Liquid staking derivatives with automated compounding.</div>
         </div>
-        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:24px 16px 0">
-          <div class="prod-card-phones">
-            <div class="showcase-phone" style="width:160px;height:340px;flex-shrink:0">
-              <div class="sp-screen">
-                <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
-                <div class="sp-app">
-                  <div class="sp-title">HYPE Vaults</div>
-                  <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haHYPE</div><div class="sp-apy">8.1% APY</div></div><div class="sp-meta"><span>TVL</span><span>$3.1M</span></div></div>
-                  <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>HYPE</div><div class="sp-apy">4.0% APY</div></div><div class="sp-meta"><span>TVL</span><span>$1.2M</span></div></div>
-                </div>
-              </div>
+        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
+          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
+            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#43a047"></span>hakHYPE</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#43a047">7.4%</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$1.2M</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Strategy</span><span style="font-size:10px;font-weight:600;color:#000">Compound</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Token</span><span style="font-size:10px;font-weight:600;color:#000">ERC-4626</span></div>
+          </div>
+          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </div>
+
+      <!-- HAR Token -->
+      <div class="prod-card anim">
+        <div class="prod-card-text">
+          <div class="prod-card-eyebrow">Governance Token</div>
+          <div class="prod-card-title">The HAR Token</div>
+          <div class="prod-card-desc">Governance, staking rewards, and protocol fees. Stake HAR to earn HYPE and HAR rewards up to 35% APR.</div>
+        </div>
+        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
+          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
+            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><img src="harmonix-token-logo.png" alt="HAR" style="width:18px;height:18px;border-radius:50%">HAR</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Type</span><span style="font-size:10px;font-weight:600;color:#000">Governance</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Staking APR</span><span style="font-size:14px;font-weight:800;color:#43a047">Up to 35%</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Rewards</span><span style="font-size:10px;font-weight:600;color:#000">HAR + HYPE</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Network</span><span style="font-size:10px;font-weight:600;color:#000">HyperEVM</span></div>
+          </div>
+          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/staking','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Staking -->
+      <div class="prod-card anim">
+        <div class="prod-card-text">
+          <div class="prod-card-eyebrow">Staking</div>
+          <div class="prod-card-title">Stake HAR</div>
+          <div class="prod-card-desc">Lock HAR for 180 or 360 days. Earn dual rewards in HAR and HYPE tokens with boosted APR.</div>
+        </div>
+        <div class="prod-card-visual" style="background:var(--gray-100);border-radius:0 0 20px 20px;padding:24px 24px 0;align-items:flex-end">
+          <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
+            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:12px">Staking Pools</div>
+            <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:10px;margin-bottom:6px">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;font-weight:700;color:#000">180 Days</span><span style="font-size:12px;font-weight:800;color:#43a047">25% APR</span></div>
+              <div style="display:flex;gap:4px"><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">17% HAR</span><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">8% HYPE</span></div>
             </div>
-            <div class="showcase-phone" style="width:160px;height:340px;flex-shrink:0;margin-bottom:-20px">
-              <div class="sp-screen" style="padding:0;overflow:hidden">
-                <img src="staking-screen.avif" alt="HAR Staking" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;border-radius:inherit">
-              </div>
+            <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:10px">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;font-weight:700;color:#000">360 Days</span><span style="font-size:12px;font-weight:800;color:#43a047">35% APR</span></div>
+              <div style="display:flex;gap:4px"><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">23% HAR</span><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">12% HYPE</span></div>
             </div>
           </div>
           <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/staking','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
         </div>
       </div>
 
-      <!-- CARD 3: Points -->
+      <!-- haHYPE -->
       <div class="prod-card anim">
         <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Points &amp; Rewards</div>
-          <div class="prod-card-title">Track and earn points across protocols.</div>
-          <div class="prod-card-desc">Accrue points from Harmonix, Kinetiq, Felix and more. All tracked in one dashboard. Season 3 rewards coming soon.</div>
+          <div class="prod-card-eyebrow">HYPE Vault</div>
+          <div class="prod-card-title">haHYPE</div>
+          <div class="prod-card-desc">Compound your HYPE token yield automatically. Earn 3x points while your share price grows.</div>
         </div>
-        <div class="prod-card-visual" style="background:var(--gray-100);border-radius:0 0 20px 20px;padding:24px 24px 0">
-          <div class="showcase-phone" style="width:200px;height:420px;flex-shrink:0;border-color:#ddd">
-            <div class="sp-screen">
-              <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
-              <div class="sp-app">
-                <div class="sp-title">Points</div>
-                <div style="background:#fff;border:1px solid var(--gray-200);border-radius:8px;padding:10px;margin-bottom:5px">
-                  <div style="font-size:7px;color:#868e96;text-transform:uppercase;margin-bottom:3px">Your Position</div>
-                  <div style="font-size:16px;font-weight:800;color:#000;display:flex;align-items:center;gap:5px">
-                    <img src="harmonix-token-logo.png" alt="HAR" style="width:16px;height:16px;border-radius:50%">12,450 pts
-                  </div>
-                </div>
-                <div style="display:flex;gap:3px;margin-bottom:5px">
-                  <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px;text-align:center">
-                    <img src="harmonix-token-logo.png" alt="Harmonix" style="width:14px;height:14px;border-radius:50%;margin-bottom:2px">
-                    <div style="font-size:6px;color:#868e96">Harmonix</div>
-                    <div style="font-size:11px;font-weight:700;color:var(--green)">8,200</div>
-                  </div>
-                  <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px;text-align:center">
-                    <img src="kinetiq-logo.avif" alt="Kinetiq" style="width:14px;height:14px;border-radius:50%;margin-bottom:2px">
-                    <div style="font-size:6px;color:#868e96">Kinetiq</div>
-                    <div style="font-size:11px;font-weight:700;color:var(--green)">2,100</div>
-                  </div>
-                  <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px;text-align:center">
-                    <img src="felix-logo.avif" alt="Felix" style="width:14px;height:14px;border-radius:50%;margin-bottom:2px">
-                    <div style="font-size:6px;color:#868e96">Felix</div>
-                    <div style="font-size:11px;font-weight:700;color:var(--green)">1,450</div>
-                  </div>
-                </div>
-                <div style="background:#fff;border:1px solid var(--gray-200);border-radius:8px;padding:10px">
-                  <div style="font-size:7px;color:#868e96;text-transform:uppercase;margin-bottom:3px">Rewards</div>
-                  <div style="font-size:13px;font-weight:800;color:#000;display:flex;align-items:center;gap:5px">
-                    <img src="harmonix-token-logo.png" alt="HAR" style="width:14px;height:14px;border-radius:50%">Season 3
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
+          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
+            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#43a047"></span>haHYPE</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#43a047">8.1%</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$3.1M</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Strategy</span><span style="font-size:10px;font-weight:600;color:#000">Compound</span></div>
+            <div style="background:#e8f5e9;border-radius:6px;padding:4px 8px;margin-top:4px;display:flex;align-items:center;gap:4px"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span style="font-size:8px;font-weight:600;color:#43a047">Earning 3x points</span></div>
           </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
         </div>
       </div>
 
-      <!-- CARD 4: Cross-chain -->
+      <!-- Basis Trade Vault -->
       <div class="prod-card anim">
         <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Cross-chain</div>
-          <div class="prod-card-title">Bridge &amp; deposit from any chain.</div>
-          <div class="prod-card-desc">One transaction from Ethereum, Base, Arbitrum, BNB Chain, or Solana directly into Harmonix vaults on HyperEVM.</div>
+          <div class="prod-card-eyebrow">Delta Neutral</div>
+          <div class="prod-card-title">Basis Trade Vault</div>
+          <div class="prod-card-desc">Earn yield from funding rates with zero HYPE exposure. Pure delta-neutral strategy on USDC via Arbitrum.</div>
         </div>
-        <div class="prod-card-visual" style="background:var(--gray-100);border-radius:0 0 20px 20px;padding:24px 24px 0">
-          <div class="showcase-phone" style="width:200px;height:420px;flex-shrink:0;border-color:#ddd">
-            <div class="sp-screen" style="background:#fff">
-              <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
-              <div style="padding:6px 12px">
-                <div style="font-size:13px;font-weight:800;color:#000;margin-bottom:10px">Bridge & Deposit</div>
-                <div style="font-size:8px;color:#868e96;margin-bottom:3px">From</div>
-                <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;overflow:hidden;margin-bottom:8px">
-                  <div style="padding:7px 10px;font-size:10px;font-weight:700;color:#000;background:#e9ecef">HyperEVM</div>
-                  <div style="padding:6px 10px;font-size:10px;color:#868e96">Ethereum</div>
-                  <div style="padding:6px 10px;font-size:10px;color:#868e96">Base</div>
-                  <div style="padding:6px 10px;font-size:10px;color:#868e96">Arbitrum</div>
-                  <div style="padding:6px 10px;font-size:10px;color:#868e96">BNB Chain</div>
-                  <div style="padding:6px 10px;font-size:10px;color:#868e96">Solana</div>
-                </div>
-                <div style="text-align:center;margin:4px 0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ced4da" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-                <div style="font-size:8px;color:#868e96;margin-bottom:3px">To</div>
-                <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between">
-                  <span style="font-size:11px;font-weight:700;color:#43a047">Harmonix Vault</span>
-                  <span style="font-size:8px;color:#43a047">&#10003;</span>
-                </div>
-              </div>
-            </div>
+        <div class="prod-card-visual" style="background:#eef2ff;border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
+          <div style="background:#fff;border:1px solid #c7d2fe;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
+            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#1565c0"></span>Basis Trade</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#1565c0">7.0%</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$2.4M</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">HYPE Exposure</span><span style="font-size:10px;font-weight:700;color:#000">0%</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Network</span><span style="font-size:10px;font-weight:600;color:#000">Arbitrum</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Type</span><span style="font-size:10px;font-weight:600;color:#000">Delta Neutral</span></div>
           </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
         </div>
       </div>
 
@@ -827,6 +808,98 @@ ul{list-style:none}
 </section>
 
 
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header anim" style="margin-bottom:48px">
+      <div class="section-eyebrow">Features</div>
+      <h2 class="section-heading">Yield, Points &amp; Cross-chain</h2>
+      <p class="section-desc">Vaults, earn markets, points tracking, and cross-chain deposits. Everything you need in one place.</p>
+    </div>
+    <div class="showcase anim">
+      <div class="showcase-visual v-mint" style="padding:0;align-items:flex-start">
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone">
+            <div class="sp-screen">
+              <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+              <div class="sp-app">
+                <div class="sp-title">Vaults</div>
+                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDC</div><div class="sp-apy">7.0% APY</div></div><div class="sp-meta"><span>TVL</span><span>$2.4M</span></div></div>
+                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haUSDT</div><div class="sp-apy">5.8% APY</div></div><div class="sp-meta"><span>TVL</span><span>$1.8M</span></div></div>
+                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>haHYPE</div><div class="sp-apy">8.1% APY</div></div><div class="sp-meta"><span>TVL</span><span>$3.1M</span></div></div>
+                <div class="sp-row"><div class="sp-row-top"><div class="sp-name"><span class="dot"></span>hakHYPE</div><div class="sp-apy">7.4% APY</div></div><div class="sp-meta"><span>TVL</span><span>$1.2M</span></div></div>
+                <div class="sp-row" style="border-color:#bbdefb"><div class="sp-row-top"><div class="sp-name"><span class="dot" style="background:#1565c0"></span>Basis Trade</div><div class="sp-apy" style="color:#1565c0">7.0% APY</div></div><div class="sp-meta"><span>TVL</span><span>$2.4M</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span><span>VAULTS</span></div>
+        <h2>All your yield, one place.</h2>
+        <p>Stablecoins, HYPE tokens, and delta-neutral strategies. Deposit and receive ERC-4626 tokens that grow in value automatically. 1% management fee. No performance fees.</p>
+        <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Earn</a>
+      </div>
+    </div>
+
+    <!-- Points & Cross-chain -->
+    <div class="showcase reverse anim" style="margin-top:1px">
+      <div class="showcase-visual" style="padding:40px 24px 0;display:flex;gap:16px;align-items:flex-start;justify-content:center;overflow:hidden;background:#f8f9fa">
+        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0">
+          <div class="sp-screen">
+            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+            <div class="sp-app">
+              <div class="sp-title">Points</div>
+              <div style="background:#fff;border:1px solid var(--gray-200);border-radius:8px;padding:10px;margin-bottom:5px">
+                <div style="font-size:7px;color:#868e96;text-transform:uppercase;margin-bottom:3px">Your Position</div>
+                <div style="font-size:16px;font-weight:800;color:#000;display:flex;align-items:center;gap:5px"><img src="harmonix-token-logo.png" alt="HAR" style="width:16px;height:16px;border-radius:50%">12,450 pts</div>
+              </div>
+              <div style="display:flex;gap:3px;margin-bottom:5px">
+                <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px;text-align:center"><img src="harmonix-token-logo.png" alt="Harmonix" style="width:14px;height:14px;border-radius:50%;margin-bottom:2px"><div style="font-size:6px;color:#868e96">Harmonix</div><div style="font-size:11px;font-weight:700;color:var(--green)">8,200</div></div>
+                <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px;text-align:center"><img src="kinetiq-logo.avif" alt="Kinetiq" style="width:14px;height:14px;border-radius:50%;margin-bottom:2px"><div style="font-size:6px;color:#868e96">Kinetiq</div><div style="font-size:11px;font-weight:700;color:var(--green)">2,100</div></div>
+                <div style="flex:1;background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px;text-align:center"><img src="felix-logo.avif" alt="Felix" style="width:14px;height:14px;border-radius:50%;margin-bottom:2px"><div style="font-size:6px;color:#868e96">Felix</div><div style="font-size:11px;font-weight:700;color:var(--green)">1,450</div></div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--gray-200);border-radius:8px;padding:10px">
+                <div style="font-size:7px;color:#868e96;text-transform:uppercase;margin-bottom:3px">Rewards</div>
+                <div style="font-size:13px;font-weight:800;color:#000;display:flex;align-items:center;gap:5px"><img src="harmonix-token-logo.png" alt="HAR" style="width:14px;height:14px;border-radius:50%">Season 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="showcase-phone" style="width:190px;height:400px;flex-shrink:0;margin-top:32px;border:3px solid #000;box-shadow:0 -8px 40px rgba(0,0,0,0.08),0 20px 60px rgba(0,0,0,0.12)">
+          <div class="sp-screen" style="background:#fff">
+            <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
+            <div style="padding:6px 12px">
+              <div style="font-size:13px;font-weight:800;color:#000;margin-bottom:10px">Bridge & Deposit</div>
+              <div style="font-size:8px;color:#868e96;margin-bottom:3px">From</div>
+              <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:6px;overflow:hidden;margin-bottom:8px">
+                <div style="padding:7px 10px;font-size:10px;font-weight:700;color:#000;background:#e9ecef">HyperEVM</div>
+                <div style="padding:6px 10px;font-size:10px;color:#868e96">Ethereum</div>
+                <div style="padding:6px 10px;font-size:10px;color:#868e96">Base</div>
+                <div style="padding:6px 10px;font-size:10px;color:#868e96">Arbitrum</div>
+                <div style="padding:6px 10px;font-size:10px;color:#868e96">BNB Chain</div>
+                <div style="padding:6px 10px;font-size:10px;color:#868e96">Solana</div>
+              </div>
+              <div style="text-align:center;margin:4px 0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ced4da" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+              <div style="font-size:8px;color:#868e96;margin-bottom:3px">To</div>
+              <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:6px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:11px;font-weight:700;color:#43a047">Harmonix Vault</span><span style="font-size:8px;color:#43a047">&#10003;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="showcase-pill"><span class="pill-dot"></span><span>POINTS &amp; CROSS-CHAIN</span></div>
+        <h2>Track and earn points.</h2>
+        <p>Accrue points from Harmonix, Kinetiq, Felix and more. All tracked in one dashboard. Season 3 rewards coming soon.</p>
+        <p style="margin-top:12px">Bridge and deposit in one transaction. Support for HyperEVM, Ethereum, Base, Arbitrum, BNB Chain, and Solana.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+          <a href="https://app.harmonix.fi" target="_blank" class="btn-pill">Track points</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- YIELD & ANALYTICS -->
 <section class="section" id="yield-analytics">
