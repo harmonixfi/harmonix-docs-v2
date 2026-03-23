@@ -242,32 +242,32 @@ ul{list-style:none}
 .mock-points-row .mpr .mpr-val{font-size:16px;font-weight:700;color:#4caf50}
 @media(max-width:960px){.showcase,.showcase.reverse{grid-template-columns:1fr;direction:ltr}.showcase-visual{min-height:300px}.showcase-text{padding:40px 24px}}
 
-/* PRODUCT CAROUSEL - Apple/Coinbase style */
+/* PRODUCT CAROUSEL - Vault card style */
 .prod-carousel-wrap{position:relative}
 .prod-carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 40px 20px;scrollbar-width:none}
 .prod-carousel::-webkit-scrollbar{display:none}
-.prod-card{flex:0 0 380px;scroll-snap-align:start;background:var(--gray-50);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-height:520px;transition:transform 0.2s}
-.prod-card:hover{transform:translateY(-2px)}
-.prod-card-text{padding:32px 32px 24px;flex:0 0 auto}
-.prod-card-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-500);margin-bottom:10px}
-.prod-card-title{font-size:28px;font-weight:700;letter-spacing:-1px;line-height:1.1;color:var(--black);margin-bottom:12px}
-.prod-card-desc{font-size:14px;color:var(--gray-600);line-height:1.5}
-.prod-card-visual{flex:1;display:flex;align-items:flex-end;justify-content:center;padding:0 24px;overflow:hidden;position:relative}
-.prod-card-visual img,.prod-card-visual .prod-card-phones{max-width:100%;height:auto}
-.prod-card-expand{position:absolute;bottom:20px;right:20px;width:36px;height:36px;border-radius:50%;background:var(--gray-200);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.15s;border:none;z-index:2}
-.prod-card-expand:hover{background:var(--gray-300)}
-.prod-card-expand svg{width:16px;height:16px;color:var(--gray-600)}
+.prod-card{flex:0 0 340px;scroll-snap-align:start;background:var(--white);border-radius:20px;padding:3px;background:linear-gradient(145deg,#c8f07a,#81c784,#a5d6a7,#c8f07a);transition:transform 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.prod-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.1)}
+.prod-card-inner{background:var(--white);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;height:100%;min-height:360px}
+.prod-card-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;overflow:hidden}
+.prod-card-icon img{width:100%;height:100%;object-fit:cover}
+.prod-card-name{font-size:16px;font-weight:700;color:var(--black);text-align:center;margin-bottom:20px;letter-spacing:-0.3px}
+.prod-card-stats{background:linear-gradient(135deg,#e8f5e9 0%,#f1f8e9 50%,#e8f5e9 100%);border-radius:12px;padding:14px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:flex-start}
+.prod-card-stat{display:flex;flex-direction:column;gap:2px}
+.prod-card-stat .stat-label{font-size:11px;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px}
+.prod-card-stat .stat-value{font-size:16px;font-weight:800;color:var(--black);letter-spacing:-0.3px}
+.prod-card-stat .stat-value.apy{color:var(--green)}
+.prod-card-rewards{margin-bottom:16px;text-align:center}
+.prod-card-rewards-label{font-size:12px;color:var(--gray-500);margin-bottom:8px}
+.prod-card-rewards-icons{display:flex;gap:6px;justify-content:center}
+.prod-card-rewards-icons img{width:28px;height:28px;border-radius:50%;border:2px solid var(--white);box-shadow:0 1px 4px rgba(0,0,0,0.1)}
+.prod-card-btn{display:block;width:100%;padding:12px;border:1.5px solid var(--green);border-radius:100px;background:var(--green);color:var(--white);font-size:14px;font-weight:700;text-align:center;cursor:pointer;transition:all 0.15s;margin-top:auto;font-family:inherit}
+.prod-card-btn:hover{background:#388e3c;border-color:#388e3c}
 .prod-carousel-nav{display:flex;gap:12px;justify-content:flex-end;padding:16px 40px 0}
 .prod-carousel-nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--gray-300);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:var(--gray-500)}
 .prod-carousel-nav button:hover{border-color:var(--black);color:var(--black)}
 .prod-carousel-nav button:disabled{opacity:0.3;cursor:default}
-/* Phones inside product cards */
-.prod-card-phones{display:flex;gap:12px;align-items:flex-end;justify-content:center;padding-top:8px}
-.prod-card-phones .showcase-phone{width:160px;height:340px;border-radius:28px;padding:8px;box-shadow:0 -6px 30px rgba(0,0,0,0.08),0 16px 40px rgba(0,0,0,0.1)}
-.prod-card-phones .showcase-phone .sp-screen{border-radius:22px}
-.prod-card-phones .showcase-phone .sp-status{padding:8px 14px 3px;font-size:8px}
-.prod-card-phones .showcase-phone::before{width:56px;height:18px;top:8px;border-radius:12px}
-@media(max-width:768px){.prod-card{flex:0 0 300px;min-height:440px}.prod-card-title{font-size:22px}.prod-carousel{padding:0 20px 16px}.prod-carousel-nav{padding:12px 20px 0}}
+@media(max-width:768px){.prod-card{flex:0 0 280px}.prod-carousel{padding:0 20px 16px}.prod-carousel-nav{padding:12px 20px 0}}
 
 /* HOW - dark section */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -657,120 +657,124 @@ ul{list-style:none}
 
       <!-- haUSDC -->
       <div class="prod-card anim">
-        <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Stablecoin Vault</div>
-          <div class="prod-card-title">haUSDC</div>
-          <div class="prod-card-desc">Delta-neutral yield on USDC. Deposit stablecoins and earn automated yield with zero directional exposure.</div>
-        </div>
-        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
-          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
-            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#43a047"></span>haUSDC</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#43a047">7.0%</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$2.4M</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Strategy</span><span style="font-size:10px;font-weight:600;color:#000">Delta Neutral</span></div>
-            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Token</span><span style="font-size:10px;font-weight:600;color:#000">ERC-4626</span></div>
+        <div class="prod-card-inner">
+          <div class="prod-card-icon"><img src="harmonix-token-logo.png" alt="haUSDC"></div>
+          <div class="prod-card-name">HyperEVM $USDC Vault</div>
+          <div class="prod-card-stats">
+            <div class="prod-card-stat"><span class="stat-label">TVL</span><span class="stat-value">$2.4M USDC</span></div>
+            <div class="prod-card-stat" style="text-align:right"><span class="stat-label">APY</span><span class="stat-value apy">7.0%</span></div>
           </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        </div>
-      </div>
-
-      <!-- haKHYPE -->
-      <div class="prod-card anim">
-        <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Liquid Staking Vault</div>
-          <div class="prod-card-title">hakHYPE</div>
-          <div class="prod-card-desc">Earn compounding yield on kHYPE. Liquid staking derivatives with automated compounding.</div>
-        </div>
-        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
-          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
-            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#43a047"></span>hakHYPE</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#43a047">7.4%</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$1.2M</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Strategy</span><span style="font-size:10px;font-weight:600;color:#000">Compound</span></div>
-            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Token</span><span style="font-size:10px;font-weight:600;color:#000">ERC-4626</span></div>
-          </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        </div>
-      </div>
-
-      <!-- HAR Token -->
-      <div class="prod-card anim">
-        <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Governance Token</div>
-          <div class="prod-card-title">The HAR Token</div>
-          <div class="prod-card-desc">Governance, staking rewards, and protocol fees. Stake HAR to earn HYPE and HAR rewards up to 35% APR.</div>
-        </div>
-        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
-          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
-            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><img src="harmonix-token-logo.png" alt="HAR" style="width:18px;height:18px;border-radius:50%">HAR</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Type</span><span style="font-size:10px;font-weight:600;color:#000">Governance</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Staking APR</span><span style="font-size:14px;font-weight:800;color:#43a047">Up to 35%</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Rewards</span><span style="font-size:10px;font-weight:600;color:#000">HAR + HYPE</span></div>
-            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Network</span><span style="font-size:10px;font-weight:600;color:#000">HyperEVM</span></div>
-          </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/staking','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        </div>
-      </div>
-
-      <!-- Staking -->
-      <div class="prod-card anim">
-        <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Staking</div>
-          <div class="prod-card-title">Stake HAR</div>
-          <div class="prod-card-desc">Lock HAR for 180 or 360 days. Earn dual rewards in HAR and HYPE tokens with boosted APR.</div>
-        </div>
-        <div class="prod-card-visual" style="background:var(--gray-100);border-radius:0 0 20px 20px;padding:24px 24px 0;align-items:flex-end">
-          <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
-            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:12px">Staking Pools</div>
-            <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:10px;margin-bottom:6px">
-              <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;font-weight:700;color:#000">180 Days</span><span style="font-size:12px;font-weight:800;color:#43a047">25% APR</span></div>
-              <div style="display:flex;gap:4px"><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">17% HAR</span><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">8% HYPE</span></div>
-            </div>
-            <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:10px">
-              <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;font-weight:700;color:#000">360 Days</span><span style="font-size:12px;font-weight:800;color:#43a047">35% APR</span></div>
-              <div style="display:flex;gap:4px"><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">23% HAR</span><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px">12% HYPE</span></div>
+          <div class="prod-card-rewards">
+            <div class="prod-card-rewards-label">Rewards</div>
+            <div class="prod-card-rewards-icons">
+              <img src="harmonix-token-logo.png" alt="Harmonix">
+              <img src="kinetiq-logo.avif" alt="Kinetiq">
+              <img src="felix-logo.avif" alt="Felix">
             </div>
           </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/staking','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="prod-card-btn">Deposit</a>
+        </div>
+      </div>
+
+      <!-- hakHYPE -->
+      <div class="prod-card anim">
+        <div class="prod-card-inner">
+          <div class="prod-card-icon"><img src="harmonix-token-logo.png" alt="hakHYPE"></div>
+          <div class="prod-card-name">HyperEVM $KHYPE Vault</div>
+          <div class="prod-card-stats">
+            <div class="prod-card-stat"><span class="stat-label">TVL</span><span class="stat-value">44,740 KHYPE</span></div>
+            <div class="prod-card-stat" style="text-align:right"><span class="stat-label">APY</span><span class="stat-value apy">4.15%</span></div>
+          </div>
+          <div class="prod-card-rewards">
+            <div class="prod-card-rewards-label">Rewards</div>
+            <div class="prod-card-rewards-icons">
+              <img src="harmonix-token-logo.png" alt="Harmonix">
+              <img src="kinetiq-logo.avif" alt="Kinetiq">
+              <img src="felix-logo.avif" alt="Felix">
+            </div>
+          </div>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="prod-card-btn">Deposit</a>
         </div>
       </div>
 
       <!-- haHYPE -->
       <div class="prod-card anim">
-        <div class="prod-card-text">
-          <div class="prod-card-eyebrow">HYPE Vault</div>
-          <div class="prod-card-title">haHYPE</div>
-          <div class="prod-card-desc">Compound your HYPE token yield automatically. Earn 3x points while your share price grows.</div>
-        </div>
-        <div class="prod-card-visual" style="background:linear-gradient(160deg,#071a10 0%,#16432a 50%,#247a42 100%);border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
-          <div style="background:#fff;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
-            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#43a047"></span>haHYPE</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#43a047">8.1%</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$3.1M</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Strategy</span><span style="font-size:10px;font-weight:600;color:#000">Compound</span></div>
-            <div style="background:#e8f5e9;border-radius:6px;padding:4px 8px;margin-top:4px;display:flex;align-items:center;gap:4px"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span style="font-size:8px;font-weight:600;color:#43a047">Earning 3x points</span></div>
+        <div class="prod-card-inner">
+          <div class="prod-card-icon"><img src="harmonix-token-logo.png" alt="haHYPE"></div>
+          <div class="prod-card-name">HyperEVM $HYPE Vault</div>
+          <div class="prod-card-stats">
+            <div class="prod-card-stat"><span class="stat-label">TVL</span><span class="stat-value">55,585 HYPE</span></div>
+            <div class="prod-card-stat" style="text-align:right"><span class="stat-label">APY</span><span class="stat-value apy">3.61%</span></div>
           </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="prod-card-rewards">
+            <div class="prod-card-rewards-label">Rewards</div>
+            <div class="prod-card-rewards-icons">
+              <img src="harmonix-token-logo.png" alt="Harmonix">
+              <img src="harmonix-token-logo.png" alt="Rewards">
+              <img src="kinetiq-logo.avif" alt="Kinetiq">
+              <img src="felix-logo.avif" alt="Felix">
+            </div>
+          </div>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="prod-card-btn">Deposit</a>
         </div>
       </div>
 
-      <!-- Basis Trade Vault -->
+      <!-- Basis Trade -->
       <div class="prod-card anim">
-        <div class="prod-card-text">
-          <div class="prod-card-eyebrow">Delta Neutral</div>
-          <div class="prod-card-title">Basis Trade Vault</div>
-          <div class="prod-card-desc">Earn yield from funding rates with zero HYPE exposure. Pure delta-neutral strategy on USDC via Arbitrum.</div>
-        </div>
-        <div class="prod-card-visual" style="background:#eef2ff;border-radius:0 0 20px 20px;padding:32px 32px 0;align-items:flex-end">
-          <div style="background:#fff;border:1px solid #c7d2fe;border-radius:12px 12px 0 0;padding:20px 18px;width:100%;max-width:260px">
-            <div style="font-size:11px;font-weight:800;color:#000;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#1565c0"></span>Basis Trade</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">APY</span><span style="font-size:14px;font-weight:800;color:#1565c0">7.0%</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">TVL</span><span style="font-size:12px;font-weight:700;color:#000">$2.4M</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">HYPE Exposure</span><span style="font-size:10px;font-weight:700;color:#000">0%</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#868e96">Network</span><span style="font-size:10px;font-weight:600;color:#000">Arbitrum</span></div>
-            <div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#868e96">Type</span><span style="font-size:10px;font-weight:600;color:#000">Delta Neutral</span></div>
+        <div class="prod-card-inner">
+          <div class="prod-card-icon" style="background:#eef2ff"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div class="prod-card-name">Hyperliquid &ndash; USDC &ndash; $HYPE Delta Neutral Vault</div>
+          <div class="prod-card-stats" style="background:linear-gradient(135deg,#eef2ff 0%,#e8eaf6 100%)">
+            <div class="prod-card-stat"><span class="stat-label">TVL</span><span class="stat-value">$970,382</span></div>
+            <div class="prod-card-stat" style="text-align:right"><span class="stat-label">APY</span><span class="stat-value" style="color:#1565c0">4.9%</span></div>
           </div>
-          <button class="prod-card-expand" onclick="window.open('https://app.harmonix.fi/earn','_blank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="prod-card-rewards">
+            <div class="prod-card-rewards-label">Rewards</div>
+            <div class="prod-card-rewards-icons">
+              <img src="harmonix-token-logo.png" alt="Harmonix">
+            </div>
+          </div>
+          <a href="https://app.harmonix.fi/earn" target="_blank" class="prod-card-btn">Deposit</a>
+        </div>
+      </div>
+
+      <!-- HAR Token -->
+      <div class="prod-card anim">
+        <div class="prod-card-inner">
+          <div class="prod-card-icon"><img src="harmonix-token-logo.png" alt="HAR"></div>
+          <div class="prod-card-name">HAR Token</div>
+          <div class="prod-card-stats">
+            <div class="prod-card-stat"><span class="stat-label">Type</span><span class="stat-value">Governance</span></div>
+            <div class="prod-card-stat" style="text-align:right"><span class="stat-label">Staking APR</span><span class="stat-value apy">Up to 35%</span></div>
+          </div>
+          <div class="prod-card-rewards">
+            <div class="prod-card-rewards-label">Rewards</div>
+            <div class="prod-card-rewards-icons">
+              <img src="harmonix-token-logo.png" alt="HAR">
+              <img src="harmonix-token-logo.png" alt="HYPE">
+            </div>
+          </div>
+          <a href="https://app.harmonix.fi/staking" target="_blank" class="prod-card-btn">Stake</a>
+        </div>
+      </div>
+
+      <!-- Staking -->
+      <div class="prod-card anim">
+        <div class="prod-card-inner">
+          <div class="prod-card-icon"><img src="harmonix-token-logo.png" alt="Staking"></div>
+          <div class="prod-card-name">HAR Staking</div>
+          <div class="prod-card-stats">
+            <div class="prod-card-stat"><span class="stat-label">180 Days</span><span class="stat-value apy">25% APR</span></div>
+            <div class="prod-card-stat" style="text-align:right"><span class="stat-label">360 Days</span><span class="stat-value apy">35% APR</span></div>
+          </div>
+          <div class="prod-card-rewards">
+            <div class="prod-card-rewards-label">Dual Rewards</div>
+            <div class="prod-card-rewards-icons">
+              <img src="harmonix-token-logo.png" alt="HAR">
+              <img src="harmonix-token-logo.png" alt="HYPE">
+            </div>
+          </div>
+          <a href="https://app.harmonix.fi/staking" target="_blank" class="prod-card-btn">Stake</a>
         </div>
       </div>
 
@@ -898,13 +902,8 @@ ul{list-style:none}
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- YIELD & ANALYTICS -->
-<section class="section" id="yield-analytics">
-  <div class="container">
-    <div class="showcase reverse anim">
+<div class="showcase reverse anim">
       <div class="showcase-visual" style="padding:24px;flex-direction:column;gap:10px;align-items:stretch;background:#fff">
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
@@ -989,11 +988,9 @@ ul{list-style:none}
         <p data-i18n="yield_desc">Enter any amount, pick a vault, and see estimated returns instantly. Track vault APY trends in real-time — all verifiable onchain.</p>
         <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" data-i18n="yield_cta">Start earning</a>
       </div>
-    </div>
   </div>
 </section>
 
-<!-- PARTNERS & INTEGRATIONS -->
 <section class="section" id="partners">
   <div class="container">
     <div style="text-align:center">
