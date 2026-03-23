@@ -240,7 +240,7 @@ ul{list-style:none}
 .mock-points-row .mpr{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:14px;text-align:center}
 .mock-points-row .mpr .mpr-label{font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.3px;margin-bottom:4px}
 .mock-points-row .mpr .mpr-val{font-size:16px;font-weight:700;color:#4caf50}
-@media(max-width:960px){.showcase,.showcase.reverse{grid-template-columns:1fr;direction:ltr}.showcase-visual{min-height:300px;order:2}.showcase-text{padding:40px 24px;order:1;text-align:center;align-items:center}.showcase-text h2,.showcase-text p{text-align:center}.showcase-text p{margin-left:auto;margin-right:auto}}
+@media(max-width:960px){.showcase,.showcase.reverse{grid-template-columns:1fr;direction:ltr;min-height:auto;border-radius:20px}.showcase-visual{min-height:240px;order:2}.showcase-text{padding:24px 20px 20px;order:1;text-align:center;align-items:center}.showcase-text h2{text-align:center;font-size:clamp(24px,6vw,32px)}.showcase-text p{text-align:center;margin-left:auto;margin-right:auto;font-size:14px;margin-bottom:16px}.showcase-pill{margin-bottom:12px}.showcase-text .btn-pill{padding:10px 24px;font-size:13px}.section{padding:56px 0}}
 
 /* PRODUCT CAROUSEL - Vault card style */
 .prod-carousel-wrap{position:relative}
@@ -388,7 +388,10 @@ ul{list-style:none}
   .nav-right .btn-outline,.nav-right .btn-green{display:none}
   .hamburger{display:block}
   .hausd-grid,.token-layout,.contact-layout{grid-template-columns:1fr}
-  .products-grid,.how-grid,.security-grid,.int-grid{grid-template-columns:1fr}
+  .products-grid,.how-grid,.int-grid{grid-template-columns:1fr}
+  .security-grid{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;grid-template-columns:none}
+  .security-grid::-webkit-scrollbar{display:none}
+  .security-grid .security-card{flex:0 0 240px;scroll-snap-align:start;padding:24px 20px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .hero h1{letter-spacing:-2px}
 }
