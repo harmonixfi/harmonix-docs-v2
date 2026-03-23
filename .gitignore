@@ -1,0 +1,30 @@
+*.mov
+*.key
+*.tiff
+*.pdf
+*.xlsx
+*.py
+*.backup*.html
+harmonix-docs-v*.html
+harmonix-safe.html
+harmonix.html
+harmonix_final.html
+harmonix.backup*.html
+og-banner-gen.html
+.DS_Store
+.claude/
+fix_*.py
+restore_*.py
+main
+i864_p1_out.txt
+Acta de Nacimiento.jpg
+Fotos*
+PHOTO-*
+Screenshot 2026-*
+Screen Recording*
+*.gif
+Dewey.jpg
+Felix.jpg
+Hyna.jpg
+Kenetiq.jpg
+Calypso.avif
