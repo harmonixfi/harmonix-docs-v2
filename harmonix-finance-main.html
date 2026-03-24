@@ -415,7 +415,9 @@ ul{list-style:none}
   .security-grid .security-card{flex:0 0 240px;scroll-snap-align:start;padding:24px 20px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .hero h1{letter-spacing:-2px}
-  #yield-calc{transform:scale(0.82);transform-origin:top center;margin-bottom:-60px}
+  #yc-visual{padding:6px !important;overflow:visible !important}
+  #yield-calc{width:100% !important;box-sizing:border-box !important;padding:10px !important;overflow:visible !important}
+  #yield-calc *{box-sizing:border-box !important;max-width:100%}
 }
 @media(max-width:600px){
   .hero-inner{padding:100px 20px 24px}
@@ -429,7 +431,8 @@ ul{list-style:none}
   .cta-banner{padding:56px 28px}
   .footer-grid{grid-template-columns:1fr}
   .token-stats{grid-template-columns:1fr 1fr}
-  #yield-calc{transform:scale(0.72) !important;transform-origin:top center;margin-bottom:-90px !important}
+  #yc-visual{padding:4px !important}
+  #yield-calc{padding:6px !important}
   .partner-grid{grid-template-columns:repeat(3,1fr) !important;gap:6px !important}
   .partner-card img,.partner-card .partner-logo{width:24px !important;height:24px !important;border-radius:8px !important}
   .partner-card .partner-name{font-size:9px !important}
@@ -972,7 +975,7 @@ ul{list-style:none}
 
 
 <div class="showcase anim">
-      <div class="showcase-visual" style="padding:16px;flex-direction:column;gap:8px;align-items:stretch;background:#fff">
+      <div class="showcase-visual" id="yc-visual" style="padding:16px;flex-direction:column;gap:8px;align-items:stretch;background:#fff;overflow:visible">
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
