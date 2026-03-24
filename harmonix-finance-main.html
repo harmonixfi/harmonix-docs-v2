@@ -9,13 +9,13 @@
 <meta property="og:url" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-finance-main.html">
 <meta property="og:title" content="Harmonix Finance">
 <meta property="og:description" content="DeFi Yield Products Onchain. Earn 6% APY with delta neutral yield bearing stablecoins on Hyperliquid.">
-<meta property="og:image" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-og-v6.png">
+<meta property="og:image" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-og-v7.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Harmonix Finance">
 <meta name="twitter:description" content="DeFi Yield Products Onchain. Earn 6% APY with delta neutral yield bearing stablecoins on Hyperliquid.">
-<meta name="twitter:image" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-og-v6.png">
+<meta name="twitter:image" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-og-v7.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -152,7 +152,7 @@ ul{list-style:none}
 .section:not(.section-dark) .showcase{background:var(--white);border:1px solid var(--gray-200)}
 /* Dark sections: showcase gets a lighter card bg */
 .section-dark .showcase{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)}
-.showcase-visual{display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden;min-height:400px;background:#eeefea}
+.showcase-visual{display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden;min-height:400px;background:#f8f9fa}
 /* Visual backgrounds - high contrast inner boxes */
 .showcase-visual.v-dark{background:linear-gradient(145deg,#0a1a0f 0%,#08181F 60%,#0c2415 100%)}
 .showcase-visual.v-green{background:linear-gradient(145deg,#d4edda 0%,#b8dfc3 50%,#92cfab 100%)}
@@ -165,7 +165,7 @@ ul{list-style:none}
 .showcase-text{display:flex;flex-direction:column;justify-content:center;padding:56px}
 .showcase-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);width:fit-content;margin-bottom:20px}
 .section:not(.section-dark) .showcase-pill{border-color:var(--gray-300);color:var(--gray-600)}
-.showcase-pill .pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.showcase-pill .pill-dot{width:6px;height:6px;border-radius:50%;background:#000}
 .showcase-text h2{font-size:clamp(28px,3.5vw,42px);font-weight:700;letter-spacing:-1.5px;line-height:1.05;color:#fff;margin-bottom:14px}
 .section:not(.section-dark) .showcase-text h2{color:var(--black)}
 .showcase-text p{font-size:16px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:28px;max-width:380px}
@@ -371,9 +371,9 @@ ul{list-style:none}
 .form-group{display:flex;flex-direction:column}
 
 /* CTA */
-.cta-banner{background:var(--dark);border-radius:12px;padding:80px 64px;text-align:center}
-.cta-banner h2{font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--white);letter-spacing:-1.5px;margin-bottom:16px}
-.cta-banner p{font-size:17px;color:var(--gray-500);max-width:420px;margin:0 auto 36px}
+.cta-banner{background:#f5f5f7;border-radius:20px;padding:80px 64px;text-align:center}
+.cta-banner h2{font-size:clamp(28px,4vw,44px);font-weight:650;color:#1d1d1f;letter-spacing:-1.5px;margin-bottom:16px}
+.cta-banner p{font-size:17px;color:#6e6e73;max-width:420px;margin:0 auto 36px}
 .cta-banner .btn{font-size:15px;padding:14px 36px}
 
 /* FOOTER */
@@ -400,6 +400,12 @@ ul{list-style:none}
   .nav-links{display:none}
   .nav-right .btn-outline,.nav-right .btn-green{display:none}
   .hamburger{display:block}
+  .showcase{grid-template-columns:1fr;min-height:auto}
+  .showcase.reverse{direction:ltr}
+  .showcase.reverse .showcase-visual{order:1}
+  .showcase.reverse .showcase-text{order:2}
+  .showcase-visual{min-height:320px}
+  .showcase-text{padding:32px 24px}
   .hausd-grid,.token-layout,.contact-layout{grid-template-columns:1fr}
   .products-grid,.how-grid,.int-grid{grid-template-columns:1fr}
   .security-grid{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;grid-template-columns:none}
@@ -414,6 +420,9 @@ ul{list-style:none}
   .hero h1,.hero-text h1{font-size:28px;letter-spacing:-1px}
   .hero-ctas{flex-direction:row;width:auto;gap:10px;justify-content:center}
   .hero-ctas .btn{width:auto;text-align:center;padding:10px 24px;font-size:14px}
+  .showcase-visual{padding:16px !important;min-height:auto}
+  .showcase-text{padding:28px 20px}
+  .showcase-text h2{font-size:24px}
   .cta-banner{padding:56px 28px}
   .footer-grid{grid-template-columns:1fr}
   .token-stats{grid-template-columns:1fr 1fr}
@@ -469,7 +478,7 @@ ul{list-style:none}
 .btn:active{transform:translateY(0)}
 /* CTA banner glow */
 .cta-banner{position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;border-radius:50%;background:radial-gradient(circle,rgba(45,106,46,0.15) 0%,transparent 60%);pointer-events:none;animation:heroGlow 12s ease-in-out infinite alternate}
+.cta-banner::before{display:none}
 /* Dark section subtle glow - Aave style */
 .section-dark{position:relative;overflow:hidden}
 .section-dark::before{content:'';position:absolute;top:0;left:50%;width:800px;height:400px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(45,106,46,0.08) 0%,transparent 70%);pointer-events:none}
@@ -610,7 +619,7 @@ ul{list-style:none}
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0">
                   <div style="display:flex;align-items:center;gap:8px">
-                    <div style="width:24px;height:24px;border-radius:6px;background:rgba(100,181,246,0.12);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64b5f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8M8 14h8"/></svg></div>
+                    <div style="width:24px;height:24px;border-radius:6px;background:rgba(100,181,246,0.12);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64b5f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
                     <span style="font-size:13px;font-weight:600;color:#000">Stablecoins</span>
                   </div>
                   <div style="display:flex;align-items:center;gap:8px"><span style="font-size:14px;font-weight:700;color:#000">$100,000</span><span style="font-size:10px;color:#adb5bd">&#x203A;</span></div>
@@ -654,8 +663,8 @@ ul{list-style:none}
     </div>
     <!-- RIGHT: Text -->
     <div class="hero-text">
-      <h1 class="anim visible"><span data-i18n="hero_title_1">The future of </span><span data-i18n="hero_yield" style="color:#43a047">yield</span><span data-i18n="hero_title_2"> is here.</span></h1>
-      <p class="hero-sub anim visible d1" data-i18n="hero_sub">Delta neutral yield bearing stablecoins on Hyperliquid. Secure, automated, institutional-grade.</p>
+      <h1 class="anim visible"><span data-i18n="hero_title_1">The future of </span><span data-i18n="hero_yield" style="color:#000">yield</span><span data-i18n="hero_title_2"> is here.</span></h1>
+      <p class="hero-sub anim visible d1" data-i18n="hero_sub">Earn <span style="color:#43a047;font-weight:600">7% APY</span> with delta neutral yield bearing stablecoins.<br>Secure, automated, institutional-grade.</p>
       <div class="hero-ctas anim visible d2">
         <a href="https://app.harmonix.fi" class="btn btn-green btn-large" target="_blank" data-i18n="hero_cta">Launch App</a>
         <a href="#products" class="btn btn-outline btn-large" data-i18n="hero_learn">Learn More</a>
@@ -699,7 +708,6 @@ ul{list-style:none}
               <div class="prod-card-rewards-label">Rewards</div>
               <div class="prod-card-rewards-icons">
                 <img src="harmonix-token-logo.png" alt="Harmonix">
-                <img src="kinetiq-logo.avif" alt="Kinetiq">
                 <img src="felix-logo.avif" alt="Felix">
               </div>
             </div>
@@ -755,7 +763,6 @@ ul{list-style:none}
               <div class="prod-card-rewards-label">Rewards</div>
               <div class="prod-card-rewards-icons">
                 <img src="harmonix-token-logo.png" alt="Harmonix">
-                <img src="harmonix-token-logo.png" alt="Rewards">
                 <img src="kinetiq-logo.avif" alt="Kinetiq">
                 <img src="felix-logo.avif" alt="Felix">
               </div>
@@ -810,7 +817,7 @@ ul{list-style:none}
               <div class="prod-card-rewards-label">Rewards</div>
               <div class="prod-card-rewards-icons">
                 <img src="harmonix-token-logo.png" alt="HAR">
-                <img src="harmonix-token-logo.png" alt="HYPE">
+                <img src="hype-logo.avif" alt="HYPE">
               </div>
             </div>
             <a href="https://app.harmonix.fi/staking" target="_blank" class="prod-card-btn">Stake</a>
@@ -837,7 +844,7 @@ ul{list-style:none}
               <div class="prod-card-rewards-label">Dual Rewards</div>
               <div class="prod-card-rewards-icons">
                 <img src="harmonix-token-logo.png" alt="HAR">
-                <img src="harmonix-token-logo.png" alt="HYPE">
+                <img src="hype-logo.avif" alt="HYPE">
               </div>
             </div>
             <a href="https://app.harmonix.fi/staking" target="_blank" class="prod-card-btn">Stake</a>
@@ -895,13 +902,34 @@ ul{list-style:none}
             <div class="sp-screen">
               <div class="sp-status"><span>9:41</span><span>&#x2981;&#x2981;&#x2981;</span></div>
               <div class="sp-app">
+                <!-- Hamburger nav bar -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:0 0 8px;margin-bottom:8px;border-bottom:1px solid #e9ecef">
+                  <div style="display:flex;flex-direction:column;gap:2.5px;cursor:pointer">
+                    <span style="display:block;width:14px;height:1.5px;background:#000;border-radius:1px"></span>
+                    <span style="display:block;width:14px;height:1.5px;background:#000;border-radius:1px"></span>
+                    <span style="display:block;width:14px;height:1.5px;background:#000;border-radius:1px"></span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:4px">
+                    <svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#08181F" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
+                    <span style="font-size:10px;font-weight:800;color:#000;letter-spacing:-0.2px">Harmonix</span>
+                  </div>
+                  <div style="background:#f1f3f5;color:#495057;padding:3px 8px;border-radius:6px;font-size:7px;font-weight:600;font-family:'SF Mono','Fira Code',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
+                </div>
                 <!-- Balance section -->
-                <div style="margin-bottom:8px">
+                <div style="margin-bottom:4px">
                   <div style="font-size:20px;font-weight:800;color:#000;letter-spacing:-0.5px">$110,000</div>
                   <div style="display:flex;align-items:center;gap:4px;margin-top:2px">
                     <span style="font-size:10px;color:#43a047;font-weight:600">&#9650; $6,420 (6.2%)</span>
                     <span style="font-size:8px;color:#adb5bd">1Y ›</span>
                   </div>
+                </div>
+                <!-- Green growth chart -->
+                <div style="margin-bottom:8px;width:100%">
+                  <svg width="100%" height="50" viewBox="0 0 300 60" preserveAspectRatio="none" fill="none">
+                    <defs><linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#43a047" stop-opacity="0.25"/><stop offset="100%" stop-color="#43a047" stop-opacity="0.02"/></linearGradient></defs>
+                    <path d="M0,50 C12,48 18,46 30,44 C42,42 50,47 65,40 C80,34 88,38 105,30 C120,24 128,28 145,22 C160,18 168,20 185,14 C200,10 210,16 228,8 C245,4 260,8 280,5 C290,3 296,4 300,2" stroke="#43a047" stroke-width="2" fill="none"/>
+                    <path d="M0,50 C12,48 18,46 30,44 C42,42 50,47 65,40 C80,34 88,38 105,30 C120,24 128,28 145,22 C160,18 168,20 185,14 C200,10 210,16 228,8 C245,4 260,8 280,5 C290,3 296,4 300,2 L300,60 L0,60 Z" fill="url(#cg2)"/>
+                  </svg>
                 </div>
                 <!-- Crypto & Stablecoins -->
                 <div style="border-top:1px solid #e9ecef;padding-top:8px;margin-bottom:8px">
@@ -910,7 +938,7 @@ ul{list-style:none}
                     <span style="font-size:12px;font-weight:700;color:#000">$10,000 ›</span>
                   </div>
                   <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0">
-                    <div style="display:flex;align-items:center;gap:6px"><div style="width:20px;height:20px;border-radius:6px;background:#e3f2fd;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8M8 14h8"/></svg></div><span style="font-size:12px;font-weight:700;color:#000">Stablecoins</span></div>
+                    <div style="display:flex;align-items:center;gap:6px"><div style="width:20px;height:20px;border-radius:6px;background:#e3f2fd;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><span style="font-size:12px;font-weight:700;color:#000">Stablecoins</span></div>
                     <span style="font-size:12px;font-weight:700;color:#000">$100,000 ›</span>
                   </div>
                 </div>
@@ -928,7 +956,7 @@ ul{list-style:none}
       </div>
       <div class="showcase-text">
         <div class="showcase-pill"><span class="pill-dot"></span><span data-i18n="ym_pill">YIELD MARKETS</span></div>
-        <h2 data-i18n="ym_title">Deposit and <span style="color:#43a047">earn.</span></h2>
+        <h2 data-i18n="ym_title">Deposit and earn.</h2>
         <p data-i18n="ym_desc">Stablecoin, HYPE, and delta-neutral vaults. ERC-4626 tokens that grow in value automatically. 1% management fee. No performance fees.</p>
         <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill">Deposit</a>
       </div>
@@ -936,7 +964,7 @@ ul{list-style:none}
 
 
 <div class="showcase anim">
-      <div class="showcase-visual" style="padding:16px;flex-direction:column;gap:8px;align-items:stretch;background:#eeefea">
+      <div class="showcase-visual" style="padding:16px;flex-direction:column;gap:8px;align-items:stretch;background:#fff">
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
@@ -1016,7 +1044,7 @@ ul{list-style:none}
       </div>
       <div class="showcase-text">
         <div class="showcase-pill"><span class="pill-dot"></span><span data-i18n="yield_pill">YIELD &amp; ANALYTICS</span></div>
-        <h2 data-i18n="yield_title">Estimate and track <span style="color:#43a047">your yield.</span></h2>
+        <h2 data-i18n="yield_title">Estimate and track your yield.</h2>
         <p data-i18n="yield_desc">Enter any amount, pick a vault, and see estimated returns instantly. Track vault APY trends in real-time — all verifiable onchain.</p>
         <a href="https://app.harmonix.fi/earn" target="_blank" class="btn-pill" data-i18n="yield_cta">Start earning</a>
       </div>
@@ -1024,7 +1052,7 @@ ul{list-style:none}
 
     <!-- Points & Cross-chain -->
     <div class="showcase reverse anim" style="margin-top:1px">
-      <div class="showcase-visual" style="padding:0;display:flex;gap:-20px;align-items:flex-end;justify-content:center;overflow:hidden;background:#eeefea;position:relative;min-height:420px">
+      <div class="showcase-visual" style="padding:0;display:flex;gap:-20px;align-items:flex-end;justify-content:center;overflow:hidden;background:#f8f9fa;position:relative;min-height:420px">
         <!-- Left phone - Bridge (background, behind) -->
         <div style="width:240px;flex-shrink:0;position:relative;z-index:1;margin-right:-30px;margin-bottom:-40px;transform:translateY(20px)">
           <div style="background:#000;border-radius:32px;padding:10px;border:3px solid #222;box-shadow:-10px 8px 50px rgba(0,0,0,0.15)">
@@ -1043,7 +1071,7 @@ ul{list-style:none}
                 </div>
                 <div style="text-align:center;margin:4px 0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ced4da" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
                 <div style="font-size:9px;color:#868e96;margin-bottom:4px;font-weight:600">To</div>
-                <div style="background:#e8f5e9;border:1px solid #c8e6c9;border-radius:10px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;font-weight:700;color:#43a047">Harmonix Vault</span><span style="font-size:9px;color:#43a047">&#10003;</span></div>
+                <div style="background:#f1f3f5;border:1px solid #dee2e6;border-radius:10px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;font-weight:700;color:#000">Harmonix Vault</span><span style="font-size:9px;color:#495057">&#10003;</span></div>
               </div>
             </div>
           </div>
@@ -1056,6 +1084,19 @@ ul{list-style:none}
             <div style="background:#f8f9fa;border-radius:26px;overflow:hidden">
               <div style="display:flex;justify-content:space-between;padding:12px 20px 8px;font-size:12px;font-weight:600;color:#000"><span>9:41</span><span style="display:flex;gap:3px;align-items:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="14" width="4" height="8" rx="1"/><rect x="7" y="10" width="4" height="12" rx="1"/><rect x="13" y="6" width="4" height="16" rx="1"/><rect x="19" y="2" width="4" height="20" rx="1"/></svg></span></div>
               <div style="padding:10px 18px 24px">
+                <!-- Hamburger nav bar -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:0 0 8px;margin-bottom:8px;border-bottom:1px solid #e9ecef">
+                  <div style="display:flex;flex-direction:column;gap:2.5px;cursor:pointer">
+                    <span style="display:block;width:14px;height:1.5px;background:#000;border-radius:1px"></span>
+                    <span style="display:block;width:14px;height:1.5px;background:#000;border-radius:1px"></span>
+                    <span style="display:block;width:14px;height:1.5px;background:#000;border-radius:1px"></span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:4px">
+                    <svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#08181F" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
+                    <span style="font-size:10px;font-weight:800;color:#000;letter-spacing:-0.2px">Harmonix</span>
+                  </div>
+                  <div style="background:#f1f3f5;color:#495057;padding:3px 8px;border-radius:6px;font-size:7px;font-weight:600;font-family:'SF Mono','Fira Code',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
+                </div>
                 <div style="font-size:16px;font-weight:800;color:#000;margin-bottom:12px">Points</div>
                 <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:14px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                   <div style="font-size:10px;color:#868e96;text-transform:uppercase;margin-bottom:4px;font-weight:600">Your Position</div>
@@ -1077,7 +1118,7 @@ ul{list-style:none}
       </div>
       <div class="showcase-text">
         <div class="showcase-pill"><span class="pill-dot"></span><span data-i18n="points_pill">POINTS &amp; CROSS-CHAIN</span></div>
-        <h2 data-i18n="points_title">Track and <span style="color:#43a047">earn points.</span></h2>
+        <h2 data-i18n="points_title">Track and earn points.</h2>
         <p data-i18n="pc_desc">Earn points from Harmonix, Kinetiq, and Felix. Bridge and deposit from any chain in one transaction.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
           <a href="https://app.harmonix.fi" target="_blank" class="btn-pill">Track points</a>
@@ -1165,6 +1206,21 @@ ul{list-style:none}
       <a href="https://paragraph.com/@harmonix-finance" target="_blank" class="btn-pill" style="background:#fff;color:var(--dark);padding:10px 24px;font-size:13px" data-i18n="blog_view">View all &rarr;</a>
     </div>
     <div class="blog-grid anim d1" id="blogGrid">
+      <!-- Card: Treasury Buyback -->
+      <a href="https://paragraph.com/@harmonix-finance/harmonix-treasury-buyback-overview" target="_blank" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);text-decoration:none" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <div style="height:180px;overflow:hidden">
+          <img src="blog-treasury-buyback.avif" alt="Harmonix Treasury Buyback Overview" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="padding:20px">
+          <div style="display:flex;gap:6px;margin-bottom:12px">
+            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(67,160,71,0.15);color:#66bb6a">Treasury</span>
+            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)">$HAR</span>
+          </div>
+          <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px;letter-spacing:-0.02em">Harmonix Treasury Buyback Overview</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.5">How Harmonix uses protocol revenue and treasury reserves to continuously accumulate $HAR and $HYPE.</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px">Mar 24</div>
+        </div>
+      </a>
       <!-- Card: haUSDC -->
       <a href="https://paragraph.com/@harmonix-finance/introducing-hausdc-your-usdc-put-to-work" target="_blank" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);text-decoration:none" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
         <div style="height:180px;overflow:hidden">
@@ -1172,7 +1228,7 @@ ul{list-style:none}
         </div>
         <div style="padding:20px">
           <div style="display:flex;gap:6px;margin-bottom:12px">
-            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(67,160,71,0.15);color:#43a047">DeFi</span>
+            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5)">DeFi</span>
             <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)">Yield</span>
           </div>
           <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px;letter-spacing:-0.02em">Introducing haUSDC: Your USDC, Put to Work</div>
@@ -1187,7 +1243,7 @@ ul{list-style:none}
         </div>
         <div style="padding:20px">
           <div style="display:flex;gap:6px;margin-bottom:12px">
-            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(67,160,71,0.15);color:#43a047">Vaults</span>
+            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5)">Vaults</span>
           </div>
           <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px;letter-spacing:-0.02em">Harmonix V2 Vaults</div>
           <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.5">Deposit USDC, USDT, or USDH. Earn automatically. No claiming, no lockup, no complexity.</div>
@@ -1215,7 +1271,7 @@ ul{list-style:none}
         </div>
         <div style="padding:20px">
           <div style="display:flex;gap:6px;margin-bottom:12px">
-            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(67,160,71,0.15);color:#43a047">Staking</span>
+            <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5)">Staking</span>
             <span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)">HYPE</span>
           </div>
           <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px;letter-spacing:-0.02em">Harmonix HYPE Staking Announcement</div>
@@ -1249,7 +1305,7 @@ ul{list-style:none}
 <section class="section" id="learn">
   <div class="container">
     <div class="showcase anim">
-      <div class="showcase-visual" style="padding:40px 24px;align-items:center;justify-content:center;overflow:hidden;background:#eeefea">
+      <div class="showcase-visual" style="padding:40px 24px;align-items:center;justify-content:center;overflow:hidden"
         <!-- MacBook mockup with docs screenshot -->
         <div style="width:100%;max-width:460px">
           <!-- MacBook lid -->
@@ -1271,9 +1327,9 @@ ul{list-style:none}
         </div>
       </div>
       <div class="showcase-text">
-        <div class="showcase-pill"><span class="pill-dot"></span><span data-i18n="docs_pill">BUILD</span></div>
-        <h2 data-i18n="docs_title">Build on <span style="color:#43a047">Harmonix.</span></h2>
-        <p data-i18n="docs_desc">Integrate Harmonix vaults and yield products into your protocol. ERC-4626 compatible, fully composable, with open smart contracts and developer documentation. Upcoming upgrade: ERC-7540 for asynchronous vault operations.</p>
+        <div class="showcase-pill"><span class="pill-dot"></span><span data-i18n="docs_pill">DOCUMENTATION</span></div>
+        <h2 data-i18n="docs_title">Build on Harmonix.</h2>
+        <p data-i18n="docs_desc">Comprehensive docs, SDK references, and integration guides. Everything you need to build on Harmonix infrastructure.</p>
         <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" class="btn-pill" data-i18n="docs_cta">Read the docs</a>
       </div>
     </div>
@@ -1284,7 +1340,7 @@ ul{list-style:none}
 <section class="section section-gray" id="developers">
   <div class="container">
     <div class="section-header anim" style="margin-bottom:40px">
-      <h2 class="section-heading" data-i18n="dev_title">Open by default,<br><span style="color:#43a047">secure by design</span></h2>
+      <h2 class="section-heading" data-i18n="dev_title">Open by default,<br>secure by design</h2>
       <p class="section-desc" data-i18n="dev_desc">Transparent financial infrastructure. See it for yourself.</p>
     </div>
     <!-- Code block — dark code block on light page -->
@@ -1331,7 +1387,7 @@ ul{list-style:none}
         <h3 style="font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-0.5px" data-i18n="dev_sdk">SDK &amp; API</h3>
         <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px" data-i18n="dev_sdk_desc">Integrate with Harmonix vaults</p>
         <div style="display:flex;justify-content:center;gap:8px;margin-bottom:20px">
-          <span style="font-size:11px;font-weight:600;color:#43a047;background:#e8f5e9;padding:4px 12px;border-radius:100px;border:1px solid #c8e6c9">Coming Soon</span>
+          <span style="font-size:11px;font-weight:600;color:#495057;background:#f1f3f5;padding:4px 12px;border-radius:100px;border:1px solid #dee2e6">Coming Soon</span>
         </div>
         <a href="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-docs-v2.html" target="_blank" style="font-size:13px;color:var(--gray-500);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#000'" onmouseout="this.style.color='var(--gray-500)'">Read Docs &rarr;</a>
       </div>
@@ -1405,9 +1461,9 @@ ul{list-style:none}
 <section class="section">
   <div class="container">
     <div class="cta-banner anim">
-      <h2 data-i18n="cta_title">Start earning <span style="color:#81c784">yield today</span></h2>
-      <p data-i18n="cta_desc">Deposit stablecoins or HYPE and let Harmonix optimize your returns.</p>
-      <a href="https://app.harmonix.fi" class="btn btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.2)" target="_blank" data-i18n="cta_btn">Launch App &rarr;</a>
+      <h2 data-i18n="cta_title">Start earning yield today.</h2>
+      <p data-i18n="cta_desc">Earn <span style="color:#43a047;font-weight:600">7% APY</span> with delta neutral yield bearing stablecoins. Secure, automated, institutional-grade.</p>
+      <a href="https://app.harmonix.fi" class="btn" style="text-decoration:none;display:inline-block;border-radius:980px;padding:14px 36px;font-size:15px;background:#16a34a;color:#fff;font-weight:600" target="_blank" data-i18n="cta_btn">Launch App &rarr;</a>
     </div>
   </div>
 </section>
