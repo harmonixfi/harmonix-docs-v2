@@ -247,7 +247,7 @@ ul{list-style:none}
 
 /* PRODUCT CAROUSEL - Vault card style */
 .prod-carousel-wrap{position:relative}
-.prod-carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:0 40px 20px;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.prod-carousel{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:0 40px 20px;scrollbar-width:none;overscroll-behavior-x:none;touch-action:auto}
 .prod-carousel::-webkit-scrollbar{display:none}
 .prod-card{flex:0 0 380px;scroll-snap-align:start;background:var(--gray-50);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-height:520px;transition:transform 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.04)}
 .prod-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
@@ -286,7 +286,7 @@ ul{list-style:none}
 .how-card p{font-size:14px;color:var(--gray-500);line-height:1.6;position:relative}
 
 /* BLOG GRID - carousel */
-.blog-grid{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding-bottom:20px;scrollbar-width:none;overscroll-behavior-x:contain}
+.blog-grid{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding-bottom:20px;scrollbar-width:none;overscroll-behavior-x:none;touch-action:auto}
 .blog-grid::-webkit-scrollbar{display:none}
 .blog-grid>a{flex:0 0 340px;scroll-snap-align:start}
 .blog-carousel-nav{display:flex;gap:12px;justify-content:flex-end;padding:16px 0 0}
