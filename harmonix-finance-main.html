@@ -401,9 +401,11 @@ ul{list-style:none}
   .nav-right .btn-outline,.nav-right .btn-green{display:none}
   .hamburger{display:block}
   .showcase{grid-template-columns:1fr;min-height:auto}
+  .showcase .showcase-text{order:1}
+  .showcase .showcase-visual{order:2}
   .showcase.reverse{direction:ltr}
-  .showcase.reverse .showcase-visual{order:1}
-  .showcase.reverse .showcase-text{order:2}
+  .showcase.reverse .showcase-text{order:1}
+  .showcase.reverse .showcase-visual{order:2}
   .showcase-visual{min-height:320px}
   .showcase-text{padding:32px 24px}
   .hausd-grid,.token-layout,.contact-layout{grid-template-columns:1fr}
@@ -432,6 +434,10 @@ ul{list-style:none}
   #yield-calc .yc-vault div:last-child{font-size:9px !important}
   #yield-calc input{font-size:14px !important}
   .showcase-visual[style*="yield"]{padding:10px !important}
+  .partner-grid{grid-template-columns:repeat(3,1fr) !important;gap:6px !important}
+  .partner-card img,.partner-card .partner-logo{width:24px !important;height:24px !important;border-radius:8px !important}
+  .partner-card .partner-name{font-size:9px !important}
+  .partner-card{padding:12px 8px !important;gap:6px !important}
 }
 
 /* EARN STEPS — Hero interactive section */
