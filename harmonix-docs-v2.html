@@ -768,11 +768,31 @@ html, body {
   .breadcrumb .bc-root,
   .breadcrumb .sep { display: none; }
 
-  /* --- Hero cards (Learn / Product Suite / Developers): stack vertically --- */
+  /* --- Hero section: center text and cards --- */
+  .section:first-of-type h1,
+  .section h1 {
+    text-align: center !important;
+  }
+  .section:first-of-type p,
+  .content > .section:first-child > p {
+    text-align: center !important;
+  }
+
+  /* --- Hero cards (Learn / Product Suite / Developers): stack vertically + center --- */
   .section [style*="grid-template-columns:1fr 1fr 1fr"],
   .section [style*="grid-template-columns: 1fr 1fr 1fr"] {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
+    max-width: 400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .section [style*="grid-template-columns:1fr 1fr 1fr"] > div,
+  .section [style*="grid-template-columns: 1fr 1fr 1fr"] > div {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   /* --- All grids: single column --- */
