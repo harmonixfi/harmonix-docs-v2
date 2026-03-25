@@ -417,9 +417,11 @@ ul{list-style:none}
   .security-grid .security-card{flex:0 0 240px;scroll-snap-align:start;padding:24px 20px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .hero h1{letter-spacing:-2px}
-  #yc-visual{padding:0 !important;min-height:auto !important;height:auto !important;background:#f8f9fa !important;border-top:1px solid #e9ecef;margin-top:8px;overflow:visible !important}
-  #yield-calc{padding:10px !important;margin:0 !important;border:none !important;border-radius:0 !important}
+  #yc-visual{padding:8px !important;min-height:auto !important;height:auto !important;background:#f8f9fa !important;border-top:1px solid #e9ecef;margin-top:8px;overflow:visible !important}
+  #yield-calc{padding:10px !important;margin:0 !important;border:none !important;border-radius:0 !important;width:100% !important;box-sizing:border-box !important;max-width:100% !important}
+  #yield-calc *{box-sizing:border-box !important;max-width:100% !important}
   #yield-calc button{min-width:0 !important;font-size:9px !important;padding:6px 2px !important}
+  #yield-calc [style*="display:flex"]{flex-wrap:nowrap !important;max-width:100% !important}
   #yield-calc .yc-vault div:first-child{font-size:9px !important}
   #yield-calc .yc-vault div:last-child{font-size:8px !important}
   #yield-calc input{font-size:13px !important}
@@ -444,7 +446,7 @@ ul{list-style:none}
   .cta-banner{padding:56px 28px}
   .footer-grid{grid-template-columns:1fr}
   .token-stats{grid-template-columns:1fr 1fr}
-  #yc-visual{min-height:auto !important;height:auto !important;overflow:visible !important}
+  #yc-visual{min-height:auto !important;height:auto !important;overflow:visible !important;padding:4px !important}
   #yield-calc{padding:6px !important}
   #yield-calc button{font-size:8px !important;padding:4px 1px !important}
   #yield-calc .yc-vault div:first-child{font-size:8px !important}
@@ -996,7 +998,7 @@ ul{list-style:none}
 
 
 <div class="showcase anim">
-      <div class="showcase-visual" id="yc-visual" style="padding:16px;flex-direction:column;gap:8px;align-items:stretch;background:#fff;overflow:visible;height:auto">
+      <div class="showcase-visual" id="yc-visual" style="padding:16px;flex-direction:column;gap:8px;align-items:stretch;background:#fff;height:auto">
         <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:16px" id="yield-calc">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:12px;font-weight:700;color:#000" data-i18n="yc_title">Yield Calculator</div>
