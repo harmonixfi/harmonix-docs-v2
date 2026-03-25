@@ -688,19 +688,149 @@ html, body {
   .logo-text { font-size: 13px; }
 }
 
+/* ── MOBILE 768px RESPONSIVE ── */
 @media (max-width: 768px) {
-  .card, .product-card, .box, .grid-item, [class*="card"], [class*="box"] {
-    width: 100% !important;
-    min-width: unset !important;
-    padding: 12px !important;
-    box-sizing: border-box !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+  /* --- Mobile top bar with hamburger --- */
+  #mobile-hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(200,240,122,0.1) !important;
+    border: 1px solid rgba(200,240,122,0.3) !important;
+    border-radius: 6px !important;
   }
-  .grid, [class*="grid"] {
+
+  /* --- Hide sidebar off-screen by default --- */
+  .sidebar {
+    display: flex !important;
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 6px 0 40px rgba(0,0,0,0.5);
+    width: 80vw;
+    max-width: 300px;
+    z-index: 200;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .sidebar.mobile-open,
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  /* --- Overlay --- */
+  .sidebar-overlay {
+    display: block !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  .sidebar-overlay.open {
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+
+  /* --- Mobile close button --- */
+  .mobile-close-btn {
+    display: flex !important;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text2);
+    z-index: 201;
+  }
+
+  /* --- Main content: no sidebar margin --- */
+  .main {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .content {
+    padding: 32px 16px 80px !important;
+  }
+
+  /* --- Topbar adjustments --- */
+  .topbar {
+    padding: 0 12px !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .topbar-link { display: none !important; }
+  #doc-search { display: none !important; }
+  .topbar-actions > div { display: none !important; }
+  .breadcrumb .bc-root,
+  .breadcrumb .sep { display: none; }
+
+  /* --- Hero cards (Learn / Product Suite / Developers): stack vertically --- */
+  .section [style*="grid-template-columns:1fr 1fr 1fr"],
+  .section [style*="grid-template-columns: 1fr 1fr 1fr"] {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
+
+  /* --- All grids: single column --- */
+  .welcome-cards,
+  .product-suite-grid,
+  .cards-grid,
+  .arch-modules,
+  .welcome-nav-cards,
+  .ps-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .token-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .stat-row {
+    flex-wrap: wrap;
+  }
+
+  /* --- Typography: reduce heading sizes --- */
+  h1 { font-size: 24px !important; }
+  h2 { font-size: 18px !important; }
+  h3 { font-size: 15px !important; }
+  .page-subtitle { font-size: 14px !important; }
+
+  /* --- Tables: horizontal scroll --- */
+  .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  table { font-size: 13px; }
+
+  /* --- Images must not overflow --- */
+  img { max-width: 100% !important; height: auto !important; }
+
+  /* --- Contract cards --- */
+  .contract-card { padding: 16px 14px !important; }
+  .contract-card-row {
+    grid-template-columns: 1fr !important;
+    gap: 3px;
+  }
+  .addr-wrap { flex-wrap: wrap; }
+  code { font-size: 11px !important; word-break: break-all !important; }
+
+  /* --- Page nav footer: stack --- */
+  .page-nav { flex-direction: column; gap: 10px; }
+
+  /* --- Callouts --- */
+  .callout { padding: 14px 14px; gap: 10px; }
+
+  /* --- Steps --- */
+  .step { gap: 12px; }
+  .step-num { min-width: 28px; }
+
+  /* --- Hide TOC sidebar --- */
+  .toc-sidebar { display: none !important; }
+
+  /* --- Button sizing --- */
+  .btn-app { font-size: 11px !important; padding: 5px 12px !important; }
 }
 
 
