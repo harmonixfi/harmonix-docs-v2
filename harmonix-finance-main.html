@@ -251,7 +251,7 @@ ul{list-style:none}
 .prod-carousel-wrap{position:relative}
 .prod-carousel{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:0 40px 20px;scrollbar-width:none;overscroll-behavior-x:none;touch-action:auto}
 .prod-carousel::-webkit-scrollbar{display:none}
-.prod-card{flex:0 0 380px;scroll-snap-align:start;background:var(--gray-50);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-height:520px;transition:transform 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.04)}
+.prod-card{flex:0 0 calc((100% - 40px) / 3);scroll-snap-align:start;background:var(--gray-50);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-height:520px;transition:transform 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.04)}
 .prod-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
 .prod-card-text{padding:32px 32px 24px;flex:0 0 auto}
 .prod-card-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-500);margin-bottom:10px}
