@@ -290,7 +290,7 @@ ul{list-style:none}
 /* BLOG GRID - carousel */
 .blog-grid{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding-bottom:20px;scrollbar-width:none;overscroll-behavior-x:none;touch-action:auto}
 .blog-grid::-webkit-scrollbar{display:none}
-.blog-grid>a{flex:0 0 340px;scroll-snap-align:start}
+.blog-grid>a{flex:0 0 calc((100% - 40px) / 3);scroll-snap-align:start}
 .blog-carousel-nav{display:flex;gap:12px;justify-content:flex-end;padding:16px 0 0}
 .blog-carousel-nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--black);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:var(--black)}
 .blog-carousel-nav button:hover{border-color:var(--black);color:var(--black)}
