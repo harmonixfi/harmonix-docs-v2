@@ -961,9 +961,7 @@ html, body {
       <div class="nav-collapse open">
         <a class="nav-item" onclick="show('stablecoins',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9.5c0-1 1.3-1.5 3-1.5s3 .5 3 1.5-1.3 2-3 2-3 .8-3 2 1.3 2 3 2 3-.5 3-1.5"/></svg>Yield-Bearing Stablecoins</a>
         <div class="nav-sub">
-          <a class="nav-item" onclick="show('stablecoins',this);showStableTab('tab-hausdc')"><svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="3"/></svg>haUSDC</a>
-          <a class="nav-item" onclick="show('stablecoins',this);showStableTab('tab-hausdt')"><svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="3"/></svg>haUSDT</a>
-          <a class="nav-item" onclick="show('stablecoins',this);showStableTab('tab-hausdh')"><svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="3"/></svg>haUSDH</a>
+          <a class="nav-item" onclick="show('stablecoins',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="3"/></svg>haUSD</a>
         </div>
         <a class="nav-item" onclick="show('tokens',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>Yield-Bearing Tokens</a>
         <div class="nav-sub">
@@ -1161,8 +1159,8 @@ html, body {
       <p>Now that you're connected, here are the most common next steps:</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0 32px;">
         <div onclick="show('stablecoins',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haUSDC →</div>
-          <div style="font-size:12px;color:var(--text3);">Earn yield on your USDC via basis trading</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haUSD →</div>
+          <div style="font-size:12px;color:var(--text3);">Earn yield on your stablecoins via basis trading</div>
         </div>
         <div onclick="show('tokens',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haHYPE →</div>
@@ -1311,7 +1309,7 @@ html, body {
       </div>
 
       <h2>What is Harmonix?</h2>
-      <p>Harmonix is a yield infrastructure protocol built natively on Hyperliquid. It captures real economic activity — perpetual funding rates, lending yields, and ecosystem incentives across HyperCore and HyperEVM — and distributes that yield through a suite of yield-bearing tokens: haUSDC, haUSDH, haUSDT, haHYPE, and hakHYPE.</p>
+      <p>Harmonix is a yield infrastructure protocol built natively on Hyperliquid. It captures real economic activity — perpetual funding rates, lending yields, and ecosystem incentives across HyperCore and HyperEVM — and distributes that yield through a suite of yield-bearing tokens: haUSD, haHYPE, and hakHYPE.</p>
       <p>The design goal is straightforward: reuse the same unit of capital across multiple yield sources, price risk from real executable activity rather than static assumptions, and route protocol cashflows back to users in a transparent, programmatic way.</p>
 
       <h2>The Problems We Solve</h2>
@@ -1353,7 +1351,7 @@ html, body {
           </tr>
           <tr>
             <td><strong style="color:var(--green);">V2</strong></td>
-            <td><span class="ps-tag" style="margin:0;">haUSDC</span> <span class="ps-tag" style="margin:0;">haUSDT</span> <span class="ps-tag" style="margin:0;">haUSDH</span> <span class="ps-tag" style="margin:0;">haHYPE</span> <span class="ps-tag" style="margin:0;">hakHYPE</span></td>
+            <td><span class="ps-tag" style="margin:0;">haUSD</span> <span class="ps-tag" style="margin:0;">haHYPE</span> <span class="ps-tag" style="margin:0;">hakHYPE</span></td>
             <td>The current generation — ERC-4626 yield-bearing tokens that expand beyond a single basis trade into multi-strategy vaults. Capital is deployed across funding markets, lending, staking, and Pendle PT positions simultaneously, with yield compounding directly into the share price.</td>
           </tr>
         </tbody>
@@ -1400,7 +1398,7 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Build on Harmonix</h1>
-        <p class="page-subtitle">haUSDC, haUSDH, and haUSDT are ERC-4626 vaults on HyperEVM. Read positions, deposit, and queue redemptions with a single contract interface.</p>
+        <p class="page-subtitle">haUSD is an ERC-4626 vault on HyperEVM. Read positions, deposit, and queue redemptions with a single contract interface.</p>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 40px;">
@@ -1473,7 +1471,7 @@ html, body {
           <div class="ps-item-body" style="padding:20px;">
             <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Yield-Bearing Stablecoins →</div>
             <div class="ps-item-desc" style="margin-bottom:14px;">USD-denominated yield-bearing vault shares that compound sustainable on-chain yield through market-neutral strategies.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">haUSDC</span><span class="ps-tag">haUSDT</span><span class="ps-tag">haUSDH</span></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">haUSD</span></div>
           </div>
         </div>
         <div class="ps-item" onclick="show('tokens',null)">
@@ -1516,45 +1514,20 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">Products</span>
         <h1>Yield-Bearing Stablecoins</h1>
-        <p class="page-subtitle">haUSDC, haUSDH, and haUSDT are ERC-4626 receipt tokens that generate sustainable onchain yield by deploying capital across market-neutral strategies on HyperCore and ecosystem protocols on HyperEVM.</p>
+        <p class="page-subtitle">haUSD is an ERC-4626 receipt token that generates sustainable onchain yield by deploying capital across market-neutral strategies on HyperCore and ecosystem protocols on HyperEVM.</p>
 <img src="stablecoin-diagram.svg" alt="Stablecoin Vault Strategy Diagram" style="width: 100%; min-width: 100%; display: block; margin: 0 auto 32px auto;" />
       </div>
 
       <p>The design is straightforward: deposit the underlying asset, receive ha-tokens that automatically accrue yield over time via the ERC-4626 exchange rate. No manual rebalancing, no claiming — your share simply becomes worth more of the underlying asset as yield compounds in.</p>
 
       <h2>What ha-stablecoins are and how they fit</h2>
-      <p><strong>Turn idle stablecoins into productive capital.</strong> Rather than holding USDC, USDT, or USDH at zero yield, users mint the ha-equivalent and immediately begin earning from HyperCore funding markets and HyperEVM lending and liquidity protocols.</p>
+      <p><strong>Turn idle stablecoins into productive capital.</strong> Rather than holding stablecoins at zero yield, users deposit and receive haUSD, immediately beginning to earn from HyperCore funding markets and HyperEVM lending and liquidity protocols.</p>
       <p><strong>Dollar-denominated, yield-accruing.</strong> Capital is deployed exclusively into market-neutral strategies — delta-neutral positions that minimize directional exposure. The vault targets stability of the underlying denomination; the share price grows over time as yield accrues into the exchange rate.</p>
       <p><strong>Accrue ecosystem incentives.</strong> Beyond base yield, ha-stablecoin positions accrue Harmonix Points and partner protocol points automatically, compounding total returns across the Hyperliquid ecosystem.</p>
 
-      <!-- TAB BAR -->
-      <div class="stable-tabs">
-        <button class="stable-tab active" onclick="showStableTab('tab-hausdc',this)">haUSDC</button>
-        <button class="stable-tab" onclick="showStableTab('tab-hausdt',this)">haUSDT</button>
-        <button class="stable-tab" onclick="showStableTab('tab-hausdh',this)">haUSDH</button>
-      </div>
-
-      <!-- haUSDC -->
-      <div class="stable-panel active" id="tab-hausdc">
-        
-<h2>haUSDC</h2>
-        <p>haUSDC is an ERC-4626 yield-bearing receipt token for USDC depositors. Deposit USDC, receive haUSDC shares. As the vault generates yield, each haUSDC becomes redeemable for more USDC over time — yield compounds into the exchange rate, not distributed as separate payments.</p>
-        <p style="color:var(--text2);font-size:13px;">Underlying asset: <strong style="color:var(--text);">USDC</strong> · Standard: <strong style="color:var(--text);">ERC-4626</strong> · Minimum deposit: <strong style="color:var(--text);">1 USDC</strong></p>
-      </div>
-
-      <!-- haUSDT -->
-      <div class="stable-panel" id="tab-hausdt">
-        <h2>haUSDT</h2>
-        <p>haUSDT is an ERC-4626 yield-bearing receipt token for USDT depositors. Deposit USDT, receive haUSDT shares that grow in redemption value as the vault compounds yield into the exchange rate. Follows the same market-neutral strategy architecture as haUSDC, with allocation tuned to USDT liquidity conditions on HyperCore and HyperEVM.</p>
-        <p style="color:var(--text2);font-size:13px;">Underlying asset: <strong style="color:var(--text);">USDT</strong> · Standard: <strong style="color:var(--text);">ERC-4626</strong> · Minimum deposit: <strong style="color:var(--text);">1 USDT</strong></p>
-      </div>
-
-      <!-- haUSDH -->
-      <div class="stable-panel" id="tab-hausdh">
-        <h2>haUSDH</h2>
-        <p>haUSDH is an ERC-4626 yield-bearing receipt token for USDH depositors — Hyperliquid's native stablecoin. As the ecosystem-native option, haUSDH benefits from deep HyperCore liquidity and is positioned to capture strong native yield. Deposit USDH, receive haUSDH shares that compound yield into the exchange rate over time.</p>
-        <p style="color:var(--text2);font-size:13px;">Underlying asset: <strong style="color:var(--text);">USDH</strong> · Standard: <strong style="color:var(--text);">ERC-4626</strong> · Minimum deposit: <strong style="color:var(--text);">1 USDH</strong></p>
-      </div>
+      <h2>haUSD</h2>
+      <p>haUSD is an ERC-4626 yield-bearing receipt token for stablecoin depositors. Deposit stablecoins, receive haUSD shares. As the vault generates yield, each haUSD becomes redeemable for more of the underlying over time — yield compounds into the exchange rate, not distributed as separate payments.</p>
+      <p style="color:var(--text2);font-size:13px;">Standard: <strong style="color:var(--text);">ERC-4626</strong></p>
 
       <h2>Vault Allocation</h2>
       <p>Capital is split across three strategies that shift dynamically based on market conditions:</p>
@@ -1595,7 +1568,7 @@ html, body {
 
       <div class="callout warn">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <div class="callout-body">ha-stablecoins are not guaranteed fixed-yield instruments. Yield fluctuates with funding rates, market conditions, and protocol activity. The share price grows over time as yield accrues — each haUSDC, haUSDT, or haUSDH will be worth more of the underlying asset at redemption than at deposit. They are not pegged to $1; they are yield-bearing vault shares denominated in their underlying stablecoin. For platform-wide risks, see <a onclick="show('risks',null)" href="javascript:void(0)" style="color:var(--green);">Risks, Security &amp; Audits</a>.</div>
+        <div class="callout-body">haUSD is not a guaranteed fixed-yield instrument. Yield fluctuates with funding rates, market conditions, and protocol activity. The share price grows over time as yield accrues — each haUSD will be worth more of the underlying asset at redemption than at deposit. It is not pegged to $1; it is a yield-bearing vault share. For platform-wide risks, see <a onclick="show('risks',null)" href="javascript:void(0)" style="color:var(--green);">Risks, Security &amp; Audits</a>.</div>
       </div>
 
       <div class="page-nav">
@@ -1822,12 +1795,12 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Vault Architecture</h1>
-        <p class="page-subtitle">haUSDC, haUSDT, and haUSDH are ERC-4626 vaults on HyperEVM built on the BoringVault framework. Six isolated contracts — no single component holds both custody and execution authority.</p>
+        <p class="page-subtitle">haUSD is an ERC-4626 vault on HyperEVM built on the BoringVault framework. Six isolated contracts — no single component holds both custody and execution authority.</p>
       </div>
 
       <!-- Architecture Diagram — Horizontal -->
       <div style="background:#282828;border:1px solid #424242;border-radius:12px;padding:28px 20px;margin:0 0 48px;">
-        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#3d3d3d;text-align:center;margin-bottom:20px;">Contract Architecture — haUSDC / haUSDT / haUSDH</div>
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#3d3d3d;text-align:center;margin-bottom:20px;">Contract Architecture — haUSD</div>
 
         <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
 
@@ -1949,7 +1922,7 @@ html, body {
         <div style="display:flex;gap:20px;align-items:flex-start;">
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
           <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Receive haUSDC / haUSDT / haUSDH shares</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Receive haUSD shares</div>
             <div style="font-size:13px;color:#cccccc;">Shares are standard ERC-20 tokens. They accrue yield automatically as the NAV Oracle pushes price-per-share updates to the Accountant. No staking or claiming required.</div>
           </div>
         </div>
@@ -2166,32 +2139,12 @@ html, body {
       </div>
 
       <h2>Yield-Bearing Stablecoins</h2>
-      <p>haUSDC, haUSDT, and haUSDH are deployed on HyperEVM as ERC-20 tokens using a <code>TransparentUpgradeableProxy</code> / <code>ERC1967Proxy</code> pattern, consistent with the Veda framework used for yield-bearing vault tokens.</p>
+      <p>haUSD is deployed on HyperEVM as an ERC-20 token using a <code>TransparentUpgradeableProxy</code> / <code>ERC1967Proxy</code> pattern, consistent with the Veda framework used for yield-bearing vault tokens.</p>
 
       <div class="contract-card" style="opacity:0.7;">
         <div class="contract-card-header">
-          <span class="ticker-badge">haUSDC</span>
-          <div class="card-title-block"><span class="card-name">haUSDC</span></div>
-          <div class="card-tags"><span class="tag green">ERC-20</span><span class="tag grey">ERC1967Proxy</span></div>
-        </div>
-        <div class="contract-card-row"><span class="contract-card-label">Contract</span><span class="contract-card-val" style="color:#c8f07a;font-style:italic;">Coming Soon</span></div>
-        <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">HyperEVM</span></div>
-      </div>
-
-      <div class="contract-card" style="opacity:0.7;">
-        <div class="contract-card-header">
-          <span class="ticker-badge">haUSDT</span>
-          <div class="card-title-block"><span class="card-name">haUSDT</span></div>
-          <div class="card-tags"><span class="tag green">ERC-20</span><span class="tag grey">ERC1967Proxy</span></div>
-        </div>
-        <div class="contract-card-row"><span class="contract-card-label">Contract</span><span class="contract-card-val" style="color:#c8f07a;font-style:italic;">Coming Soon</span></div>
-        <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">HyperEVM</span></div>
-      </div>
-
-      <div class="contract-card" style="opacity:0.7;">
-        <div class="contract-card-header">
-          <span class="ticker-badge">haUSDH</span>
-          <div class="card-title-block"><span class="card-name">haUSDH</span></div>
+          <span class="ticker-badge">haUSD</span>
+          <div class="card-title-block"><span class="card-name">haUSD</span></div>
           <div class="card-tags"><span class="tag green">ERC-20</span><span class="tag grey">ERC1967Proxy</span></div>
         </div>
         <div class="contract-card-row"><span class="contract-card-label">Contract</span><span class="contract-card-val" style="color:#c8f07a;font-style:italic;">Coming Soon</span></div>
@@ -2204,9 +2157,7 @@ html, body {
       <div class="table-wrap"><table>
         <thead><tr><th>Contract</th><th>Standard</th><th>Network</th><th>Address</th></tr></thead>
         <tbody>
-          <tr><td>haUSDC Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
-          <tr><td>haUSDT Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
-          <tr><td>haUSDH Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
+          <tr><td>haUSD Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
           <tr><td>haHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0xfde5b062…8d725c</code></td></tr>
           <tr><td>hakHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0x1368ee9d…9eebc42</code></td></tr>
           <tr><td>HAR Token</td><td>ERC-20</td><td>HyperEVM</td><td><code>0x391121d8…af18</code></td></tr>
@@ -2217,7 +2168,7 @@ html, body {
 
       <div class="callout">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></span>
-        <div class="callout-body"><strong>Vault Framework:</strong> Harmonix's yield-bearing vault tokens (haUSDC, haUSDT, haUSDH) are built using the <strong>BoringVault</strong> framework (deployed via Veda) — a modular, audited vault infrastructure designed for institutional-grade DeFi products. BoringVault provides the ERC-4626 base, role-based access control, and upgrade patterns used across the Harmonix vault stack.</div>
+        <div class="callout-body"><strong>Vault Framework:</strong> Harmonix's yield-bearing vault token (haUSD) is built using the <strong>BoringVault</strong> framework (deployed via Veda) — a modular, audited vault infrastructure designed for institutional-grade DeFi products. BoringVault provides the ERC-4626 base, role-based access control, and upgrade patterns used across the Harmonix vault stack.</div>
       </div>
 
       <div class="page-nav">
@@ -2246,7 +2197,7 @@ html, body {
         <tbody>
           <tr><td><strong>Basis Trade Vault</strong></td><td>V1</td><td>HYPE-BASIS</td><td>Custom (HypeVault)</td></tr>
           <tr><td><strong>Yield-Bearing Tokens</strong></td><td>V2</td><td>haHYPE, hakHYPE</td><td>ERC-4626 (BoringVault)</td></tr>
-          <tr><td><strong>Yield-Bearing Stablecoins</strong></td><td>V2</td><td>haUSDC, haUSDT, haUSDH</td><td>ERC-4626 (BoringVault)</td></tr>
+          <tr><td><strong>Yield-Bearing Stablecoin</strong></td><td>V2</td><td>haUSD</td><td>ERC-4626 (BoringVault)</td></tr>
         </tbody>
       </table></div>
 
@@ -2344,7 +2295,7 @@ html, body {
 
       <!-- ── V2: YIELD-BEARING STABLECOINS ── -->
       <h2>V2 — Yield-Bearing Stablecoins</h2>
-      <p>haUSDC, haUSDT, and haUSDH follow the same BoringVault / ERC-4626 architecture as the yield-bearing tokens. The Teller handles deposits; withdrawals go through the same async queue.</p>
+      <p>haUSD follows the same BoringVault / ERC-4626 architecture as the yield-bearing tokens. The Teller handles deposits; withdrawals go through the same async queue.</p>
 
       <h3>Deposit</h3>
       <div class="steps">
@@ -2352,7 +2303,7 @@ html, body {
           <div class="step-num">1</div>
           <div class="step-body">
             <h4>Approve the Teller</h4>
-            <p>Call <code>approve(TELLER_ADDRESS, amount)</code> on the stablecoin contract (USDC, USDT, or USDH).</p>
+            <p>Call <code>approve(TELLER_ADDRESS, amount)</code> on the stablecoin contract.</p>
           </div>
         </div>
         <div class="step">
@@ -2365,7 +2316,7 @@ html, body {
       </div>
 
       <h3>Withdraw (Async Queue)</h3>
-      <p>Same three-step flow as yield-bearing tokens: <code>requestWithdraw</code> → wait → <code>claimWithdraw</code>. You receive the original stablecoin (USDC, USDT, or USDH).</p>
+      <p>Same three-step flow as yield-bearing tokens: <code>requestWithdraw</code> → wait → <code>claimWithdraw</code>. You receive the underlying stablecoin.</p>
 
       <!-- ── WITHDRAWAL TIMING ── -->
       <h2>Withdrawal Timing</h2>
@@ -2385,7 +2336,7 @@ html, body {
         <thead><tr><th>Product</th><th>Redeem / Exit Path</th><th>Receive</th></tr></thead>
         <tbody>
           <tr><td>Basis Trade Vault</td><td>Two-step withdrawal</td><td>USDC</td></tr>
-          <tr><td>haUSDC / haUSDT / haUSDH</td><td>Async queue</td><td>USDC, USDT, USDH</td></tr>
+          <tr><td>haUSD</td><td>Async queue</td><td>Underlying stablecoin</td></tr>
           <tr><td>haHYPE</td><td>Async queue</td><td>WHYPE</td></tr>
           <tr><td>hakHYPE</td><td>Async queue</td><td>kHYPE</td></tr>
         </tbody>
@@ -2399,7 +2350,7 @@ html, body {
           <strong>Upgrade in progress</strong> — Harmonix is implementing ERC-7540, the official async extension of ERC-4626.
         </div>
       </div>
-      <p>ERC-7540 standardizes asynchronous deposit and withdrawal flows at the contract level. This unlocks native cross-chain integrations — users will be able to deposit into haUSDC from <strong>any chain</strong>, using <strong>any asset</strong>, via supported aggregator platforms and mobile apps. No manual bridging. No extra steps.</p>
+      <p>ERC-7540 standardizes asynchronous deposit and withdrawal flows at the contract level. This unlocks native cross-chain integrations — users will be able to deposit into haUSD from <strong>any chain</strong>, using <strong>any asset</strong>, via supported aggregator platforms and mobile apps. No manual bridging. No extra steps.</p>
       <p>The upgrade supports Harmonix's existing asynchronous withdrawal architecture (where users initiate a withdrawal request before claiming) while keeping <strong>instant deposits</strong> — the standard design for vault strategies that take time to unwind positions.</p>
       <p>Cross-chain aggregator integrations have confirmed compatibility out of the box once the upgrade is live.</p>
 
@@ -2430,7 +2381,7 @@ html, body {
           <h3 style="margin:0 0 8px;color:var(--green);">ERC-4626 Vaults</h3>
           <p style="font-size:13px;color:var(--text2);margin:0 0 12px;">Standard yield-bearing vaults on HyperEVM</p>
           <div style="font-size:12px;color:var(--text3);">
-            <div>• haHYPE, hakHYPE, haUSDC, haUSDT, haUSDH</div>
+            <div>• haHYPE, hakHYPE, haUSD</div>
             <div>• Standard ERC-4626 interface</div>
             <div>• Withdrawal queue system</div>
           </div>
@@ -2464,7 +2415,7 @@ html, body {
       </div>
 
       <h2>ERC-4626 Vaults Integration (V2)</h2>
-      <p>All V2 vaults (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE) use the BoringVault framework. Deposits go through the <code>Teller</code> contract; withdrawals use an async queue.</p>
+      <p>All V2 vaults (haUSD, haHYPE, hakHYPE) use the BoringVault framework. Deposits go through the <code>Teller</code> contract; withdrawals use an async queue.</p>
 
       <h3>Quick Start</h3>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
@@ -2487,7 +2438,7 @@ const assets = await teller.claimWithdraw(requestId);</code></pre>
         <tbody>
           <tr><td><strong>haHYPE</strong></td><td>HyperEVM</td><td><code>0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c</code></td></tr>
           <tr><td><strong>hakHYPE</strong></td><td>HyperEVM</td><td><code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
-          <tr><td><strong>haUSDC</strong></td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
+          <tr><td><strong>haUSD</strong></td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
         </tbody>
       </table></div>
 
@@ -2578,7 +2529,7 @@ const apy = Math.pow(1 + period_return, 365 / elapsed_days) - 1;</code></pre>
       <h3>Method 2: REST API (recommended)</h3>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
         <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code><span style="color:#4a6741;">// Fetch pre-computed APY from the Harmonix API</span>
-const res = await fetch('https://api.harmonix.fi/api/v1/vaults/haUSDC');
+const res = await fetch('https://api.harmonix.fi/api/v1/vaults/haUSD');
 const vault = await res.json();
 const apy = vault.apy;         <span style="color:#4a6741;">// 7-day rolling APY</span>
 const tvl = vault.tvl;         <span style="color:#4a6741;">// total value locked</span></code></pre>
@@ -2896,9 +2847,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div class="table-wrap"><table>
         <thead><tr><th>Vault</th><th>Coverage</th><th>Verification</th></tr></thead>
         <tbody>
-          <tr><td>haUSDC</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
-          <tr><td>haUSDT</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
-          <tr><td>haUSDH</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
+          <tr><td>haUSD</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>haHYPE</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>hakHYPE</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>Basis Trade Vault</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + Arbitrum state</td></tr>
@@ -2995,7 +2944,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div class="table-wrap"><table>
         <thead><tr><th>Risk</th><th>Products Affected</th><th>Mitigation</th></tr></thead>
         <tbody>
-          <tr><td>Funding rate turns negative</td><td>haUSDC, haHYPE, hakHYPE</td><td>Real-time monitoring, automatic rotation to lending/staking</td></tr>
+          <tr><td>Funding rate turns negative</td><td>haUSD, haHYPE, hakHYPE</td><td>Real-time monitoring, automatic rotation to lending/staking</td></tr>
           <tr><td>Directional HYPE exposure</td><td>haHYPE, hakHYPE</td><td>Delta-neutral sub-strategy reduces but does not eliminate exposure</td></tr>
           <tr><td>Smart contract vulnerability</td><td>All products</td><td>Audited by Verichains, Shieldify, Zenith</td></tr>
           <tr><td>Venue / counterparty risk</td><td>All products</td><td>Diversified across HyperEVM protocols; no single-venue concentration</td></tr>
@@ -3026,7 +2975,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
         <p class="page-subtitle">The 1% management fee accrues continuously and is reflected in the vault share price. There is no separate fee transaction — the fee is built into the price-per-share calculation, so the APY figures displayed in the app and API are always net of fees.</p>
       </div>
 
-      <h2>V2 Vaults (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE)</h2>
+      <h2>V2 Vaults (haUSD, haHYPE, hakHYPE)</h2>
       <div class="table-wrap" style="margin-bottom:28px;"><table>
         <thead><tr><th>Fee Type</th><th>Rate</th><th>Description</th></tr></thead>
         <tbody>
@@ -3128,9 +3077,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div class="table-wrap"><table>
         <thead><tr><th>Product</th><th>Harmonix Points</th><th>Partner Points</th></tr></thead>
         <tbody>
-          <tr><td>haUSDC</td><td>✓</td><td>Tradexyz, Hyna</td></tr>
-          <tr><td>haUSDT</td><td>✓</td><td>—</td></tr>
-          <tr><td>haUSDH</td><td>✓</td><td>—</td></tr>
+          <tr><td>haUSD</td><td>✓</td><td>Tradexyz, Hyna</td></tr>
           <tr><td>haHYPE</td><td>✓</td><td>HyperLend, Felix, HypurrFi, kPoints, Ventuals</td></tr>
           <tr><td>hakHYPE</td><td>✓</td><td>HyperLend, HypurrFi</td></tr>
         </tbody>
@@ -3177,8 +3124,8 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       </div>
 
       <h2>Products</h2>
-      <h3>Is haUSDC delta-neutral?</h3>
-      <p>Yes. haUSDC is fully market-neutral — capital is deployed into delta-neutral strategies that eliminate directional price exposure. Yield compounds continuously into the share price.</p>
+      <h3>Is haUSD delta-neutral?</h3>
+      <p>Yes. haUSD is fully market-neutral — capital is deployed into delta-neutral strategies that eliminate directional price exposure. Yield compounds continuously into the share price.</p>
       <h3>Are haHYPE and hakHYPE delta-neutral?</h3>
       <p>No. haHYPE and hakHYPE are not fully delta-neutral products. A sub-strategy within each vault runs a delta-neutral position to reduce net beta, but the overall product carries directional HYPE exposure. If HYPE price changes, your position value changes accordingly on the non-hedged portion.</p>
       <h3>Does yield pay out automatically?</h3>
@@ -3190,7 +3137,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <h3>What is HIP-3?</h3>
       <p>HIP-3 is Hyperliquid's native standard for yield-bearing spot tokens. Harmonix uses three HIP-3 markets — Felix (feUSD), Ondo (USDY), and Hyna (sUSDe) — as strategy inputs. These tokens trade natively on HyperCore spot markets, enabling Harmonix to earn their underlying yield without bridges.</p>
       <h3>What oracle does Harmonix use?</h3>
-      <p>haHYPE and hakHYPE use Pyth Network for NAV pricing and collateral valuation. haUSDC is evaluating Pyth or Chainlink for V2 — decision TBD at launch.</p>
+      <p>haHYPE and hakHYPE use Pyth Network for NAV pricing and collateral valuation. haUSD is evaluating Pyth or Chainlink — decision TBD at launch.</p>
       <h3>Is Harmonix audited?</h3>
       <p>Yes. Contracts have been independently audited by <strong>Verichains</strong>, <strong>Shieldify</strong>, and <strong>Zenith</strong>, with real-time on-chain monitoring by Hypernative. You can read each report directly:
         <a href="https://github.com/verichains/public-audit-reports/blob/main/Verichains%20Public%20Audit%20Report%20-%20Harmonix%20Finance-%20v1.0.pdf" target="_blank" rel="noopener">Verichains ↗</a>,
@@ -3474,7 +3421,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr><td><strong>ERC-4626</strong></td><td>An Ethereum standard for tokenized yield-bearing vaults. Defines a standard API for deposits, withdrawals, and share price calculation. All Harmonix V2 vaults implement this standard.</td></tr>
           <tr><td><strong>Exchange Rate</strong></td><td>The price of one vault share in terms of the underlying asset. Increases over time as yield accrues. Calculated as total vault assets divided by total shares outstanding.</td></tr>
           <tr><td><strong>Funding Rate</strong></td><td>A periodic payment between long and short perpetual futures holders. When positive, longs pay shorts — creating income for delta-neutral strategies that hold short perp positions.</td></tr>
-          <tr><td><strong>ha-token</strong></td><td>Harmonix receipt tokens (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE). Each represents a share in its respective yield-bearing vault. The share price appreciates as yield compounds.</td></tr>
+          <tr><td><strong>ha-token</strong></td><td>Harmonix receipt tokens (haUSD, haHYPE, hakHYPE). Each represents a share in its respective yield-bearing vault. The share price appreciates as yield compounds.</td></tr>
           <tr><td><strong>HAR</strong></td><td>The native governance and utility token of the Harmonix protocol.</td></tr>
           <tr><td><strong>Harmonix</strong></td><td>A yield and vault platform built around market-neutral and DeFi-native strategies in the Hyperliquid ecosystem.</td></tr>
           <tr><td><strong>HIP-3</strong></td><td>Hyperliquid Improvement Proposal 3 — builder-deployed perpetual markets on Hyperliquid infrastructure, often relevant for funding-rate-based vault strategies.</td></tr>
@@ -3499,7 +3446,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr><td><strong>stHYPE</strong></td><td>Staked HYPE liquid staking token from Valantis. Represents staked HYPE while remaining liquid and composable across DeFi.</td></tr>
           <tr><td><strong>Teller</strong></td><td>The entry point contract for all V2 vault interactions. Handles deposits (minting shares), withdrawal requests (locking shares), and withdrawal claims (burning shares and returning assets).</td></tr>
           <tr><td><strong>TVL</strong></td><td>Total Value Locked — the aggregate value of all assets deposited in a vault or protocol, denominated in USD or the underlying asset.</td></tr>
-          <tr><td><strong>V1 / V2</strong></td><td>Vault version generations. V1 refers to the original Basis Trade Vault (custom HypeVault contract on Arbitrum). V2 refers to all BoringVault-based vaults on HyperEVM (haUSDC, haUSDT, haUSDH, haHYPE, hakHYPE).</td></tr>
+          <tr><td><strong>V1 / V2</strong></td><td>Vault version generations. V1 refers to the original Basis Trade Vault (custom HypeVault contract on Arbitrum). V2 refers to all BoringVault-based vaults on HyperEVM (haUSD, haHYPE, hakHYPE).</td></tr>
           <tr><td><strong>Vault</strong></td><td>A smart contract product where users deposit assets and receive shares representing pooled strategy exposure. Harmonix vaults use the ERC-4626 standard.</td></tr>
           <tr><td><strong>WHYPE</strong></td><td>Wrapped HYPE — the HyperEVM-native ERC-20 form of HYPE. Used as the withdrawal token for haHYPE since native HYPE transfers are not yet supported on HyperEVM.</td></tr>
           <tr><td><strong>Withdrawal Queue</strong></td><td>The asynchronous mechanism for exiting a vault. Users request a withdrawal, positions are unwound, and assets become claimable once fulfilled (typically 24–72 hours).</td></tr>

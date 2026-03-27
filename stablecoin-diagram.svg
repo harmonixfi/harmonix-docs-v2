@@ -32,7 +32,7 @@
   <text class="lbl" x="110" y="228" text-anchor="middle">USER</text>
   <text class="ttl" x="110" y="255" text-anchor="middle">Deposit</text>
   <text class="ttl" x="110" y="278" text-anchor="middle">Stablecoins</text>
-  <text class="sub" x="110" y="298" text-anchor="middle">USDC · USDT · USDH</text>
+  <text class="sub" x="110" y="298" text-anchor="middle">Stablecoins</text>
 
   <!-- ARROW → Vault -->
   <line x1="190" y1="255" x2="238" y2="255" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
@@ -52,7 +52,7 @@
   <!-- BOX: Receipt Token -->
   <rect class="box" x="240" y="30" width="190" height="85"/>
   <text class="lbl" x="335" y="55" text-anchor="middle">RECEIPT TOKEN</text>
-  <text class="ttl-lg" x="335" y="82" text-anchor="middle">haUSDC / T / H</text>
+  <text class="ttl-lg" x="335" y="82" text-anchor="middle">haUSD</text>
   <text class="sub" x="335" y="102" text-anchor="middle">ERC-4626</text>
 
   <!-- Split label -->
