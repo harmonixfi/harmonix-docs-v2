@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 520" fill="none">
-  <rect width="1140" height="520" fill="#2e2e2e"/>
+  <rect width="1140" height="520" fill="#EBF5EC"/>
 
   <defs>
     <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
-      <path d="M0 0 L10 4 L0 8 Z" fill="#c8f07a"/>
+      <path d="M0 0 L10 4 L0 8 Z" fill="#34C759"/>
     </marker>
     <marker id="arr-up" markerWidth="10" markerHeight="8" refX="4" refY="0" orient="auto">
-      <path d="M0 8 L4 0 L8 8 Z" fill="#c8f07a"/>
+      <path d="M0 8 L4 0 L8 8 Z" fill="#34C759"/>
     </marker>
     <marker id="arr-down" markerWidth="8" markerHeight="10" refX="4" refY="9" orient="auto">
-      <path d="M0 0 L4 10 L8 0 Z" fill="#c8f07a"/>
+      <path d="M0 0 L4 10 L8 0 Z" fill="#34C759"/>
     </marker>
     <marker id="arr-left" markerWidth="10" markerHeight="8" refX="1" refY="4" orient="auto">
-      <path d="M10 0 L0 4 L10 8 Z" fill="#c8f07a"/>
+      <path d="M10 0 L0 4 L10 8 Z" fill="#34C759"/>
     </marker>
   </defs>
 
   <style>
-    .box { fill: #383838; stroke: #5a7a2e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
-    .box-hl { fill: #2a3a1a; stroke: #c8f07a; stroke-width: 2; rx: 10; }
-    .lbl { fill: #c8f07a; font-family: monospace; font-size: 9px; letter-spacing: 1.5px; }
-    .ttl { fill: #e8e8e8; font-family: sans-serif; font-size: 17px; font-weight: 700; }
-    .ttl-lg { fill: #e8e8e8; font-family: sans-serif; font-size: 20px; font-weight: 700; }
-    .sub { fill: #9a9a9a; font-family: sans-serif; font-size: 11.5px; }
-    .flow { fill: #c8f07a; font-family: monospace; font-size: 10.5px; font-style: italic; }
-    .pct { fill: #c8f07a; font-family: monospace; font-size: 11px; font-weight: 600; }
+    .box { fill: #ffffff; stroke: #c5dcc8; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
+    .box-hl { fill: #e8f7ea; stroke: #34C759; stroke-width: 2; rx: 10; }
+    .lbl { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; }
+    .ttl { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; }
+    .ttl-lg { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700; }
+    .sub { fill: #5a7a6a; font-family: 'DM Sans', sans-serif; font-size: 11.5px; }
+    .flow { fill: #34C759; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-style: italic; }
+    .pct { fill: #173132; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; }
   </style>
 
   <!-- BOX 1: User Deposits -->
@@ -35,7 +35,7 @@
   <text class="sub" x="110" y="298" text-anchor="middle">Stablecoins</text>
 
   <!-- ARROW → Vault -->
-  <line x1="190" y1="255" x2="238" y2="255" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="190" y1="255" x2="238" y2="255" stroke="#34C759" stroke-width="1.5" marker-end="url(#arr)"/>
   <text class="flow" x="197" y="246">deposit</text>
 
   <!-- BOX 2: Harmonix Vault -->
@@ -46,7 +46,7 @@
   <text class="sub" x="335" y="292" text-anchor="middle">ERC-4626 · Automates strategy</text>
 
   <!-- ARROW ↑ Vault → Receipt Token -->
-  <path d="M335 185 L335 118" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M335 185 L335 118" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
   <text class="flow" x="345" y="155">user receives</text>
 
   <!-- BOX: Receipt Token -->
@@ -59,11 +59,11 @@
   <text class="flow" x="465" y="220" transform="rotate(-90 465 250)">capital split</text>
 
   <!-- ARROW upper fork → Perps -->
-  <path d="M430 240 L490 240 L490 140 L568 140" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M430 240 L490 240 L490 140 L568 140" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
   <text class="pct" x="500" y="180">PERPS — 50%</text>
 
   <!-- ARROW lower fork → Spot -->
-  <path d="M430 265 L490 265 L490 380 L568 380" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M430 265 L490 265 L490 380 L568 380" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
   <text class="pct" x="500" y="345">SPOT — 50%</text>
 
   <!-- BOX: Short Positions -->
@@ -80,10 +80,10 @@
   <text class="sub" x="668" y="420" text-anchor="middle">Pendle · Kinetiq · Felix</text>
 
   <!-- ARROW: Perps → Funding Rate -->
-  <line x1="765" y1="140" x2="818" y2="140" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="765" y1="140" x2="818" y2="140" stroke="#34C759" stroke-width="1.5" marker-end="url(#arr)"/>
 
   <!-- ARROW: Spot → Ecosystem Yield -->
-  <line x1="765" y1="380" x2="818" y2="380" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="765" y1="380" x2="818" y2="380" stroke="#34C759" stroke-width="1.5" marker-end="url(#arr)"/>
 
   <!-- BOX: Funding Rate -->
   <rect class="box" x="820" y="95" width="180" height="90"/>
@@ -99,22 +99,22 @@
   <text class="sub" x="910" y="418" text-anchor="middle">+ partner protocol points</text>
 
   <!-- ARROWS → APY box -->
-  <path d="M1000 140 L1030 140 L1030 225 L1048 225" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
-  <path d="M1000 380 L1030 380 L1030 275 L1048 275" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M1000 140 L1030 140 L1030 225 L1048 225" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M1000 380 L1030 380 L1030 275 L1048 275" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
 
   <!-- BOX: Net APY (highlight) -->
   <rect class="box-hl" x="1050" y="190" width="80" height="130"/>
   <text class="lbl" x="1090" y="215" text-anchor="middle">NET APY</text>
-  <text fill="#e8e8e8" font-family="sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">5–</text>
-  <text fill="#e8e8e8" font-family="sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">12</text>
+  <text fill="#173132" font-family="'DM Sans', sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">5–</text>
+  <text fill="#173132" font-family="'DM Sans', sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">12</text>
   <text class="sub" x="1090" y="314" text-anchor="middle" style="font-size:10px">% per year</text>
 
-  <!-- ════ RETURN PATH: NET APY → up → left → Receipt Token ════ -->
-  <path d="M1090 190 L1090 72 L435 72" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
+  <!-- RETURN PATH: NET APY → Receipt Token -->
+  <path d="M1090 190 L1090 72 L435 72" stroke="#34C759" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
   <text class="flow" x="760" y="63">yield accrues via exchange rate</text>
 
-  <!-- ════ RETURN PATH: Receipt Token → User ════ -->
-  <path d="M240 72 L110 72 L110 200" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
+  <!-- RETURN PATH: Receipt Token → User -->
+  <path d="M240 72 L110 72 L110 200" stroke="#34C759" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
   <text class="flow" x="160" y="63">user holds</text>
 
 </svg>

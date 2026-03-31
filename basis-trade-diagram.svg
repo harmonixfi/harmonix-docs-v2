@@ -1,27 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" fill="none">
-  <rect width="1000" height="480" fill="#2e2e2e"/>
+  <rect width="1000" height="480" fill="#EBF5EC"/>
 
-  <!-- DEFS: arrow marker + fonts -->
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
-      <path d="M0 0 L10 4 L0 8 Z" fill="#c8f07a"/>
+      <path d="M0 0 L10 4 L0 8 Z" fill="#34C759"/>
     </marker>
     <marker id="arrow-up" markerWidth="10" markerHeight="8" refX="4" refY="0" orient="auto">
-      <path d="M0 8 L4 0 L8 8 Z" fill="#c8f07a"/>
+      <path d="M0 8 L4 0 L8 8 Z" fill="#34C759"/>
     </marker>
   </defs>
 
   <style>
-    .box { fill: #383838; stroke: #5a7a2e; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
-    .box-highlight { fill: #2a3a1a; stroke: #c8f07a; stroke-width: 2; stroke-dasharray: none; rx: 10; }
-    .label { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
-    .title { fill: #e8e8e8; font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; }
-    .title-lg { fill: #e8e8e8; font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; }
-    .sub { fill: #9a9a9a; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; }
-    .flow-label { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-style: italic; }
-    .badge { fill: #2a3a1a; stroke: #c8f07a; stroke-width: 1.2; rx: 14; }
-    .badge-text { fill: #c8f07a; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; }
-    .pct { fill: #c8f07a; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
+    .box { fill: #ffffff; stroke: #c5dcc8; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
+    .box-highlight { fill: #e8f7ea; stroke: #34C759; stroke-width: 2; stroke-dasharray: none; rx: 10; }
+    .label { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .title { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; }
+    .title-lg { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 700; }
+    .sub { fill: #5a7a6a; font-family: 'DM Sans', sans-serif; font-size: 12px; }
+    .flow-label { fill: #34C759; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-style: italic; }
+    .badge { fill: #e8f7ea; stroke: #34C759; stroke-width: 1.2; rx: 14; }
+    .badge-text { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; }
+    .pct { fill: #173132; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
   </style>
 
   <!-- BOX 1: User -->
@@ -31,7 +30,7 @@
   <text class="sub" x="115" y="264" text-anchor="middle">HyperEVM wallet</text>
 
   <!-- ARROW 1: Deposit → Smart Contract -->
-  <line x1="190" y1="235" x2="268" y2="235" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="190" y1="235" x2="268" y2="235" stroke="#34C759" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- BOX 2: Smart Contract -->
   <rect class="box" x="270" y="175" width="180" height="120"/>
@@ -40,11 +39,11 @@
   <text class="sub" x="360" y="260" text-anchor="middle">Splits 50 / 50</text>
 
   <!-- ARROW 2a: SC → Buy Spot (upper) -->
-  <path d="M450 215 L480 215 L480 135 L548 135" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M450 215 L480 215 L480 135 L548 135" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
   <text class="pct" x="495" y="170">50%</text>
 
   <!-- ARROW 2b: SC → Short Perp (lower) -->
-  <path d="M450 255 L480 255 L480 345 L548 345" stroke="#c8f07a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M450 255 L480 255 L480 345 L548 345" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
   <text class="pct" x="495" y="325">50%</text>
 
   <!-- BOX 3a: Buy $HYPE Spot -->
@@ -64,8 +63,8 @@
   <text class="badge-text" x="650" y="226" text-anchor="middle">Δ Neutral</text>
 
   <!-- ARROWS: both boxes → Combined Yield -->
-  <line x1="750" y1="135" x2="828" y2="200" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="750" y1="345" x2="828" y2="270" stroke="#c8f07a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="135" x2="828" y2="200" stroke="#34C759" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="345" x2="828" y2="270" stroke="#34C759" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- BOX 4: Combined Yield (highlight) -->
   <rect class="box-highlight" x="830" y="190" width="140" height="90"/>
@@ -73,7 +72,7 @@
   <text class="title" x="900" y="252" text-anchor="middle">Yield</text>
 
   <!-- Return arrow: Combined Yield → User (bottom path) -->
-  <path d="M900 280 L900 440 L115 440 L115 285" stroke="#c8f07a" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M900 280 L900 440 L115 440 L115 285" stroke="#34C759" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
   <text class="flow-label" x="500" y="432" text-anchor="middle">withdraw stablecoins + yield</text>
 
 </svg>
