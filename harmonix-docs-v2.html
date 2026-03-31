@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harmonix Docs — DeFi Yield Protocol on Hyperliquid</title>
 <meta name="description" content="Harmonix Finance documentation — yield-bearing stablecoins, haHYPE/hakHYPE tokens, basis trade vaults, and smart contract integration guides on Hyperliquid.">
-<meta name="theme-color" content="#2e2e2e">
+<meta name="theme-color" content="#171918">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta property="og:title" content="Harmonix Docs — DeFi Yield Protocol on Hyperliquid">
@@ -20,51 +20,95 @@
 <meta name="twitter:description" content="Yield-bearing stablecoins, delta-neutral vaults, and DeFi infrastructure on Hyperliquid.">
 <meta name="twitter:image" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-og.png">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-:root {
-  --bg: #2e2e2e;
-  --bg2: #282828;
-  --bg3: #383838;
-  --border: #424242;
-  --border2: #505050;
-  --green: #c8f07a;
-  --green-dim: rgba(180,230,100,0.15);
-  --green-glow: rgba(180,230,100,0.08);
-  --text: #ffffff;
-  --text2: #cccccc;
-  --text3: #888888;
+/* ─── DARK THEME (default) ─── */
+:root, [data-theme="dark"] {
+  --bg: #172B2C;
+  --bg2: #172B2C;
+  --bg3: #1E3839;
+  --border: #264546;
+  --border2: #305858;
+  --green: #34C759;
+  --green-dim: rgba(52,199,89,0.15);
+  --green-glow: rgba(52,199,89,0.08);
+  --text: #FFFFFF;
+  --text2: #A8BDB0;
+  --text3: #6B8577;
   --sidebar: 272px;
   --content: 760px;
-  --yellow: #c8f07a;
+  --yellow: #34C759;
   --red: rgba(255,90,80,0.85);
+  --sidebar-bg: #172B2C;
+  --topbar-bg: transparent;
+  --callout-bg: rgba(194,250,97,0.03);
+  --callout-border: rgba(194,250,97,0.1);
+  --callout-left: rgba(194,250,97,0.45);
+  --danger-bg: rgba(255,90,80,0.04);
+  --danger-border: rgba(255,90,80,0.1);
+  --danger-left: rgba(255,90,80,0.55);
+  --sidebar-border: rgba(194,250,97,0.1);
+  --sidebar-footer-border: rgba(194,250,97,0.08);
+  --theme-icon-sun: none;
+  --theme-icon-moon: block;
+  color-scheme: dark;
+}
+
+/* ─── LIGHT THEME ─── */
+[data-theme="light"] {
+  --bg: #FFFFFF;
+  --bg2: #FFFFFF;
+  --bg3: #F9FAF9;
+  --border: #E5E7E5;
+  --border2: #CDD0CD;
+  --green: #173132;
+  --green-dim: rgba(23,49,50,0.06);
+  --green-glow: rgba(23,49,50,0.03);
+  --text: #173132;
+  --text2: #3D5E5F;
+  --text3: #8AA3A4;
+  --yellow: #173132;
+  --red: rgba(200,50,40,0.85);
+  --sidebar-bg: #FFFFFF;
+  --topbar-bg: rgba(255,255,255,0.92);
+  --callout-bg: rgba(23,49,50,0.03);
+  --callout-border: rgba(23,49,50,0.08);
+  --callout-left: rgba(23,49,50,0.3);
+  --danger-bg: rgba(200,50,40,0.04);
+  --danger-border: rgba(200,50,40,0.1);
+  --danger-left: rgba(200,50,40,0.45);
+  --sidebar-border: rgba(23,49,50,0.06);
+  --sidebar-footer-border: rgba(23,49,50,0.04);
+  --theme-icon-sun: block;
+  --theme-icon-moon: none;
+  color-scheme: light;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; line-height: 1.75; display: flex; min-height: 100vh; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15.5px; line-height: 1.75; display: flex; min-height: 100vh; transition: background 0.4s ease, color 0.4s ease; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
 ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
 
 /* ─── SIDEBAR ─── */
 .sidebar {
-  width: var(--sidebar); height: 100vh; background: #282828;
+  width: var(--sidebar); height: 100vh; background: var(--sidebar-bg);
   border-right: 1px solid var(--border); position: fixed; top: 0; left: 0;
-  display: flex; flex-direction: column; z-index: 100; overflow-y: auto;
+  display: flex; flex-direction: column; z-index: 100; overflow-y: auto; transition: background 0.3s, width 0.3s, transform 0.3s;
 }
 .sidebar-nav { overflow-y: auto; flex: 1; }
 .sidebar-logo {
-  height: 52px; padding: 0 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center;
-  display: flex; align-items: center; gap: 10px;
+  height: 48px; padding: 0 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center;
+  display: flex; align-items: center; gap: 12px;
 }
 .logo-mark {
   width: 30px; height: 30px; background: var(--green); border-radius: 7px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .logo-mark svg { width: 16px; height: 16px; }
-.logo-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
+.logo-text { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
 .version-badge {
   margin-left: auto; font-size: 10px; font-family: 'IBM Plex Mono', monospace;
-  color: var(--green); background: var(--green-dim); border: 1px solid rgba(180,230,100,0.22);
+  color: var(--green); background: var(--green-dim); border: 1px solid var(--callout-border);
   padding: 2px 7px; border-radius: 4px;
 }
 
@@ -75,24 +119,24 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
   color: var(--text3); padding: 22px 20px 7px; display: block;
 }
 
-.nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 14px; font-size: 13px; color: var(--text2); text-decoration: none; cursor: pointer; transition: all 0.15s; border-radius: 6px; margin: 2px 8px; line-height: 1.4; }
-.nav-item:hover { color: var(--text); background: var(--bg); }
-.nav-item.active { color: var(--text); background: var(--bg); font-weight: 500; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 14px; font-size: 13.5px; font-weight: 400; color: var(--text2); text-decoration: none; cursor: pointer; transition: all 0.2s ease; border-radius: 8px; margin: 1px 10px; line-height: 1.5; }
+.nav-item:hover { color: var(--text); background: var(--green-glow); }
+.nav-item.active { color: var(--text); background: var(--green-dim); font-weight: 500; }
 .nav-sub .nav-item { padding-left: 40px; font-size: 12.5px; padding-top: 5px; padding-bottom: 5px; }
 .nav-divider { border: none; border-top: 1px solid var(--border); margin: 6px 16px; }
 
-.sidebar-footer { padding: 16px 20px; border-top: 1px solid var(--border); font-size: 12px; color: #ffffff; }
-.sidebar-footer a { color: #ffffff; text-decoration: none; }
-.sidebar-footer a:hover { color: #ffffff; }
+.sidebar-footer { padding: 16px 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text); }
+.sidebar-footer a { color: var(--text); text-decoration: none; }
+.sidebar-footer a:hover { color: var(--text); }
 
 /* ─── MAIN ─── */
 .main { margin-left: var(--sidebar); flex: 1; }
 .topbar {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(46,46,46,0.96); backdrop-filter: blur(10px);
+  background: var(--topbar-bg);
   border-bottom: 1px solid var(--border);
   width: calc(100% + var(--sidebar)); margin-left: calc(-1 * var(--sidebar)); padding: 0 40px 0 calc(var(--sidebar) + 40px);
-  height: 52px; display: flex; align-items: center; justify-content: space-between;
+  height: 48px; display: flex; align-items: center; justify-content: space-between;
 }
 .breadcrumb { font-size: 13px; color: var(--text3); display: flex; align-items: center; gap: 7px; }
 .breadcrumb .sep { color: var(--text3); }
@@ -101,39 +145,40 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .topbar-link { font-size: 13px; color: var(--text3); text-decoration: none; transition: color 0.15s; }
 .topbar-link:hover { color: var(--text2); }
 .btn-app {
-  background: var(--green); color: #1a2a08; font-size: 12px; font-weight: 600;
-  padding: 6px 16px; border-radius: 6px; text-decoration: none; letter-spacing: 0.1px;
-  transition: opacity 0.15s;
+  background: linear-gradient(135deg, #E2F6A1, #34C759); color: #173132; font-size: 13px; font-weight: 600;
+  padding: 7px 20px; border-radius: 20px; text-decoration: none; letter-spacing: 0.1px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.btn-app:hover { opacity: 0.85; }
+.btn-app:hover { opacity: 0.88; transform: scale(1.02); }
+.btn-app:active { transform: scale(0.97); }
 
-.content { max-width: var(--content); margin: 0 auto; padding: 56px 40px 100px; position: relative; }
+.content { max-width: var(--content); margin: 0 auto; padding: 72px 48px 140px; position: relative; }
 .section { display: none; }
 .section.active { display: block; }
 
 /* ─── TYPOGRAPHY ─── */
-h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.2; letter-spacing: -0.5px; color: var(--text); margin-bottom: 14px; }
-h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.3px; color: var(--text); margin: 48px 0 16px; padding-top: 14px; border-top: 1px solid var(--border); }
-h2:first-of-type { margin-top: 36px; }
-h3 { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 15.5px; color: var(--text); margin: 32px 0 12px; }
-h4 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin: 26px 0 10px; }
-p { color: var(--text2); margin-bottom: 16px; }
+h1 { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.1; letter-spacing: -1.2px; color: var(--text); margin-bottom: 20px; }
+h2 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -0.5px; color: var(--text); margin: 64px 0 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+h2:first-of-type { margin-top: 48px; }
+h3 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: -0.2px; color: var(--text); margin: 48px 0 16px; }
+h4 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin: 32px 0 12px; }
+p { color: var(--text2); margin-bottom: 22px; font-weight: 400; }
 strong { color: var(--text); font-weight: 500; }
 a { color: var(--green); text-decoration: none; }
 a:hover { text-decoration: underline; }
 code {
-  font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500;
   background: var(--bg); border: 1px solid var(--border);
-  padding: 1px 6px; border-radius: 4px; color: var(--green);
+  padding: 2px 7px; border-radius: 6px; color: var(--green);
 }
 ul { margin: 12px 0 18px 18px; color: var(--text2); line-height: 1.8; }
 li { margin-bottom: 6px; }
 li strong { color: var(--text); }
 
 /* ─── PAGE HERO ─── */
-.page-hero { margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+.page-hero { margin-bottom: 56px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
 .page-tag { display: none; }
-.page-subtitle { font-size: 16px; color: var(--text2); line-height: 1.7; max-width: 620px; }
+.page-subtitle { font-size: 18px; color: var(--text2); line-height: 1.7; max-width: 620px; letter-spacing: -0.1px; font-weight: 400; }
 
 /* ─── IMAGE ─── */
 .doc-img {
@@ -146,26 +191,26 @@ li strong { color: var(--text); }
 
 /* ─── CALLOUTS ─── */
 .callout {
-  background: rgba(200,240,122,0.03);
-  border: 1px solid rgba(200,240,122,0.1);
-  border-left: 3px solid rgba(200,240,122,0.45);
-  border-radius: 9px; padding: 18px 20px; margin: 24px 0;
+  background: var(--callout-bg);
+  border: 1px solid var(--callout-border);
+  border-left: 3px solid var(--callout-left);
+  border-radius: 12px; padding: 22px 24px; margin: 28px 0;
   display: flex; gap: 14px; align-items: flex-start;
 }
 .callout.warn {
-  background: rgba(200,240,122,0.04);
-  border-color: rgba(200,240,122,0.1);
-  border-left-color: rgba(200,240,122,0.55);
+  background: var(--callout-bg);
+  border-color: var(--callout-border);
+  border-left-color: var(--callout-left);
 }
 .callout.danger {
-  background: rgba(255,90,80,0.04);
-  border-color: rgba(255,90,80,0.1);
-  border-left-color: rgba(255,90,80,0.55);
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  border-left-color: var(--danger-left);
 }
 .callout.info {
-  background: rgba(200,240,122,0.03);
-  border-color: rgba(200,240,122,0.1);
-  border-left-color: rgba(200,240,122,0.45);
+  background: var(--callout-bg);
+  border-color: var(--callout-border);
+  border-left-color: var(--callout-left);
 }
 .callout-icon {
   flex-shrink: 0;
@@ -180,7 +225,7 @@ li strong { color: var(--text); }
 .callout-body a { color: var(--green); }
 
 /* ─── TABLES ─── */
-.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: 9px; border: 1px solid var(--border); }
+.table-wrap { overflow-x: auto; margin: 28px 0; border-radius: 12px; border: 1px solid var(--border); }
 table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 thead { background: var(--bg); }
 th { padding: 11px 14px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text3); border-bottom: 1px solid var(--border); white-space: nowrap; }
@@ -210,9 +255,9 @@ td a:hover { text-decoration: underline; }
 .contract-card:first-of-type { margin-top: 24px; }
 .contract-card:hover { border-color: var(--border2); }
 .contract-card-header { display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap: nowrap; }
-.contract-card-header .ticker-badge { font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; background:var(--green-dim); color:var(--green); border:1px solid rgba(180,230,100,0.25); padding:2px 8px; border-radius:5px; white-space:nowrap; flex-shrink:0; }
+.contract-card-header .ticker-badge { font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; background:var(--green-dim); color:var(--green); border:1px solid var(--callout-border); padding:2px 8px; border-radius:5px; white-space:nowrap; flex-shrink:0; }
 .contract-card-header .card-title-block { display:flex; flex-direction:column; flex:1; min-width:0; }
-.contract-card-header .card-name { font-family:"Syne",sans-serif; font-weight:700; font-size:14px; color:var(--text); }
+.contract-card-header .card-name { font-family:"DM Sans",sans-serif; font-weight:700; font-size:14px; color:var(--text); }
 .contract-card-header .card-tags { display:flex; gap:6px; margin-left:auto; flex-shrink:0; }
 .contract-card-row { display:grid; grid-template-columns:90px 1fr; gap:10px; align-items:center; padding:8px 0; border-top:1px solid var(--border); }
 .contract-card-row:first-of-type { border-top:none; }
@@ -224,7 +269,7 @@ td a:hover { text-decoration: underline; }
 .search-input {
   width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 7px;
   padding: 8px 12px 8px 32px; font-size: 13px; color: var(--text); outline: none;
-  font-family: 'IBM Plex Sans', sans-serif; transition: border-color 0.15s;
+  font-family: 'DM Sans', sans-serif; transition: border-color 0.15s;
 }
 .search-input::placeholder { color: var(--text3); }
 .search-input:focus { border-color: var(--border2); }
@@ -241,14 +286,14 @@ td a:hover { text-decoration: underline; }
   font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--green);
   background: var(--green-dim); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;
 }
-.t-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 5px; }
+.t-name { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 5px; }
 .t-desc { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
 
 /* ─── STEP CARDS ─── */
 .steps { margin: 24px 0; }
 .step { display: flex; gap: 18px; margin-bottom: 28px; }
 .step-num {
-  width: 28px; height: 28px; background: var(--green-dim); border: 1px solid rgba(180,230,100,0.25);
+  width: 28px; height: 28px; background: var(--green-dim); border: 1px solid var(--callout-border);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--green);
   flex-shrink: 0; margin-top: 2px;
@@ -259,18 +304,18 @@ td a:hover { text-decoration: underline; }
 /* ─── CARDS GRID ─── */
 .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
 .card {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
-  padding: 20px; text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; text-decoration: none; transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; cursor: pointer;
 }
-.card:hover { border-color: var(--border2); background: var(--bg); }
+.card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
 .card-icon { font-size: 22px; margin-bottom: 10px; }
-.card-title { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 5px; }
+.card-title { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 5px; }
 .card-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
 
 /* ─── STAT ROW ─── */
 .stat-row { display: flex; gap: 12px; margin: 16px 0; }
 .stat { background: var(--bg); border: 1px solid var(--border); border-radius: 9px; padding: 16px 20px; flex: 1; }
-.stat-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 22px; color: var(--green); margin-bottom: 3px; }
+.stat-val { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); margin-bottom: 3px; }
 .stat-label { font-size: 12px; color: var(--text3); }
 
 /* ─── ARCH DIAGRAM ─── */
@@ -279,14 +324,14 @@ td a:hover { text-decoration: underline; }
   background: var(--bg); border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px;
 }
 .arch-module.highlight { border-color: rgba(180,230,100,0.3); background: var(--green-dim); }
-.arch-module-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--text); margin-bottom: 4px; }
+.arch-module-name { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--text); margin-bottom: 4px; }
 .arch-module.highlight .arch-module-name { color: var(--green); }
 .arch-module-desc { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
 
 /* ─── INLINE TAG ─── */
 .tag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 4px; font-weight: 500; vertical-align: middle; }
 .tag.green { background: var(--green-dim); color: var(--green); }
-.tag.yellow { background: rgba(200,240,122,0.1); color: var(--yellow); }
+.tag.yellow { background: var(--green-dim); color: var(--yellow); }
 .tag.grey { background: var(--bg); color: var(--text3); border: 1px solid var(--border); }
 
 /* ─── NAV PAGE FOOTER ─── */
@@ -329,9 +374,9 @@ td a:hover { text-decoration: underline; }
 }
 
 /* ── NAV ICONS ── */
-.nav-icon { width: 16px; height: 16px; min-width: 16px; max-width: 16px; min-height: 16px; max-height: 16px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.15s; }
+.nav-icon { width: 16px; height: 16px; min-width: 16px; max-width: 16px; min-height: 16px; max-height: 16px; flex-shrink: 0; opacity: 0.4; transition: opacity 0.2s; stroke-width: 1.2; }
 .nav-item:hover .nav-icon { opacity: 0.75; }
-.nav-item.active .nav-icon { opacity: 1; color: var(--green); }
+.nav-item.active .nav-icon { opacity: 0.85; color: var(--text); }
 .nav-sub .nav-icon { width: 10px; height: 10px; min-width: 10px; max-width: 10px; min-height: 10px; max-height: 10px; }
 
 /* ── COLLAPSIBLE NAV ── */
@@ -346,7 +391,238 @@ td a:hover { text-decoration: underline; }
 
 /* ── LAYOUT: main needs right margin for TOC ── */
 .main { margin-left: var(--sidebar); margin-right: 210px; }
-.toc-sidebar { position: fixed; top: 52px; right: 0; width: 210px; height: calc(100vh - 52px); overflow-y: auto; padding: 32px 18px 40px; border-left: none; background: var(--bg); z-index: 40; }
+.toc-sidebar { position: fixed; top: 52px; right: 0; width: 210px; height: calc(100vh - 52px); overflow-y: auto; padding: 32px 18px 40px; border-left: none; background: var(--bg); z-index: 40; transition: background 0.3s; }
+[data-theme="light"] .btn-app { background: #34C759; color: #fff; }
+[data-theme="light"] .card-arrow { background: #34C759; color: #fff; }
+[data-theme="light"] .step-num { background: rgba(23,49,50,0.08); border-color: rgba(23,49,50,0.2); color: #173132; }
+[data-theme="light"] .tag.green { background: rgba(23,49,50,0.08); color: #173132; }
+[data-theme="light"] .t-ticker { background: rgba(23,49,50,0.08); color: #173132; }
+[data-theme="light"] .version-badge { background: rgba(23,49,50,0.08); color: #173132; border-color: rgba(23,49,50,0.2); }
+[data-theme="light"] .ticker-badge { background: rgba(23,49,50,0.08) !important; color: #173132 !important; border-color: rgba(23,49,50,0.2) !important; }
+html[data-theme="dark"] {
+  background: #172B2C;
+  background-image:
+    radial-gradient(ellipse at 25% -5%, rgba(52,199,89,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(52,199,89,0.06) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+[data-theme="dark"] body {
+  background: transparent;
+}
+[data-theme="dark"] .wnc,
+[data-theme="dark"] .card,
+[data-theme="dark"] .contract-card,
+[data-theme="dark"] .token-card,
+[data-theme="dark"] .welcome-card,
+[data-theme="dark"] .ps-card,
+[data-theme="dark"] .ps-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: none;
+}
+[data-theme="dark"] .wnc:hover,
+[data-theme="dark"] .card:hover,
+[data-theme="dark"] .contract-card:hover,
+[data-theme="dark"] .token-card:hover,
+[data-theme="dark"] .welcome-card:hover,
+[data-theme="dark"] .ps-card:hover,
+[data-theme="dark"] .ps-item:hover {
+  border-color: #34C759;
+  box-shadow: 0 0 0 1px #34C759;
+}
+[data-theme="dark"] .stat {
+  background: rgba(0,0,0,0.15);
+  border-color: rgba(255,255,255,0.06);
+}
+[data-theme="dark"] thead {
+  background: rgba(255,255,255,0.03);
+}
+[data-theme="dark"] .callout {
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+[data-theme="dark"] .table-wrap {
+  background: rgba(0,0,0,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+[data-theme="dark"] code {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .search-input,
+[data-theme="dark"] #doc-search {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+[data-theme="dark"] .arch-module {
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+[data-theme="dark"] .step-num {
+  background: rgba(52,199,89,0.12);
+  border-color: rgba(52,199,89,0.25);
+  box-shadow: 0 0 12px rgba(52,199,89,0.1);
+}
+[data-theme="dark"] .page-nav-link {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+[data-theme="dark"] .copy-btn {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .nav-item.active {
+  background: rgba(255,255,255,0.06);
+}
+[data-theme="dark"] .nav-item:hover {
+  background: rgba(255,255,255,0.04);
+}
+[data-theme="dark"] .theme-toggle {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+[data-theme="dark"] #sidebar-toggle {
+  background: rgba(15,30,31,0.6);
+  border-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+[data-theme="dark"] .btn-app {
+  box-shadow: 0 0 16px rgba(52,199,89,0.2);
+}
+[data-theme="dark"] .sidebar {
+  background: transparent !important;
+  border-right-color: rgba(255,255,255,0.06) !important;
+}
+[data-theme="dark"] .topbar {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: rgba(255,255,255,0.06) !important;
+}
+[data-theme="dark"] .toc-sidebar {
+  background: transparent !important;
+}
+html[data-theme="light"] {
+  background: #FFFFFF;
+  background-image:
+    radial-gradient(ellipse at 15% 95%, rgba(52,199,89,0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 85%, rgba(52,199,89,0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(52,199,89,0.04) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+[data-theme="light"] body {
+  background: transparent;
+}
+[data-theme="light"] .sidebar {
+  background: transparent !important;
+  border-right-color: rgba(23,49,50,0.1) !important;
+}
+[data-theme="light"] .topbar {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: rgba(23,49,50,0.1) !important;
+}
+[data-theme="light"] .wnc,
+[data-theme="light"] .card,
+[data-theme="light"] .contract-card,
+[data-theme="light"] .token-card,
+[data-theme="light"] .welcome-card,
+[data-theme="light"] .ps-card,
+[data-theme="light"] .ps-item {
+  background: #FFFFFF;
+  border: 1px solid #E5E7E5;
+  box-shadow: none;
+}
+[data-theme="light"] .stat {
+  background: #FFFFFF;
+  border-color: #E5E7E5;
+  box-shadow: none;
+}
+[data-theme="light"] .wnc:hover,
+[data-theme="light"] .card:hover,
+[data-theme="light"] .welcome-card:hover,
+[data-theme="light"] .ps-item:hover {
+  border-color: #34C759;
+  box-shadow: 0 0 0 1px #34C759;
+}
+[data-theme="light"] .callout {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+[data-theme="light"] .toc-sidebar {
+  background: transparent !important;
+}
+[data-theme="light"] .callout {
+  background: #F9FAF9;
+  box-shadow: none;
+}
+[data-theme="light"] .table-wrap {
+  background: #FFFFFF;
+  box-shadow: none;
+}
+[data-theme="light"] code {
+  background: #F3F4F6;
+  border-color: #E5E7E5;
+}
+[data-theme="light"] .arch-module {
+  background: #FFFFFF;
+  border-color: #E5E7E5;
+  box-shadow: none;
+}
+[data-theme="light"] .theme-toggle {
+  background: #F3F4F6;
+  border-color: #E5E7E5;
+}
+[data-theme="light"] #sidebar-toggle {
+  background: #F3F4F6;
+  border-color: #E5E7E5;
+}
+[data-theme="light"] #doc-search {
+  background: #F3F4F6 !important;
+  border-color: #E5E7E5 !important;
+}
+[data-theme="light"] a { color: #173132; }
+[data-theme="light"] code { color: #173132; }
+[data-theme="dark"] .sidebar-logo-svg { fill: #FFFFFF !important; }
+[data-theme="dark"] .wnc-card-icon path,
+[data-theme="dark"] .wnc-card-icon circle,
+[data-theme="dark"] .wnc-card-icon polyline,
+[data-theme="dark"] .wnc-card-icon line,
+[data-theme="dark"] .welcome-card-icon svg path,
+[data-theme="dark"] .welcome-card-icon svg circle,
+[data-theme="dark"] .welcome-card-icon svg polyline {
+  stroke: url(#icon-gradient) !important;
+}
+[data-theme="light"] .wnc-card-icon path,
+[data-theme="light"] .wnc-card-icon circle,
+[data-theme="light"] .wnc-card-icon polyline,
+[data-theme="light"] .wnc-card-icon line,
+[data-theme="light"] .welcome-card-icon svg path,
+[data-theme="light"] .welcome-card-icon svg circle,
+[data-theme="light"] .welcome-card-icon svg polyline {
+  stroke: url(#icon-gradient-light) !important;
+}
+[data-theme="light"] .sidebar-logo-svg { fill: #173132 !important; }
+[data-theme="light"] .logo-text { color: #173132 !important; }
+[data-theme="light"] .nav-icon { color: var(--text3) !important; opacity: 0.55; }
+[data-theme="light"] .nav-item.active .nav-icon { opacity: 0.8; color: var(--text2) !important; }
+[data-theme="light"] .callout-icon svg { stroke: var(--text3); }
+/* card icons use gradient defined in both themes */
+[data-theme="light"] .sf-icon { color: var(--text3); }
 .toc-title { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; display: block; }
 .toc-link { display: block; font-size: 12.5px; color: var(--text3); text-decoration: none; padding: 5px 0 5px 12px; border-left: 1px solid transparent; line-height: 1.55; transition: all 0.15s; cursor: pointer; }
 .toc-link:hover { color: var(--text2); border-left-color: var(--border2); }
@@ -379,12 +655,12 @@ td a:hover { text-decoration: underline; }
 .page-breadcrumb .bc-current { color: var(--green); cursor: default; }
 
 /* ── WELCOME & PRODUCT CARDS ── */
-.welcome-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: flex; align-items: center; gap: 12px; }
+.welcome-card { background: var(--bg2); border: none; border-radius: 14px; padding: 20px 24px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; align-items: center; gap: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
 .welcome-card:hover { border-color: rgba(180,230,100,0.35); transform: translateY(-2px); }
 .welcome-card-icon { width: 48px; height: 48px; background: var(--green-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.welcome-card-icon svg { width: 22px; height: 22px; color: var(--green); }
+.welcome-card-icon svg { width: 22px; height: 22px; color: var(--text2); }
 .welcome-card-content { flex: 1; }
-.welcome-card-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 5px; }
+.welcome-card-title { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 5px; }
 .welcome-card-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
 .welcome-card-arrow { width: 18px; height: 18px; color: var(--text3); flex-shrink: 0; transition: color 0.15s, transform 0.15s; }
 .welcome-card:hover .welcome-card-arrow { color: var(--green); transform: translateX(3px); }
@@ -398,16 +674,16 @@ td a:hover { text-decoration: underline; }
 .ps-orange { background: var(--bg); }
 .ps-card-tokens { display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 1; }
 .ps-card-body { padding: 18px 18px 20px; }
-.ps-card-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 7px; }
+.ps-card-title { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 7px; }
 .ps-card-desc { font-size: 13px; color: var(--text2); line-height: 1.55; margin-bottom: 12px; }
 .ps-card-link { font-size: 12px; color: var(--green); font-weight: 500; }
 
 /* ── GLASS SIDEBAR ── */
-.sidebar { background: #282828; backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-right: 1px solid rgba(200,240,122,0.1) !important; }
+.sidebar { background: var(--sidebar-bg); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-right: 1px solid var(--sidebar-border) !important; }
 
 /* ── SIDEBAR FOOTER ICONS ── */
-.sidebar-footer { padding: 14px 20px; border-top: 1px solid rgba(200,240,122,0.08); display: flex; gap: 14px; align-items: center; }
-.sf-icon { color: #ffffff; text-decoration: none; transition: color 0.15s; display: flex; align-items: center; }
+.sidebar-footer { padding: 14px 20px; border-top: 1px solid var(--sidebar-footer-border); display: flex; gap: 14px; align-items: center; }
+.sf-icon { color: var(--text); text-decoration: none; transition: color 0.15s; display: flex; align-items: center; }
 .sf-icon:hover { color: var(--green); }
 
 /* ── BACKGROUND FLAIR ── */
@@ -448,21 +724,21 @@ td a:hover { text-decoration: underline; }
 .ps-banner-har    { background: var(--bg); }
 .ps-banner-dev    { background: var(--bg); }
 .ps-banner-pts    { background: var(--bg); }
-.ps-item-banner::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.16) 0%, transparent 60%); z-index: 0; }
-.ps-banner-dev::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
-.ps-banner-pts::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
-.ps-banner-har::before { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
-.ps-banner-cd::before  { background: radial-gradient(ellipse at 75% 25%, rgba(200,240,122,0.12) 0%, transparent 60%); }
+.ps-item-banner::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, var(--green-dim) 0%, transparent 60%); z-index: 0; }
+.ps-banner-dev::before { background: radial-gradient(ellipse at 75% 25%, var(--green-dim) 0%, transparent 60%); }
+.ps-banner-pts::before { background: radial-gradient(ellipse at 75% 25%, var(--green-dim) 0%, transparent 60%); }
+.ps-banner-har::before { background: radial-gradient(ellipse at 75% 25%, var(--green-dim) 0%, transparent 60%); }
+.ps-banner-cd::before  { background: radial-gradient(ellipse at 75% 25%, var(--green-dim) 0%, transparent 60%); }
 .ps-item-tags { display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 1; }
-.ps-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 9px; border-radius: 6px; border: 1px solid rgba(200,240,122,0.25); background: rgba(0,0,0,0.35); color: var(--green); font-weight: 500; backdrop-filter: blur(4px); }
-.wnc-pill, .wnc-pill-dev, .wnc-pill-sec, .wnc-pill-res { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; border: 1px solid rgba(200,240,122,0.18); background: rgba(200,240,122,0.05); color: var(--green); font-weight: 500; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
-.wnc-pill:hover, .wnc-pill-dev:hover, .wnc-pill-sec:hover, .wnc-pill-res:hover { border-color: rgba(200,240,122,0.45); color: #c8f07a; }
-.ps-banner-dev .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--green); }
-.ps-banner-pts .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--green); }
-.ps-banner-har .ps-tag { border-color: rgba(200,240,122,0.3); color: var(--yellow); }
-.ps-banner-cd .ps-tag  { border-color: rgba(200,240,122,0.3); color: var(--yellow); }
+.ps-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 9px; border-radius: 6px; border: 1px solid var(--callout-border); background: rgba(0,0,0,0.35); color: var(--green); font-weight: 500; backdrop-filter: blur(4px); }
+.wnc-pill, .wnc-pill-dev, .wnc-pill-sec, .wnc-pill-res { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; border: 1px solid var(--green-dim); background: var(--green-glow); color: var(--green); font-weight: 500; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+.wnc-pill:hover, .wnc-pill-dev:hover, .wnc-pill-sec:hover, .wnc-pill-res:hover { border-color: var(--callout-left); color: #c8f07a; }
+.ps-banner-dev .ps-tag { border-color: var(--callout-border); color: var(--green); }
+.ps-banner-pts .ps-tag { border-color: var(--callout-border); color: var(--green); }
+.ps-banner-har .ps-tag { border-color: var(--callout-border); color: var(--yellow); }
+.ps-banner-cd .ps-tag  { border-color: var(--callout-border); color: var(--yellow); }
 .ps-item-body { padding: 20px; flex: 1; }
-.ps-item-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 8px; }
+.ps-item-title { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 8px; }
 .ps-item-desc { font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 14px; }
 #s-product-suite .page-hero { margin-bottom: 12px !important; padding-bottom: 18px !important; border-bottom: none !important; }
 #s-for-developers .page-hero { margin-bottom: 12px !important; padding-bottom: 18px !important; }
@@ -501,23 +777,32 @@ td a:hover { text-decoration: underline; }
   gap: 16px !important;
   margin: 32px 0 40px !important;
 }
-.wnc { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; display: flex; flex-direction: column; }
-.wnc:hover { border-color: rgba(200,240,122,0.3); }
+.wnc { background: var(--bg2); border: none; border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
+.wnc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
 .wnc-icon { height: 0px; display: flex; align-items: flex-end; padding: 12px 16px; background: var(--bg); position: relative; overflow: hidden; }
 .wnc-icon::before { content: ""; position: absolute; inset: 0; background: none; pointer-events: none; }
 .wnc-icon::after { content: ""; position: absolute; inset: 0; background: none; pointer-events: none; }
 .wnc-icon-dev { background: var(--bg); }
 .wnc-icon-dev::before { background: none; }
-.wnc-body { padding: 20px 20px 22px; }
-.wnc-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 7px; }
-.wnc-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
+.wnc-body { padding: 28px 28px 28px; }
+.wnc-title { font-family: "DM Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--text); margin-bottom: 8px; }
+.wnc-desc { font-size: 13.5px; color: var(--text2); line-height: 1.6; }
 .card-arrow {
   display: inline-flex; align-items: center; justify-content: center;
   width: 36px; height: 36px; border-radius: 50%;
-  background: var(--green); color: #1a1a1a; font-size: 18px; font-weight: 600;
-  transition: transform 0.2s, background 0.2s;
+  background: linear-gradient(135deg, #E2F6A1, #34C759); color: #173132; font-size: 18px; font-weight: 600;
+  transition: transform 0.2s;
 }
 .wnc:hover .card-arrow { transform: translateX(4px); }
+
+/* ── ENTRANCE ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.wnc, .welcome-card, .ps-item, .ps-card { opacity: 0; transform: translateY(12px); }
+.wnc.visible, .welcome-card.visible, .ps-item.visible, .ps-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+.wnc:nth-child(2), .welcome-card:nth-child(2) { transition-delay: 0.06s; }
+.wnc:nth-child(3), .welcome-card:nth-child(3) { transition-delay: 0.12s; }
 
 /* ── RESPONSIVE ── */
 @media(max-width: 1280px) { .toc-sidebar { display: none !important; } .main { margin-right: 0; } }
@@ -706,8 +991,8 @@ html, body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(200,240,122,0.1) !important;
-    border: 1px solid rgba(200,240,122,0.3) !important;
+    background: var(--green-dim) !important;
+    border: 1px solid var(--callout-border) !important;
     border-radius: 6px !important;
   }
 
@@ -888,8 +1173,8 @@ html, body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(200,240,122,0.1) !important;
-    border: 1px solid rgba(200,240,122,0.3) !important;
+    background: var(--green-dim) !important;
+    border: 1px solid var(--callout-border) !important;
     border-radius: 6px !important;
   }
   /* Images must not overflow on mobile */
@@ -904,19 +1189,92 @@ html, body {
   /* Welcome nav cards single column on phones */
   .welcome-nav-cards { grid-template-columns: 1fr !important; }
 }
+
+/* ─── THEME TOGGLE ─── */
+.theme-toggle {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: border-color 0.2s, background 0.3s; flex-shrink: 0;
+}
+.theme-toggle:hover { border-color: var(--border2); }
+.theme-toggle svg { width: 18px; height: 18px; stroke: var(--text2); fill: none; stroke-width: 2; transition: stroke 0.3s; }
+.theme-toggle .icon-sun { display: var(--theme-icon-sun); }
+.theme-toggle .icon-moon { display: var(--theme-icon-moon); }
+
+/* ─── COLLAPSIBLE SIDEBAR ─── */
+@media (min-width: 901px) {
+  .sidebar { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .main { transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+  body.sidebar-collapsed .sidebar { width: 56px !important; overflow: hidden !important; transition: width 0.25s ease !important; }
+  body.sidebar-collapsed .sidebar .sidebar-logo { padding: 0; justify-content: center; overflow: hidden; }
+  body.sidebar-collapsed .sidebar .logo-text,
+  body.sidebar-collapsed .sidebar .version-badge,
+  body.sidebar-collapsed .sidebar .nav-label,
+  body.sidebar-collapsed .sidebar .nav-sub,
+  body.sidebar-collapsed .sidebar .nav-divider,
+  body.sidebar-collapsed .sidebar .nav-collapse,
+  body.sidebar-collapsed .sidebar .sidebar-footer { display: none !important; }
+  body.sidebar-collapsed .sidebar .nav-group-toggle-label { font-size: 0 !important; overflow: hidden; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+  body.sidebar-collapsed .sidebar .nav-group-toggle-label .nav-icon { font-size: 16px; }
+  body.sidebar-collapsed .sidebar .nav-group-toggle-label svg:not(.nav-icon) { display: none !important; }
+  body.sidebar-collapsed .sidebar .nav-chevron { display: none !important; }
+  body.sidebar-collapsed .sidebar .nav-group-toggle { padding: 0; margin: 2px 4px; justify-content: center; }
+  body.sidebar-collapsed .sidebar .nav-item { font-size: 0; justify-content: center; padding: 10px 0; margin: 2px 4px; gap: 0; white-space: nowrap; overflow: hidden; width: 40px; height: 40px; flex-shrink: 0; }
+  body.sidebar-collapsed .sidebar .nav-item .nav-icon { font-size: 16px; opacity: 0.5; flex-shrink: 0; }
+  body.sidebar-collapsed .sidebar .nav-item.active .nav-icon { opacity: 1; }
+  body.sidebar-collapsed .sidebar .nav-collapse-btn { font-size: 0; justify-content: center; padding: 10px 0; overflow: hidden; height: 40px; width: 40px; margin: 2px 4px; }
+  body.sidebar-collapsed .sidebar .nav-collapse-btn svg:last-child { display: none; }
+  body.sidebar-collapsed .sidebar .nav-group { display: flex; flex-direction: column; align-items: center; }
+  body.sidebar-collapsed .main { margin-left: 56px !important; }
+  body.sidebar-collapsed .topbar { width: calc(100% + 56px) !important; margin-left: -56px !important; padding-left: calc(56px + 40px) !important; }
+  body.sidebar-collapsed #sidebar-toggle { left: 16px; }
+  body.sidebar-collapsed #sidebar-toggle .toggle-open { display: block; }
+  body.sidebar-collapsed #sidebar-toggle .toggle-close { display: none; }
+}
+
+#sidebar-toggle {
+  position: fixed; top: 10px; left: calc(var(--sidebar) - 44px); z-index: 101;
+  background: var(--sidebar-bg); border: 1px solid var(--border); border-radius: 8px;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+}
+#sidebar-toggle:hover { border-color: var(--border2); }
+#sidebar-toggle svg { width: 16px; height: 16px; stroke: var(--text2); fill: none; stroke-width: 2; }
+#sidebar-toggle .toggle-open { display: none; }
+#sidebar-toggle .toggle-close { display: block; }
+@media (max-width: 900px) { #sidebar-toggle { display: none !important; } }
 </style>
 <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2F6A1"/>
+      <stop offset="100%" stop-color="#34C759"/>
+    </linearGradient>
+    <linearGradient id="icon-gradient-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7AB532"/>
+      <stop offset="100%" stop-color="#1A8D3E"/>
+    </linearGradient>
+  </defs>
+</svg>
 
 <!-- ─── SIDEBAR ─── -->
+<!-- ─── SIDEBAR TOGGLE ─── -->
+<button id="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">
+  <svg class="toggle-close" viewBox="0 0 24 24"><path d="M11 17l-5-5 5-5"/><path d="M18 17l-5-5 5-5"/></svg>
+  <svg class="toggle-open" viewBox="0 0 24 24"><path d="M13 17l5-5-5-5"/><path d="M6 17l5-5-5-5"/></svg>
+</button>
+
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar">
   <button class="mobile-close-btn" onclick="closeSidebar()" style="display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text2);">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
     <div class="sidebar-logo" style="height:52px;padding:0 20px;display:flex;align-items:center;">
-    <svg viewBox="0 0 146 28" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;fill:#ffffff;">
+    <svg class="sidebar-logo-svg" viewBox="0 0 146 28" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;fill:#E2F6A1;">
       <g>
         <g>
           <path d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/>
@@ -1017,7 +1375,7 @@ html, body {
 <main class="main">
   <div class="topbar">
     <button id="mobile-hamburger" onclick="openSidebar()" style="display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-right: 8px;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8e8e8" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <div class="breadcrumb">
       <span class="bc-root">Harmonix Docs</span>
@@ -1026,8 +1384,12 @@ html, body {
     </div>
     <div class="topbar-actions"><div style="position:relative;">
       <svg style="position:absolute;left:9px;top:50%;transform:translateY(-50%);width:13px;height:13px;stroke:#4e6358;stroke-width:2;fill:none;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input style="background:#2a2a27;border:1px solid #333330;border-radius:7px;padding:6px 12px 6px 30px;font-size:12px;color:#e8e8e8;outline:none;width:160px;font-family:inherit;" type="text" placeholder="Search docs…" id="doc-search" oninput="filterNav(this.value)">
+      <input style="background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:6px 12px 6px 30px;font-size:12px;color:var(--text);outline:none;width:160px;font-family:inherit;" type="text" placeholder="Search docs…" id="doc-search" oninput="filterNav(this.value)">
     </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <a class="btn-app" href="https://app.harmonix.fi" target="_blank">Launch App →</a>
     </div>
   </div>
@@ -1045,7 +1407,7 @@ html, body {
     <!-- ── WELCOME ── -->
     <section class="section active" id="s-welcome">
       <div style="margin-bottom:28px;">
-        <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:28px;color:var(--text);margin:0 0 10px;line-height:1.3;">Harmonix Finance</h1>
+        <h1 style="font-family:'DM Sans',sans-serif;font-weight:800;font-size:28px;color:var(--text);margin:0 0 10px;line-height:1.3;">Harmonix Finance</h1>
         <p style="font-size:15px;color:var(--text2);line-height:1.7;margin:0;max-width:560px;">Yield infrastructure built natively on Hyperliquid. Learn the fundamentals, explore our products, and start building.</p>
       </div>
 
@@ -1054,7 +1416,7 @@ html, body {
 
         <!-- Learn -->
         <div class="wnc" onclick="show('onboarding',null)" style="padding:24px;display:flex;flex-direction:column;">
-          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <svg style="width:28px;height:28px;color:var(--text2);margin-bottom:16px;" class="wnc-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Learn</div>
           <div class="wnc-desc" style="flex:1;">Get started, understand the protocol, explore security and risk disclosures, and earn rewards.</div>
           <div style="margin-top:16px;"><span class="card-arrow">→</span></div>
@@ -1062,7 +1424,7 @@ html, body {
 
         <!-- Product Suite -->
         <div class="wnc" onclick="show('product-suite',null)" style="padding:24px;display:flex;flex-direction:column;">
-          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg style="width:28px;height:28px;color:var(--text2);margin-bottom:16px;" class="wnc-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Product Suite</div>
           <div class="wnc-desc" style="flex:1;">Yield-bearing stablecoins, tokens, the Basis Trade vault, and the HAR ecosystem.</div>
           <div style="margin-top:16px;"><span class="card-arrow">→</span></div>
@@ -1070,7 +1432,7 @@ html, body {
 
         <!-- Developers -->
         <div class="wnc" onclick="show('for-developers',null)" style="padding:24px;display:flex;flex-direction:column;">
-          <svg style="width:28px;height:28px;color:var(--green);margin-bottom:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <svg style="width:28px;height:28px;color:var(--text2);margin-bottom:16px;" class="wnc-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           <div class="wnc-title" style="font-size:16px;margin-bottom:6px;">Developers</div>
           <div class="wnc-desc" style="flex:1;">Vault architecture, smart contracts, integration guides, and the REST API reference.</div>
           <div style="margin-top:16px;"><span class="card-arrow">→</span></div>
@@ -1096,7 +1458,7 @@ html, body {
     <section class="section" id="s-onboarding">
       <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span class="bc-current">Getting Started</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
-        <span class="page-tag" style="background:rgba(200,240,122,0.1);color:var(--green);border-color:rgba(200,240,122,0.2);">Onboarding</span>
+        <span class="page-tag" style="background:var(--green-dim);color:var(--green);border-color:var(--green-dim);">Onboarding</span>
         <h1>Getting Started</h1>
         <p class="page-subtitle">Set up your wallet and connect to the Harmonix app in minutes.</p>
       </div>
@@ -1113,7 +1475,7 @@ html, body {
           </div>
         </div>
         <div style="flex:2;min-width:260px;">
-          <div class="info-box" style="background:rgba(200,240,122,0.05);border:1px solid rgba(200,240,122,0.18);border-radius:10px;padding:16px 20px;">
+          <div class="info-box" style="background:var(--green-glow);border:1px solid var(--green-dim);border-radius:10px;padding:16px 20px;">
             <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:8px;">Why Rabby?</div>
             <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text2);line-height:1.7;">
               <li>Built-in support for Hyperliquid EVM and HyperCore</li>
@@ -1131,15 +1493,15 @@ html, body {
       <div style="margin:20px 0 28px;">
         <div style="display:flex;flex-direction:column;gap:14px;">
           <div style="display:flex;gap:16px;align-items:flex-start;">
-            <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">1</div>
+            <div style="min-width:32px;height:32px;border-radius:50%;background:var(--green-dim);border:1px solid var(--callout-border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">1</div>
             <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Visit <a href="https://app.harmonix.fi/" target="_blank" style="color:var(--green);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:13px;">app.harmonix.fi</a> in your browser and click <strong style="color:var(--text);">Connect Wallet</strong>.</div>
           </div>
           <div style="display:flex;gap:16px;align-items:flex-start;">
-            <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">2</div>
+            <div style="min-width:32px;height:32px;border-radius:50%;background:var(--green-dim);border:1px solid var(--callout-border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">2</div>
             <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Select <strong style="color:var(--text);">Rabby</strong> from the wallet list. The Rabby extension will pop up automatically. If it doesn't, click the Rabby icon in your browser's extension bar.</div>
           </div>
           <div style="display:flex;gap:16px;align-items:flex-start;">
-            <div style="min-width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,0.12);border:1px solid rgba(200,240,122,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">3</div>
+            <div style="min-width:32px;height:32px;border-radius:50%;background:var(--green-dim);border:1px solid var(--callout-border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace;">3</div>
             <div style="padding-top:6px;font-size:14px;color:var(--text2);line-height:1.6;">Click <strong style="color:var(--text);">Connect</strong> when prompted. This authorizes the Harmonix app as a trusted site in Rabby.</div>
           </div>
         </div>
@@ -1152,7 +1514,7 @@ html, body {
         </div>
       </div>
 
-      <div style="background:rgba(200,240,122,0.06);border:1px solid rgba(200,240,122,0.2);border-radius:10px;padding:16px 20px;margin-bottom:32px;">
+      <div style="background:var(--green-glow);border:1px solid var(--green-dim);border-radius:10px;padding:16px 20px;margin-bottom:32px;">
         <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:4px;">✓ You're connected!</div>
         <div style="font-size:13px;color:var(--text2);">Your wallet is now connected to the Harmonix dapp. Continue below to learn how to deposit and start earning yield.</div>
       </div>
@@ -1160,16 +1522,16 @@ html, body {
       <h2>3. What's Next</h2>
       <p>Now that you're connected, here are the most common next steps:</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0 32px;">
-        <div onclick="show('stablecoins',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div onclick="show('stablecoins',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haUSD →</div>
           <div style="font-size:12px;color:var(--text3);">Earn yield on your stablecoins via basis trading</div>
         </div>
-        <div onclick="show('tokens',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div onclick="show('tokens',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haHYPE →</div>
           <div style="font-size:12px;color:var(--text3);">Earn yield on your HYPE tokens</div>
         </div>
 
-        <div onclick="show('points',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div onclick="show('points',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Points &amp; Rewards →</div>
           <div style="font-size:12px;color:var(--text3);">Learn how the points program works</div>
         </div>
@@ -1191,7 +1553,7 @@ html, body {
     <section class="section" id="s-core-concepts">
       <div class="page-breadcrumb"><span onclick="show('welcome',null)">Harmonix Docs</span><span class="bc-sep">›</span><span onclick="show('onboarding',null)">Learn</span><span class="bc-sep">›</span><span class="bc-current">Core Concepts</span><button class="copy-page-btn" onclick="copyPage(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy page</button></div>
       <div class="page-hero">
-        <span class="page-tag" style="background:rgba(200,240,122,0.1);color:var(--green);border-color:rgba(200,240,122,0.2);">Learn</span>
+        <span class="page-tag" style="background:var(--green-dim);color:var(--green);border-color:var(--green-dim);">Learn</span>
         <h1>Core Concepts</h1>
         <p class="page-subtitle">The key topics every new contributor, integrator, or community member should understand to work effectively with the Harmonix protocol.</p>
       </div>
@@ -1405,46 +1767,46 @@ html, body {
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 40px;">
 
-        <div onclick="show('api-integration',null)" style="background:#282828;border:1px solid #424242;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#424242'">
+        <div onclick="show('api-integration',null)" style="background:#282828;border:1px solid var(--border);border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='#424242'">
           <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
           </div>
           <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">SC Integration</div>
           <div style="font-size:13px;color:#cccccc;line-height:1.55;">On-chain integration guide for ERC-4626 and Basis Trade vaults with code examples.</div>
-          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">deposit() · redeem() →</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--green);">deposit() · redeem() →</div>
         </div>
 
-        <div onclick="show('contracts',null)" style="background:#282828;border:1px solid #424242;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#424242'">
+        <div onclick="show('contracts',null)" style="background:#282828;border:1px solid var(--border);border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='#424242'">
           <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
           <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">Smart Contracts</div>
           <div style="font-size:13px;color:#cccccc;line-height:1.55;">Contract addresses, ABIs, and Solidity interfaces for BoringVault, Teller, Accountant, and Lens on HyperEVM.</div>
-          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">ERC-4626 · BoringVault →</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--green);">ERC-4626 · BoringVault →</div>
         </div>
 
-        <div onclick="show('api-reference',null)" style="background:#282828;border:1px solid #424242;border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#424242'">
+        <div onclick="show('api-reference',null)" style="background:#282828;border:1px solid var(--border);border-radius:10px;padding:24px 22px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='#424242'">
           <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,240,122,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">REST API</div>
           <div style="font-size:13px;color:#cccccc;line-height:1.55;">Vault APY, user positions, points balances, and yield history. JSON responses with full request and response examples.</div>
-          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:#c8f07a;">api.harmonixfi.com →</div>
+          <div style="margin-top:14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--green);">api.harmonixfi.com →</div>
         </div>
 
       </div>
 
       <h2>Quick Links</h2>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
-        <div onclick="show('vault-arch',null)" style="background:#282828;border:1px solid #424242;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#424242'">
+        <div onclick="show('vault-arch',null)" style="background:#282828;border:1px solid var(--border);border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='#424242'">
           <span style="font-size:13px;color:#e0e0e0;font-weight:500;">Vault Architecture</span>
           <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#cccccc;">BoringVault · Teller · Accountant</span>
         </div>
-        <div onclick="show('deposits-withdrawals',null)" style="background:#282828;border:1px solid #424242;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#424242'">
+        <div onclick="show('deposits-withdrawals',null)" style="background:#282828;border:1px solid var(--border);border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='#424242'">
           <span style="font-size:13px;color:#e0e0e0;font-weight:500;">Deposits &amp; Withdrawals</span>
           <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#cccccc;">Async queue · flow diagrams</span>
         </div>
-        <div onclick="show('api-integration',null)" style="background:#282828;border:1px solid #424242;border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='#8ab84e'" onmouseout="this.style.borderColor='#424242'">
+        <div onclick="show('api-integration',null)" style="background:#282828;border:1px solid var(--border);border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='#424242'">
           <span style="font-size:13px;color:#e0e0e0;font-weight:500;">SC Integration</span>
           <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#cccccc;">Quickstart code · contract addresses</span>
         </div>
@@ -1558,9 +1920,9 @@ html, body {
       <h2>Withdrawals</h2>
       <p>All ha-stablecoin vaults use an asynchronous withdrawal queue via the Teller contract. A 5% idle buffer is maintained at all times to support near-instant small withdrawals.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Request</h4><p>Call <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">requestWithdraw(shares)</code> on the Teller contract — locks your shares and enters the queue.</p></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Request</h4><p>Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestWithdraw(shares)</code> on the Teller contract — locks your shares and enters the queue.</p></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Processing</h4><p>The vault unwinds the corresponding portion of active positions. Requests within the idle buffer are typically processed within one day; larger requests may take up to three days.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Claim</h4><p>Once fulfilled, call <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">claimWithdraw(requestId)</code> to receive the underlying stablecoin (USDC, USDT, or USDH).</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Claim</h4><p>Once fulfilled, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimWithdraw(requestId)</code> to receive the underlying stablecoin (USDC, USDT, or USDH).</p></div></div>
       </div>
 
       <h2>Risks</h2>
@@ -1801,13 +2163,13 @@ html, body {
       </div>
 
       <!-- Architecture Diagram — Horizontal -->
-      <div style="background:#282828;border:1px solid #424242;border-radius:12px;padding:28px 20px;margin:0 0 48px;">
+      <div style="background:#282828;border:1px solid var(--border);border-radius:12px;padding:28px 20px;margin:0 0 48px;">
         <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#3d3d3d;text-align:center;margin-bottom:20px;">Contract Architecture — haUSD</div>
 
         <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
 
           <!-- User -->
-          <div style="background:#141414;border:1px solid #424242;border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 90px;">
+          <div style="background:#141414;border:1px solid var(--border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 90px;">
             <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d3d3d;margin-bottom:3px;">USER</div>
             <div style="font-size:11px;font-weight:600;color:#cccccc;">Depositor</div>
           </div>
@@ -1816,9 +2178,9 @@ html, body {
           <div style="color:#1c1c1c;font-size:18px;padding:0 4px;">→</div>
 
           <!-- Teller -->
-          <div style="background:#383838;border:1px solid #8ab84e;border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 120px;">
-            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">ENTRY POINT</div>
-            <div style="font-size:12px;font-weight:600;color:#c8f07a;">Teller</div>
+          <div style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 120px;">
+            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:var(--callout-border);margin-bottom:3px;">ENTRY POINT</div>
+            <div style="font-size:12px;font-weight:600;color:var(--green);">Teller</div>
             <div style="font-size:9px;color:#cccccc;margin-top:3px;">deposit() · redeem()</div>
           </div>
 
@@ -1826,9 +2188,9 @@ html, body {
           <div style="color:#1c1c1c;font-size:18px;padding:0 4px;">→</div>
 
           <!-- BoringVault -->
-          <div style="background:#383838;border:1px solid #8ab84e;border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 140px;">
-            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#8ab84e;margin-bottom:3px;">CORE VAULT</div>
-            <div style="font-size:12px;font-weight:600;color:#c8f07a;">BoringVault</div>
+          <div style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 140px;">
+            <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:var(--callout-border);margin-bottom:3px;">CORE VAULT</div>
+            <div style="font-size:12px;font-weight:600;color:var(--green);">BoringVault</div>
             <div style="font-size:9px;color:#cccccc;margin-top:3px;">ERC-20 · custody · delegatecall</div>
           </div>
 
@@ -1837,12 +2199,12 @@ html, body {
 
           <!-- Manager + Accountant stacked -->
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="background:#141414;border:1px solid #424242;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+            <div style="background:#141414;border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
               <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d3d3d;margin-bottom:2px;">STRATEGY</div>
               <div style="font-size:11px;font-weight:600;color:#e0e0e0;">Manager</div>
               <div style="font-size:9px;color:#cccccc;margin-top:2px;">Merkle · HyperCore exec</div>
             </div>
-            <div style="background:#141414;border:1px solid #424242;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+            <div style="background:#141414;border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
               <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d3d3d;margin-bottom:2px;">ACCOUNTING</div>
               <div style="font-size:11px;font-weight:600;color:#e0e0e0;">Accountant</div>
               <div style="font-size:9px;color:#cccccc;margin-top:2px;">NAV oracle · PPS · fees</div>
@@ -1854,12 +2216,12 @@ html, body {
 
           <!-- RolesAuthority + Lens stacked -->
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="background:#141414;border:1px solid #424242;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+            <div style="background:#141414;border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
               <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d3d3d;margin-bottom:2px;">ACCESS CONTROL</div>
               <div style="font-size:11px;font-weight:600;color:#e0e0e0;">RolesAuthority</div>
               <div style="font-size:9px;color:#cccccc;margin-top:2px;">On-chain RBAC · gating</div>
             </div>
-            <div style="background:#141414;border:1px solid #424242;border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
+            <div style="background:#141414;border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
               <div style="font-size:9px;font-family:'IBM Plex Mono',monospace;color:#3d3d3d;margin-bottom:2px;">READ-ONLY</div>
               <div style="font-size:11px;font-weight:600;color:#e0e0e0;">Lens</div>
               <div style="font-size:9px;color:#cccccc;margin-top:2px;">getVaultData() · getUserData()</div>
@@ -1873,7 +2235,7 @@ html, body {
       <p>The BoringVault framework uses a modular architecture with minimal core contract logic (~100 lines of code). Each module has a single responsibility and no single component holds both custody and execution authority.</p>
 
       <h3>BoringVault</h3>
-      <p>The central custodial contract that holds all deposited funds. It is deliberately minimal — an ERC-20 token with <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">delegatecall</code> capability. The vault delegates all complex operations (deposits, withdrawals, rebalancing, accounting) to external modules. This separation means the vault itself has an extremely small attack surface.</p>
+      <p>The central custodial contract that holds all deposited funds. It is deliberately minimal — an ERC-20 token with <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">delegatecall</code> capability. The vault delegates all complex operations (deposits, withdrawals, rebalancing, accounting) to external modules. This separation means the vault itself has an extremely small attack surface.</p>
 
       <h3>Teller</h3>
       <p>The entry point for all user-facing interactions. Handles deposit mechanics by minting shares using exchange rates from the Accountant. Manages the asynchronous withdrawal queue — accepts redemption requests, locks shares in escrow, and releases assets once fulfilled. Enforces a share lock period after deposit to mitigate MEV sandwich attacks on the exchange rate.</p>
@@ -1891,7 +2253,7 @@ html, body {
       <p>The on-chain role-based access control (RBAC) contract. Gates which addresses can call which functions across the entire vault system. Roles include: Depositor (anyone), Solver (fulfills withdrawal requests), Curator (triggers strategy deployment), and Admin (multisig-controlled parameter changes).</p>
 
       <h3>Lens</h3>
-      <p>A read-only aggregation contract for integrators. Provides convenience functions like <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">getVaultData()</code> (TVL, PPS, total shares) and <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">getUserData(address)</code> (balance, pending withdrawals, claimable assets) in a single call.</p>
+      <p>A read-only aggregation contract for integrators. Provides convenience functions like <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">getVaultData()</code> (TVL, PPS, total shares) and <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">getUserData(address)</code> (balance, pending withdrawals, claimable assets) in a single call.</p>
 
       <!-- Flow of Funds — Deposit -->
       <h2>Flow of Funds — Deposit</h2>
@@ -1904,25 +2266,25 @@ html, body {
         <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:#1c1c1c;"></div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Approve the Teller</div>
             <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Grant the Teller allowance to pull your deposit asset. One-time per asset.</div>
-            <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">USDC.approve(TELLER_ADDRESS, amount)</pre>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);">USDC.approve(TELLER_ADDRESS, amount)</pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
           <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Call <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">teller.deposit()</code></div>
-            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Teller validates the asset against its allowlist, pulls funds, calls <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">BoringVault.enter()</code>, and mints ERC-4626 shares to the receiver at the current price-per-share.</div>
-            <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.deposit(USDC, amount, minShares, receiver) → shares</pre>
+            <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">teller.deposit()</code></div>
+            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Teller validates the asset against its allowlist, pulls funds, calls <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">BoringVault.enter()</code>, and mints ERC-4626 shares to the receiver at the current price-per-share.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);">teller.deposit(USDC, amount, minShares, receiver) → shares</pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Receive haUSD shares</div>
             <div style="font-size:13px;color:#cccccc;">Shares are standard ERC-20 tokens. They accrue yield automatically as the NAV Oracle pushes price-per-share updates to the Accountant. No staking or claiming required.</div>
@@ -1941,30 +2303,30 @@ html, body {
         <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:#1c1c1c;"></div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Request a redemption</div>
-            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Shares are locked in escrow. A <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">requestId</code> is returned. Shares stop accruing yield immediately.</div>
-            <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.requestRedeem(shares, receiver, owner) → requestId</pre>
+            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Shares are locked in escrow. A <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestId</code> is returned. Shares stop accruing yield immediately.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);">teller.requestRedeem(shares, receiver, owner) → requestId</pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Wait for Solver fulfillment</div>
-            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">The Solver role batches pending requests off-chain and calls <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">fulfillRedeems()</code>. Poll status or subscribe to the <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">RedeemFulfilled</code> event.</div>
-            <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.getRedeemRequest(requestId) → { status, assets }
+            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">The Solver role batches pending requests off-chain and calls <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">fulfillRedeems()</code>. Poll status or subscribe to the <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">RedeemFulfilled</code> event.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);">teller.getRedeemRequest(requestId) → { status, assets }
 <span style="color:#3d3d3d;">// status: 0 = Pending  1 = Fulfilled  2 = Claimed</span></pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid #8ab84e;color:#c8f07a;font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'IBM Plex Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;">Claim your assets</div>
-            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Once status is <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">Fulfilled</code>, call <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">claimRedeem()</code>. Teller burns the escrowed shares and transfers USDC / USDT / USDH to the receiver.</div>
-            <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;">teller.claimRedeem(requestId) → assets</pre>
+            <div style="font-size:13px;color:#cccccc;margin-bottom:10px;">Once status is <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">Fulfilled</code>, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimRedeem()</code>. Teller burns the escrowed shares and transfers USDC / USDT / USDH to the receiver.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);">teller.claimRedeem(requestId) → assets</pre>
           </div>
         </div>
       </div>
@@ -2001,7 +2363,7 @@ html, body {
       <div class="table-wrap"><table>
         <thead><tr><th>Standard</th><th>Status</th><th>Purpose</th></tr></thead>
         <tbody>
-          <tr><td><strong>ERC-4626</strong></td><td style="color:#c8f07a;">Live</td><td>Tokenized vault shares — deposit, redeem, price-per-share accounting.</td></tr>
+          <tr><td><strong>ERC-4626</strong></td><td style="color:var(--green);">Live</td><td>Tokenized vault shares — deposit, redeem, price-per-share accounting.</td></tr>
           <tr><td><strong>ERC-7575</strong></td><td style="color:rgba(255,200,50,0.85);">Planned</td><td>Multi-deposit support — accept multiple asset types into a single vault without wrapper contracts.</td></tr>
           <tr><td><strong>ERC-7540</strong></td><td style="color:rgba(255,200,50,0.85);">Planned</td><td>Asynchronous redemption standard — native Superform integration and cross-protocol vault composability.</td></tr>
         </tbody>
@@ -2031,7 +2393,7 @@ html, body {
 
       <!-- Withdraw and Settlement Operations -->
       <h2>Withdraw and Settlement Operations</h2>
-      <p>Withdrawal operations span both on-chain and offchain processes. When a user requests redemption, shares are locked in escrow by the Teller. The offchain Solver batches pending requests, unwinds the necessary positions on HyperCore and HyperEVM, and calls <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">fulfillRedeems()</code> to make assets claimable. The idle buffer absorbs most routine withdrawals without unwinding, but large redemptions require position settlement — which is why fulfillment takes 24–72 hours.</p>
+      <p>Withdrawal operations span both on-chain and offchain processes. When a user requests redemption, shares are locked in escrow by the Teller. The offchain Solver batches pending requests, unwinds the necessary positions on HyperCore and HyperEVM, and calls <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">fulfillRedeems()</code> to make assets claimable. The idle buffer absorbs most routine withdrawals without unwinding, but large redemptions require position settlement — which is why fulfillment takes 24–72 hours.</p>
       <div style="margin:12px 0 8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
       <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">withdraw ops · pending withdrawal · backend · signer · tx batching</p>
 
@@ -2149,7 +2511,7 @@ html, body {
           <div class="card-title-block"><span class="card-name">haUSD</span></div>
           <div class="card-tags"><span class="tag green">ERC-20</span><span class="tag grey">ERC1967Proxy</span></div>
         </div>
-        <div class="contract-card-row"><span class="contract-card-label">Contract</span><span class="contract-card-val" style="color:#c8f07a;font-style:italic;">Coming Soon</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Contract</span><span class="contract-card-val" style="color:var(--green);font-style:italic;">Coming Soon</span></div>
         <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">HyperEVM</span></div>
       </div>
 
@@ -2159,7 +2521,7 @@ html, body {
       <div class="table-wrap"><table>
         <thead><tr><th>Contract</th><th>Standard</th><th>Network</th><th>Address</th></tr></thead>
         <tbody>
-          <tr><td>haUSD Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
+          <tr><td>haUSD Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:var(--green);font-style:italic;">Coming Soon</code></td></tr>
           <tr><td>haHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0xfde5b062…8d725c</code></td></tr>
           <tr><td>hakHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0x1368ee9d…9eebc42</code></td></tr>
           <tr><td>HAR Token</td><td>ERC-20</td><td>HyperEVM</td><td><code>0x391121d8…af18</code></td></tr>
@@ -2346,7 +2708,7 @@ html, body {
 
       <!-- ── ERC-7540 UPGRADE ── -->
       <h2>Coming Upgrade: ERC-7540</h2>
-      <div class="callout" style="border-left-color:#c8f07a;">
+      <div class="callout" style="border-left-color:var(--green);">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
         <div class="callout-body">
           <strong>Upgrade in progress</strong> — Harmonix is implementing ERC-7540, the official async extension of ERC-4626.
@@ -2440,7 +2802,7 @@ const assets = await teller.claimWithdraw(requestId);</code></pre>
         <tbody>
           <tr><td><strong>haHYPE</strong></td><td>HyperEVM</td><td><code>0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c</code></td></tr>
           <tr><td><strong>hakHYPE</strong></td><td>HyperEVM</td><td><code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
-          <tr><td><strong>haUSD</strong></td><td>HyperEVM</td><td><code style="color:#c8f07a;font-style:italic;">Coming Soon</code></td></tr>
+          <tr><td><strong>haUSD</strong></td><td>HyperEVM</td><td><code style="color:var(--green);font-style:italic;">Coming Soon</code></td></tr>
         </tbody>
       </table></div>
 
@@ -2536,7 +2898,7 @@ const vault = await res.json();
 const apy = vault.apy;         <span style="color:#4a6741;">// 7-day rolling APY</span>
 const tvl = vault.tvl;         <span style="color:#4a6741;">// total value locked</span></code></pre>
       </div>
-      <p style="color:var(--text2);font-size:13px;">The API returns a 7-day rolling APY that smooths short-term volatility in funding rates. For historical APY data, use the <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">/api/v1/vaults/{slug}/performance</code> endpoint.</p>
+      <p style="color:var(--text2);font-size:13px;">The API returns a 7-day rolling APY that smooths short-term volatility in funding rates. For historical APY data, use the <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">/api/v1/vaults/{slug}/performance</code> endpoint.</p>
 
       <h2>Frontend Integration</h2>
       <p>If you are building a frontend that displays Harmonix vault data, here is the recommended approach:</p>
@@ -2560,11 +2922,11 @@ const tvl = vault.tvl;         <span style="color:#4a6741;">// total value locke
       <h2>Next Steps</h2>
       <p>Explore the detailed reference guides:</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;">
-        <a onclick="show('contracts',null)" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.5)'" onmouseout="this.style.borderColor='var(--border)'">
+        <a onclick="show('contracts',null)" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--callout-left)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-weight:600;color:var(--text);margin-bottom:4px;">Smart Contracts →</div>
           <div style="font-size:12px;color:var(--text2);">Complete contract reference and addresses</div>
         </a>
-        <a onclick="show('deposits-withdrawals',null)" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(200,240,122,0.5)'" onmouseout="this.style.borderColor='var(--border)'">
+        <a onclick="show('deposits-withdrawals',null)" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--callout-left)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-weight:600;color:var(--text);margin-bottom:4px;">Deposits & Withdrawals →</div>
           <div style="font-size:12px;color:var(--text2);">Step-by-step integration tutorials</div>
         </a>
@@ -2732,7 +3094,7 @@ const tvl = vault.tvl;         <span style="color:#4a6741;">// total value locke
       </table></div>
 
       <h2>Quick Start — Read Vault Data with Viem</h2>
-      <pre style="background:#383838;border:1px solid #424242;border-radius:8px;padding:16px 20px;margin:0 0 12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;line-height:1.7;"><span style="color:#888888;">// npm install viem</span>
+      <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin:0 0 12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;line-height:1.7;"><span style="color:#888888;">// npm install viem</span>
 import { createPublicClient, http, formatUnits } from 'viem'
 import { hyperevm } from 'viem/chains'
 
@@ -2754,7 +3116,7 @@ console.log('Total assets:', formatUnits(pps, 6))</pre>
       <p style="font-size:13px;color:var(--text3);margin:0 0 32px;">See the <a onclick="show('api-integration',null)" href="javascript:void(0)" style="color:var(--green);">Smart Contract Integration</a> guide for full deposit/withdraw flows with working code.</p>
 
       <h2>Quick Start — Read Vault Data with Ethers.js</h2>
-      <pre style="background:#383838;border:1px solid #424242;border-radius:8px;padding:16px 20px;margin:0 0 12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;line-height:1.7;"><span style="color:#888888;">// npm install ethers</span>
+      <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin:0 0 12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;line-height:1.7;"><span style="color:#888888;">// npm install ethers</span>
 import { JsonRpcProvider, Contract, formatUnits } from 'ethers'
 
 const provider = new JsonRpcProvider('<span style="color:#cccccc;">https://rpc.hyperliquid.xyz/evm</span>')
@@ -2780,7 +3142,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr>
             <td><strong>Hyperliquid RPC</strong></td>
             <td>Native public RPC endpoint</td>
-            <td style="color:#c8f07a;">Direct — <code style="font-size:11px;background:#383838;border:1px solid #424242;padding:1px 5px;border-radius:3px;color:#c8f07a;">rpc.hyperliquid.xyz/evm</code></td>
+            <td style="color:var(--green);">Direct — <code style="font-size:11px;background:var(--bg3);border:1px solid var(--border);padding:1px 5px;border-radius:3px;color:var(--green);">rpc.hyperliquid.xyz/evm</code></td>
           </tr>
           <tr>
             <td><a href="https://www.alchemy.com/" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:600;">Alchemy ↗</a></td>
@@ -2813,8 +3175,8 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
 
       <!-- Harmonix SDK -->
       <h2>Harmonix SDK</h2>
-      <div style="background:#282828;border:1px solid #424242;border-radius:12px;padding:32px 28px;text-align:center;margin:0 0 32px;">
-        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:rgba(200,240,122,0.6);margin-bottom:12px;">Coming Soon</div>
+      <div style="background:#282828;border:1px solid var(--border);border-radius:12px;padding:32px 28px;text-align:center;margin:0 0 32px;">
+        <div style="font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--callout-left);margin-bottom:12px;">Coming Soon</div>
         <h3 style="margin:0 0 10px;color:#fff;font-size:18px;">Harmonix SDK</h3>
         <p style="color:#cccccc;font-size:14px;max-width:480px;margin:0 auto;line-height:1.6;">A dedicated TypeScript SDK with typed vault interactions, position helpers, and built-in multicall support is in development. In the meantime, use Viem or Ethers.js with the guides above.</p>
       </div>
@@ -2839,7 +3201,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       </div>
       <p>Harmonix publishes a Merkle tree of all vault positions and corresponding liabilities. Anyone can verify that total assets exceed total share token supply at any given time — no trust required, no waiting for an audit cycle.</p>
 
-      <div class="callout" style="border-left-color:#c8f07a;margin:0 0 28px;">
+      <div class="callout" style="border-left-color:var(--green);margin:0 0 28px;">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c8f07a" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
         <div class="callout-body">
           <strong>Verification dashboard in development</strong> — A public dashboard for real-time solvency verification is being built. Once live it will be accessible at <a href="https://t.co/h1HjtZO4PQ" target="_blank" rel="noopener" style="color:var(--green);">harmonix.fi/solvency ↗</a>
@@ -2883,7 +3245,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <div style="flex:1;min-width:180px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
               <span class="tag green">Audit</span>
-              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Verichains</span>
+              <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Verichains</span>
             </div>
             <p style="font-size:13px;color:var(--text2);margin:0;">Full smart contract security audit covering Harmonix Finance core contracts. Conducted by Verichains, a leading blockchain security firm.</p>
           </div>
@@ -2902,7 +3264,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <div style="flex:1;min-width:180px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
               <span class="tag green">Audit</span>
-              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Zenith</span>
+              <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Zenith</span>
             </div>
             <p style="font-size:13px;color:var(--text2);margin:0;">Independent security review of Harmonix's core smart contract architecture, vault logic, and access control systems.</p>
           </div>
@@ -2921,7 +3283,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <div style="flex:1;min-width:180px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
               <span class="tag green">Audit</span>
-              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Shieldify</span>
+              <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text);">Shieldify</span>
             </div>
             <p style="font-size:13px;color:var(--text2);margin:0;">Hyperliquid-focused security review covering Harmonix's HyperEVM integrations, yield strategies, and on-chain risk surface.</p>
           </div>
@@ -3023,7 +3385,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:32px;">
 
         <a href="https://defillama.com/protocol/harmonix-finance" target="_blank" style="display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color 0.15s;">
-          <div style="width:44px;height:44px;border-radius:10px;background:rgba(200,240,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <div style="width:44px;height:44px;border-radius:10px;background:var(--green-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.7" width="22" height="22"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
           </div>
           <div>
@@ -3034,7 +3396,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
         </a>
 
         <a href="https://dune.com/harmonix_fi/harmonix-overview" target="_blank" style="display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color 0.15s;">
-          <div style="width:44px;height:44px;border-radius:10px;background:rgba(200,240,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <div style="width:44px;height:44px;border-radius:10px;background:var(--green-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.7" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
           <div>
@@ -3045,7 +3407,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
         </a>
 
         <a href="https://app.harmonix.fi/dashboards" target="_blank" style="display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color 0.15s;">
-          <div style="width:44px;height:44px;border-radius:10px;background:rgba(200,240,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <div style="width:44px;height:44px;border-radius:10px;background:var(--green-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.7" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <div>
@@ -3193,8 +3555,8 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr><td>Strategist</td><td>Harmonix</td></tr>
           <tr><td>Audit</td><td>Shieldify, Verichains, Zenith</td></tr>
           <tr><td>Risk Monitoring</td><td>Hypernative (real-time)</td></tr>
-          <tr><td>Vault Contract</td><td><code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">0xF12F8753C25F8005311a24bbbA1f7209249B00e3</code> · <a href="https://arbiscan.io/address/0xF12F8753C25F8005311a24bbbA1f7209249B00e3" target="_blank" style="color:var(--green);text-decoration:none;">Arbiscan ↗</a></td></tr>
-          <tr><td>Deposit / Withdraw Token</td><td>USDC · <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">0xaf88d065e77c8cC2239327C5EDb3A432268e5831</code></td></tr>
+          <tr><td>Vault Contract</td><td><code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">0xF12F8753C25F8005311a24bbbA1f7209249B00e3</code> · <a href="https://arbiscan.io/address/0xF12F8753C25F8005311a24bbbA1f7209249B00e3" target="_blank" style="color:var(--green);text-decoration:none;">Arbiscan ↗</a></td></tr>
+          <tr><td>Deposit / Withdraw Token</td><td>USDC · <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">0xaf88d065e77c8cC2239327C5EDb3A432268e5831</code></td></tr>
           <tr><td>Vault App</td><td><a href="https://app.harmonix.fi/vaults/hype-delta-neutral-v1" target="_blank" style="color:var(--green);text-decoration:none;">Open Vault ↗</a></td></tr>
         </tbody>
       </table></div>
@@ -3246,58 +3608,58 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <p>Monitor live vault performance, APY history, and TVL on the <a href="https://app.harmonix.fi/vaults/hype-delta-neutral-v1" target="_blank" style="color:var(--green);text-decoration:none;">Harmonix Vault Dashboard ↗</a>.</p>
 
       <h2>Smart Contract Reference</h2>
-      <p>The <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 7px;border-radius:4px;color:#c8f07a;">HypeVault</code> contract handles deposits, withdrawals, and share accounting. It uses a two-step withdrawal mechanism with price-per-share accounting.</p>
+      <p>The <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">HypeVault</code> contract handles deposits, withdrawals, and share accounting. It uses a two-step withdrawal mechanism with price-per-share accounting.</p>
 
       <h3>Write Functions</h3>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">deposit()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function deposit(uint256 amount, address tokenIn, bytes swapCallData) external</pre>
-        <p style="font-size:13px;color:#cccccc;margin-bottom:4px;">Deposits <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">amount</code> of <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">tokenIn</code> into the vault. Accepts USDC, USDT, or DAI. For USDC deposits pass <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">0x</code> as swapCallData; for other tokens provide KyberSwap swap calldata.</p>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">deposit()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function deposit(uint256 amount, address tokenIn, bytes swapCallData) external</pre>
+        <p style="font-size:13px;color:#cccccc;margin-bottom:4px;">Deposits <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">amount</code> of <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">tokenIn</code> into the vault. Accepts USDC, USDT, or DAI. For USDC deposits pass <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">0x</code> as swapCallData; for other tokens provide KyberSwap swap calldata.</p>
       </div>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">initiateWithdrawal()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function initiateWithdrawal(uint256 shares) external</pre>
-        <p style="font-size:13px;color:#cccccc;">Begins the withdrawal process by locking <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">shares</code>. Assets can be claimed later via <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">completeWithdrawal()</code>.</p>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">initiateWithdrawal()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function initiateWithdrawal(uint256 shares) external</pre>
+        <p style="font-size:13px;color:#cccccc;">Begins the withdrawal process by locking <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">shares</code>. Assets can be claimed later via <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">completeWithdrawal()</code>.</p>
       </div>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">completeWithdrawal()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function completeWithdrawal(uint256 shares) external</pre>
-        <p style="font-size:13px;color:#cccccc;">Finalizes a previously initiated withdrawal. Burns <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">shares</code> and transfers the corresponding USDC to the caller.</p>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">completeWithdrawal()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function completeWithdrawal(uint256 shares) external</pre>
+        <p style="font-size:13px;color:#cccccc;">Finalizes a previously initiated withdrawal. Burns <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">shares</code> and transfers the corresponding USDC to the caller.</p>
       </div>
 
       <h3>View Functions</h3>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">balanceOf()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function balanceOf(address owner) external view returns (uint256)</pre>
-        <p style="font-size:13px;color:#cccccc;">Returns the number of vault shares owned by <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">owner</code>.</p>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">balanceOf()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function balanceOf(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13px;color:#cccccc;">Returns the number of vault shares owned by <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">owner</code>.</p>
       </div>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">getUserWithdrawlShares()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function getUserWithdrawlShares(address owner) external view returns (uint256)</pre>
-        <p style="font-size:13px;color:#cccccc;">Returns the number of shares <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">owner</code> has queued for withdrawal.</p>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">getUserWithdrawlShares()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function getUserWithdrawlShares(address owner) external view returns (uint256)</pre>
+        <p style="font-size:13px;color:#cccccc;">Returns the number of shares <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">owner</code> has queued for withdrawal.</p>
       </div>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">pricePerShare()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function pricePerShare() external view returns (uint256)</pre>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">pricePerShare()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function pricePerShare() external view returns (uint256)</pre>
         <p style="font-size:13px;color:#cccccc;">Returns the current value of one share in the underlying asset (USDC).</p>
       </div>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">totalValueLocked()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function totalValueLocked() external view returns (uint256)</pre>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">totalValueLocked()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function totalValueLocked() external view returns (uint256)</pre>
         <p style="font-size:13px;color:#cccccc;">Reports the total value of all underlying assets managed by the vault.</p>
       </div>
 
       <div style="margin:20px 0;">
-        <div style="font-size:13px;font-weight:600;color:#c8f07a;margin-bottom:6px;">canCompleteWithdraw()</div>
-        <pre style="background:#383838;border:1px solid #424242;border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c8f07a;overflow-x:auto;">function canCompleteWithdraw(address user) external view returns (bool)</pre>
-        <p style="font-size:13px;color:#cccccc;">Returns <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">true</code> if the user is eligible to call <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">completeWithdrawal()</code>.</p>
+        <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;">canCompleteWithdraw()</div>
+        <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--green);overflow-x:auto;">function canCompleteWithdraw(address user) external view returns (bool)</pre>
+        <p style="font-size:13px;color:#cccccc;">Returns <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">true</code> if the user is eligible to call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">completeWithdrawal()</code>.</p>
       </div>
 
       <div class="page-nav">
@@ -3433,7 +3795,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr><td><strong>Hyperliquid DEX</strong></td><td>The perpetual trading venue on HyperCore used for strategies such as delta-neutral carry and funding rate capture.</td></tr>
           <tr><td><strong>Idle Buffer</strong></td><td>A reserve of undeployed capital maintained in each vault to support smooth redemptions without unwinding active positions. Typically 5% of vault TVL.</td></tr>
           <tr><td><strong>kHYPE</strong></td><td>Kinetiq's liquid staked HYPE token. Represents staked HYPE and earns native staking yield. Used as the underlying asset for hakHYPE.</td></tr>
-          <tr><td><strong>Lens</strong></td><td>A read-only smart contract that aggregates vault data. Provides functions like <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">getVaultData()</code> and <code style="font-size:12px;background:#383838;border:1px solid #424242;padding:2px 5px;border-radius:4px;color:#c8f07a;">getUserData()</code> for integrators.</td></tr>
+          <tr><td><strong>Lens</strong></td><td>A read-only smart contract that aggregates vault data. Provides functions like <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">getVaultData()</code> and <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">getUserData()</code> for integrators.</td></tr>
           <tr><td><strong>Looping</strong></td><td>Borrowing against collateral and re-supplying to increase exposure or optimize yield. A leverage strategy used in lending protocols.</td></tr>
           <tr><td><strong>LP</strong></td><td>Liquidity Provider / Liquidity Provision — depositing assets into a DEX pool or liquidity venue to earn trading fees and incentives.</td></tr>
           <tr><td><strong>LST</strong></td><td>Liquid Staking Token — a token representing staked assets that remains liquid and tradeable. Examples: kHYPE (Kinetiq) and stHYPE (Valantis).</td></tr>
@@ -3623,7 +3985,14 @@ show = function(id, el) {
   // scroll content back to top
 };
 
-document.addEventListener('DOMContentLoaded', function() { buildTOC(); });
+document.addEventListener('DOMContentLoaded', function() {
+  buildTOC();
+  // Scroll entrance animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.wnc, .welcome-card, .ps-item, .ps-card').forEach(el => observer.observe(el));
+});
 
 function filterNav(q) {
   const items = document.querySelectorAll('#sidebar-nav-wrap .nav-item');
@@ -3644,6 +4013,35 @@ function filterNav(q) {
     g.style.display = any ? '' : 'none';
   });
 }
+// ─── THEME TOGGLE ───
+function toggleTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('harmonix-theme', next);
+  document.querySelector('meta[name="theme-color"]').content = next === 'dark' ? '#171918' : '#F1F1EB';
+}
+
+// ─── SIDEBAR COLLAPSE ───
+function toggleSidebar() {
+  document.body.classList.toggle('sidebar-collapsed');
+  localStorage.setItem('harmonix-sidebar', document.body.classList.contains('sidebar-collapsed') ? 'collapsed' : 'open');
+}
+
+// ─── INIT THEME + SIDEBAR STATE ───
+(function() {
+  var saved = localStorage.getItem('harmonix-theme');
+  if (!saved) {
+    saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', saved);
+  document.querySelector('meta[name="theme-color"]').content = saved === 'dark' ? '#171918' : '#F1F1EB';
+
+  var sidebarState = localStorage.getItem('harmonix-sidebar');
+  if (sidebarState === 'collapsed') {
+    document.body.classList.add('sidebar-collapsed');
+  }
+})();
 </script>
 <script>if(typeof lucide!=="undefined")lucide.createIcons();</script>
 </body>
