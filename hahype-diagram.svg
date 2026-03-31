@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 560" fill="none">
-  <rect width="1140" height="560" fill="#EBF5EC"/>
+  <rect width="1140" height="560" fill="none"/>
 
   <defs>
     <marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
