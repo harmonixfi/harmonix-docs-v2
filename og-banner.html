@@ -2,10 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Regular.woff2') format('woff2'), url('fonts/Aeonik-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Bold.woff2') format('woff2'), url('fonts/Aeonik-Bold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Bold.woff2') format('woff2'), url('fonts/Aeonik-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Black.woff2') format('woff2'), url('fonts/Aeonik-Black.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Black.woff2') format('woff2'), url('fonts/Aeonik-Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:1200px;height:630px;overflow:hidden;font-family:'Inter',sans-serif}
+body{width:1200px;height:630px;overflow:hidden;font-family:'Aeonik',sans-serif}
 .banner{width:1200px;height:630px;background:linear-gradient(160deg,#071a10 0%,#0d2818 20%,#16432a 50%,#1e6b3a 80%,#247a42 100%);display:flex;align-items:center;justify-content:space-between;padding:0 80px;position:relative;overflow:hidden}
 .banner::after{content:'';position:absolute;inset:0;opacity:0.06;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .left{position:relative;z-index:1;max-width:580px}

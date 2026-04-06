@@ -13,14 +13,14 @@
   <style>
     .box { fill: #ffffff; stroke: #c5dcc8; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
     .box-highlight { fill: #e8f7ea; stroke: #34C759; stroke-width: 2; stroke-dasharray: none; rx: 10; }
-    .label { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
-    .title { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; }
-    .title-lg { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 700; }
-    .sub { fill: #5a7a6a; font-family: 'DM Sans', sans-serif; font-size: 12px; }
-    .flow-label { fill: #34C759; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-style: italic; }
+    .label { fill: #34C759; font-family: 'Aeonik', sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .title { fill: #173132; font-family: 'Aeonik', sans-serif; font-size: 18px; font-weight: 700; }
+    .title-lg { fill: #173132; font-family: 'Aeonik', sans-serif; font-size: 22px; font-weight: 700; }
+    .sub { fill: #5a7a6a; font-family: 'Aeonik', sans-serif; font-size: 12px; }
+    .flow-label { fill: #34C759; font-family: 'Aeonik Mono', monospace; font-size: 11px; font-style: italic; }
     .badge { fill: #e8f7ea; stroke: #34C759; stroke-width: 1.2; rx: 14; }
-    .badge-text { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; }
-    .pct { fill: #173132; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
+    .badge-text { fill: #34C759; font-family: 'Aeonik', sans-serif; font-size: 13px; font-weight: 500; }
+    .pct { fill: #173132; font-family: 'Aeonik Mono', monospace; font-size: 12px; font-weight: 600; }
   </style>
 
   <!-- BOX 1: User -->

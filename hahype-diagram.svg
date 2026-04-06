@@ -19,12 +19,12 @@
   <style>
     .box { fill: #ffffff; stroke: #c5dcc8; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
     .box-hl { fill: #e8f7ea; stroke: #34C759; stroke-width: 2; rx: 10; }
-    .lbl { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; }
-    .ttl { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; }
-    .ttl-lg { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700; }
-    .sub { fill: #5a7a6a; font-family: 'DM Sans', sans-serif; font-size: 11.5px; }
-    .flow { fill: #34C759; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-style: italic; }
-    .pct { fill: #173132; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; }
+    .lbl { fill: #34C759; font-family: 'Aeonik', sans-serif; font-size: 9px; letter-spacing: 1.5px; }
+    .ttl { fill: #173132; font-family: 'Aeonik', sans-serif; font-size: 17px; font-weight: 700; }
+    .ttl-lg { fill: #173132; font-family: 'Aeonik', sans-serif; font-size: 20px; font-weight: 700; }
+    .sub { fill: #5a7a6a; font-family: 'Aeonik', sans-serif; font-size: 11.5px; }
+    .flow { fill: #34C759; font-family: 'Aeonik Mono', monospace; font-size: 10.5px; font-style: italic; }
+    .pct { fill: #173132; font-family: 'Aeonik Mono', monospace; font-size: 11px; font-weight: 600; }
   </style>
 
   <!-- 1. USER BOX -->
@@ -103,8 +103,8 @@
   <!-- 9. NET APY BOX -->
   <rect class="box-hl" x="1010" y="250" width="100" height="100"/>
   <text class="lbl" x="1060" y="275" text-anchor="middle">NET APY</text>
-  <text fill="#173132" font-family="'DM Sans', sans-serif" font-size="34" font-weight="800" x="1060" y="316" text-anchor="middle">3.8–</text>
-  <text fill="#173132" font-family="'DM Sans', sans-serif" font-size="28" font-weight="800" x="1060" y="342" text-anchor="middle">4%</text>
+  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="34" font-weight="800" x="1060" y="316" text-anchor="middle">3.8–</text>
+  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="28" font-weight="800" x="1060" y="342" text-anchor="middle">4%</text>
 
   <!-- 10. RETURN PATH: APY → Receipt Token -->
   <path d="M1060 250 L1060 87 L460 87" stroke="#34C759" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#a)"/>

@@ -18,10 +18,19 @@
 <meta name="twitter:title" content="Harmonix Finance">
 <meta name="twitter:description" content="DeFi Yield Products Onchain. Earn 7% APY with delta neutral yield bearing stablecoins on Hyperliquid.">
 <meta name="twitter:image" content="https://harmonixfi.github.io/harmonix-docs-v2/harmonix-og-v10.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Light.woff2') format('woff2'), url('fonts/Aeonik-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Regular.woff2') format('woff2'), url('fonts/Aeonik-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-RegularItalic.woff2') format('woff2'), url('fonts/Aeonik-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Medium.woff2') format('woff2'), url('fonts/Aeonik-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Bold.woff2') format('woff2'), url('fonts/Aeonik-Bold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Bold.woff2') format('woff2'), url('fonts/Aeonik-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Black.woff2') format('woff2'), url('fonts/Aeonik-Black.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Black.woff2') format('woff2'), url('fonts/Aeonik-Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik Mono'; src: url('fonts/AeonikMono-Regular.woff2') format('woff2'), url('fonts/AeonikMono-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik Mono'; src: url('fonts/AeonikMono-Medium.woff2') format('woff2'), url('fonts/AeonikMono-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik Mono'; src: url('fonts/AeonikMono-Bold.woff2') format('woff2'), url('fonts/AeonikMono-Bold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik Mono'; src: url('fonts/AeonikMono-Bold.woff2') format('woff2'), url('fonts/AeonikMono-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --dark:#08181F;
@@ -40,7 +49,7 @@
   --green-light:#e8f5e9;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Aeonik',sans-serif;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
@@ -197,7 +206,7 @@ ul{list-style:none}
 .showcase-desktop .sd-bezel{background:#111;border-radius:12px 12px 0 0;padding:8px 8px 0;box-shadow:0 -8px 40px rgba(0,0,0,0.3)}
 .showcase-desktop .sd-topbar{display:flex;align-items:center;gap:6px;padding:6px 10px 8px}
 .showcase-desktop .sd-dot{width:8px;height:8px;border-radius:50%}
-.showcase-desktop .sd-url{flex:1;background:rgba(255,255,255,0.08);border-radius:4px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;margin-left:8px}
+.showcase-desktop .sd-url{flex:1;background:rgba(255,255,255,0.08);border-radius:4px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,0.4);font-family:'Aeonik',sans-serif;margin-left:8px}
 .showcase-desktop .sd-screen{background:#0d1117;border-radius:4px 4px 0 0;overflow:hidden;padding:20px;min-height:260px}
 .showcase-desktop .sd-base{background:linear-gradient(to bottom,#111 0%,#1a1a1a 100%);height:14px;border-radius:0 0 4px 4px;margin:0 -20px}
 /* Dashboard rows inside desktop */
@@ -321,6 +330,11 @@ ul{list-style:none}
 .token-alloc-row .ta-name{font-size:14px;font-weight:600;color:rgba(255,255,255,0.8)}
 .token-alloc-row .ta-detail{font-size:11px;color:rgba(255,255,255,0.3);margin-top:1px}
 .token-alloc-row .ta-pct{font-size:20px;font-weight:800;color:#4caf50;letter-spacing:-0.5px}
+.token-chart{display:flex;flex-direction:column;align-items:center}
+.token-ring svg{width:260px;height:auto}
+.token-legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-600);font-weight:500}
+.legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .token-chart-wrap{display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;max-width:100%}
 .token-chart-wrap svg{width:100%;max-width:280px;height:auto}
 .token-chart-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
@@ -485,7 +499,7 @@ ul{list-style:none}
 .earn-step.inactive .es-title{color:#c8d4c0}
 .es-desc{font-size:14px;line-height:1.65;color:#6b7a66;max-width:300px;margin-bottom:16px}
 .earn-step.inactive .es-desc{display:none}
-.es-btn{background:#1c2a12;color:#d4f050;border:none;border-radius:100px;padding:10px 22px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-block}
+.es-btn{background:#1c2a12;color:#d4f050;border:none;border-radius:100px;padding:10px 22px;font-family:'Aeonik',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-block}
 .es-btn:hover{background:#2d4018}
 .earn-step.inactive .es-btn{display:none}
 /* Earn card */
@@ -633,7 +647,7 @@ ul{list-style:none}
               <svg width="14" height="14" viewBox="0 0 30 28" fill="none"><path fill="#08181F" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
               <span style="font-size:14px;font-weight:800;color:#000;letter-spacing:-0.3px">Harmonix</span>
             </div>
-            <div style="background:#f1f3f5;color:#495057;padding:5px 12px;border-radius:8px;font-size:9px;font-weight:600;font-family:'SF Mono','Fira Code',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
+            <div style="background:#f1f3f5;color:#495057;padding:5px 12px;border-radius:8px;font-size:9px;font-weight:600;font-family:'Aeonik Mono',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
           </div>
           <div style="padding:10px 14px">
             <!-- BALANCE SECTION -->
@@ -922,7 +936,49 @@ ul{list-style:none}
   </div>
 </section>
 
-
+<!-- HAR TOKEN -->
+<section class="section section-gray" id="token">
+  <div class="container">
+    <div class="section-header anim">
+      <div class="section-eyebrow">HAR Token</div>
+      <h2 class="section-heading">Governance &amp;<br>rewards</h2>
+    </div>
+    <div class="token-layout">
+      <div class="token-info anim d1">
+        <h3>1,000,000,000 HAR</h3>
+        <p>Fixed supply. No inflation. Governance and treasury direction token with 25% airdrop at TGE.</p>
+        <div class="token-stats">
+          <div class="token-stat"><div class="val">50%</div><div class="lbl">Community</div></div>
+          <div class="token-stat"><div class="val">18%</div><div class="lbl">Core</div></div>
+          <div class="token-stat"><div class="val">18%</div><div class="lbl">Sale</div></div>
+          <div class="token-stat"><div class="val">10%</div><div class="lbl">Foundation</div></div>
+          <div class="token-stat"><div class="val">4%</div><div class="lbl">Liquidity</div></div>
+          <div class="token-stat"><div class="val">25%</div><div class="lbl">Airdrop</div></div>
+        </div>
+      </div>
+      <div class="token-chart anim d2">
+        <div class="token-ring">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#08181F" stroke-width="28" stroke-dasharray="251.3 502.6" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#343a40" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-251.3" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#2d6a2e" stroke-width="28" stroke-dasharray="90.5 502.6" stroke-dashoffset="-341.8" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#adb5bd" stroke-width="28" stroke-dasharray="50.3 502.6" stroke-dashoffset="-432.3" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#dee2e6" stroke-width="28" stroke-dasharray="20.1 502.6" stroke-dashoffset="-482.6" transform="rotate(-90 100 100)"/>
+            <text x="100" y="96" text-anchor="middle" font-family="Aeonik" font-size="15" font-weight="800" fill="#08181F">1B HAR</text>
+            <text x="100" y="112" text-anchor="middle" font-family="Aeonik" font-size="10" fill="#868e96">Fixed Supply</text>
+          </svg>
+        </div>
+        <div class="token-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#08181F"></div>Community</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#343a40"></div>Core</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#2d6a2e"></div>Sale</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#adb5bd"></div>Foundation</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#dee2e6"></div>Liquidity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FEATURES -->
 <section class="section" id="features">
@@ -950,7 +1006,7 @@ ul{list-style:none}
                     <svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#08181F" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
                     <span style="font-size:10px;font-weight:800;color:#000;letter-spacing:-0.2px">Harmonix</span>
                   </div>
-                  <div style="background:#f1f3f5;color:#495057;padding:3px 8px;border-radius:6px;font-size:7px;font-weight:600;font-family:'SF Mono','Fira Code',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
+                  <div style="background:#f1f3f5;color:#495057;padding:3px 8px;border-radius:6px;font-size:7px;font-weight:600;font-family:'Aeonik Mono',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
                 </div>
                 <!-- Balance section -->
                 <div style="margin-bottom:4px">
@@ -1023,7 +1079,7 @@ ul{list-style:none}
           </div>
           <div style="background:#fff;border:1px solid #dee2e6;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:10px;transition:border-color 0.2s" id="yc-input-wrap">
             <span style="font-size:16px;color:#adb5bd;font-weight:600">$</span>
-            <input type="text" id="yc-amount" value="100,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='#43a047'" onblur="document.getElementById('yc-input-wrap').style.borderColor='#dee2e6'" style="flex:1;background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:16px;font-weight:800;color:#000;width:100%">
+            <input type="text" id="yc-amount" value="100,000" oninput="calcYield()" onfocus="document.getElementById('yc-input-wrap').style.borderColor='#43a047'" onblur="document.getElementById('yc-input-wrap').style.borderColor='#dee2e6'" style="flex:1;background:none;border:none;outline:none;font-family:'Aeonik',sans-serif;font-size:16px;font-weight:800;color:#000;width:100%">
             <span style="font-size:10px;font-weight:600;color:#495057;padding:3px 8px;border-radius:4px;background:#f1f3f5">USDC</span>
           </div>
           <div style="display:flex;gap:4px;margin-bottom:12px">
@@ -1074,7 +1130,7 @@ ul{list-style:none}
             <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26 L300 50 L0 50Z" fill="rgba(67,160,71,0.06)"/>
             <path d="M0 30 Q20 28 40 29 Q60 31 80 28 Q100 25 120 27 Q140 29 160 31 Q180 33 200 35 Q220 33 240 29 Q260 25 280 27 L300 26" stroke="#43a047" stroke-width="1.5" fill="none" stroke-linecap="round"/>
             <circle cx="300" cy="26" r="2.5" fill="#43a047"/>
-            <text x="290" y="22" font-size="7" fill="#43a047" font-family="Inter,sans-serif" text-anchor="end" id="vault-apy-label">7.0%</text>
+            <text x="290" y="22" font-size="7" fill="#43a047" font-family="Aeonik,sans-serif" text-anchor="end" id="vault-apy-label">7.0%</text>
           </svg>
           </div>
         </div>
@@ -1132,7 +1188,7 @@ ul{list-style:none}
                     <svg width="10" height="10" viewBox="0 0 30 28" fill="none"><path fill="#08181F" d="M25,3.4c-5.9-3.4-11.3,1-15.2,7.9L3.3,7.5c-4,6.9-5.1,13.7,0.8,17.1s11.3-1,15.2-7.9l6.5,3.7C29.8,13.6,30.9,6.8,25,3.4z M18.2,16.1c-2.3,4-5.1,6.7-7.8,5.1c-2.7-1.5-1.7-5.3,0.6-9.3s5.1-6.7,7.8-5.2C21.4,8.3,20.5,12.1,18.2,16.1z"/></svg>
                     <span style="font-size:10px;font-weight:800;color:#000;letter-spacing:-0.2px">Harmonix</span>
                   </div>
-                  <div style="background:#f1f3f5;color:#495057;padding:3px 8px;border-radius:6px;font-size:7px;font-weight:600;font-family:'SF Mono','Fira Code',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
+                  <div style="background:#f1f3f5;color:#495057;padding:3px 8px;border-radius:6px;font-size:7px;font-weight:600;font-family:'Aeonik Mono',monospace;border:1px solid #e9ecef">0x7a3...f29c</div>
                 </div>
                 <div style="font-size:16px;font-weight:800;color:#000;margin-bottom:12px">Points</div>
                 <div style="background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:14px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
@@ -1386,7 +1442,7 @@ ul{list-style:none}
         <span style="font-size:12px;font-weight:700;color:#fff">HarmonixVault.sol</span>
         <a href="https://github.com/harmonixfi" target="_blank" style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Github <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
       </div>
-      <div style="padding:18px;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:11px;line-height:1.7;overflow-x:auto">
+      <div style="padding:18px;font-family:'Aeonik Mono',monospace;font-size:11px;line-height:1.7;overflow-x:auto">
         <div><span style="color:#6a737d">1&nbsp;&nbsp;</span><span style="color:#6a737d">// SPDX-License-Identifier: BUSL-1.1</span></div>
         <div><span style="color:#6a737d">2&nbsp;&nbsp;</span><span style="color:#c792ea">pragma</span> <span style="color:#82aaff">solidity</span> <span style="color:#f78c6c">0.8.21</span><span style="color:#89ddff">;</span></div>
         <div><span style="color:#6a737d">3</span></div>

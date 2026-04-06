@@ -19,12 +19,12 @@
   <style>
     .box { fill: #ffffff; stroke: #c5dcc8; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 8; }
     .box-hl { fill: #e8f7ea; stroke: #34C759; stroke-width: 2; rx: 10; }
-    .lbl { fill: #34C759; font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; }
-    .ttl { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; }
-    .ttl-lg { fill: #173132; font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700; }
-    .sub { fill: #5a7a6a; font-family: 'DM Sans', sans-serif; font-size: 11.5px; }
-    .flow { fill: #34C759; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-style: italic; }
-    .pct { fill: #173132; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; }
+    .lbl { fill: #34C759; font-family: 'Aeonik', sans-serif; font-size: 9px; letter-spacing: 1.5px; }
+    .ttl { fill: #173132; font-family: 'Aeonik', sans-serif; font-size: 17px; font-weight: 700; }
+    .ttl-lg { fill: #173132; font-family: 'Aeonik', sans-serif; font-size: 20px; font-weight: 700; }
+    .sub { fill: #5a7a6a; font-family: 'Aeonik', sans-serif; font-size: 11.5px; }
+    .flow { fill: #34C759; font-family: 'Aeonik Mono', monospace; font-size: 10.5px; font-style: italic; }
+    .pct { fill: #173132; font-family: 'Aeonik Mono', monospace; font-size: 11px; font-weight: 600; }
   </style>
 
   <!-- BOX 1: User Deposits -->
@@ -105,8 +105,8 @@
   <!-- BOX: Net APY (highlight) -->
   <rect class="box-hl" x="1050" y="190" width="80" height="130"/>
   <text class="lbl" x="1090" y="215" text-anchor="middle">NET APY</text>
-  <text fill="#173132" font-family="'DM Sans', sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">5–</text>
-  <text fill="#173132" font-family="'DM Sans', sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">12</text>
+  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">5–</text>
+  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">12</text>
   <text class="sub" x="1090" y="314" text-anchor="middle" style="font-size:10px">% per year</text>
 
   <!-- RETURN PATH: NET APY → Receipt Token -->
