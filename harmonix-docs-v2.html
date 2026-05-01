@@ -2345,137 +2345,10 @@ html, body {
         <div class="callout-body">Contract addresses above are the primary contracts <strong>currently under development</strong> for the HIP-3 vault. Operations are executed through a Safe wallet with a timelock on critical actions — see the full roles &amp; actions diagram at <a href="https://harmonix-diagram.vercel.app/5_roles_and_actions.html" target="_blank" rel="noopener" style="color:var(--green);">harmonix-diagram.vercel.app ↗</a>. Verify contracts on <a href="https://hyperevmscan.io" target="_blank" rel="noopener" style="color:var(--green);">hyperevmscan.io ↗</a>.</div>
       </div>
 
-      <!-- Flow of Funds — Deposit -->
-      <h2>Flow of Funds — Deposit</h2>
-      <div class="callout info">
+      <!-- Pointer to deposits/withdrawals -->
+      <div class="callout info" style="margin:24px 0 32px;">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-        <div class="callout-body">Deposits are <strong>synchronous</strong>. Shares land in the receiver wallet in the same transaction.</div>
-      </div>
-
-      <!-- Deposit Flow Diagram -->
-      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;margin:20px 0 28px;">
-        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:16px;">Deposit Flow — Single Transaction</div>
-        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 110px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">USER</div>
-            <div style="font-size:11px;font-weight:600;color:var(--text2);">USDC or USDe</div>
-          </div>
-          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">ASSETVAULT</div>
-            <div style="font-size:11px;font-weight:600;color:var(--green);">deposit()</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;">ERC-7575 multi-asset</div>
-          </div>
-          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 130px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">PRICED AT</div>
-            <div style="font-size:11px;font-weight:600;color:var(--text2);">Current PPS</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;">USDe/USDC oracle</div>
-          </div>
-          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 130px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">RECEIVER</div>
-            <div style="font-size:11px;font-weight:600;color:var(--green);">haUSDC shares</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;">ERC-20 · auto-yield</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin:24px 0 40px;position:relative;">
-        <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:var(--border);"></div>
-
-        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
-          <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Approve the AssetVault</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Grant the AssetVault allowance to pull your deposit asset. USDC and USDe both deposit into the same vault under ERC-7575. One-time per asset.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">USDC.approve(ASSETVAULT_ADDRESS, amount)
-<span style="color:var(--text3);">// or USDe.approve(ASSETVAULT_ADDRESS, amount)</span></pre>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
-          <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">assetVault.deposit()</code></div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">AssetVault validates the asset, pulls funds via the multi-asset entry, and mints haUSDC shares to the receiver at the current price-per-share. USDe deposits are priced via the USDe/USDC rate oracle so both assets settle to a unified PPS.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.deposit(asset, amount, receiver) → shares</pre>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
-          <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Receive haUSDC shares</div>
-            <div style="font-size:13px;color:var(--text2);">Shares are standard ERC-20 tokens. Yield from delta-neutral funding plus underlying spot yield auto-compounds into the haUSDC price-per-share. No staking or claiming required.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Flow of Funds — Withdrawal -->
-      <h2>Flow of Funds — Withdrawal</h2>
-      <div class="callout" style="border-left-color:var(--text2);background:rgba(200,240,122,.06);">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--text3)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <div class="callout-body">Withdrawals run through three async phases per <strong>ERC-7540</strong>: request, fulfill, claim. The asset amount is locked at request-time — no re-pricing later. Typical fulfillment: <strong>24–72 hours</strong>.</div>
-      </div>
-
-      <!-- Withdrawal Flow Diagram -->
-      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;margin:20px 0 28px;">
-        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:16px;">Withdrawal Flow — ERC-7540 Async</div>
-        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 1 — USER</div>
-            <div style="font-size:11px;font-weight:600;color:var(--green);">requestRedeem()</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Shares locked at PPS</div>
-            <div style="font-size:9px;color:var(--text2);">Asset amount fixed</div>
-          </div>
-          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 2 — OPERATOR</div>
-            <div style="font-size:11px;font-weight:600;color:var(--green);">Fulfill</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Unwind positions</div>
-            <div style="font-size:9px;color:var(--text2);">~24–72h typical</div>
-          </div>
-          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
-          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 3 — USER</div>
-            <div style="font-size:11px;font-weight:600;color:var(--green);">claimRedeem()</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Burns locked shares</div>
-            <div style="font-size:9px;color:var(--text2);">Receives USDC</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin:24px 0 40px;position:relative;">
-        <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:var(--border);"></div>
-
-        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
-          <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Request a redemption</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Shares are locked at the current PPS. A <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestId</code> is returned. The asset amount you'll receive is fixed at this point.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.requestRedeem(shares, receiver, owner) → requestId</pre>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
-          <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Operator fulfillment</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">An operator unwinds positions as needed and fulfills the request from the vault. Poll status or subscribe to the <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">RedeemFulfilled</code> event.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.getRedeemRequest(requestId) → { status, assets }
-<span style="color:var(--text3);">// status: 0 = Pending  1 = Fulfilled  2 = Claimed</span></pre>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
-          <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Claim your assets</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Once status is <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">Fulfilled</code>, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimRedeem()</code>. The vault burns the locked shares and transfers USDC to the receiver.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.claimRedeem(requestId) → assets</pre>
-          </div>
-        </div>
+        <div class="callout-body">User-facing deposit and withdrawal flows live in <a onclick="show('deposits-withdrawals',null)" href="javascript:void(0)" style="color:var(--green);"><strong>Deposits &amp; Withdrawals → haUSDC ↗</strong></a> — diagrams, step-by-step calls, and code snippets for sync ERC-7575 deposits and ERC-7540 async redemptions.</div>
       </div>
 
       <!-- Hyperliquid Stack -->
@@ -2833,26 +2706,138 @@ html, body {
       <h2>V2 — Yield-Bearing Stablecoins (haUSDC)</h2>
       <p>haUSDC uses a three-contract architecture: <strong>AssetVault</strong> handles user-facing deposits and redemptions (ERC-4626 / 7540 / 7575), <strong>VaultManager</strong> holds custody and computes PPS, and <strong>AssetManager</strong> deploys capital into the delta-neutral engine. Multi-asset deposits (USDC and USDe) settle into a single haUSDC share token via ERC-7575. Withdrawals run through ERC-7540 async phases.</p>
 
+      <!-- Deposit -->
       <h3>Deposit (synchronous)</h3>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <h4>Approve the AssetVault</h4>
-            <p>Call <code>approve(ASSETVAULT_ADDRESS, amount)</code> on USDC or USDe. One-time per asset.</p>
+      <div class="callout info">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body">Deposits are <strong>synchronous</strong>. Shares land in the receiver wallet in the same transaction.</div>
+      </div>
+
+      <!-- Deposit Flow Diagram -->
+      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;margin:20px 0 28px;">
+        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:16px;">Deposit Flow — Single Transaction</div>
+        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 110px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">USER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text2);">USDC or USDe</div>
           </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <h4>Deposit via AssetVault</h4>
-            <p>Call <code>assetVault.deposit(asset, amount, receiver)</code>. Receive haUSDC shares instantly at the current PPS.</p>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">ASSETVAULT</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">deposit()</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">ERC-7575 multi-asset</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 130px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">PRICED AT</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text2);">Current PPS</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">USDe/USDC oracle</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 130px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">RECEIVER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">haUSDC shares</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">ERC-20 · auto-yield</div>
           </div>
         </div>
       </div>
 
+      <div style="margin:24px 0 40px;position:relative;">
+        <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:var(--border);"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Approve the AssetVault</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Grant the AssetVault allowance to pull your deposit asset. USDC and USDe both deposit into the same vault under ERC-7575. One-time per asset.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">USDC.approve(ASSETVAULT_ADDRESS, amount)
+<span style="color:var(--text3);">// or USDe.approve(ASSETVAULT_ADDRESS, amount)</span></pre>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">assetVault.deposit()</code></div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">AssetVault validates the asset, pulls funds via the multi-asset entry, and mints haUSDC shares to the receiver at the current price-per-share. USDe deposits are priced via the USDe/USDC rate oracle so both assets settle to a unified PPS.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.deposit(asset, amount, receiver) → shares</pre>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Receive haUSDC shares</div>
+            <div style="font-size:13px;color:var(--text2);">Shares are standard ERC-20 tokens. Yield from delta-neutral funding plus underlying spot yield auto-compounds into the haUSDC price-per-share. No staking or claiming required.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Withdraw -->
       <h3>Withdraw (ERC-7540 async)</h3>
-      <p>Three-phase flow: <code>requestRedeem</code> locks shares at the current PPS → operator fulfills → <code>claimRedeem</code> transfers USDC. The asset amount is fixed at request-time.</p>
+      <div class="callout" style="border-left-color:var(--text2);background:rgba(200,240,122,.06);">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--text3)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div class="callout-body">Withdrawals run through three async phases per <strong>ERC-7540</strong>: request, fulfill, claim. The asset amount is locked at request-time — no re-pricing later. Typical fulfillment: <strong>24–72 hours</strong>.</div>
+      </div>
+
+      <!-- Withdrawal Flow Diagram -->
+      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;margin:20px 0 28px;">
+        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:16px;">Withdrawal Flow — ERC-7540 Async</div>
+        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 1 — USER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">requestRedeem()</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Shares locked at PPS</div>
+            <div style="font-size:9px;color:var(--text2);">Asset amount fixed</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 2 — OPERATOR</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">Fulfill</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Unwind positions</div>
+            <div style="font-size:9px;color:var(--text2);">~24–72h typical</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 3 — USER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">claimRedeem()</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Burns locked shares</div>
+            <div style="font-size:9px;color:var(--text2);">Receives USDC</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin:24px 0 40px;position:relative;">
+        <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:var(--border);"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Request a redemption</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Shares are locked at the current PPS. A <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestId</code> is returned. The asset amount you'll receive is fixed at this point.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.requestRedeem(shares, receiver, owner) → requestId</pre>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Operator fulfillment</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">An operator unwinds positions as needed and fulfills the request from the vault. Poll status or subscribe to the <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">RedeemFulfilled</code> event.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.getRedeemRequest(requestId) → { status, assets }
+<span style="color:var(--text3);">// status: 0 = Pending  1 = Fulfilled  2 = Claimed</span></pre>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="flex:1;padding-top:4px;">
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Claim your assets</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Once status is <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">Fulfilled</code>, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimRedeem()</code>. The vault burns the locked shares and transfers USDC to the receiver.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.claimRedeem(requestId) → assets</pre>
+          </div>
+        </div>
+      </div>
 
       <!-- ── WITHDRAWAL TIMING ── -->
       <h2>Withdrawal Timing</h2>
