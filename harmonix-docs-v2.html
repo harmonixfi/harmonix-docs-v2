@@ -1198,6 +1198,12 @@ html, body {
   img { max-width: 100% !important; height: auto !important; }
   /* Tables scroll horizontally instead of breaking layout */
   .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Architecture diagram stacks vertically on mobile, arrows point down */
+  .arch-diagram { padding: 20px 14px !important; }
+  .arch-row { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; }
+  .arch-card, .arch-card-stack { flex: 0 0 auto !important; width: 100% !important; max-width: 320px !important; margin: 0 auto !important; }
+  .arch-card-stack { gap: 8px !important; }
+  .arch-arrow { transform: rotate(90deg); padding: 4px 0 !important; align-self: center; }
   /* Steps stack better */
   .steps { gap: 12px; }
   .step-num { min-width: 28px; width: 28px; height: 28px; font-size: 12px; }
@@ -1338,7 +1344,7 @@ html, body {
       <div class="nav-collapse open">
         <a class="nav-item" onclick="show('stablecoins',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9.5c0-1 1.3-1.5 3-1.5s3 .5 3 1.5-1.3 2-3 2-3 .8-3 2 1.3 2 3 2 3-.5 3-1.5"/></svg>Yield-Bearing Stablecoins</a>
         <div class="nav-sub">
-          <a class="nav-item" onclick="show('stablecoins',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="3"/></svg>haUSD</a>
+          <a class="nav-item" onclick="show('stablecoins',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="3"/></svg>haUSDC</a>
         </div>
         <a class="nav-item" onclick="show('tokens',this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>Yield-Bearing Tokens</a>
         <div class="nav-sub">
@@ -1540,7 +1546,7 @@ html, body {
       <p>Now that you're connected, here are the most common next steps:</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0 32px;">
         <div onclick="show('stablecoins',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haUSD →</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Deposit into haUSDC →</div>
           <div style="font-size:12px;color:var(--text3);">Earn yield on your stablecoins via basis trading</div>
         </div>
         <div onclick="show('tokens',null)" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor='var(--border)'">
@@ -1668,6 +1674,76 @@ html, body {
         <a href="https://docs.openzeppelin.com/contracts/5.x/api/interfaces#IERC4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">OpenZeppelin IERC4626 Interface ↗</a>
       </div>
 
+      <!-- ERC-7540 Async Vaults -->
+      <h2>ERC-7540 Async Vaults</h2>
+      <p>ERC-7540 is the official async extension of ERC-4626. Withdrawals run through three phases: <strong>request</strong>, <strong>fulfill</strong>, <strong>claim</strong>. The user requests a redeem, locking shares at the current PPS; an operator fulfills the request from the vault; the user then claims their assets. The asset amount is locked at request-time, with no re-pricing later. Async withdrawal fits delta-neutral strategies that take time to unwind cleanly. Deposits stay synchronous.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">ERC-7540 · async vault · request · fulfill · claim · sync deposit · async withdraw · operator</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://eips.ethereum.org/EIPS/eip-7540" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-7540: Async ERC-4626 Vaults ↗</a> ·
+        <a href="https://eips.ethereum.org/EIPS/eip-4626" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-4626 (parent standard) ↗</a>
+      </div>
+
+      <!-- ERC-7575 Multi-Asset Deposits -->
+      <h2>ERC-7575 Multi-Asset Deposits</h2>
+      <p>ERC-7575 lets a single vault accept multiple deposit assets without wrapper contracts. In haUSDC, both <strong>USDC</strong> and <strong>USDe</strong> deposit into the same vault, are priced on a unified PPS through a USDe/USDC rate oracle, and settle into one haUSDC share token. USDe holders earn from HIP-3 markets — a higher-yield alternative to sUSDe with points exposure stacked on top.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">ERC-7575 · multi-asset vault · USDC · USDe · unified PPS · rate oracle · single share token</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://eips.ethereum.org/EIPS/eip-7575" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">EIP-7575: Multi-Asset Vaults ↗</a> ·
+        <a href="https://ethena-labs.gitbook.io/ethena-labs/solution-overview/usde-overview" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">Ethena USDe Overview ↗</a>
+      </div>
+
+      <!-- CoreWriter Bridge -->
+      <h2>CoreWriter Bridge</h2>
+      <p>CoreWriter is the bridge between HyperEVM and HyperCore. It routes capital across spot venues and perp shorts without manual ops, keeping the delta-neutral legs balanced as positions move. In haUSDC, CoreWriter is wired for the delta-neutral engine and is in beta for Portfolio Margin.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">CoreWriter · HyperEVM ↔ HyperCore · automated routing · delta-neutral engine · portfolio margin</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/evm/interacting-with-hypercore" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">HyperCore ↔ HyperEVM ↗</a>
+      </div>
+
+      <!-- HIP-3 Market Coverage -->
+      <h2>HIP-3 Market Coverage</h2>
+      <p>haUSDC routes exposure across five markets on Hyperliquid: <strong>Hyperliquid</strong> itself as the perp venue for the short leg, plus four HIP-3 spot markets — <strong>TradeXYZ</strong>, <strong>Hyena</strong>, <strong>Felix</strong>, and <strong>Markets.xyz</strong> — for the long legs and points exposure. Felix Spot Equities, live since February 2026, unlock funding-rate yield, HIP-3 market exposure, and partner points in one position.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">HIP-3 · TradeXYZ · Hyena · Felix Spot Equities · Markets.xyz · long spot · short perp · partner points</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-l1/hip-3" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">HIP-3: Builder-Deployed Perpetuals ↗</a>
+      </div>
+
+      <!-- Portfolio Margin via CoreWriter -->
+      <h2>Portfolio Margin via CoreWriter</h2>
+      <p>Portfolio Margin via CoreWriter runs in beta at 20–30% allocation. It adds roughly 2% net safe yield on top of the base, plus exposure to one of the Hyperliquid Season 3 incentive conditions. PM is additive — the funding-rate delta-neutral engine remains the primary yield source.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">portfolio margin · S3 incentives · additive yield · cross-margining · CoreWriter beta</p>
+
+      <!-- Vault Security Model -->
+      <h2>Vault Security Model</h2>
+      <p>Four protections sit at the vault level: <strong>secure share minting</strong> (sensitive operations gated by delayed execution — a compromised admin key cannot execute instantly), <strong>PPS deviation cap</strong> (share prices capped within a configured 50–200 bps range, with real asset backing enforced via yield-bearing tokens), <strong>NAV staleness gate</strong> (transactions revert if total-asset data is too old), and <strong>anomaly freeze</strong> (deposits and withdrawals can be instantly frozen when anomalies are detected). Defensive actions are fast; recovery actions go through a timelock. <a onclick="show('risks',null)" href="javascript:void(0)" style="color:var(--green);">See Risks &amp; Audits → Vault Security Model ↗</a> for the full breakdown including multisig roles.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">delayed execution · PPS cap · NAV staleness · anomaly freeze · multisig · timelock · sentinel</p>
+
+      <!-- Proof of Funds via DeBank -->
+      <h2>Proof of Funds via DeBank</h2>
+      <p>Every depositor can verify their position end-to-end without trusting Harmonix dashboards. <strong>DeBank</strong> surfaces proof of funds, full deposit and withdrawal activity, and realized APY across 7-, 15-, 30-, and 45-day windows. If you cannot verify it on chain, it is not real.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:8px;">DeBank · proof of funds · independent verification · realized APY · 45-day window</p>
+      <div style="margin:8px 0 32px;font-size:12px;color:var(--text3);">
+        <strong style="color:var(--text2);">Reference:</strong>
+        <a href="https://debank.com" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;">DeBank ↗</a>
+      </div>
+
+      <!-- Yield-Stacking Utilities -->
+      <h2>Yield-Stacking Utilities</h2>
+      <p>haUSDC is a base layer, not just a yield token. Once held, additional yield can be stacked without losing the underlying delta-neutral position. The first utility live at launch is <strong>looping on HypurrFi</strong>, curated by <strong>Clearstar Labs</strong>: supply haUSDC as collateral, borrow USDC, redeposit, repeat. Looping multiplies the base rate against the borrow cost, with leverage bounded by LTV. Internal sizing keeps positions within Clearstar's risk parameters, so the looped output respects liquidation buffers while amplifying the base APY.</p>
+      <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">looping · HypurrFi · Clearstar Labs · LTV · leverage · liquidation buffer · yield stacking</p>
+
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('onboarding',null)">
           <span class="page-nav-dir">← Previous</span>
@@ -1690,7 +1766,7 @@ html, body {
       </div>
 
       <h2>What is Harmonix?</h2>
-      <p>Harmonix is a yield infrastructure protocol built natively on Hyperliquid. It captures real economic activity — perpetual funding rates, lending yields, and ecosystem incentives across HyperCore and HyperEVM — and distributes that yield through a suite of yield-bearing tokens: haUSD, haHYPE, and hakHYPE.</p>
+      <p>Harmonix is a yield infrastructure protocol built natively on Hyperliquid. It captures real economic activity — perpetual funding rates, lending yields, and ecosystem incentives across HyperCore and HyperEVM — and distributes that yield through a suite of yield-bearing tokens: haUSDC, haHYPE, and hakHYPE.</p>
       <p>The design goal is straightforward: reuse the same unit of capital across multiple yield sources, price risk from real executable activity rather than static assumptions, and route protocol cashflows back to users in a transparent, programmatic way.</p>
 
       <h2>The Problems We Solve</h2>
@@ -1732,7 +1808,7 @@ html, body {
           </tr>
           <tr>
             <td><strong style="color:var(--green);">V2</strong></td>
-            <td><span class="ps-tag" style="margin:0;">haUSD</span> <span class="ps-tag" style="margin:0;">haHYPE</span> <span class="ps-tag" style="margin:0;">hakHYPE</span></td>
+            <td><span class="ps-tag" style="margin:0;">haUSDC</span> <span class="ps-tag" style="margin:0;">haHYPE</span> <span class="ps-tag" style="margin:0;">hakHYPE</span></td>
             <td>The current generation — ERC-4626 yield-bearing tokens that expand beyond a single basis trade into multi-strategy vaults. Capital is deployed across funding markets, lending, staking, and Pendle PT positions simultaneously, with yield compounding directly into the share price.</td>
           </tr>
         </tbody>
@@ -1779,7 +1855,7 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Build on Harmonix</h1>
-        <p class="page-subtitle">haUSD is an ERC-4626 vault on HyperEVM. Read positions, deposit, and queue redemptions with a single contract interface.</p>
+        <p class="page-subtitle">haUSDC is built on a multi-contract architecture on HyperEVM (AssetVault · VaultManager · AssetManager). ERC-4626 + ERC-7540 + ERC-7575. Read positions, deposit USDC or USDe, and queue redemptions with a single contract interface.</p>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 40px;">
@@ -1817,7 +1893,7 @@ html, body {
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;">
         <div onclick="show('vault-arch',null)" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor=''">
           <span style="font-size:13px;color:var(--text);font-weight:500;">Vault Architecture</span>
-          <span style="font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text2);">BoringVault · Teller · Accountant</span>
+          <span style="font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text2);">AssetVault · VaultManager · AssetManager</span>
         </div>
         <div onclick="show('deposits-withdrawals',null)" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--callout-border)'" onmouseout="this.style.borderColor=''">
           <span style="font-size:13px;color:var(--text);font-weight:500;">Deposits &amp; Withdrawals</span>
@@ -1852,7 +1928,7 @@ html, body {
           <div class="ps-item-body" style="padding:20px;">
             <div class="ps-item-title" style="font-size:15px;margin-bottom:8px;">Yield-Bearing Stablecoins →</div>
             <div class="ps-item-desc" style="margin-bottom:14px;">USD-denominated yield-bearing vault shares that compound sustainable on-chain yield through market-neutral strategies.</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">haUSD</span></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-tag">haUSDC</span></div>
           </div>
         </div>
         <div class="ps-item" onclick="show('tokens',null)">
@@ -1895,31 +1971,34 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">Products</span>
         <h1>Yield-Bearing Stablecoins</h1>
-        <p class="page-subtitle">haUSD is an ERC-4626 receipt token that generates sustainable onchain yield by deploying capital across market-neutral strategies on HyperCore and ecosystem protocols on HyperEVM.</p>
+        <p class="page-subtitle">haUSDC is a yield-bearing stablecoin on Hyperliquid that captures funding rates from HyperCore. ERC-4626 base, ERC-7540 async withdrawals, ERC-7575 multi-asset deposits. Targeting 7–10% APY at launch.</p>
 <div class="diagram-wrap"><img src="stablecoin-diagram.svg" alt="Stablecoin Vault Strategy Diagram" style="width: 100%; min-width: 100%; display: block;" /></div>
       </div>
 
-      <p>The design is straightforward: deposit the underlying asset, receive ha-tokens that automatically accrue yield over time via the ERC-4626 exchange rate. No manual rebalancing, no claiming — your share simply becomes worth more of the underlying asset as yield compounds in.</p>
+      <p>The user-facing flow is short. One token. Hold it. The price grows. Deposit USDC or USDe, receive haUSDC, and yield from delta-neutral funding plus underlying spot yield auto-compounds into the share price. No manual rebalancing, no claiming.</p>
 
-      <h2>What ha-stablecoins are and how they fit</h2>
-      <p><strong>Turn idle stablecoins into productive capital.</strong> Rather than holding stablecoins at zero yield, users deposit and receive haUSD, immediately beginning to earn from HyperCore funding markets and HyperEVM lending and liquidity protocols.</p>
-      <p><strong>Dollar-denominated, yield-accruing.</strong> Capital is deployed exclusively into market-neutral strategies — delta-neutral positions that minimize directional exposure. The vault targets stability of the underlying denomination; the share price grows over time as yield accrues into the exchange rate.</p>
-      <p><strong>Accrue ecosystem incentives.</strong> Beyond base yield, ha-stablecoin positions accrue Harmonix Points and partner protocol points automatically, compounding total returns across the Hyperliquid ecosystem.</p>
+      <h2>What haUSDC is and how it fits</h2>
+      <p><strong>Turn idle stablecoins into productive capital.</strong> Rather than holding stablecoins at zero yield, users deposit USDC or USDe and receive haUSDC, immediately beginning to earn from HyperCore funding markets and HyperEVM ecosystem yield.</p>
+      <p><strong>Multi-asset, unified PPS.</strong> ERC-7575 lets USDC and USDe both deposit into the same vault. Both assets settle into one haUSDC share token, priced on a unified PPS through a USDe/USDC rate oracle. USDe holders earn from HIP-3 markets — a higher-yield alternative to sUSDe with points exposure stacked on top.</p>
+      <p><strong>Dollar-denominated, yield-accruing.</strong> Capital is deployed into delta-neutral strategies that net out directional exposure. The vault targets stability of the underlying denomination; the share price grows over time as yield accrues into the exchange rate.</p>
+      <p><strong>Accrue ecosystem incentives.</strong> Beyond base yield, haUSDC positions accrue Harmonix Points and partner points across the five HIP-3 markets automatically.</p>
 
-      <h2>haUSD</h2>
-      <p>haUSD is an ERC-4626 yield-bearing receipt token for stablecoin depositors. Deposit stablecoins, receive haUSD shares. As the vault generates yield, each haUSD becomes redeemable for more of the underlying over time — yield compounds into the exchange rate, not distributed as separate payments.</p>
-      <p style="color:var(--text2);font-size:13px;">Standard: <strong style="color:var(--text);">ERC-4626</strong></p>
+      <h2>haUSDC</h2>
+      <p>haUSDC is a yield-bearing receipt token for stablecoin depositors. Deposit USDC or USDe, receive haUSDC shares. As the vault generates yield, each haUSDC becomes redeemable for more of the underlying over time — yield compounds into the exchange rate, not distributed as separate payments.</p>
+      <p style="color:var(--text2);font-size:13px;">Standards: <strong style="color:var(--text);">ERC-4626</strong> · <strong style="color:var(--text);">ERC-7540</strong> · <strong style="color:var(--text);">ERC-7575</strong></p>
 
       <h2>Vault Allocation</h2>
-      <p>Capital is split across three strategies that shift dynamically based on market conditions:</p>
-      <p><strong>Delta Neutral</strong> — the primary source, deploying capital long spot / short perp on HyperCore to earn funding rates with no directional exposure.</p>
-      <p><strong>Supply Spot</strong> — lending and liquidity provision across HyperEVM protocols (Felix, Hyperswap, HyperLend) for additional variable yield.</p>
-      <p><strong>Idle buffer</strong> — a small reserve maintained at all times to support smooth redemptions without unwinding active positions.</p>
+      <p>Capital is deployed across delta-neutral legs on five Hyperliquid markets, with an idle buffer for smooth redemptions:</p>
+      <p><strong>Delta-neutral engine.</strong> The vault holds yield-bearing spot tokens long across HIP-3 markets — Felix, TradeXYZ, Hyena, Markets.xyz — and shorts the corresponding perps on HyperCore via CoreWriter. The two legs are equal size, so directional exposure cancels out. What is left is the funding stream plus the underlying spot yield.</p>
+      <p><strong>Supply Spot.</strong> Lending and liquidity provision across HyperEVM (Felix, HyperSwap, HyperLend) layer additional yield. Allocations rotate dynamically as funding regimes change.</p>
+      <p><strong>Portfolio Margin via CoreWriter (beta).</strong> 20–30% allocation, ~2% additional net safe yield, S3 incentive exposure. Additive to the base — not a replacement.</p>
+      <p><strong>Idle buffer.</strong> A small reserve maintained at all times to support smooth redemptions without unwinding active positions.</p>
 
       <!-- Shared section -->
       <h2>Where Yield Comes From</h2>
-      <p><strong>Funding income (Delta Neutral).</strong> Capital is paired long spot / short perpetuals on HyperCore to earn funding payments while minimizing price exposure. This is the primary, most consistent yield source.</p>
-      <p><strong>Spot supply yield.</strong> A portion of capital is deployed into HyperEVM lending and liquidity protocols — Felix, Hyperswap, Kinetiq, and others — earning additional lending and LP yield on top of funding income.</p>
+      <p><strong>HyperCore funding rates.</strong> When more traders bet that crypto goes up than down on Hyperliquid, the crowded side pays a fee — the funding rate — to the less crowded side. haUSDC sits on the other side and collects, around the clock, regardless of direction. Hyperliquid is the most liquid decentralized perp venue in DeFi; HIP-3 open interest has been hitting new all-time highs almost weekly.</p>
+      <p><strong>Underlying spot yield.</strong> Long HIP-3 spot legs across Felix, TradeXYZ, Hyena, and Markets.xyz earn yield on the spot side. Felix Spot Equities, live since February 2026, unlock funding-rate yield, HIP-3 market exposure, and partner points in one position.</p>
+      <p><strong>Spot supply yield.</strong> Lending and liquidity provision across HyperEVM (Felix, HyperSwap, HyperLend) layer additional variable yield on top of funding income.</p>
       <p><strong>Idle reserves.</strong> A buffer of undeployed capital is maintained at all times to support smooth redemptions without disrupting active strategy positions.</p>
 
       <h2>Fees</h2>
@@ -1935,21 +2014,21 @@ html, body {
       <p style="color:var(--text2);font-size:13px;">V2 vaults charge a 1% annualized management fee only. No performance fee. Fee is accrued pro-rata into the share price.</p>
 
       <h2>Withdrawals</h2>
-      <p>All ha-stablecoin vaults use an asynchronous withdrawal queue via the Teller contract. A 5% idle buffer is maintained at all times to support near-instant small withdrawals.</p>
+      <p>haUSDC withdrawals run through three async phases per ERC-7540: <strong>request</strong>, <strong>fulfill</strong>, <strong>claim</strong>. The asset amount is locked at request-time, with no re-pricing later. An idle buffer is maintained to absorb routine withdrawals without unwinding.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Request</h4><p>Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestWithdraw(shares)</code> on the Teller contract — locks your shares and enters the queue.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Processing</h4><p>The vault unwinds the corresponding portion of active positions. Requests within the idle buffer are typically processed within one day; larger requests may take up to three days.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Claim</h4><p>Once fulfilled, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimWithdraw(requestId)</code> to receive the underlying stablecoin (USDC, USDT, or USDH).</p></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Request</h4><p>Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestRedeem(shares, receiver, owner)</code> on the AssetVault — locks shares at the current PPS and returns a <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestId</code>.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Fulfillment</h4><p>An operator unwinds the corresponding portion of active positions and fulfills the request from the vault. Requests within the idle buffer are typically processed within one day; larger requests may take up to three days.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Claim</h4><p>Once fulfilled, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimRedeem(requestId)</code> to receive USDC.</p></div></div>
       </div>
 
       <h2>Risks</h2>
       <p><strong>Funding rate risk.</strong> The delta-neutral strategy depends on positive perpetual funding rates. If rates turn negative, the short leg generates a cost rather than income. The vault monitors rates in real time and adjusts position sizing accordingly.</p>
-      <p><strong>Smart contract risk.</strong> Capital interacts with BoringVault, Teller, and Accountant contracts. All contracts have been audited by Verichains, Shieldify, and Zenith, but smart contract risk can never be fully eliminated.</p>
+      <p><strong>Smart contract risk.</strong> Capital interacts with the AssetVault, VaultManager, and AssetManager contracts on HyperEVM. All contracts have been audited by Verichains, Shieldify, and Zenith, with continuous on-chain monitoring by Hypernative — but smart contract risk can never be fully eliminated.</p>
       <p><strong>Venue risk.</strong> Capital is deployed across HyperCore and multiple HyperEVM protocols. Each venue carries its own smart contract and liquidity risk. Diversification reduces but does not eliminate this exposure.</p>
 
       <div class="callout warn">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--green)" stroke-width="2"><path d="m10.29 3.86-8.57 14.86A2 2 0 0 0 3.43 22h17.14a2 2 0 0 0 1.71-3l-8.57-14.86a2 2 0 0 0-3.42.28z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <div class="callout-body">haUSD is not a guaranteed fixed-yield instrument. Yield fluctuates with funding rates, market conditions, and protocol activity. The share price grows over time as yield accrues — each haUSD will be worth more of the underlying asset at redemption than at deposit. It is not pegged to $1; it is a yield-bearing vault share. For platform-wide risks, see <a onclick="show('risks',null)" href="javascript:void(0)" style="color:var(--green);">Risks, Security &amp; Audits</a>.</div>
+        <div class="callout-body">haUSDC is not a guaranteed fixed-yield instrument. Yield fluctuates with funding rates, market conditions, and protocol activity. The share price grows over time as yield accrues — each haUSDC will be worth more of the underlying asset at redemption than at deposit. It is not pegged to $1; it is a yield-bearing vault share. For platform-wide risks, see <a onclick="show('risks',null)" href="javascript:void(0)" style="color:var(--green);">Risks, Security &amp; Audits</a>.</div>
       </div>
 
       <div class="page-nav">
@@ -2176,101 +2255,95 @@ html, body {
       <div class="page-hero">
         <span class="page-tag">For Developers</span>
         <h1>Vault Architecture</h1>
-        <p class="page-subtitle">haUSD is an ERC-4626 vault on HyperEVM built on the BoringVault framework. Six isolated contracts — no single component holds both custody and execution authority.</p>
+        <p class="page-subtitle">haUSDC is built on three contract layers: a user-facing layer, an asset-custody layer, and a deployment layer. ERC-4626 base, ERC-7540 async withdrawals, ERC-7575 multi-asset deposits.</p>
       </div>
 
       <!-- Architecture Diagram — Horizontal -->
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:28px 20px;margin:0 0 48px;">
-        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:20px;">Contract Architecture — haUSD</div>
+      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:28px 20px;margin:0 0 48px;">
+        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:20px;">Contract Architecture — haUSDC</div>
 
-        <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
+        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
 
           <!-- User -->
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 90px;">
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 100px;">
             <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">USER</div>
             <div style="font-size:11px;font-weight:600;color:var(--text2);">Depositor</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:3px;">USDC · USDe</div>
           </div>
 
-          <!-- Arrow → -->
-          <div style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <!-- Arrow -->
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
 
-          <!-- Teller -->
-          <div style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 120px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">ENTRY POINT</div>
-            <div style="font-size:12px;font-weight:600;color:var(--green);">Teller</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:3px;">deposit() · redeem()</div>
+          <!-- AssetVault -->
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 140px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">USER-FACING LAYER</div>
+            <div style="font-size:12px;font-weight:600;color:var(--green);">AssetVault</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:3px;">haUSDC · ERC-4626</div>
+            <div style="font-size:9px;color:var(--text2);">ERC-7540 · ERC-7575</div>
           </div>
 
-          <!-- Arrow → -->
-          <div style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <!-- Arrow -->
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
 
-          <!-- BoringVault -->
-          <div style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 140px;">
-            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">CORE VAULT</div>
-            <div style="font-size:12px;font-weight:600;color:var(--green);">BoringVault</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:3px;">ERC-20 · custody · delegatecall</div>
-          </div>
-
-          <!-- Arrow → -->
-          <div style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
-
-          <!-- Manager + Accountant stacked -->
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
-              <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:2px;">STRATEGY</div>
-              <div style="font-size:11px;font-weight:600;color:var(--text2);">Manager</div>
-              <div style="font-size:9px;color:var(--text2);margin-top:2px;">Merkle · HyperCore exec</div>
+          <!-- VaultManager + FundNavFeed stacked -->
+          <div class="arch-card-stack" style="display:flex;flex-direction:column;gap:6px;">
+            <div style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:8px 12px;text-align:center;min-width:140px;">
+              <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:2px;">CUSTODY · ACCOUNTING</div>
+              <div style="font-size:12px;font-weight:600;color:var(--green);">VaultManager</div>
+              <div style="font-size:9px;color:var(--text2);margin-top:2px;">PPS · deviation cap · staleness</div>
             </div>
-            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
-              <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:2px;">ACCOUNTING</div>
-              <div style="font-size:11px;font-weight:600;color:var(--text2);">Accountant</div>
-              <div style="font-size:9px;color:var(--text2);margin-top:2px;">NAV oracle · PPS · fees</div>
+            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:140px;">
+              <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:2px;">NAV ORACLE</div>
+              <div style="font-size:11px;font-weight:600;color:var(--text2);">FundNavFeed</div>
+              <div style="font-size:9px;color:var(--text2);margin-top:2px;">Off-chain · operator-updated</div>
             </div>
           </div>
 
-          <!-- Arrow → -->
-          <div style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <!-- Arrow -->
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
 
-          <!-- RolesAuthority + Lens stacked -->
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
-              <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:2px;">ACCESS CONTROL</div>
-              <div style="font-size:11px;font-weight:600;color:var(--text2);">RolesAuthority</div>
-              <div style="font-size:9px;color:var(--text2);margin-top:2px;">On-chain RBAC · gating</div>
-            </div>
-            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:120px;">
-              <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:2px;">READ-ONLY</div>
-              <div style="font-size:11px;font-weight:600;color:var(--text2);">Lens</div>
-              <div style="font-size:9px;color:var(--text2);margin-top:2px;">getVaultData() · getUserData()</div>
-            </div>
+          <!-- AssetManager -->
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;text-align:center;flex:0 1 160px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">DEPLOYMENT LAYER</div>
+            <div style="font-size:12px;font-weight:600;color:var(--text2);">AssetManager</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:3px;">HIP-3 spot legs</div>
+            <div style="font-size:9px;color:var(--text2);">CoreWriter · HyperCore short</div>
           </div>
 
         </div>
       </div>
 
-      <h2>Core Modules</h2>
-      <p>The BoringVault framework uses a modular architecture with minimal core contract logic (~100 lines of code). Each module has a single responsibility and no single component holds both custody and execution authority.</p>
+      <h2>Vault Layers</h2>
+      <p>The contracts split into three layers: a user-facing layer, an asset-custody and accounting layer, and a deployment layer. Each layer has a single responsibility, and no single component holds both custody and execution authority. An off-chain NAV oracle (<code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">FundNavFeed</code>) sits alongside the on-chain stack and is consumed by <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">VaultManager</code>.</p>
 
-      <h3>BoringVault</h3>
-      <p>The central custodial contract that holds all deposited funds. It is deliberately minimal — an ERC-20 token with <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">delegatecall</code> capability. The vault delegates all complex operations (deposits, withdrawals, rebalancing, accounting) to external modules. This separation means the vault itself has an extremely small attack surface.</p>
+      <h3>AssetVault — User-Facing Layer</h3>
+      <p>Issues the <strong>haUSDC</strong> share token and exposes the deposit and redeem flows. Implements the <strong>ERC-4626</strong> base for tokenized vault shares, <strong>ERC-7540</strong> for asynchronous withdrawals, and <strong>ERC-7575</strong> for multi-asset deposits — USDC and USDe both settle into one haUSDC share token, priced on a unified PPS through a USDe/USDC rate oracle.</p>
+      <div style="margin:10px 0 0;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;font-family:'Aeonik Mono',monospace;font-size:12px;color:var(--text2);">
+        <div style="font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-bottom:4px;">CONTRACT — HYPEREVM</div>
+        <a href="https://hyperevmscan.io/address/0x31AaA50a6096547b300A5f5af6ECc00D2F3d77e1" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;word-break:break-all;">0x31AaA50a6096547b300A5f5af6ECc00D2F3d77e1 ↗</a>
+      </div>
 
-      <h3>Teller</h3>
-      <p>The entry point for all user-facing interactions. Handles deposit mechanics by minting shares using exchange rates from the Accountant. Manages the asynchronous withdrawal queue — accepts redemption requests, locks shares in escrow, and releases assets once fulfilled. Enforces a share lock period after deposit to mitigate MEV sandwich attacks on the exchange rate.</p>
+      <h3 style="margin-top:24px;">VaultManager — Custody &amp; Accounting</h3>
+      <p>Holds idle assets, enforces strategy whitelists and per-strategy caps, and is the only contract a curator can allocate from. Reads <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">FundNavFeed</code> to compute price-per-share, and enforces the <strong>PPS deviation cap</strong> (50–200 bps) and <strong>NAV staleness gate</strong>. <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">ShareToken</code> (a separate ERC-20) is what mints user shares.</p>
+      <div style="margin:10px 0 0;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;font-family:'Aeonik Mono',monospace;font-size:12px;color:var(--text2);">
+        <div style="font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-bottom:4px;">CONTRACT — HYPEREVM</div>
+        <a href="https://hyperevmscan.io/address/0xd1C8dc811D6254E6565b2A6024D57Cc08123EbCB" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;word-break:break-all;">0xd1C8dc811D6254E6565b2A6024D57Cc08123EbCB ↗</a>
+      </div>
 
-      <h3>Accountant</h3>
-      <p>Publishes and updates the vault's exchange rate (price-per-share). Includes on-chain safety mechanisms: update frequency limits and rate movement constraints between updates prevent manipulation. The Accountant is the source of truth for how much each share is worth when depositing or withdrawing.</p>
+      <h3 style="margin-top:24px;">AssetManager — Deployment Layer</h3>
+      <p>Pulls capital from the custody layer and deploys it into the delta-neutral engine: long HIP-3 spot legs across Felix, TradeXYZ, Hyena, and Markets.xyz, with corresponding short perps on HyperCore. Routing between HyperEVM and HyperCore is automated by <strong>CoreWriter</strong>, which keeps the legs balanced without manual ops.</p>
+      <div style="margin:10px 0 0;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;font-family:'Aeonik Mono',monospace;font-size:12px;color:var(--text2);">
+        <div style="font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-bottom:4px;">CONTRACT — HYPEREVM</div>
+        <a href="https://hyperevmscan.io/address/0x28257cd6b21519A281A90637462bf7956C7d3808" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;word-break:break-all;">0x28257cd6b21519A281A90637462bf7956C7d3808 ↗</a>
+      </div>
 
-      <h3>Manager</h3>
-      <p>Stores all authorized vault operations in a Merkle tree structure and validates every rebalance action against this whitelist. Only pre-approved protocol interactions (specific contract addresses + function selectors) can execute through the vault. This prevents unauthorized fund movements even if other components are compromised.</p>
+      <h3 style="margin-top:24px;">FundNavFeed — Off-Chain NAV Oracle</h3>
+      <p>An off-chain feed updated by an operator with the latest strategy values. Read by <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">VaultManager</code> to compute PPS. The deviation cap and staleness gate enforced on-chain in VaultManager close the class of NAV-oracle exploits that have hit other vaults.</p>
 
-      <h3>DecoderAndSanitizer</h3>
-      <p>A validation layer that decodes and examines calldata for every external call the vault makes. Ensures that parameters match expected formats and targets before execution — an additional safety check on top of the Merkle whitelist.</p>
-
-      <h3>RolesAuthority</h3>
-      <p>The on-chain role-based access control (RBAC) contract. Gates which addresses can call which functions across the entire vault system. Roles include: Depositor (anyone), Solver (fulfills withdrawal requests), Curator (triggers strategy deployment), and Admin (multisig-controlled parameter changes).</p>
-
-      <h3>Lens</h3>
-      <p>A read-only aggregation contract for integrators. Provides convenience functions like <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">getVaultData()</code> (TVL, PPS, total shares) and <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">getUserData(address)</code> (balance, pending withdrawals, claimable assets) in a single call.</p>
+      <div class="callout info" style="margin-top:20px;">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div class="callout-body">Contract addresses above are the primary contracts <strong>currently under development</strong> for the HIP-3 vault. Operations are executed through a Safe wallet with a timelock on critical actions — see the full roles &amp; actions diagram at <a href="https://harmonix-diagram.vercel.app/5_roles_and_actions.html" target="_blank" rel="noopener" style="color:var(--green);">harmonix-diagram.vercel.app ↗</a>. Verify contracts on <a href="https://hyperevmscan.io" target="_blank" rel="noopener" style="color:var(--green);">hyperevmscan.io ↗</a>.</div>
+      </div>
 
       <!-- Flow of Funds — Deposit -->
       <h2>Flow of Funds — Deposit</h2>
@@ -2279,32 +2352,62 @@ html, body {
         <div class="callout-body">Deposits are <strong>synchronous</strong>. Shares land in the receiver wallet in the same transaction.</div>
       </div>
 
+      <!-- Deposit Flow Diagram -->
+      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;margin:20px 0 28px;">
+        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:16px;">Deposit Flow — Single Transaction</div>
+        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 110px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">USER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text2);">USDC or USDe</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">ASSETVAULT</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">deposit()</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">ERC-7575 multi-asset</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 130px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">PRICED AT</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text2);">Current PPS</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">USDe/USDC oracle</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 130px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--text3);margin-bottom:3px;">RECEIVER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">haUSDC shares</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">ERC-20 · auto-yield</div>
+          </div>
+        </div>
+      </div>
+
       <div style="margin:24px 0 40px;position:relative;">
         <div style="position:absolute;left:15px;top:32px;bottom:40px;width:1px;background:var(--border);"></div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
           <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Approve the Teller</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Grant the Teller allowance to pull your deposit asset. One-time per asset.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">USDC.approve(TELLER_ADDRESS, amount)</pre>
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Approve the AssetVault</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Grant the AssetVault allowance to pull your deposit asset. USDC and USDe both deposit into the same vault under ERC-7575. One-time per asset.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">USDC.approve(ASSETVAULT_ADDRESS, amount)
+<span style="color:var(--text3);">// or USDe.approve(ASSETVAULT_ADDRESS, amount)</span></pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
           <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">teller.deposit()</code></div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Teller validates the asset against its allowlist, pulls funds, calls <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">BoringVault.enter()</code>, and mints ERC-4626 shares to the receiver at the current price-per-share.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">teller.deposit(USDC, amount, minShares, receiver) → shares</pre>
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">assetVault.deposit()</code></div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">AssetVault validates the asset, pulls funds via the multi-asset entry, and mints haUSDC shares to the receiver at the current price-per-share. USDe deposits are priced via the USDe/USDC rate oracle so both assets settle to a unified PPS.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.deposit(asset, amount, receiver) → shares</pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;">
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
           <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Receive haUSD shares</div>
-            <div style="font-size:13px;color:var(--text2);">Shares are standard ERC-20 tokens. They accrue yield automatically as the NAV Oracle pushes price-per-share updates to the Accountant. No staking or claiming required.</div>
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Receive haUSDC shares</div>
+            <div style="font-size:13px;color:var(--text2);">Shares are standard ERC-20 tokens. Yield from delta-neutral funding plus underlying spot yield auto-compounds into the haUSDC price-per-share. No staking or claiming required.</div>
           </div>
         </div>
       </div>
@@ -2313,7 +2416,34 @@ html, body {
       <h2>Flow of Funds — Withdrawal</h2>
       <div class="callout" style="border-left-color:var(--text2);background:rgba(200,240,122,.06);">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--text3)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-        <div class="callout-body">Withdrawals use an <strong>async queue</strong>. Standard ERC-4626 <code>redeem()</code> and <code>withdraw()</code> are disabled. Use the three-step flow below. Typical fulfillment: <strong>24–72 hours</strong>.</div>
+        <div class="callout-body">Withdrawals run through three async phases per <strong>ERC-7540</strong>: request, fulfill, claim. The asset amount is locked at request-time — no re-pricing later. Typical fulfillment: <strong>24–72 hours</strong>.</div>
+      </div>
+
+      <!-- Withdrawal Flow Diagram -->
+      <div class="arch-diagram" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;margin:20px 0 28px;">
+        <div style="font-size:11px;font-family:'Aeonik Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:16px;">Withdrawal Flow — ERC-7540 Async</div>
+        <div class="arch-row" style="display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;">
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 1 — USER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">requestRedeem()</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Shares locked at PPS</div>
+            <div style="font-size:9px;color:var(--text2);">Asset amount fixed</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 2 — OPERATOR</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">Fulfill</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Unwind positions</div>
+            <div style="font-size:9px;color:var(--text2);">~24–72h typical</div>
+          </div>
+          <div class="arch-arrow" style="color:var(--text3);font-size:18px;padding:0 4px;">→</div>
+          <div class="arch-card" style="background:var(--bg3);border:1px solid var(--callout-border);border-radius:8px;padding:10px 14px;text-align:center;flex:0 1 150px;">
+            <div style="font-size:9px;font-family:'Aeonik Mono',monospace;color:var(--callout-border);margin-bottom:3px;">PHASE 3 — USER</div>
+            <div style="font-size:11px;font-weight:600;color:var(--green);">claimRedeem()</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;">Burns locked shares</div>
+            <div style="font-size:9px;color:var(--text2);">Receives USDC</div>
+          </div>
+        </div>
       </div>
 
       <div style="margin:24px 0 40px;position:relative;">
@@ -2323,17 +2453,17 @@ html, body {
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">1</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Request a redemption</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Shares are locked in escrow. A <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestId</code> is returned. Shares stop accruing yield immediately.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">teller.requestRedeem(shares, receiver, owner) → requestId</pre>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Shares are locked at the current PPS. A <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">requestId</code> is returned. The asset amount you'll receive is fixed at this point.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.requestRedeem(shares, receiver, owner) → requestId</pre>
           </div>
         </div>
 
         <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;">
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">2</div>
           <div style="flex:1;padding-top:4px;">
-            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Wait for Solver fulfillment</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">The Solver role batches pending requests off-chain and calls <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">fulfillRedeems()</code>. Poll status or subscribe to the <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">RedeemFulfilled</code> event.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">teller.getRedeemRequest(requestId) → { status, assets }
+            <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Operator fulfillment</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">An operator unwinds positions as needed and fulfills the request from the vault. Poll status or subscribe to the <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">RedeemFulfilled</code> event.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.getRedeemRequest(requestId) → { status, assets }
 <span style="color:var(--text3);">// status: 0 = Pending  1 = Fulfilled  2 = Claimed</span></pre>
           </div>
         </div>
@@ -2342,8 +2472,8 @@ html, body {
           <div style="width:32px;height:32px;border-radius:50%;background:rgba(200,240,122,.1);border:1px solid var(--callout-border);color:var(--green);font-size:12px;font-family:'Aeonik Mono',monospace;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;">3</div>
           <div style="flex:1;padding-top:4px;">
             <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;">Claim your assets</div>
-            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Once status is <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">Fulfilled</code>, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimRedeem()</code>. Teller burns the escrowed shares and transfers USDC / USDT / USDH to the receiver.</div>
-            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">teller.claimRedeem(requestId) → assets</pre>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Once status is <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">Fulfilled</code>, call <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--green);">claimRedeem()</code>. The vault burns the locked shares and transfers USDC to the receiver.</div>
+            <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 16px;margin:0;font-family:'Aeonik Mono',monospace;font-size:12.5px;color:var(--green);">assetVault.claimRedeem(requestId) → assets</pre>
           </div>
         </div>
       </div>
@@ -2355,8 +2485,8 @@ html, body {
         <tbody>
           <tr><td><strong>Consensus</strong></td><td>HyperBFT</td><td>Sub-second finality. All vault operations and funding events settle in a single block.</td></tr>
           <tr><td><strong>Execution</strong></td><td>HyperCore</td><td>Primary yield source. Perpetuals for funding income, spot for long-side hedge, staking for HYPE yield.</td></tr>
-          <tr><td><strong>Smart Contracts</strong></td><td>HyperEVM</td><td>All Harmonix vault contracts deployed here. ERC-4626 + BoringVault framework.</td></tr>
-          <tr><td><strong>Yield Tokens</strong></td><td>HIP-3</td><td>Felix feUSD, Ondo USDY, Hyna sUSDe — yield-bearing spot assets used as strategy inputs without bridging.</td></tr>
+          <tr><td><strong>Smart Contracts</strong></td><td>HyperEVM</td><td>All Harmonix vault contracts deployed here. haUSDC uses the AssetVault architecture (ERC-4626 / 7540 / 7575). haHYPE and hakHYPE use the BoringVault framework (ERC-4626).</td></tr>
+          <tr><td><strong>HIP-3 Markets</strong></td><td>Hyperliquid · TradeXYZ · Hyena · Felix · Markets.xyz</td><td>Five markets used for the long spot leg. Felix Spot Equities live since Feb 2026. Hyperliquid itself is the perp venue for the short leg.</td></tr>
         </tbody>
       </table></div>
 
@@ -2374,57 +2504,55 @@ html, body {
       </table></div>
 
       <!-- Standards Roadmap -->
-      <h2>Standards Roadmap</h2>
-      <p>Harmonix vaults currently implement <strong>ERC-4626</strong> for tokenized vault shares. The following standards are being added to HIP-3 vaults as part of the next architecture iteration:</p>
+      <h2>Standards</h2>
+      <p>haUSDC ships with three vault standards live at launch on the HIP-3 vault. Other vault types retain the existing ERC-4626 interface.</p>
 
       <div class="table-wrap"><table>
         <thead><tr><th>Standard</th><th>Status</th><th>Purpose</th></tr></thead>
         <tbody>
-          <tr><td><strong>ERC-4626</strong></td><td style="color:var(--green);">Live</td><td>Tokenized vault shares — deposit, redeem, price-per-share accounting.</td></tr>
-          <tr><td><strong>ERC-7575</strong></td><td style="color:rgba(255,200,50,0.85);">Planned</td><td>Multi-deposit support — accept multiple asset types into a single vault without wrapper contracts.</td></tr>
-          <tr><td><strong>ERC-7540</strong></td><td style="color:rgba(255,200,50,0.85);">Planned</td><td>Asynchronous redemption standard — native Superform integration and cross-protocol vault composability.</td></tr>
+          <tr><td><strong>ERC-4626</strong></td><td style="color:var(--green);">Live</td><td>Tokenized vault shares — deposit, redeem, price-per-share accounting. Yield compounds into the share price. Fully composable across DeFi.</td></tr>
+          <tr><td><strong>ERC-7540</strong></td><td style="color:var(--green);">Live</td><td>Asynchronous withdrawals — request, fulfill, claim. Sync deposits, async redemptions. Fits delta-neutral strategies that take time to unwind cleanly.</td></tr>
+          <tr><td><strong>ERC-7575</strong></td><td style="color:var(--green);">Live</td><td>Multi-asset deposits — USDC and USDe both deposit into the same vault, priced on a unified PPS through a USDe/USDC rate oracle, and settle into one haUSDC share token.</td></tr>
         </tbody>
       </table></div>
 
-      <div class="callout info">
-        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#50a0ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-        <div class="callout-body"><strong>Scope note:</strong> ERC-7575 and ERC-7540 changes currently apply to <strong>HIP-3 vaults</strong> only. Other vault types retain the existing ERC-4626 interface. This page will be updated with full architecture details after the implementation demo.</div>
-      </div>
-
       <!-- Upcoming Integrations -->
-      <h2>Upcoming Integrations</h2>
+      <h2>Integrations</h2>
       <div class="table-wrap"><table>
         <thead><tr><th>Integration</th><th>Status</th><th>Description</th></tr></thead>
         <tbody>
+          <tr><td><strong>CoreWriter</strong></td><td style="color:var(--green);">Live · Beta for PM</td><td>Bridge between HyperEVM and HyperCore. Routes capital across spot venues and perp shorts without manual ops. Wired for the delta-neutral engine; in beta for Portfolio Margin.</td></tr>
+          <tr><td><strong>Portfolio Margin via CoreWriter</strong></td><td style="color:rgba(255,200,50,0.85);">Beta</td><td>Runs at 20–30% allocation. Adds roughly 2% net safe yield on top of the base, plus exposure to one of the Hyperliquid Season 3 incentive conditions. Additive — the funding-rate engine remains the primary yield source.</td></tr>
+          <tr><td><strong>Looping on HypurrFi</strong></td><td style="color:var(--green);">Ready</td><td>Curated by Clearstar Labs. Supply haUSDC as collateral, borrow USDC, redeposit, repeat. Risk-managed leverage within Clearstar's framework.</td></tr>
           <tr><td><strong>Superform</strong></td><td style="color:rgba(255,200,50,0.85);">In progress</td><td>Cross-chain vault deposits via ERC-7540. Enables users on other chains to deposit into Harmonix vaults without bridging manually.</td></tr>
-          <tr><td><strong>Corewriter</strong></td><td style="color:var(--text3);">Exploring</td><td>On-chain strategy automation for vault rebalancing and position management.</td></tr>
-          <tr><td><strong>Allocation UI</strong></td><td style="color:var(--text3);">Exploring</td><td>User-facing allocation dashboard for vault transparency — similar to Accountable-style breakdowns of where capital is deployed.</td></tr>
+          <tr><td><strong>Pendle PT and LP</strong></td><td style="color:var(--text3);">Under evaluation</td><td>Term-structured exposure is a natural fit. Integration not yet confirmed.</td></tr>
         </tbody>
       </table></div>
 
       <!-- Strategy Execution Flow -->
       <h2>Strategy Execution Flow</h2>
-      <p>When users deposit into a Harmonix vault, their capital follows a structured path from deposit to active strategy deployment. The Teller accepts deposits and mints shares, the BoringVault holds custodial funds, and the Manager authorizes specific strategy allocations via Merkle-verified operations. Offchain keepers trigger rebalances that deploy capital into funding positions on HyperCore, lending on HyperEVM protocols, and other yield sources — all validated on-chain before execution.</p>
+      <p>When users deposit into haUSDC, capital follows a structured path from deposit to active strategy deployment. The AssetVault accepts deposits and mints shares; the VaultManager holds idle assets and enforces strategy whitelists and per-strategy caps; the AssetManager pulls capital and deploys it into the delta-neutral engine. CoreWriter automates routing between HyperEVM and HyperCore so the long HIP-3 spot legs and short HyperCore perps stay balanced without manual ops.</p>
       <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">deposit flow · allocation · rebalance · execution · keeper</p>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">deposit flow · allocation · rebalance · CoreWriter · delta-neutral</p>
 
       <!-- Withdraw and Settlement Operations -->
       <h2>Withdraw and Settlement Operations</h2>
-      <p>Withdrawal operations span both on-chain and offchain processes. When a user requests redemption, shares are locked in escrow by the Teller. The offchain Solver batches pending requests, unwinds the necessary positions on HyperCore and HyperEVM, and calls <code style="font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:2px 5px;border-radius:4px;color:var(--green);">fulfillRedeems()</code> to make assets claimable. The idle buffer absorbs most routine withdrawals without unwinding, but large redemptions require position settlement — which is why fulfillment takes 24–72 hours.</p>
+      <p>Withdrawal operations span both on-chain and off-chain processes. When a user requests redemption, shares are locked at the current PPS — the asset amount is fixed at request-time and does not re-price later. An operator unwinds the necessary positions on HyperCore and HyperEVM and fulfills the request. The idle buffer absorbs most routine withdrawals without unwinding, but large redemptions require position settlement — which is why fulfillment takes 24–72 hours.</p>
       <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
       <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">withdraw ops · pending withdrawal · backend · signer · tx batching</p>
 
       <!-- Monitoring and Dashboards -->
       <h2>Monitoring and Dashboards</h2>
-      <p>The team monitors vault health through real-time dashboards that track TVL, APY, price-per-share movements, position utilization, and exposure across HyperCore and HyperEVM. Alerts fire on NAV deviations, unusual redemption volume, funding rate compression, and contract interaction anomalies. The Lens contract provides on-chain read access to the same data used internally.</p>
+      <p>The team monitors vault health through real-time dashboards that track TVL, APY, price-per-share movements, position utilization, and exposure across HyperCore and HyperEVM. Alerts fire on NAV deviations, unusual redemption volume, funding rate compression, and contract interaction anomalies.</p>
+      <p>For end-to-end user verification, <strong>proof of funds is surfaced via DeBank</strong>: every depositor can independently verify their position, full deposit and withdrawal activity, and realized APY across 7-, 15-, 30-, and 45-day windows — without trusting Harmonix dashboards.</p>
       <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">TVL dashboard · monitoring · alerts · NAV · utilization · exposure</p>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">TVL dashboard · monitoring · alerts · NAV · utilization · DeBank · proof of funds</p>
 
       <!-- Security and Controls -->
       <h2>Security and Controls</h2>
-      <p>All vault admin operations require a Safe multisig (3-of-5). Sensitive parameter changes go through a timelock. The RolesAuthority contract enforces on-chain RBAC for every function across the vault system — no contract can be called by an unauthorized address. The Manager's Merkle tree restricts which external protocols the vault can interact with, and the DecoderAndSanitizer validates every calldata payload before execution.</p>
+      <p>Vault opsec is built around a four-point security model — secure share minting via delayed execution, a PPS deviation cap, a NAV staleness gate, and an instant anomaly freeze. Privileged actions are gated by a Safe multisig sized to its blast radius, then run through a timelock for sensitive changes. Pause and disable are instant; unpause and re-enable wait through the timelock. <a onclick="show('risks',null)" href="javascript:void(0)" style="color:var(--green);">See Risks &amp; Audits → Vault Security Model ↗</a> for the full breakdown.</p>
       <div style="margin:12px 0 8px;font-size:12px;font-family:'Aeonik Mono',monospace;color:var(--text3);letter-spacing:0.5px;">KEYWORDS</div>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">safe wallet · multisig · timelock · admin control · contract upgrade</p>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:32px;">safe wallet · multisig · timelock · PPS cap · NAV staleness · anomaly freeze · sentinel</p>
 
       <!-- Known Constraints -->
       <h2>Known Constraints</h2>
@@ -2519,37 +2647,64 @@ html, body {
         <div class="contract-card-row"><span class="contract-card-label">Explorer</span><a href="https://hyperevmscan.io/token/0x391121d817da42ed3434d281aedbbcc416a2af18" target="_blank" style="font-size:13px;color:var(--green);">View on HyperEVMScan ↗</a></div>
       </div>
 
-      <h2>Yield-Bearing Stablecoins</h2>
-      <p>haUSD is deployed on HyperEVM as an ERC-20 token using a <code>TransparentUpgradeableProxy</code> / <code>ERC1967Proxy</code> pattern, consistent with the Veda framework used for yield-bearing vault tokens.</p>
+      <h2>Yield-Bearing Stablecoins — haUSDC</h2>
+      <p>haUSDC is deployed on HyperEVM across three primary contracts: an <strong>AssetVault</strong> (ERC-4626 / 7540 / 7575 — issues haUSDC and exposes deposit/redeem flows), a <strong>VaultManager</strong> (custody and accounting — reads the off-chain NAV feed, enforces the PPS deviation cap and staleness gate), and an <strong>AssetManager</strong> (deployment — routes long HIP-3 spot legs and short HyperCore perps via CoreWriter). Addresses below are the primary contracts currently under development for the HIP-3 vault.</p>
 
-      <div class="contract-card" style="opacity:0.7;">
+      <div class="contract-card">
         <div class="contract-card-header">
-          <span class="ticker-badge">haUSD</span>
-          <div class="card-title-block"><span class="card-name">haUSD</span></div>
-          <div class="card-tags"><span class="tag green">ERC-20</span><span class="tag grey">ERC1967Proxy</span></div>
+          <span class="ticker-badge">haUSDC</span>
+          <div class="card-title-block"><span class="card-name">AssetVault (USDC)</span></div>
+          <div class="card-tags"><span class="tag green">ERC-4626</span><span class="tag green">ERC-7540</span><span class="tag green">ERC-7575</span></div>
         </div>
-        <div class="contract-card-row"><span class="contract-card-label">Contract</span><span class="contract-card-val" style="color:var(--green);font-style:italic;">Coming Soon</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Contract</span><div class="addr-wrap"><code>0x31AaA50a6096547b300A5f5af6ECc00D2F3d77e1</code><button class="copy-btn" onclick="copyAddr(this,'0x31AaA50a6096547b300A5f5af6ECc00D2F3d77e1')">copy</button></div></div>
         <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">HyperEVM</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Deposit Tokens</span><span class="contract-card-val">USDC, USDe</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Explorer</span><a href="https://hyperevmscan.io/address/0x31AaA50a6096547b300A5f5af6ECc00D2F3d77e1" target="_blank" style="font-size:13px;color:var(--green);">View on HyperEVMScan ↗</a></div>
+      </div>
+
+      <div class="contract-card">
+        <div class="contract-card-header">
+          <span class="ticker-badge">haUSDC</span>
+          <div class="card-title-block"><span class="card-name">VaultManager</span></div>
+          <div class="card-tags"><span class="tag grey">Custody · Accounting</span></div>
+        </div>
+        <div class="contract-card-row"><span class="contract-card-label">Contract</span><div class="addr-wrap"><code>0xd1C8dc811D6254E6565b2A6024D57Cc08123EbCB</code><button class="copy-btn" onclick="copyAddr(this,'0xd1C8dc811D6254E6565b2A6024D57Cc08123EbCB')">copy</button></div></div>
+        <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">HyperEVM</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Role</span><span class="contract-card-val">Reads FundNavFeed; computes PPS; enforces deviation cap and staleness gate</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Explorer</span><a href="https://hyperevmscan.io/address/0xd1C8dc811D6254E6565b2A6024D57Cc08123EbCB" target="_blank" style="font-size:13px;color:var(--green);">View on HyperEVMScan ↗</a></div>
+      </div>
+
+      <div class="contract-card">
+        <div class="contract-card-header">
+          <span class="ticker-badge">haUSDC</span>
+          <div class="card-title-block"><span class="card-name">AssetManager</span></div>
+          <div class="card-tags"><span class="tag grey">Deployment</span></div>
+        </div>
+        <div class="contract-card-row"><span class="contract-card-label">Contract</span><div class="addr-wrap"><code>0x28257cd6b21519A281A90637462bf7956C7d3808</code><button class="copy-btn" onclick="copyAddr(this,'0x28257cd6b21519A281A90637462bf7956C7d3808')">copy</button></div></div>
+        <div class="contract-card-row"><span class="contract-card-label">Network</span><span class="contract-card-val">HyperEVM</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Role</span><span class="contract-card-val">HIP-3 spot legs + HyperCore perp short via CoreWriter</span></div>
+        <div class="contract-card-row"><span class="contract-card-label">Explorer</span><a href="https://hyperevmscan.io/address/0x28257cd6b21519A281A90637462bf7956C7d3808" target="_blank" style="font-size:13px;color:var(--green);">View on HyperEVMScan ↗</a></div>
       </div>
 
       <h2>Full Contract Registry</h2>
-      <p>Every Harmonix product is an ERC-4626 vault deployed on HyperEVM. Vault contracts are upgradeable via a Safe multisig with a timelock. Shares are standard ERC-20 tokens (the ha-tokens) that can be transferred, wrapped, or used as collateral in any protocol that supports ERC-4626.</p>
+      <p>haUSDC ships with a multi-contract architecture (AssetVault / VaultManager / AssetManager) on HyperEVM. haHYPE and hakHYPE use the BoringVault framework. All vaults are upgradeable via a Safe multisig with a timelock. Shares are standard ERC-20 tokens (the ha-tokens) that can be transferred, wrapped, or used as collateral in any protocol that supports ERC-4626.</p>
 
       <div class="table-wrap"><table>
         <thead><tr><th>Contract</th><th>Standard</th><th>Network</th><th>Address</th></tr></thead>
         <tbody>
-          <tr><td>haUSD Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code style="color:var(--green);font-style:italic;">Coming Soon</code></td></tr>
-          <tr><td>haHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0xfde5b062…8d725c</code></td></tr>
-          <tr><td>hakHYPE Vault</td><td>ERC-4626</td><td>HyperEVM</td><td><code>0x1368ee9d…9eebc42</code></td></tr>
+          <tr><td>haUSDC AssetVault</td><td>ERC-4626 / 7540 / 7575</td><td>HyperEVM</td><td><code>0x31AaA50a…2F3d77e1</code></td></tr>
+          <tr><td>haUSDC VaultManager</td><td>Custom</td><td>HyperEVM</td><td><code>0xd1C8dc81…123EbCB</code></td></tr>
+          <tr><td>haUSDC AssetManager</td><td>Custom</td><td>HyperEVM</td><td><code>0x28257cd6…7d3808</code></td></tr>
+          <tr><td>haHYPE Vault</td><td>ERC-4626 (BoringVault)</td><td>HyperEVM</td><td><code>0xfde5b062…8d725c</code></td></tr>
+          <tr><td>hakHYPE Vault</td><td>ERC-4626 (BoringVault)</td><td>HyperEVM</td><td><code>0x1368ee9d…9eebc42</code></td></tr>
           <tr><td>HAR Token</td><td>ERC-20</td><td>HyperEVM</td><td><code>0x391121d8…af18</code></td></tr>
-
-          <tr><td>NAV Oracle</td><td>Custom</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
+          <tr><td>FundNavFeed</td><td>Off-chain feed</td><td>HyperEVM</td><td><code>TBD at launch</code></td></tr>
         </tbody>
       </table></div>
 
       <div class="callout">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--green)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></span>
-        <div class="callout-body"><strong>Vault Framework:</strong> Harmonix's yield-bearing vault token (haUSD) is built using the <strong>BoringVault</strong> framework (deployed via Veda) — a modular, audited vault infrastructure designed for institutional-grade DeFi products. BoringVault provides the ERC-4626 base, role-based access control, and upgrade patterns used across the Harmonix vault stack.</div>
+        <div class="callout-body"><strong>Frameworks:</strong> haUSDC uses a custom three-contract architecture (AssetVault, VaultManager, AssetManager) implementing ERC-4626, ERC-7540, and ERC-7575. haHYPE and hakHYPE use the <strong>BoringVault</strong> framework (deployed via Veda) — a modular, audited vault infrastructure providing the ERC-4626 base, role-based access control, and upgrade patterns.</div>
       </div>
 
       <div class="page-nav">
@@ -2578,7 +2733,7 @@ html, body {
         <tbody>
           <tr><td><strong>Basis Trade Vault</strong></td><td>V1</td><td>HYPE-BASIS</td><td>Custom (HypeVault)</td></tr>
           <tr><td><strong>Yield-Bearing Tokens</strong></td><td>V2</td><td>haHYPE, hakHYPE</td><td>ERC-4626 (BoringVault)</td></tr>
-          <tr><td><strong>Yield-Bearing Stablecoin</strong></td><td>V2</td><td>haUSD</td><td>ERC-4626 (BoringVault)</td></tr>
+          <tr><td><strong>Yield-Bearing Stablecoin</strong></td><td>V2</td><td>haUSDC</td><td>ERC-4626 / 7540 / 7575 (AssetVault)</td></tr>
         </tbody>
       </table></div>
 
@@ -2675,29 +2830,29 @@ html, body {
       </div>
 
       <!-- ── V2: YIELD-BEARING STABLECOINS ── -->
-      <h2>V2 — Yield-Bearing Stablecoins</h2>
-      <p>haUSD follows the same BoringVault / ERC-4626 architecture as the yield-bearing tokens. The Teller handles deposits; withdrawals go through the same async queue.</p>
+      <h2>V2 — Yield-Bearing Stablecoins (haUSDC)</h2>
+      <p>haUSDC uses a three-contract architecture: <strong>AssetVault</strong> handles user-facing deposits and redemptions (ERC-4626 / 7540 / 7575), <strong>VaultManager</strong> holds custody and computes PPS, and <strong>AssetManager</strong> deploys capital into the delta-neutral engine. Multi-asset deposits (USDC and USDe) settle into a single haUSDC share token via ERC-7575. Withdrawals run through ERC-7540 async phases.</p>
 
-      <h3>Deposit</h3>
+      <h3>Deposit (synchronous)</h3>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h4>Approve the Teller</h4>
-            <p>Call <code>approve(TELLER_ADDRESS, amount)</code> on the stablecoin contract.</p>
+            <h4>Approve the AssetVault</h4>
+            <p>Call <code>approve(ASSETVAULT_ADDRESS, amount)</code> on USDC or USDe. One-time per asset.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h4>Deposit via Teller</h4>
-            <p>Call <code>teller.deposit(asset, amount, minShares, receiver)</code>. Receive ha-token shares instantly.</p>
+            <h4>Deposit via AssetVault</h4>
+            <p>Call <code>assetVault.deposit(asset, amount, receiver)</code>. Receive haUSDC shares instantly at the current PPS.</p>
           </div>
         </div>
       </div>
 
-      <h3>Withdraw (Async Queue)</h3>
-      <p>Same three-step flow as yield-bearing tokens: <code>requestWithdraw</code> → wait → <code>claimWithdraw</code>. You receive the underlying stablecoin.</p>
+      <h3>Withdraw (ERC-7540 async)</h3>
+      <p>Three-phase flow: <code>requestRedeem</code> locks shares at the current PPS → operator fulfills → <code>claimRedeem</code> transfers USDC. The asset amount is fixed at request-time.</p>
 
       <!-- ── WITHDRAWAL TIMING ── -->
       <h2>Withdrawal Timing</h2>
@@ -2717,23 +2872,23 @@ html, body {
         <thead><tr><th>Product</th><th>Redeem / Exit Path</th><th>Receive</th></tr></thead>
         <tbody>
           <tr><td>Basis Trade Vault</td><td>Two-step withdrawal</td><td>USDC</td></tr>
-          <tr><td>haUSD</td><td>Async queue</td><td>Underlying stablecoin</td></tr>
+          <tr><td>haUSDC</td><td>Async queue</td><td>Underlying stablecoin</td></tr>
           <tr><td>haHYPE</td><td>Async queue</td><td>WHYPE</td></tr>
           <tr><td>hakHYPE</td><td>Async queue</td><td>kHYPE</td></tr>
         </tbody>
       </table></div>
 
-      <!-- ── ERC-7540 UPGRADE ── -->
-      <h2>Coming Upgrade: ERC-7540</h2>
+      <!-- ── ERC-7540 LIVE ── -->
+      <h2>ERC-7540 &amp; ERC-7575 in haUSDC</h2>
       <div class="callout" style="border-left-color:var(--green);">
         <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--green)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
         <div class="callout-body">
-          <strong>Upgrade in progress</strong> — Harmonix is implementing ERC-7540, the official async extension of ERC-4626.
+          <strong>Live in haUSDC at launch.</strong> haUSDC ships with ERC-7540 (async withdrawals) and ERC-7575 (multi-asset deposits) on the AssetVault. haHYPE and hakHYPE retain the existing BoringVault interface.
         </div>
       </div>
-      <p>ERC-7540 standardizes asynchronous deposit and withdrawal flows at the contract level. This unlocks native cross-chain integrations — users will be able to deposit into haUSD from <strong>any chain</strong>, using <strong>any asset</strong>, via supported aggregator platforms and mobile apps. No manual bridging. No extra steps.</p>
-      <p>The upgrade supports Harmonix's existing asynchronous withdrawal architecture (where users initiate a withdrawal request before claiming) while keeping <strong>instant deposits</strong> — the standard design for vault strategies that take time to unwind positions.</p>
-      <p>Cross-chain aggregator integrations have confirmed compatibility out of the box once the upgrade is live.</p>
+      <p><strong>ERC-7540</strong> standardizes the asynchronous withdrawal flow at the contract level. Users call <code>requestRedeem</code> to lock shares at the current PPS, an operator fulfills the request, and the user calls <code>claimRedeem</code> to receive assets — the asset amount is fixed at request-time with no re-pricing later. Deposits remain synchronous.</p>
+      <p><strong>ERC-7575</strong> lets a single vault accept multiple deposit assets without wrapper contracts. USDC and USDe both deposit into haUSDC, are priced on a unified PPS through a USDe/USDC rate oracle, and settle into one haUSDC share token.</p>
+      <p>Native cross-chain integrations sit on top of these standards — once a Superform-style aggregator integrates, users will be able to deposit into haUSDC from <strong>any chain</strong> with <strong>any asset</strong>, via supported aggregator platforms and mobile apps. No manual bridging.</p>
 
       <div class="page-nav">
         <a class="page-nav-link" onclick="show('contracts',null)">
@@ -2762,7 +2917,7 @@ html, body {
           <h3 style="margin:0 0 8px;color:var(--green);">ERC-4626 Vaults</h3>
           <p style="font-size:13px;color:var(--text2);margin:0 0 12px;">Standard yield-bearing vaults on HyperEVM</p>
           <div style="font-size:12px;color:var(--text3);">
-            <div>• haHYPE, hakHYPE, haUSD</div>
+            <div>• haHYPE, hakHYPE, haUSDC</div>
             <div>• Standard ERC-4626 interface</div>
             <div>• Withdrawal queue system</div>
           </div>
@@ -2796,9 +2951,24 @@ html, body {
       </div>
 
       <h2>ERC-4626 Vaults Integration (V2)</h2>
-      <p>All V2 vaults (haUSD, haHYPE, hakHYPE) use the BoringVault framework. Deposits go through the <code>Teller</code> contract; withdrawals use an async queue.</p>
+      <p>haHYPE and hakHYPE use the BoringVault framework — deposits go through the <code>Teller</code> contract, withdrawals use an async queue. haUSDC uses the AssetVault architecture (ERC-4626 / 7540 / 7575) — deposits go through <code>assetVault.deposit(asset, amount, receiver)</code>, withdrawals run through ERC-7540 async phases.</p>
 
-      <h3>Quick Start</h3>
+      <h3>Quick Start — haUSDC (AssetVault, ERC-4626 / 7540 / 7575)</h3>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
+        <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code>// 1. Approve the AssetVault — works for USDC or USDe (ERC-7575 multi-asset)
+await token.approve(ASSETVAULT_ADDRESS, amount);
+
+// 2. Deposit — shares minted instantly at the current PPS
+const shares = await assetVault.deposit(asset, amount, receiver);
+
+// 3. Request redemption — shares locked at the current PPS, asset amount fixed
+const requestId = await assetVault.requestRedeem(shares, receiver, owner);
+
+// 4. Claim once fulfilled (24–72h) — receives USDC
+const assets = await assetVault.claimRedeem(requestId);</code></pre>
+      </div>
+
+      <h3>Quick Start — haHYPE / hakHYPE (BoringVault)</h3>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
         <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code>// 1. Approve the Teller to spend your tokens
 await token.approve(TELLER_ADDRESS, amount);
@@ -2819,7 +2989,7 @@ const assets = await teller.claimWithdraw(requestId);</code></pre>
         <tbody>
           <tr><td><strong>haHYPE</strong></td><td>HyperEVM</td><td><code>0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c</code></td></tr>
           <tr><td><strong>hakHYPE</strong></td><td>HyperEVM</td><td><code>0x1368ee9d1212ae5b26ff166049220051a9eebc42</code></td></tr>
-          <tr><td><strong>haUSD</strong></td><td>HyperEVM</td><td><code style="color:var(--green);font-style:italic;">Coming Soon</code></td></tr>
+          <tr><td><strong>haUSDC AssetVault</strong></td><td>HyperEVM</td><td><code>0x31AaA50a6096547b300A5f5af6ECc00D2F3d77e1</code></td></tr>
         </tbody>
       </table></div>
 
@@ -2910,7 +3080,7 @@ const apy = Math.pow(1 + period_return, 365 / elapsed_days) - 1;</code></pre>
       <h3>Method 2: REST API (recommended)</h3>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0;">
         <pre style="margin:0;font-size:13px;line-height:1.6;color:var(--green);overflow-x:auto;"><code><span style="color:var(--text3);">// Fetch pre-computed APY from the Harmonix API</span>
-const res = await fetch('https://api.harmonix.fi/api/v1/vaults/haUSD');
+const res = await fetch('https://api.harmonix.fi/api/v1/vaults/haUSDC');
 const vault = await res.json();
 const apy = vault.apy;         <span style="color:var(--text3);">// 7-day rolling APY</span>
 const tvl = vault.tvl;         <span style="color:var(--text3);">// total value locked</span></code></pre>
@@ -3228,7 +3398,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div class="table-wrap"><table>
         <thead><tr><th>Vault</th><th>Coverage</th><th>Verification</th></tr></thead>
         <tbody>
-          <tr><td>haUSD</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
+          <tr><td>haUSDC</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>haHYPE</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>hakHYPE</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + HyperEVM state</td></tr>
           <tr><td>Basis Trade Vault</td><td>100% on-chain, fully verifiable</td><td>Merkle proof + Arbitrum state</td></tr>
@@ -3251,6 +3421,34 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
         <span class="page-tag">Security</span>
         <h1>Risks &amp; Audits</h1>
         <p class="page-subtitle">Harmonix has undergone rigorous security reviews by Verichains, Shieldify, and Zenith, plus real-time on-chain risk monitoring by Hypernative. Security extends beyond Harmonix's own contracts — all integrated external protocols, DEXs, and lending platforms are carefully vetted to minimize third-party risk exposure.</p>
+      </div>
+
+      <h2>Vault Security Model</h2>
+      <p>Vault opsec is the top priority. Four protections sit at the vault level.</p>
+      <ol style="margin:16px 0 24px;padding-left:24px;line-height:1.7;">
+        <li><strong>Secure share minting and accounting.</strong> Sensitive operations run through delayed execution. A compromised admin key cannot execute instantly.</li>
+        <li><strong>PPS threshold cap.</strong> Share prices are capped within a configured deviation range (50–200 bps), with real asset backing enforced via yield-bearing tokens. Closes the class of edge cases that have hit other vaults.</li>
+        <li><strong>NAV staleness gate.</strong> Transactions revert if total-asset data is too old, preventing stale-oracle exploits.</li>
+        <li><strong>Anomaly freeze.</strong> The vault can be instantly frozen for deposits and withdrawals when anomalies are detected.</li>
+      </ol>
+
+      <h3>Multisig and Timelock</h3>
+      <p>Every privileged action is gated by a multisig sized to its blast radius, then run through a timelock for sensitive changes.</p>
+      <div class="table-wrap" style="margin:14px 0 20px;"><table>
+        <thead><tr><th>Role</th><th>Multisig</th><th>Scope</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Admin and upgrades</strong></td><td>3 of 5</td><td>Core configuration, fees, risk parameters, contract upgrades</td></tr>
+          <tr><td><strong>Curator</strong></td><td>2 of 3</td><td>Capital allocation between strategies, fee harvesting</td></tr>
+          <tr><td><strong>Operator</strong></td><td>2 of 3</td><td>NAV updates and redemption fulfillment</td></tr>
+          <tr><td><strong>Strategy operator</strong></td><td>2 of 3</td><td>Per-strategy execution, isolated per strategy</td></tr>
+          <tr><td><strong>Sentinel</strong></td><td>Cancel-only</td><td>Revokes pending timelock operations on suspicion</td></tr>
+        </tbody>
+      </table></div>
+      <p>Sensitive admin operations sit behind a timelock, so even in a worst-case admin key compromise actions cannot execute instantly. There is always a delay window for users and the sentinel to react. Pause and disable are instant; unpause and re-enable wait through the timelock — an attacker should not be able to immediately undo a defensive pause. Contract upgrades run through Safe multisig plus a timelock controller; the new implementation is deployed bare, scheduled, the delay passes, then anyone can execute. There is no backdoor admin on the timelock.</p>
+
+      <div class="callout" style="border-left-color:var(--green);background:rgba(200,240,122,.06);margin:16px 0 28px;">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <div class="callout-body"><strong>Design rule.</strong> Defensive actions are fast. Recovery actions are slow. The community always has a window to inspect what is about to ship. Full roles &amp; actions reference: <a href="https://harmonix-diagram.vercel.app/5_roles_and_actions.html" target="_blank" rel="noopener" style="color:var(--green);">harmonix-diagram.vercel.app/5_roles_and_actions ↗</a>.</div>
       </div>
 
       <h2>Audits</h2>
@@ -3325,7 +3523,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div class="table-wrap"><table>
         <thead><tr><th>Risk</th><th>Products Affected</th><th>Mitigation</th></tr></thead>
         <tbody>
-          <tr><td>Funding rate turns negative</td><td>haUSD, haHYPE, hakHYPE</td><td>Real-time monitoring, automatic rotation to lending/staking</td></tr>
+          <tr><td>Funding rate turns negative</td><td>haUSDC, haHYPE, hakHYPE</td><td>Real-time monitoring, automatic rotation to lending/staking</td></tr>
           <tr><td>Directional HYPE exposure</td><td>haHYPE, hakHYPE</td><td>Delta-neutral sub-strategy reduces but does not eliminate exposure</td></tr>
           <tr><td>Smart contract vulnerability</td><td>All products</td><td>Audited by Verichains, Shieldify, Zenith</td></tr>
           <tr><td>Venue / counterparty risk</td><td>All products</td><td>Diversified across HyperEVM protocols; no single-venue concentration</td></tr>
@@ -3356,7 +3554,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
         <p class="page-subtitle">The 1% management fee accrues continuously and is reflected in the vault share price. There is no separate fee transaction — the fee is built into the price-per-share calculation, so the APY figures displayed in the app and API are always net of fees.</p>
       </div>
 
-      <h2>V2 Vaults (haUSD, haHYPE, hakHYPE)</h2>
+      <h2>V2 Vaults (haUSDC, haHYPE, hakHYPE)</h2>
       <div class="table-wrap" style="margin-bottom:28px;"><table>
         <thead><tr><th>Fee Type</th><th>Rate</th><th>Description</th></tr></thead>
         <tbody>
@@ -3458,7 +3656,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       <div class="table-wrap"><table>
         <thead><tr><th>Product</th><th>Harmonix Points</th><th>Partner Points</th></tr></thead>
         <tbody>
-          <tr><td>haUSD</td><td>✓</td><td>Tradexyz, Hyna</td></tr>
+          <tr><td>haUSDC</td><td>✓</td><td>Tradexyz, Hyna</td></tr>
           <tr><td>haHYPE</td><td>✓</td><td>HyperLend, Felix, HypurrFi, kPoints, Ventuals</td></tr>
           <tr><td>hakHYPE</td><td>✓</td><td>HyperLend, HypurrFi</td></tr>
         </tbody>
@@ -3505,8 +3703,8 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
       </div>
 
       <h2>Products</h2>
-      <h3>Is haUSD delta-neutral?</h3>
-      <p>Yes. haUSD is fully market-neutral — capital is deployed into delta-neutral strategies that eliminate directional price exposure. Yield compounds continuously into the share price.</p>
+      <h3>Is haUSDC delta-neutral?</h3>
+      <p>Yes. haUSDC is fully market-neutral — capital is deployed into delta-neutral strategies that eliminate directional price exposure. Yield compounds continuously into the share price.</p>
       <h3>Are haHYPE and hakHYPE delta-neutral?</h3>
       <p>No. haHYPE and hakHYPE are not fully delta-neutral products. A sub-strategy within each vault runs a delta-neutral position to reduce net beta, but the overall product carries directional HYPE exposure. If HYPE price changes, your position value changes accordingly on the non-hedged portion.</p>
       <h3>Does yield pay out automatically?</h3>
@@ -3516,9 +3714,9 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
 
       <h2>Architecture</h2>
       <h3>What is HIP-3?</h3>
-      <p>HIP-3 is Hyperliquid's native standard for yield-bearing spot tokens. Harmonix uses three HIP-3 markets — Felix (feUSD), Ondo (USDY), and Hyna (sUSDe) — as strategy inputs. These tokens trade natively on HyperCore spot markets, enabling Harmonix to earn their underlying yield without bridges.</p>
+      <p>HIP-3 is Hyperliquid's native standard for builder-deployed perpetuals and yield-bearing spot tokens. haUSDC routes exposure across five Hyperliquid markets — Hyperliquid itself as the perp venue for the short leg, plus four HIP-3 spot markets (Felix, TradeXYZ, Hyena, Markets.xyz) for the long legs and points exposure. These tokens trade natively on Hyperliquid, enabling Harmonix to earn their underlying yield without bridges.</p>
       <h3>What oracle does Harmonix use?</h3>
-      <p>haHYPE and hakHYPE use Pyth Network for NAV pricing and collateral valuation. haUSD is evaluating Pyth or Chainlink — decision TBD at launch.</p>
+      <p>haHYPE and hakHYPE use Pyth Network for NAV pricing and collateral valuation. haUSDC uses an off-chain <code>FundNavFeed</code> updated by an operator with the latest strategy values; <code>VaultManager</code> reads it on-chain and enforces a PPS deviation cap (50–200 bps) and a NAV staleness gate. USDC and USDe are priced into a unified PPS via a USDe/USDC rate oracle.</p>
       <h3>Is Harmonix audited?</h3>
       <p>Yes. Contracts have been independently audited by <strong>Verichains</strong>, <strong>Shieldify</strong>, and <strong>Zenith</strong>, with real-time on-chain monitoring by Hypernative. You can read each report directly:
         <a href="https://github.com/verichains/public-audit-reports/blob/main/Verichains%20Public%20Audit%20Report%20-%20Harmonix%20Finance-%20v1.0.pdf" target="_blank" rel="noopener">Verichains ↗</a>,
@@ -3802,7 +4000,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr><td><strong>ERC-4626</strong></td><td>An Ethereum standard for tokenized yield-bearing vaults. Defines a standard API for deposits, withdrawals, and share price calculation. All Harmonix V2 vaults implement this standard.</td></tr>
           <tr><td><strong>Exchange Rate</strong></td><td>The price of one vault share in terms of the underlying asset. Increases over time as yield accrues. Calculated as total vault assets divided by total shares outstanding.</td></tr>
           <tr><td><strong>Funding Rate</strong></td><td>A periodic payment between long and short perpetual futures holders. When positive, longs pay shorts — creating income for delta-neutral strategies that hold short perp positions.</td></tr>
-          <tr><td><strong>ha-token</strong></td><td>Harmonix receipt tokens (haUSD, haHYPE, hakHYPE). Each represents a share in its respective yield-bearing vault. The share price appreciates as yield compounds.</td></tr>
+          <tr><td><strong>ha-token</strong></td><td>Harmonix receipt tokens (haUSDC, haHYPE, hakHYPE). Each represents a share in its respective yield-bearing vault. The share price appreciates as yield compounds.</td></tr>
           <tr><td><strong>HAR</strong></td><td>The native governance and utility token of the Harmonix protocol.</td></tr>
           <tr><td><strong>Harmonix</strong></td><td>A yield and vault platform built around market-neutral and DeFi-native strategies in the Hyperliquid ecosystem.</td></tr>
           <tr><td><strong>HIP-3</strong></td><td>Hyperliquid Improvement Proposal 3 — builder-deployed perpetual markets on Hyperliquid infrastructure, often relevant for funding-rate-based vault strategies.</td></tr>
@@ -3827,7 +4025,7 @@ console.log('PPS:', formatUnits(assets, 6) / formatUnits(supply, 6))</pre>
           <tr><td><strong>stHYPE</strong></td><td>Staked HYPE liquid staking token from Valantis. Represents staked HYPE while remaining liquid and composable across DeFi.</td></tr>
           <tr><td><strong>Teller</strong></td><td>The entry point contract for all V2 vault interactions. Handles deposits (minting shares), withdrawal requests (locking shares), and withdrawal claims (burning shares and returning assets).</td></tr>
           <tr><td><strong>TVL</strong></td><td>Total Value Locked — the aggregate value of all assets deposited in a vault or protocol, denominated in USD or the underlying asset.</td></tr>
-          <tr><td><strong>V1 / V2</strong></td><td>Vault version generations. V1 refers to the original Basis Trade Vault (custom HypeVault contract on Arbitrum). V2 refers to all BoringVault-based vaults on HyperEVM (haUSD, haHYPE, hakHYPE).</td></tr>
+          <tr><td><strong>V1 / V2</strong></td><td>Vault version generations. V1 refers to the original Basis Trade Vault (custom HypeVault contract on Arbitrum). V2 refers to all yield-bearing vaults on HyperEVM: haUSDC (AssetVault architecture, ERC-4626 / 7540 / 7575), and haHYPE / hakHYPE (BoringVault framework).</td></tr>
           <tr><td><strong>Vault</strong></td><td>A smart contract product where users deposit assets and receive shares representing pooled strategy exposure. Harmonix vaults use the ERC-4626 standard.</td></tr>
           <tr><td><strong>WHYPE</strong></td><td>Wrapped HYPE — the HyperEVM-native ERC-20 form of HYPE. Used as the withdrawal token for haHYPE since native HYPE transfers are not yet supported on HyperEVM.</td></tr>
           <tr><td><strong>Withdrawal Queue</strong></td><td>The asynchronous mechanism for exiting a vault. Users request a withdrawal, positions are unwound, and assets become claimable once fulfilled (typically 24–72 hours).</td></tr>

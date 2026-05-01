@@ -31,8 +31,8 @@
   <rect class="box" x="30" y="200" width="160" height="110"/>
   <text class="lbl" x="110" y="228" text-anchor="middle">USER</text>
   <text class="ttl" x="110" y="255" text-anchor="middle">Deposit</text>
-  <text class="ttl" x="110" y="278" text-anchor="middle">Stablecoins</text>
-  <text class="sub" x="110" y="298" text-anchor="middle">Stablecoins</text>
+  <text class="ttl" x="110" y="278" text-anchor="middle">USDC or USDe</text>
+  <text class="sub" x="110" y="298" text-anchor="middle">ERC-7575 multi-asset</text>
 
   <!-- ARROW → Vault -->
   <line x1="190" y1="255" x2="238" y2="255" stroke="#34C759" stroke-width="1.5" marker-end="url(#arr)"/>
@@ -43,7 +43,7 @@
   <text class="lbl" x="335" y="215" text-anchor="middle">VAULT</text>
   <text class="ttl-lg" x="335" y="244" text-anchor="middle">Harmonix</text>
   <text class="ttl-lg" x="335" y="270" text-anchor="middle">Vault</text>
-  <text class="sub" x="335" y="292" text-anchor="middle">ERC-4626 · Automates strategy</text>
+  <text class="sub" x="335" y="292" text-anchor="middle">ERC-4626 · 7540 · 7575</text>
 
   <!-- ARROW ↑ Vault → Receipt Token -->
   <path d="M335 185 L335 118" stroke="#34C759" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
@@ -52,8 +52,8 @@
   <!-- BOX: Receipt Token -->
   <rect class="box" x="240" y="30" width="190" height="85"/>
   <text class="lbl" x="335" y="55" text-anchor="middle">RECEIPT TOKEN</text>
-  <text class="ttl-lg" x="335" y="82" text-anchor="middle">haUSD</text>
-  <text class="sub" x="335" y="102" text-anchor="middle">ERC-4626</text>
+  <text class="ttl-lg" x="335" y="82" text-anchor="middle">haUSDC</text>
+  <text class="sub" x="335" y="102" text-anchor="middle">ERC-4626 · 7540 · 7575</text>
 
   <!-- Split label -->
   <text class="flow" x="465" y="220" transform="rotate(-90 465 250)">capital split</text>
@@ -72,12 +72,12 @@
   <text class="sub" x="668" y="148" text-anchor="middle">HyperCore perpetuals</text>
   <text class="sub" x="668" y="166" text-anchor="middle">Positive funding capture</text>
 
-  <!-- BOX: Lending & Ecosystem -->
+  <!-- BOX: HIP-3 Spot + Lending -->
   <rect class="box" x="570" y="325" width="195" height="110"/>
-  <text class="ttl" x="668" y="358" text-anchor="middle">Lending &amp;</text>
-  <text class="ttl" x="668" y="380" text-anchor="middle">Ecosystem</text>
-  <text class="sub" x="668" y="402" text-anchor="middle">Staking · Lending · CDP</text>
-  <text class="sub" x="668" y="420" text-anchor="middle">Pendle · Kinetiq · Felix</text>
+  <text class="ttl" x="668" y="358" text-anchor="middle">HIP-3 Spot &amp;</text>
+  <text class="ttl" x="668" y="380" text-anchor="middle">Lending</text>
+  <text class="sub" x="668" y="402" text-anchor="middle">Felix · TradeXYZ · Hyena</text>
+  <text class="sub" x="668" y="420" text-anchor="middle">Markets.xyz · HyperEVM lending</text>
 
   <!-- ARROW: Perps → Funding Rate -->
   <line x1="765" y1="140" x2="818" y2="140" stroke="#34C759" stroke-width="1.5" marker-end="url(#arr)"/>
@@ -105,9 +105,9 @@
   <!-- BOX: Net APY (highlight) -->
   <rect class="box-hl" x="1050" y="190" width="80" height="130"/>
   <text class="lbl" x="1090" y="215" text-anchor="middle">NET APY</text>
-  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">5–</text>
-  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">12</text>
-  <text class="sub" x="1090" y="314" text-anchor="middle" style="font-size:10px">% per year</text>
+  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="44" font-weight="800" x="1090" y="268" text-anchor="middle">7–</text>
+  <text fill="#173132" font-family="'Aeonik', sans-serif" font-size="36" font-weight="800" x="1090" y="298" text-anchor="middle">10</text>
+  <text class="sub" x="1090" y="314" text-anchor="middle" style="font-size:10px">% APY</text>
 
   <!-- RETURN PATH: NET APY → Receipt Token -->
   <path d="M1090 190 L1090 72 L435 72" stroke="#34C759" stroke-width="1.2" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
